@@ -81,7 +81,11 @@
         
         vv.titleLB.text = dataArray[i].name;
         vv.bt.tag = i;
-        [vv.imgV sd_setImageWithURL:[NSURL URLWithString:dataArray[i].url] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d",i]] options:SDWebImageRetryFailed];
+        
+        NSLog(@"---\n%@",[HHYURLDefineTool getImgURLWithStr:dataArray[i].icon]);
+
+        
+        [vv.imgV sd_setImageWithURL:[NSURL URLWithString:[HHYURLDefineTool getImgURLWithStr:dataArray[i].icon]] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d",i]] options:SDWebImageRetryFailed];
         vv.imgVTwo.image = [UIImage imageNamed:[NSString stringWithFormat:@"sybj%d",i]];
         [vv.bt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:vv];

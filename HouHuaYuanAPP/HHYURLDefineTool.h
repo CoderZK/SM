@@ -11,15 +11,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-//////测试本地
-//#define URL @"http://192.168.1.179"
-//////图片地址
-//#define ImgURL @"http://192.168.1.179:80/upload"
+////测试本地
+#define URL @"http://192.168.1.113"
+////图片地址
+#define ImgURL @"http://192.168.1.113:80/upload"
 
-//测试本地映射
-#define URL @"http://jgcbxt.natappfree.cc"
-//图片映射
-#define ImgURL @"http://jgcbxt.natappfree.cc:80/upload"
+////测试本地映射
+//#define URL @"http://jgcbxt.natappfree.cc"
+////图片映射
+//#define ImgURL @"http://jgcbxt.natappfree.cc:80/upload"
 
 
 
@@ -213,10 +213,10 @@ NS_ASSUME_NONNULL_BEGIN
 +(NSString *)contactKefURL;
 /** 银行卡列表*/
 +(NSString *)deletePostURL;
-///** 删除银行卡*/
-//+(NSString *)deleteMyBankCardURL;
-///** 取消点赞*/
-//+(NSString *)notlikeURL;
+/** 帖子置顶套餐*/
++(NSString *)getPostTopPkgListURL;
+/** 置顶提交*/
++(NSString *)postTopURL;
 
 
 

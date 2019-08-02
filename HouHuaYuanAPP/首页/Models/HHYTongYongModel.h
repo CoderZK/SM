@@ -12,10 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHYTongYongModel : NSObject
 @property(nonatomic,strong)NSString *ID;
+@property(nonatomic,strong)NSString *pkgId;
 @property(nonatomic,strong)NSString *pic;
 @property(nonatomic,strong)NSString *name;
 @property(nonatomic,strong)NSString *type;
 @property(nonatomic,strong)NSString *useAble;
+@property(nonatomic,strong)NSString *icon;
 @property(nonatomic,strong)NSString *url;
 @property(nonatomic,strong)NSString *createByUserPic;//用户头像
 @property(nonatomic,strong)NSString *createByNickName;//用户昵称
@@ -31,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString * FriendMsg;
 @property(nonatomic,strong)NSString * LikeMsg;
 @property(nonatomic,strong)NSString * ReplyMsg;
-
+@property(nonatomic,strong)NSString * expireDays;
 
 @property(nonatomic,strong)NSString *avatar;
 @property(nonatomic,strong)NSString *createBy;
@@ -70,6 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *heat;
 @property(nonatomic,strong)NSString *heatGift;
 @property(nonatomic,strong)NSString *price;
+@property(nonatomic,strong)NSString *costFlower;
 @property(nonatomic,strong)NSString *orderType;//2鲜花套餐3鲜花提现4任务奖励5鲜花打赏支出6鲜花打赏收入
 @property(nonatomic,strong)NSString *title;
 @property(nonatomic,strong)NSString *flowerNum;

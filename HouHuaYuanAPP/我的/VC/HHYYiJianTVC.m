@@ -87,8 +87,7 @@
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"content"] = self.TV.text;
-    [zkRequestTool networkingPOST:[HHYURLDefineTool addMyFeedBackURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool addMyFeedBackURL] parameters:self.TV.text success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD showSuccessWithStatus:@"意见提交成功,感谢您的宝贵意见我们将进行改进"];

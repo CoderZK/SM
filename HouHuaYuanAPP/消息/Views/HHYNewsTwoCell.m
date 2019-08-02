@@ -115,6 +115,7 @@
             [self.typeBt setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
             [self.typeBt setTitle:@"已拒绝" forState:UIControlStateNormal];
         }
+        self.contentLB.mj_w = ScreenW - 200;
     }else {
       
         self.nameLB.text = model.friendNickName;

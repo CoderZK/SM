@@ -18,6 +18,7 @@
 @property(nonatomic,strong)UIView *grayV,*xiaDanV;
 @property(nonatomic,strong)UIImageView *huanGuanImgV;
 @property(nonatomic,strong)UIView *whiteV;
+@property(nonatomic,strong)UIButton *ttBt;
 
 
 @end
@@ -41,6 +42,12 @@
             make.bottom.equalTo(@-10);
         }];
         self.whiteV = whiteV;
+        
+        self.ttBt = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 30 - 50 , 0, 50, 16)];
+        [self.ttBt setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
+        self.ttBt.titleLabel.font = kFont(12);
+        [self.ttBt setTitle:@"置顶帖" forState:UIControlStateNormal];
+        [whiteV addSubview:self.ttBt];
         
         self.deleteBt  = [[UIButton alloc] init];
         [self.deleteBt addTarget:self action:@selector(deleteAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -366,6 +373,11 @@
     
     _model = model;
 
+    if (model.isTop) {
+        self.ttBt.hidden = NO;
+    }else {
+        self.ttBt.hidden = YES;
+    }
   
     [self.headBt sd_setBackgroundImageWithURL:[NSURL URLWithString:[HHYURLDefineTool getImgURLWithStr:model.avatar]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
     self.nameLB.text = model.nickName;

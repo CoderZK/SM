@@ -18,11 +18,12 @@
 #import "HHYJuBaoVC.h"
 #import "CustomEmojiView.h"
 #import "WZCustomEmojiView.h"
+#import "HHYZhiDingTaoCanTVC.h"
 @interface HHYDetailTVC ()<UITextFieldDelegate,HHYDetailZanCellDelegate,zkJuBaoViewDelegate,HHYDongTaiDetailCellDelegate,HHYYongBaoViewDeletage,CustomEmojiDelegate,WZCustomEmojiDelegate,UITextViewDelegate>
 @property(nonatomic,strong)zkHomelModel *dataModel;
 @property(nonatomic,strong)UIView *pingLunV;
 //@property(nonatomic,strong)UITextField *TF;
-@property(nonatomic,strong)UIButton *sendBt,*emoBt;
+@property(nonatomic,strong)UIButton *sendBt,*emoBt,*zhidingBt;
 @property(nonatomic,strong)HHYYongBaoView *showView;
 @property(nonatomic,strong)NSIndexPath *selectIndexPath;
 @property(nonatomic,assign)BOOL isPingTie;
@@ -99,12 +100,20 @@
     // 键盘消失的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHiden:) name:UIKeyboardWillHideNotification object:nil];
     
+    UIButton * rightbtn1=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+//    [rightbtn1 setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
+    [rightbtn1 setTitle:@"置顶" forState:UIControlStateNormal];
+    [rightbtn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    rightbtn1.titleLabel.font = kFont(13);
+    [rightbtn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    rightbtn1.tag = 10;
+    self.zhidingBt = rightbtn1;
     
     UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
     [rightbtn setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
     [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     rightbtn.tag = 11;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:rightbtn],[[UIBarButtonItem alloc] initWithCustomView:rightbtn1]];
     
     [self getData];
     self.pageNo = 1;
@@ -125,15 +134,24 @@
 
 - (void)navBtnClick:(UIButton *)button {
     
-    if  (self.dataModel.currentUserCollect) {
-        [zkJuBaoView showWithArray:@[@"举报",@"取消收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    if (button.tag == 10) {
+        
+        HHYZhiDingTaoCanTVC * vc =[[HHYZhiDingTaoCanTVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.postID = self.dataModel.postId;
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }else {
-        [zkJuBaoView showWithArray:@[@"举报",@"收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    }
     
+        if  (self.dataModel.currentUserCollect) {
+            [zkJuBaoView showWithArray:@[@"举报",@"取消收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        }else {
+            [zkJuBaoView showWithArray:@[@"举报",@"收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        }
+        
 
-    [zkJuBaoView shareInstance].delegate = self;
- 
+        [zkJuBaoView shareInstance].delegate = self;
+    }
 }
 
 - (void)getData {
@@ -143,6 +161,13 @@
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
             self.dataModel = [zkHomelModel mj_objectWithKeyValues:responseObject[@"object"]];
+            
+            if ([zkSignleTool shareTool].isLogin && [[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.createBy] && !self.dataModel.isTop) {
+                self.zhidingBt.hidden = NO;
+            }else {
+                self.zhidingBt.hidden = YES;
+            }
+            
             [self.tableView reloadData];
             self.pageNo = 1;
             [self getPingLun];

@@ -46,6 +46,7 @@
 @property(nonatomic,assign)BOOL currentUserCollect;
 @property(nonatomic,assign)BOOL isVip;
 @property(nonatomic,assign)BOOL inMyBlackList;//是否是黑名单
+@property(nonatomic,assign)BOOL isTop;//是否置顶
 
 
 @property(nonatomic,assign)CGFloat cellHeight;

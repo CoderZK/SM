@@ -168,6 +168,9 @@
 		5835C2EB22B22583002122A0 /* HHYAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5835C2EA22B22583002122A0 /* HHYAddressModel.m */; };
 		5835C2EF22B239C0002122A0 /* HHYTongYongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5835C2EE22B239C0002122A0 /* HHYTongYongModel.m */; };
 		5836EB9622CC4F4E00EE6611 /* LxmWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5836EB9422CC4F4A00EE6611 /* LxmWebViewController.m */; };
+		5838A05E22F412F700119DDE /* HHYZhiDingTaoCanTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5838A05D22F412F700119DDE /* HHYZhiDingTaoCanTVC.m */; };
+		5838A06222F415AC00119DDE /* HHYTaoCanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5838A06022F415AC00119DDE /* HHYTaoCanCell.m */; };
+		5838A06322F415AC00119DDE /* HHYTaoCanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5838A06122F415AC00119DDE /* HHYTaoCanCell.xib */; };
 		5839187922A7A121007B03EE /* HHYHuaTiTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5839187822A7A121007B03EE /* HHYHuaTiTVC.m */; };
 		5839187D22A7ABCC007B03EE /* HHYAddLinkVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5839187B22A7ABCC007B03EE /* HHYAddLinkVC.m */; };
 		5839187E22A7ABCC007B03EE /* HHYAddLinkVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5839187C22A7ABCC007B03EE /* HHYAddLinkVC.xib */; };
@@ -533,6 +536,11 @@
 		5835C2EE22B239C0002122A0 /* HHYTongYongModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYTongYongModel.m; sourceTree = "<group>"; };
 		5836EB9422CC4F4A00EE6611 /* LxmWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LxmWebViewController.m; sourceTree = "<group>"; };
 		5836EB9522CC4F4D00EE6611 /* LxmWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LxmWebViewController.h; sourceTree = "<group>"; };
+		5838A05C22F412F700119DDE /* HHYZhiDingTaoCanTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYZhiDingTaoCanTVC.h; sourceTree = "<group>"; };
+		5838A05D22F412F700119DDE /* HHYZhiDingTaoCanTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYZhiDingTaoCanTVC.m; sourceTree = "<group>"; };
+		5838A05F22F415AB00119DDE /* HHYTaoCanCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYTaoCanCell.h; sourceTree = "<group>"; };
+		5838A06022F415AC00119DDE /* HHYTaoCanCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYTaoCanCell.m; sourceTree = "<group>"; };
+		5838A06122F415AC00119DDE /* HHYTaoCanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HHYTaoCanCell.xib; sourceTree = "<group>"; };
 		5839187722A7A121007B03EE /* HHYHuaTiTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYHuaTiTVC.h; sourceTree = "<group>"; };
 		5839187822A7A121007B03EE /* HHYHuaTiTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYHuaTiTVC.m; sourceTree = "<group>"; };
 		5839187A22A7ABCC007B03EE /* HHYAddLinkVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYAddLinkVC.h; sourceTree = "<group>"; };
@@ -1148,6 +1156,9 @@
 				5831DAB522D56AA2001C5E4A /* CustomEmojiView.m */,
 				5831DAB822D575BD001C5E4A /* WZCustomEmojiView.h */,
 				5831DAB722D575BD001C5E4A /* WZCustomEmojiView.m */,
+				5838A05F22F415AB00119DDE /* HHYTaoCanCell.h */,
+				5838A06022F415AC00119DDE /* HHYTaoCanCell.m */,
+				5838A06122F415AC00119DDE /* HHYTaoCanCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1167,6 +1178,8 @@
 				583297B422A6084500B52104 /* HHYGuanZhuHeadTVC.m */,
 				5836EB9522CC4F4D00EE6611 /* LxmWebViewController.h */,
 				5836EB9422CC4F4A00EE6611 /* LxmWebViewController.m */,
+				5838A05C22F412F700119DDE /* HHYZhiDingTaoCanTVC.h */,
+				5838A05D22F412F700119DDE /* HHYZhiDingTaoCanTVC.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -1582,6 +1595,7 @@
 				5841A44B229E1E1F00878F30 /* HHYMineFourCell.xib in Resources */,
 				58BAF3BA22CD9C9000FAFEDD /* HHYSysMsgCell.xib in Resources */,
 				589AC0002297E15F000BBD89 /* HHYHomeTwoCell.xib in Resources */,
+				5838A06322F415AC00119DDE /* HHYTaoCanCell.xib in Resources */,
 				5831C62B22A4C9090023D1E5 /* HHYTiXianListCell.xib in Resources */,
 				337F3E6320E9FE5300C5526A /* Assets.xcassets in Resources */,
 				337F3E6120E9FE3C00C5526A /* Main.storyboard in Resources */,
@@ -1777,6 +1791,7 @@
 				582FFA56229B84170039971E /* MXPhotoPickerController.m in Sources */,
 				582FFA4F229B84170039971E /* MXImagePreviewCell.m in Sources */,
 				583F623322ADDEFB00FE353D /* HHYLoginVC.m in Sources */,
+				5838A06222F415AC00119DDE /* HHYTaoCanCell.m in Sources */,
 				5835C2EB22B22583002122A0 /* HHYAddressModel.m in Sources */,
 				582FFA57229B84170039971E /* MXImageGroupController.m in Sources */,
 				58333296229FBAAD008DD9CF /* HHYXiuGaiZiLiaoTVC.m in Sources */,
@@ -1785,6 +1800,7 @@
 				583ADD4D22A747E40064E60F /* HHYPrivacyPassWordVC.m in Sources */,
 				583F623822ADDF5C00FE353D /* HHYRgisterVC.m in Sources */,
 				583297E122A63E1D00B52104 /* HHYQuanZiGuiZeListTVC.m in Sources */,
+				5838A05E22F412F700119DDE /* HHYZhiDingTaoCanTVC.m in Sources */,
 				5831C61522A4BDAC0023D1E5 /* HHYTiXianTwoTVC.m in Sources */,
 				5830097622C59C8E00FDCC50 /* HHYFlowerListTVC.m in Sources */,
 				583297BC22A61E7300B52104 /* HHYSettingTVC.m in Sources */,
@@ -1997,7 +2013,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZSL4MW2WKS;
+				DEVELOPMENT_TEAM = 763M9VH9NG;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2020,10 +2036,10 @@
 					"$(PROJECT_DIR)/HouHuaYuanAPP/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/HouHuaYuanAPP/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.biu.HouHuaYuanAPP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aaaaaaaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
-				PROVISIONING_PROFILE_SPECIFIER = ccccc;
+				PROVISIONING_PROFILE_SPECIFIER = test;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2057,7 +2073,7 @@
 					"$(PROJECT_DIR)/HouHuaYuanAPP/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/HouHuaYuanAPP/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.biu.HouHuaYuanAPP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.aaaaaaaa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = ccccc;
 				TARGETED_DEVICE_FAMILY = 1;

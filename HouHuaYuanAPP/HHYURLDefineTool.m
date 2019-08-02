@@ -378,7 +378,14 @@
     return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/delete"];
 }
 
-
+/** 帖子置顶套餐*/
++(NSString *)getPostTopPkgListURL{
+     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/getPostTopPkgList"];
+}
+/** 置顶提交*/
++(NSString *)postTopURL{
+     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/postTop"];
+}
 
 
 //图片地址

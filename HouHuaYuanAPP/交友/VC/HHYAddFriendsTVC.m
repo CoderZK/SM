@@ -71,6 +71,12 @@
         if ([responseObject[@"code"] intValue]== 0) {
             
             [SVProgressHUD showSuccessWithStatus:@"添加好友请求成功"];
+            
+            EMError *error = [[EMClient sharedClient].contactManager removeUserFromBlackList:self.model.userNo];
+            if (!error) {
+                NSLog(@"添加好友时候把对方从黑名单中拉出来");
+            }
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
                 [self.navigationController popViewControllerAnimated:YES];

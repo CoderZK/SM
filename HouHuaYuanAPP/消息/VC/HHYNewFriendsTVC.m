@@ -124,6 +124,10 @@
 }
 - (void)confirmAction:(UIButton *)button {
  
+    if ([button.titleLabel.text isEqualToString:@"已通过"]) {
+        return;
+    }
+    
     [self actionWithIndex:button.tag - 100 withisOk:1];
     
 }
