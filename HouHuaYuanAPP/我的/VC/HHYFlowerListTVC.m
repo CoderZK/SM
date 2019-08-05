@@ -85,7 +85,7 @@
     HHYTongYongModel * model = self.dataArray[indexPath.row];
     cell.titleLB.text = self.dataArray[indexPath.row].title;
     cell.timeLB.text = [NSString stringWithTime:self.dataArray[indexPath.row].createTime];
-    if ([model.orderType isEqualToString:@"3"] ||[model.orderType isEqualToString:@"5"]){
+    if ([model.orderType isEqualToString:@"3"] ||[model.orderType isEqualToString:@"5"] ||[model.orderType isEqualToString:@"9"]){
         cell.numberLB.text = [NSString stringWithFormat:@"-%@",model.orderFee];
     }else {
         cell.numberLB.text = [NSString stringWithFormat:@"+%@",model.orderFee];

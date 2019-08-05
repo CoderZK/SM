@@ -87,6 +87,7 @@
             
             self.hotTV = [[HHYXiaoFeiListTVC alloc] initWithTableViewStyle:UITableViewStyleGrouped];
             _hotTV.isChongZhi = NO;
+            _hotTV.selectIndex = 1;
             self.hotTV.view.frame = CGRectMake(ScreenW, 0, ScreenW, self.scrollView.height);
             [self addChildViewController:self.hotTV];
             [self.scrollView addSubview:self.hotTV.view];
@@ -105,6 +106,7 @@
     [self.view addSubview:self.scrollView];
     self.neraTV = [[HHYXiaoFeiListTVC alloc] initWithTableViewStyle:UITableViewStyleGrouped];
     _neraTV.isChongZhi = YES;
+    _neraTV.selectIndex = 0;
    self.neraTV.view.frame = CGRectMake(0, 0, ScreenW, self.scrollView.height);
     
     

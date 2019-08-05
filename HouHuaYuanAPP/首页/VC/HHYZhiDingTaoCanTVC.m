@@ -103,6 +103,7 @@
     NSMutableDictionary * dict = @{}.mutableCopy;
     dict[@"payType"] = @"2";
     dict[@"pkgId"] = self.dataArray[self.selectIndex].pkgId;
+    dict[@"postId"] = self.postID;
     [zkRequestTool networkingPOST:[HHYURLDefineTool postTopURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
     
         [SVProgressHUD dismiss];
@@ -133,8 +134,7 @@
         [self.tableView.mj_footer endRefreshing];
         [SVProgressHUD dismiss];
         if ([responseObject[@"code"] intValue]== 0) {
-            
-            [SVProgressHUD showSuccessWithStatus:@"套餐购买成功"];
+          
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 self.dataArray = [HHYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];
                 [self.tableView reloadData];
