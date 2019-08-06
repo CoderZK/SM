@@ -56,7 +56,7 @@
 - (void)sendCode {
     
   
-    NSMutableDictionary * dict = @{@"phone":self.phoneStr,@"type":@"2"}.mutableCopy;
+    NSMutableDictionary * dict = @{@"phone":self.phoneStr,@"type":@"0"}.mutableCopy;
     [zkRequestTool networkingPOST:[HHYURLDefineTool sendValidCodeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [self timeAction];

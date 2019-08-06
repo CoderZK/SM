@@ -12,6 +12,7 @@
 #import "SelectTimeV.h"
 #import "HHYShowPickerView.h"
 #import "HHYXingQuBiaoQianTVC.h"
+#import "HHYLoginVC.h"
 @interface HHYAddZiLiaoTVC ()<zkJuBaoViewDelegate,UITextFieldDelegate>
 @property(nonatomic,strong)UIButton * headBt;
 @property(nonatomic,strong)NSArray *titleArr;
@@ -258,8 +259,14 @@
     }
    
     
-    NSMutableDictionary * dict = @{@"phone":self.phoneStr}.mutableCopy;
-    dict[@"password"] = self.passdWord;
+    NSMutableDictionary * dict = @{}.mutableCopy;
+    if (self.isThred) {
+        dict[@"appKey"] = self.appOpenId;
+        dict[@"appName"] = self.appType;
+    }else {
+        dict[@"phone"] = self.phoneStr;
+        dict[@"password"] = self.passdWord;
+    }
     dict[@"birthday"] = self.birthday;
     dict[@"avatar"] = self.headImgStr;
     dict[@"gender"] = @(self.gender);
@@ -270,9 +277,16 @@
     dict[@"invitationCode"] = self.yaoQingStr;
     [zkRequestTool networkingPOST:[HHYURLDefineTool registerURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
-           
-            [self.navigationController popToRootViewControllerAnimated:YES];
-            
+           [SVProgressHUD showSuccessWithStatus:@"注册成功"];
+            HHYLoginVC * vc = (HHYLoginVC *)[self.navigationController.childViewControllers firstObject];
+            if (self.isThred) {
+                vc.loginType = 1;
+                vc.phoneStr = self.phoneStr;
+                vc.passwordStr = self.passdWord;
+            }else {
+                vc.loginType = 0;
+            }
+            [self.navigationController popToViewController:vc animated:YES];
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }

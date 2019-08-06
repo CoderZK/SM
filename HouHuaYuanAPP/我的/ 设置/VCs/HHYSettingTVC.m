@@ -139,6 +139,7 @@
             
             HHYBindPhoneVC * vc =[[HHYBindPhoneVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
+            vc.isBangDing = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 1) {
             if (self.phoneStr.length <11) {
