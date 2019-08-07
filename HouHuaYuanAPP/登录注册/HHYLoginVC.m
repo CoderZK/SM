@@ -27,6 +27,7 @@
     if (self.loginType == 0) {
         self.phoneTF.text = self.phoneStr;
         self.passWordTF.text = self.passwordStr;
+  
     }else if (self.loginType == 1) {
         [self logWithUMSocialUserInfoResponse:self.resp];
     }
