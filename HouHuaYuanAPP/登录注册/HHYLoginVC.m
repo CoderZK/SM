@@ -101,7 +101,7 @@
 - (void)loginAction {
     
 
-    
+
     if (self.phoneTF.text.length == 0) {
         [SVProgressHUD showErrorWithStatus:@"请输入手机号"];
         return;
@@ -114,11 +114,12 @@
         [SVProgressHUD showErrorWithStatus:@"请输入密码"];
         return;
     }
+    [SVProgressHUD show];
     NSMutableDictionary * dict = @{@"phone":self.phoneTF.text}.mutableCopy;
     dict[@"password"] = self.passWordTF.text;
     [zkRequestTool networkingPOST:[HHYURLDefineTool getLoginURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
-          
+            [SVProgressHUD dismiss];
             [zkSignleTool shareTool].isLogin = YES;
             [zkSignleTool shareTool].session_token = responseObject[@"object"][@"token"];
             [zkSignleTool shareTool].session_uid = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"userId"]];
@@ -156,22 +157,15 @@
     
    
     [[UMSocialManager defaultManager] getUserInfoWithPlatform:platformType currentViewController:nil completion:^(id result, NSError *error) {
-        UMSocialUserInfoResponse *resp = result;
-        // 第三方登录数据(为空表示平台未提供)
-        // 授权数据
-//        NSLog(@" uid: %@", resp.uid);
-//        NSLog(@" openid: %@", resp.openid);
-//        NSLog(@" accessToken: %@", resp.accessToken);
-//        NSLog(@" refreshToken: %@", resp.refreshToken);
-//        NSLog(@" expiration: %@", resp.expiration);
-//        // 用户数据
-//        NSLog(@" name: %@", resp.name);
-//        NSLog(@" iconurl: %@", resp.iconurl);
-//        NSLog(@" gender: %@", resp.unionGender);
-//        // 第三方平台SDK原始数据
-//        NSLog(@" originalResponse: %@", resp.originalResponse);
-        self.resp= resp;
-        [self logWithUMSocialUserInfoResponse:resp];
+
+        if (error) {
+            [SVProgressHUD showErrorWithStatus:@"授权失败"];
+        }else {
+            UMSocialUserInfoResponse *resp = result;
+            self.resp= resp;
+            [self logWithUMSocialUserInfoResponse:resp];
+            
+        }
         
         
     }];

@@ -218,7 +218,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 置顶提交*/
 +(NSString *)postTopURL;
 
-
+/** 绑定手机和第三方*/
++(NSString *)bindPhoneAndAppKeyURL;
 
 
 

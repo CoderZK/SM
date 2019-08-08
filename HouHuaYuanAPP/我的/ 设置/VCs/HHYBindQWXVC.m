@@ -75,24 +75,16 @@
     [zkRequestTool networkingPOST:[HHYURLDefineTool updateThirdAppURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             
-            //            [zkSignleTool shareTool].isLogin = YES;
-            //            [zkSignleTool shareTool].session_token = responseObject[@"object"][@"token"];
-            //            [zkSignleTool shareTool].session_uid = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"userId"]];
-            //            [zkSignleTool shareTool].img =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"avatar"]];
-            //            [zkSignleTool shareTool].nickName =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"nickName"]];
-            //            [zkSignleTool shareTool].huanxin =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"huanxin"]];
-            //            EMError * error = [[EMClient sharedClient] loginWithUsername:responseObject[@"object"][@"huanxin"] password:huanXinMiMa];
-            //            if (!error) {
-            //
-            //                [[EMClient sharedClient].options setIsAutoLogin:YES]; //设定自动登录
-            //                [self dismissViewControllerAnimated:YES completion:nil];
-            //                NSLog(@"%@",@"登录成功");
-            //
-            //            }else {
-            //
-            //            }
-            
-            
+            if ([responseObject[@"code"] intValue]== 0) {
+                [SVProgressHUD showSuccessWithStatus:@"绑定第三方成功"];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                });
+            }else {
+                [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
+            }
+
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }

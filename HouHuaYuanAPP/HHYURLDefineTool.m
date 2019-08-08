@@ -387,6 +387,10 @@
      return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/postTop"];
 }
 
+/** 绑定手机和第三方*/
++(NSString *)bindPhoneAndAppKeyURL{
+    return [NSString stringWithFormat:@"%@%@",URL,@"/common/bindPhoneAndAppKey"];
+}
 
 //图片地址
 +(NSString *)getImgURLWithStr:(NSString * )str{
