@@ -16,6 +16,10 @@
     [UMSocialUIManager setPreDefinePlatforms:platforms];
     [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
         // 根据获取的platformType确定所选平台进行下一步操作
+        
+        
+        [self shareWebPageToPlatformType:platformType];
+        
     }];
     
 }

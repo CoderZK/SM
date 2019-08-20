@@ -20,10 +20,10 @@
 
 #define UMKey @"5d43d8d13fc195f5a2000497"
 //友盟安全密钥//r6xbw5gy0zenei6x56xtm9wmkrrz653y
-#define SinaAppKey @"3443149913"
-#define SinaAppSecret @"2d6bac14bc37989170ba9ab6214f06c3"
-#define WXAppID @"wx0e4284e5ce1faacf"
-#define WXAppSecret @"0a977030a1b23d21ce2478015aefb202"
+#define SinaAppKey @"3605220977"
+#define SinaAppSecret @"21538c5bda3ff74eed852ed4baf250f3"
+#define WXAppID @"wxa9d5e96c3c7560c5"
+#define WXAppSecret @"93b10f01a04f1af98adcd0a013d49511"
 #define QQAppID @"1104758682"
 #define QQAppKey @"h97lgfazyRUzXJKy"
 
