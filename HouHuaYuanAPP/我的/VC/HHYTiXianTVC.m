@@ -79,7 +79,7 @@
     }else {
         HHYTiXianTwoTVC * vc =[[HHYTiXianTwoTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
-        vc.flowerNumber = [NSString stringWithFormat:@"%ld",[self.flowerNumber integerValue]/100];
+        vc.flowerNumber = [NSString stringWithFormat:@"%0.2f",[self.flowerNumber integerValue]/10.0];
         [self.navigationController pushViewController:vc animated:YES];
     }
     

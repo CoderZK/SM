@@ -288,7 +288,7 @@
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pkgId"] = self.dataArray[self.selctIndex].ID;
+    dict[@"pkgId"] = self.dataArray[self.selctIndex].pkdId;
     if (self.selectIndexZhiFu == 0) {
         dict[@"payType"] = @(4);
     }else {
@@ -297,6 +297,15 @@
     [zkRequestTool networkingPOST:[HHYURLDefineTool heatReChargeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
+            if (self.selectIndexZhiFu == 0) {
+                //支付宝
+                self.payDic = responseObject[@"object"];
+                [self goZFB];
+                
+            }else {
+                //微信
+                
+            }
             
             
         }else {
@@ -394,9 +403,9 @@
 //支付宝支付结果处理
 - (void)goZFB{
     NSString *str;
-    str = self.payDic[@"alipay"];
+    str = self.payDic[@"prepayId"];
     
-    [[AlipaySDK defaultService] payOrder:self.payDic[@"alipay"] fromScheme:@"com.cz001.binfenjiari" callback:^(NSDictionary *resultDic) {
+    [[AlipaySDK defaultService] payOrder:self.payDic[@"prepayId"] fromScheme:@"com.houhuayuan.app" callback:^(NSDictionary *resultDic) {
         
         
         if ([resultDic[@"resultStatus"] isEqualToString:@"6001"]) {
@@ -412,6 +421,9 @@
 //                vc.isHuoDong = YES;
 //                vc.ID = self.ID;
 //                [self.navigationController pushViewController:vc animated:YES];
+                self.dataModel.fansNum += ([self.dataArray[self.selctIndex].heat integerValue] + [self.dataArray[self.selctIndex].heatGift integerValue]);
+                self.LB2.text = [NSString stringWithFormat:@"%ld朵",self.dataModel.flowerNum];
+                
                 
             });
             

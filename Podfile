@@ -20,6 +20,8 @@ pod 'TZImagePickerController'
 pod 'JKRBDMuteSwitch'
 #pod 'WechatOpenSDK'
 
+pod 'AlipaySDK-iOS'
+
 pod 'Hyphenate'
 pod 'EaseUI', :git => 'https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git'
 

@@ -102,7 +102,7 @@
     
     NSMutableDictionary * dict = @{}.mutableCopy;
     dict[@"payType"] = @"2";
-    dict[@"pkgId"] = self.dataArray[self.selectIndex].pkgId;
+    dict[@"pkgId"] = self.dataArray[self.selectIndex].pkdId;
     dict[@"postId"] = self.postID;
     [zkRequestTool networkingPOST:[HHYURLDefineTool postTopURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
     

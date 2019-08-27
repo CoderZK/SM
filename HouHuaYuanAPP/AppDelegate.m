@@ -23,7 +23,7 @@
 #define SinaAppKey @"3605220977"
 #define SinaAppSecret @"21538c5bda3ff74eed852ed4baf250f3"
 #define WXAppID @"wxa9d5e96c3c7560c5"
-#define WXAppSecret @"93b10f01a04f1af98adcd0a013d49511"
+#define WXAppSecret @"831141212f70062d7cab39b2571cfb7e"
 #define QQAppID @"1104758682"
 #define QQAppKey @"h97lgfazyRUzXJKy"
 
@@ -331,7 +331,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ZFBPAY" object:resultDic];
             NSLog(@"result ======================== %@",resultDic);
         }];
-    } else if ([url.absoluteString hasPrefix:@"wx013aad9217dedd99://pay"] ) {
+    } else if ([url.absoluteString hasPrefix:@"wxa9d5e96c3c7560c5://pay"] ) {
         //微信
         [WXApi handleOpenURL:url delegate:self];
         
@@ -350,7 +350,7 @@
             [[NSNotificationCenter defaultCenter] postNotificationName:@"ZFBPAY" object:resultDic];
             NSLog(@"result ======================== %@",resultDic);
         }];
-    } else if ([url.absoluteString hasPrefix:@"wx013aad9217dedd99://pay"] ) {
+    } else if ([url.absoluteString hasPrefix:@"wxa9d5e96c3c7560c5://pay"] ) {
         
         [WXApi handleOpenURL:url delegate:self];
         
@@ -371,7 +371,7 @@
             
             NSLog(@"result ======================== %@",resultDic);
         }];
-    } else if ([url.absoluteString hasPrefix:@"wx013aad9217dedd99://pay"] ) {
+    } else if ([url.absoluteString hasPrefix:@"wxa9d5e96c3c7560c5://pay"] ) {
         [WXApi handleOpenURL:url delegate:self];
         
     }else {

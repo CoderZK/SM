@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 ////测试本地
-#define URL @"http://47.100.198.68"
+#define URL @"http://jp3bsz.natappfree.cc"
 ////图片地址
 #define ImgURL @"http://47.100.198.68/upload"
 

@@ -84,7 +84,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HouHuaYuanAPP/&#x6211;&#x7684;/ &#x8bbe;&#x7f6e;/VCs/HHYBindPhoneVC.m"
-            timestampString = "586850302.626384"
+            timestampString = "588495875.879879"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
@@ -99,24 +99,8 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HouHuaYuanAPP/&#x6211;&#x7684;/VC/MineVC.m"
-            timestampString = "586839772.706701"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "-getData"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "HouHuaYuanAPP/&#x6211;&#x7684;/ &#x8bbe;&#x7f6e;/VCs/HHYBindPoneTwoVC.m"
-            timestampString = "586836836.489758"
+            timestampString = "588495875.880041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
@@ -196,12 +180,12 @@
                   moduleName = "HouHuaYuanAPP"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zk/Documents/SM/HouHuaYuanAPP/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/HHYLoginVC.m"
-                  timestampString = "587629070.144212"
+                  timestampString = "588590938.617264"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "120"
                   endingLineNumber = "120"
-                  offsetFromSymbolStart = "925">
+                  offsetFromSymbolStart = "992">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -211,12 +195,12 @@
                   moduleName = "HouHuaYuanAPP"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/zk/Documents/SM/HouHuaYuanAPP/%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/HHYLoginVC.m"
-                  timestampString = "587629070.1468951"
+                  timestampString = "588590938.619709"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "121"
                   endingLineNumber = "121"
-                  offsetFromSymbolStart = "79">
+                  offsetFromSymbolStart = "92">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -234,6 +218,86 @@
             startingLineNumber = "79"
             endingLineNumber = "79"
             landmarkName = "-action:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HouHuaYuanAPP/&#x767b;&#x5f55;&#x6ce8;&#x518c;/HHYLoginVC.m"
+            timestampString = "588492743.731809"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "-logWithUMSocialUserInfoResponse:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HouHuaYuanAPP/&#x767b;&#x5f55;&#x6ce8;&#x518c;/HHYLoginVC.m"
+            timestampString = "588492745.6064349"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
+            landmarkName = "-logWithUMSocialUserInfoResponse:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HouHuaYuanAPP/&#x767b;&#x5f55;&#x6ce8;&#x518c;/HHYLoginVC.m"
+            timestampString = "588492762.254728"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "-getUserInfoForPlatform:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HouHuaYuanAPP/&#x6211;&#x7684;/VC/HHYReDuTVC.m"
+            timestampString = "588590923.127285"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
+            landmarkName = "-goZFB"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HouHuaYuanAPP/&#x6211;&#x7684;/VC/HHYReDuTVC.m"
+            timestampString = "588590962.0077389"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "431"
+            endingLineNumber = "431"
+            landmarkName = "-goZFB"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

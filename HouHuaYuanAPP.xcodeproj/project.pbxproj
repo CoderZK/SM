@@ -32,8 +32,6 @@
 		337F3EB420EA040400C5526A /* UIView+BSExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F3EB320EA040400C5526A /* UIView+BSExtension.m */; };
 		337F3EB920EA050000C5526A /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 337F3EB820EA050000C5526A /* Podfile */; };
 		337F3EBE20EA136800C5526A /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337F3EBD20EA136800C5526A /* CoreFoundation.framework */; };
-		337F3ED920EA13CF00C5526A /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 337F3EC320EA13CA00C5526A /* AlipaySDK.bundle */; };
-		337F3EDA20EA13CF00C5526A /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337F3EC420EA13CA00C5526A /* AlipaySDK.framework */; };
 		337F3EDD20EA13CF00C5526A /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 337F3ED220EA13CA00C5526A /* libcrypto.a */; };
 		337F3EDE20EA13CF00C5526A /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 337F3ED320EA13CA00C5526A /* libssl.a */; };
 		337F3EDF20EA13CF00C5526A /* libUMessage_Sdk_1.5.0a.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 337F3ED620EA13CA00C5526A /* libUMessage_Sdk_1.5.0a.a */; };
@@ -51,6 +49,10 @@
 		33DC825520EA245E00D1C283 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC825320EA245E00D1C283 /* HomeVC.m */; };
 		58035E8F22C44DDC006F1F6F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58035E8E22C44DDC006F1F6F /* Photos.framework */; };
 		58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */; };
+		582CD5FF231526BD0021725A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582CD5FE231526BD0021725A /* QuartzCore.framework */; };
+		582CD601231526D30021725A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582CD600231526D30021725A /* CoreText.framework */; };
+		582CD602231526E20021725A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 337F3EBB20EA134C00C5526A /* UIKit.framework */; };
+		582CD604231526EF0021725A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582CD603231526EF0021725A /* CFNetwork.framework */; };
 		582EBD4922BC5DA400109AEF /* zkShowVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 582EBD4822BC5DA400109AEF /* zkShowVIew.m */; };
 		582FC34122C33F7900729757 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582FC34022C33F7800729757 /* CoreLocation.framework */; };
 		582FD55022C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m in Sources */ = {isa = PBXBuildFile; fileRef = 582FD54F22C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m */; };
@@ -299,8 +301,6 @@
 		337F3EBA20EA057600C5526A /* Header.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.pch; sourceTree = "<group>"; };
 		337F3EBB20EA134C00C5526A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		337F3EBD20EA136800C5526A /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		337F3EC320EA13CA00C5526A /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
-		337F3EC420EA13CA00C5526A /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
 		337F3ED220EA13CA00C5526A /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		337F3ED320EA13CA00C5526A /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		337F3ED620EA13CA00C5526A /* libUMessage_Sdk_1.5.0a.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.5.0a.a; sourceTree = "<group>"; };
@@ -326,6 +326,9 @@
 		58035E8E22C44DDC006F1F6F /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkDanLiaoVC.m; sourceTree = "<group>"; };
 		58035E9122C45182006F1F6F /* zkDanLiaoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkDanLiaoVC.h; sourceTree = "<group>"; };
+		582CD5FE231526BD0021725A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		582CD600231526D30021725A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		582CD603231526EF0021725A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		582EBD4722BC5DA400109AEF /* zkShowVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkShowVIew.h; sourceTree = "<group>"; };
 		582EBD4822BC5DA400109AEF /* zkShowVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkShowVIew.m; sourceTree = "<group>"; };
 		582FC34022C33F7800729757 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -650,6 +653,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582CD604231526EF0021725A /* CFNetwork.framework in Frameworks */,
+				582CD602231526E20021725A /* UIKit.framework in Frameworks */,
+				582CD601231526D30021725A /* CoreText.framework in Frameworks */,
+				582CD5FF231526BD0021725A /* QuartzCore.framework in Frameworks */,
 				583BF0E122C996E80033D2F3 /* CoreTelephony.framework in Frameworks */,
 				58035E8F22C44DDC006F1F6F /* Photos.framework in Frameworks */,
 				582FC34122C33F7900729757 /* CoreLocation.framework in Frameworks */,
@@ -665,7 +672,6 @@
 				337F3EDE20EA13CF00C5526A /* libssl.a in Frameworks */,
 				337F3EDF20EA13CF00C5526A /* libUMessage_Sdk_1.5.0a.a in Frameworks */,
 				337F3EDD20EA13CF00C5526A /* libcrypto.a in Frameworks */,
-				337F3EDA20EA13CF00C5526A /* AlipaySDK.framework in Frameworks */,
 				AE1A7CF29DF9D6E7166E507C /* libPods-HouHuaYuanAPP.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -877,9 +883,6 @@
 		337F3EBF20EA13CA00C5526A /* 3rd */ = {
 			isa = PBXGroup;
 			children = (
-				337F3EC020EA13CA00C5526A /* alipay */,
-				337F3EC320EA13CA00C5526A /* AlipaySDK.bundle */,
-				337F3EC420EA13CA00C5526A /* AlipaySDK.framework */,
 				337F3ED220EA13CA00C5526A /* libcrypto.a */,
 				337F3ED320EA13CA00C5526A /* libssl.a */,
 				337F3ED420EA13CA00C5526A /* openssl */,
@@ -887,29 +890,6 @@
 				337F3ED820EA13CA00C5526A /* Util */,
 			);
 			path = 3rd;
-			sourceTree = "<group>";
-		};
-		337F3EC020EA13CA00C5526A /* alipay */ = {
-			isa = PBXGroup;
-			children = (
-				337F3EC120EA13CA00C5526A /* openssl */,
-				337F3EC220EA13CA00C5526A /* Util */,
-			);
-			path = alipay;
-			sourceTree = "<group>";
-		};
-		337F3EC120EA13CA00C5526A /* openssl */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = openssl;
-			sourceTree = "<group>";
-		};
-		337F3EC220EA13CA00C5526A /* Util */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		337F3ED420EA13CA00C5526A /* openssl */ = {
@@ -1187,6 +1167,9 @@
 		527B5D99162EB1A60EB7D17D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				582CD603231526EF0021725A /* CFNetwork.framework */,
+				582CD600231526D30021725A /* CoreText.framework */,
+				582CD5FE231526BD0021725A /* QuartzCore.framework */,
 				583BF0E022C996E80033D2F3 /* CoreTelephony.framework */,
 				58035E8E22C44DDC006F1F6F /* Photos.framework */,
 				582FC34022C33F7800729757 /* CoreLocation.framework */,
@@ -1566,7 +1549,6 @@
 				5831C61122A4BD710023D1E5 /* HHYTiXianGuiZeVC.xib in Resources */,
 				583297CC22A63B9E00B52104 /* HHYBindPoneTwoVC.xib in Resources */,
 				583ADD4122A7479F0064E60F /* YWUnlockView.xib in Resources */,
-				337F3ED920EA13CF00C5526A /* AlipaySDK.bundle in Resources */,
 				337F3EB920EA050000C5526A /* Podfile in Resources */,
 				5839187E22A7ABCC007B03EE /* HHYAddLinkVC.xib in Resources */,
 				583297AA22A5FD1100B52104 /* HHYGongGaoOneCell.xib in Resources */,
@@ -2013,7 +1995,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 763M9VH9NG;
+				DEVELOPMENT_TEAM = ZSL4MW2WKS;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2039,7 +2021,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.houhuayuan.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
-				PROVISIONING_PROFILE_SPECIFIER = test;
+				PROVISIONING_PROFILE_SPECIFIER = ccccc;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2050,7 +2032,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 763M9VH9NG;
+				DEVELOPMENT_TEAM = ZSL4MW2WKS;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2075,7 +2057,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.houhuayuan.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = test;
+				PROVISIONING_PROFILE_SPECIFIER = ccccc;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

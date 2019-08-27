@@ -38,7 +38,7 @@
 //
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
     
-    self.titleLB.text = [NSString stringWithFormat:@"可提现%@元(1元对应100朵花)",self.flowerNumber];
+    self.titleLB.text = [NSString stringWithFormat:@"可提现%@元(1元对应10朵花)",self.flowerNumber];
     
     
 }

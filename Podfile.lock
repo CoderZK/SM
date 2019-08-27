@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - AlipaySDK-iOS (15.5.9)
   - DACircularProgress (2.3.1)
   - EaseUI (3.5.3):
     - Hyphenate (~> 3.5.3)
@@ -63,6 +64,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - AlipaySDK-iOS
   - EaseUI (from `https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git`)
   - Hyphenate
   - IQKeyboardManager
@@ -83,6 +85,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - AlipaySDK-iOS
     - DACircularProgress
     - Hyphenate
     - IQKeyboardManager
@@ -111,6 +114,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AlipaySDK-iOS: 1c5283b30977a24acecc0114662697f7dc78f618
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   EaseUI: 3bb4554d25fbbac5f7369e4393a9bab9ea09a689
   Hyphenate: 396b936de5b3d68ec266c4bb9078e3ec95a45f31
@@ -129,6 +133,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: bf4c57b98d8707fce41ea6be872414a71c7a8c9d
   UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
 
-PODFILE CHECKSUM: c0ab2a61402e667fee4b578335cac8f9ab685e28
+PODFILE CHECKSUM: c15f55b67b8499982ece60ed2cdc4a62fa3c62fc
 
 COCOAPODS: 1.7.0

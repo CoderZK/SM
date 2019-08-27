@@ -97,6 +97,7 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle"
   install_resource "${PODS_ROOT}/EaseUI/EaseUI/resources/EaseUIResource.bundle"
   install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/JKRBDMuteSwitch/JKRBDMuteSwitch.bundle"
@@ -110,6 +111,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialUI/UMSocialSDKResources.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle"
   install_resource "${PODS_ROOT}/EaseUI/EaseUI/resources/EaseUIResource.bundle"
   install_resource "${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle"
   install_resource "${PODS_CONFIGURATION_BUILD_DIR}/JKRBDMuteSwitch/JKRBDMuteSwitch.bundle"
