@@ -288,7 +288,7 @@
     
     
     NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pkgId"] = self.dataArray[self.selctIndex].pkdId;
+    dict[@"pkgId"] = self.dataArray[self.selctIndex].pkgId;
     if (self.selectIndexZhiFu == 0) {
         dict[@"payType"] = @(4);
     }else {
@@ -415,16 +415,9 @@
         } else if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
             
             [SVProgressHUD showSuccessWithStatus:@"支付成功"];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                
-//                zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//                vc.isHuoDong = YES;
-//                vc.ID = self.ID;
-//                [self.navigationController pushViewController:vc animated:YES];
-                self.dataModel.fansNum += ([self.dataArray[self.selctIndex].heat integerValue] + [self.dataArray[self.selctIndex].heatGift integerValue]);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.dataModel.flowerNum = self.dataModel.flowerNum + ([self.dataArray[self.selctIndex].heat integerValue] + [self.dataArray[self.selctIndex].heatGift integerValue]);
                 self.LB2.text = [NSString stringWithFormat:@"%ld朵",self.dataModel.flowerNum];
-                
-                
             });
             
         } else {
@@ -454,12 +447,13 @@
     } else if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
         
         [SVProgressHUD showSuccessWithStatus:@"支付成功"];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//            vc.isHuoDong = YES;
-//            vc.ID = self.ID;
-//            [self.navigationController pushViewController:vc animated:YES];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.dataModel.flowerNum = self.dataModel.flowerNum + ([self.dataArray[self.selctIndex].heat integerValue] + [self.dataArray[self.selctIndex].heatGift integerValue]);
+            self.LB2.text = [NSString stringWithFormat:@"%ld朵",self.dataModel.flowerNum];
         });
+        
+       
         
     } else {
         [SVProgressHUD showErrorWithStatus:@"支付失败"];

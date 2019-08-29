@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHYTongYongModel : NSObject
 @property(nonatomic,strong)NSString *ID;
-@property(nonatomic,strong)NSString *pkdId;
+@property(nonatomic,strong)NSString *pkgId;
 @property(nonatomic,strong)NSString *pic;
 @property(nonatomic,strong)NSString *name;
 @property(nonatomic,strong)NSString *type;
@@ -74,6 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *price;
 @property(nonatomic,strong)NSString *costFlower;
 @property(nonatomic,strong)NSString *orderType;//2鲜花套餐3鲜花提现4任务奖励5鲜花打赏支出6鲜花打赏收入
+@property(nonatomic,strong)NSString *payType;
 @property(nonatomic,strong)NSString *title;
 @property(nonatomic,strong)NSString *flowerNum;
 

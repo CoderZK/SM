@@ -15,6 +15,7 @@
 @property(nonatomic,strong)UITableView *tabelView;
 @property(nonatomic,strong)UIView *grayV,*xiaDanV;
 @property(nonatomic,strong)UIImageView *huanGuanImgV;
+@property(nonatomic,strong)UIButton *ttBt;
 ;
 @end
 
@@ -44,6 +45,11 @@
         self.nameLB.textColor = CharacterBlackColor;
         [self addSubview:self.nameLB];
         
+        self.ttBt = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 15 - 50 , 0, 50, 16)];
+        [self.ttBt setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
+        self.ttBt.titleLabel.font = kFont(12);
+        [self.ttBt setTitle:@"置顶帖" forState:UIControlStateNormal];
+        [self addSubview:self.ttBt];
         
         self.sexBt = [[UIButton alloc] init];
         [self.sexBt setTitle:@"19" forState:UIControlStateNormal];
@@ -288,6 +294,11 @@
     
     _model = model;
     
+    if (model.isTop) {
+        self.ttBt.hidden = NO;
+    }else {
+        self.ttBt.hidden = YES;
+    }
     
     [self.headBt sd_setBackgroundImageWithURL:[NSURL URLWithString:[HHYURLDefineTool getImgURLWithStr:model.avatar]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
     self.nameLB.text = model.nickName;

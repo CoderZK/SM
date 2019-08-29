@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 ////测试本地
-#define URL @"http://jp3bsz.natappfree.cc"
+#define URL @"http://47.100.198.68"
 ////图片地址
 #define ImgURL @"http://47.100.198.68/upload"
 
@@ -221,7 +221,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 绑定手机和第三方*/
 +(NSString *)bindPhoneAndAppKeyURL;
 
-
+/** 分享*/
++(NSString *)shareURL;
 
 
 

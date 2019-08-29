@@ -179,7 +179,7 @@
             }];
         }else if (indexPath.row == 3) {
             
-           [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:@"123" shareModel:nil];
+           [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:[zkSignleTool shareTool].huanxin shareModel:nil];
             
         }else if (indexPath.row == 4) {
             HHYAboutUsVC * vc =[[HHYAboutUsVC alloc] init];

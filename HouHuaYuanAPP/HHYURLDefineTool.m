@@ -391,6 +391,10 @@
 +(NSString *)bindPhoneAndAppKeyURL{
     return [NSString stringWithFormat:@"%@%@",URL,@"/common/bindPhoneAndAppKey"];
 }
+/** 分享*/
++(NSString *)shareURL{
+    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/share"];
+}
 
 //图片地址
 +(NSString *)getImgURLWithStr:(NSString * )str{
