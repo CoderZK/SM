@@ -666,7 +666,9 @@
     }
     dict[@"tagId"] = [arr componentsJoinedByString:@","];
     button.userInteractionEnabled = NO;
+    [SVProgressHUD show];
     [zkRequestTool networkingPOST:[HHYURLDefineTool getaddURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [SVProgressHUD dismiss];
         button.userInteractionEnabled = YES;
         if ([responseObject[@"code"] intValue]== 0) {
             

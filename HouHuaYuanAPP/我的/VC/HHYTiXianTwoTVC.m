@@ -88,7 +88,7 @@
         
         NSMutableDictionary * dict = @{}.mutableCopy;
         dict[@"accountType"] = @(1);
-        dict[@"flowerNum"] = self.moneyTF.text;
+        dict[@"flowerNum"] = @((int)([self.moneyTF.text floatValue] * 10));
         dict[@"targetAccount"] = self.carNumber;
         
         [zkRequestTool networkingPOST:[HHYURLDefineTool addWithDrawURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -97,7 +97,9 @@
                 
                 [SVProgressHUD showSuccessWithStatus:@"提现操作成功"];
                
-                self.titleLB.text = [NSString stringWithFormat:@"可提现%0.2f元",[_flowerNumber floatValue] - [self.moneyTF.text floatValue]];
+                self.titleLB.text = [NSString stringWithFormat:@"可提现%0.2f元",[self.flowerNumber floatValue] - [self.moneyTF.text floatValue]];
+                [self.moenySignal sendNext:@([self.moneyTF.text floatValue] *10)];
+                [self.moenySignal sendCompleted];
                 
                 
             }else {

@@ -25,4 +25,8 @@
     _userContent = [NSString emojiRecovery:userContent];
 }
 
+- (void)setPostContent:(NSString *)postContent {
+    _postContent = [NSString emojiRecovery:postContent];
+}
+
 @end

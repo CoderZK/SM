@@ -294,8 +294,9 @@
     }else {
         dict[@"payType"] = @(3);
     }
+    [SVProgressHUD show];
     [zkRequestTool networkingPOST:[HHYURLDefineTool heatReChargeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
-        
+        [SVProgressHUD dismiss];
         if ([responseObject[@"code"] intValue]== 0) {
             if (self.selectIndexZhiFu == 0) {
                 //支付宝
@@ -304,7 +305,8 @@
                 
             }else {
                 //微信
-                
+                self.payDic = responseObject[@"object"];
+                [self goWXpay];
             }
             
             
@@ -355,14 +357,13 @@
     //    /** 商家根据微信开放平台文档对数据做的签名 */
     //    @property (nonatomic, retain) NSString *sign;
 
-    req.partnerId = [NSString stringWithFormat:@"%@",self.payDic[@"partnerid"]];
-    req.prepayId =  [NSString stringWithFormat:@"%@",self.payDic[@"prepayid"]];
-    req.nonceStr =  [NSString stringWithFormat:@"%@",self.payDic[@"noncestr"]];
+    req.partnerId = [NSString stringWithFormat:@"%@",self.payDic[@"partnerId"]];
+    req.prepayId =  [NSString stringWithFormat:@"%@",self.payDic[@"prepayId"]];
+    req.nonceStr =  [NSString stringWithFormat:@"%@",self.payDic[@"nonceStr"]];
     //注意此处是int 类型
-    req.timeStamp = [self.payDic[@"timestamp"] intValue];
+    req.timeStamp = [self.payDic[@"timeStamp"] intValue];
     req.package =  [NSString stringWithFormat:@"%@",self.payDic[@"package"]];
     req.sign =  [NSString stringWithFormat:@"%@",self.payDic[@"sign"]];
-
     //发起支付
     [WXApi sendReq:req];
     
@@ -376,15 +377,11 @@
     {
         
         [SVProgressHUD showSuccessWithStatus:@"支付成功"];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-//            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//            vc.isHuoDong = YES;
-//            vc.ID = self.ID;
-//            [self.navigationController pushViewController:vc animated:YES];
-            
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.dataModel.flowerNum = self.dataModel.flowerNum + ([self.dataArray[self.selctIndex].heat integerValue] + [self.dataArray[self.selctIndex].heatGift integerValue]);
+            self.LB2.text = [NSString stringWithFormat:@"%ld朵",self.dataModel.flowerNum];
         });
+        
         
     }
     else if (resp.errCode==WXErrCodeUserCancel)

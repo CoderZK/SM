@@ -215,12 +215,24 @@
     }else {
         dict[@"payType"] = @(3);
     }
-    dict[@"pkgId"] = model.ID;
+    dict[@"pkgId"] = model.pkgId;
+    
+    [SVProgressHUD show];
+    
     [zkRequestTool networkingPOST:[HHYURLDefineTool vipReChargeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
-      
+        [SVProgressHUD dismiss];
         if ([responseObject[@"code"] intValue]== 0) {
             
-            
+            if (self.selectIndexZhiFu == 0) {
+                //支付宝
+                self.payDic = responseObject[@"object"];
+                [self goZFB];
+                
+            }else {
+                //微信
+                self.payDic = responseObject[@"object"];
+                [self goWXpay];
+            }
             
             
         }else {
@@ -265,11 +277,11 @@
     //    /** 商家根据微信开放平台文档对数据做的签名 */
     //    @property (nonatomic, retain) NSString *sign;
     
-    req.partnerId = [NSString stringWithFormat:@"%@",self.payDic[@"partnerid"]];
-    req.prepayId =  [NSString stringWithFormat:@"%@",self.payDic[@"prepayid"]];
-    req.nonceStr =  [NSString stringWithFormat:@"%@",self.payDic[@"noncestr"]];
+    req.partnerId = [NSString stringWithFormat:@"%@",self.payDic[@"partnerId"]];
+    req.prepayId =  [NSString stringWithFormat:@"%@",self.payDic[@"prepayId"]];
+    req.nonceStr =  [NSString stringWithFormat:@"%@",self.payDic[@"nonceStr"]];
     //注意此处是int 类型
-    req.timeStamp = [self.payDic[@"timestamp"] intValue];
+    req.timeStamp = [self.payDic[@"timeStamp"] intValue];
     req.package =  [NSString stringWithFormat:@"%@",self.payDic[@"package"]];
     req.sign =  [NSString stringWithFormat:@"%@",self.payDic[@"sign"]];
     
@@ -285,15 +297,10 @@
     if (resp.errCode==WXSuccess)
     {
         
-        [SVProgressHUD showSuccessWithStatus:@"支付成功"];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD showSuccessWithStatus:@"开通会员成功"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
-//            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//            vc.isHuoDong = YES;
-//            vc.ID = self.ID;
-//            [self.navigationController pushViewController:vc animated:YES];
-            
+            [self.navigationController popViewControllerAnimated:YES];
         });
         
     }
@@ -308,14 +315,12 @@
     
 }
 
-
-
 //支付宝支付结果处理
 - (void)goZFB{
     NSString *str;
-    str = self.payDic[@"alipay"];
+    str = self.payDic[@"prepayId"];
     
-    [[AlipaySDK defaultService] payOrder:self.payDic[@"alipay"] fromScheme:@"com.cz001.binfenjiari" callback:^(NSDictionary *resultDic) {
+    [[AlipaySDK defaultService] payOrder:self.payDic[@"prepayId"] fromScheme:@"com.houhuayuan.app" callback:^(NSDictionary *resultDic) {
         
         
         if ([resultDic[@"resultStatus"] isEqualToString:@"6001"]) {
@@ -324,14 +329,10 @@
             
         } else if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
             
-            [SVProgressHUD showSuccessWithStatus:@"支付成功"];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SVProgressHUD showSuccessWithStatus:@"开通会员成功"];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
-//                zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//                vc.isHuoDong = YES;
-//                vc.ID = self.ID;
-//                [self.navigationController pushViewController:vc animated:YES];
-                
+                [self.navigationController popViewControllerAnimated:YES];
             });
             
         } else {
@@ -360,13 +361,13 @@
         
     } else if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
         
-        [SVProgressHUD showSuccessWithStatus:@"支付成功"];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-//            vc.isHuoDong = YES;
-//            vc.ID = self.ID;
-//            [self.navigationController pushViewController:vc animated:YES];
+        [SVProgressHUD showSuccessWithStatus:@"开通会员成功"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [self.navigationController popViewControllerAnimated:YES];
         });
+        
+        
         
     } else {
         [SVProgressHUD showErrorWithStatus:@"支付失败"];
@@ -376,6 +377,10 @@
     NSLog(@"成功");
     //
 }
+
+
+
+
 
 
 

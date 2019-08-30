@@ -79,6 +79,16 @@
     }else {
         HHYTiXianTwoTVC * vc =[[HHYTiXianTwoTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
+        
+        @weakify(self);
+        vc.moenySignal = [RACSubject subject];
+        [vc.moenySignal subscribeNext:^(id  _Nullable x) {
+            @strongify(self);
+            self.flowerNumber = [NSString stringWithFormat:@"%ld",[self.flowerNumber integerValue] - [x integerValue]];
+            self.rightLB.text = [NSString stringWithFormat:@"%ld朵",[self.flowerNumber integerValue]];
+            self.leftLB.text = [NSString stringWithFormat:@"%@朵",self.flowerNumber];
+            self.LB2.text = [NSString stringWithFormat:@"%@朵",self.flowerNumber];
+        }];
         vc.flowerNumber = [NSString stringWithFormat:@"%0.2f",[self.flowerNumber integerValue]/10.0];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -144,7 +154,7 @@
     [view1 addSubview:leftLB1];
     
     self.rightLB = [[UILabel alloc] initWithFrame:CGRectMake(10, 15, view1.width - 20, 20)];
-    self.rightLB.text = [NSString stringWithFormat:@"%ld朵",[self.flowerNumber integerValue]/100 * 100];
+    self.rightLB.text = [NSString stringWithFormat:@"%ld朵",[self.flowerNumber integerValue]];
     self.rightLB.font = kFont(15);
     self.rightLB.textColor = [UIColor whiteColor];
     self.rightLB.textAlignment = NSTextAlignmentCenter;
@@ -161,9 +171,9 @@
     UIButton * btt = [UIButton buttonWithType:(UIButtonTypeCustom)];
     [btt setTitleColor:CharacterRedColor forState:UIControlStateNormal];
     btt.frame = CGRectMake(15, CGRectGetMaxY(headView.frame) + 40, ScreenW - 30, 30);
-    [btt setTitle:@"查看《提现规则》" forState:UIControlStateNormal];
-    btt.titleLabel.font = kFont(15);
-    [btt addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [btt setTitle:@"提现会产生一定的手续费,1~3工作日到账,以到账时间为准" forState:UIControlStateNormal];
+    btt.titleLabel.font = kFont(13);
+//    [btt addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     btt.tag = 12;
     [self.headV addSubview:btt];
     

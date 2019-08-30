@@ -21,7 +21,8 @@ pod 'JKRBDMuteSwitch'
 #pod 'WechatOpenSDK'
 
 pod 'AlipaySDK-iOS'
-
+pod 'ReactiveObjC'
+ 
 pod 'Hyphenate'
 pod 'EaseUI', :git => 'https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git'
 

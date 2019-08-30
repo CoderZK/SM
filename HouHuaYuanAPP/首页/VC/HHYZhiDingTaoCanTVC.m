@@ -118,13 +118,13 @@
 
 - (void)flawerActionWithType:(NSInteger)type {
     
-    [SVProgressHUD show];
+
     
     NSMutableDictionary * dict = @{}.mutableCopy;
     dict[@"payType"] = @(type);
     dict[@"pkgId"] = self.dataArray[self.selectIndex].pkgId;
     dict[@"postId"] = self.postID;
-
+    [SVProgressHUD show];
     [zkRequestTool networkingPOST:[HHYURLDefineTool postTopURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
     
         [SVProgressHUD dismiss];
@@ -248,11 +248,11 @@
     //    /** 商家根据微信开放平台文档对数据做的签名 */
     //    @property (nonatomic, retain) NSString *sign;
     
-    req.partnerId = [NSString stringWithFormat:@"%@",self.payDic[@"partnerid"]];
-    req.prepayId =  [NSString stringWithFormat:@"%@",self.payDic[@"prepayid"]];
-    req.nonceStr =  [NSString stringWithFormat:@"%@",self.payDic[@"noncestr"]];
+    req.partnerId = [NSString stringWithFormat:@"%@",self.payDic[@"partnerId"]];
+    req.prepayId =  [NSString stringWithFormat:@"%@",self.payDic[@"prepayId"]];
+    req.nonceStr =  [NSString stringWithFormat:@"%@",self.payDic[@"nonceStr"]];
     //注意此处是int 类型
-    req.timeStamp = [self.payDic[@"timestamp"] intValue];
+    req.timeStamp = [self.payDic[@"timeStamp"] intValue];
     req.package =  [NSString stringWithFormat:@"%@",self.payDic[@"package"]];
     req.sign =  [NSString stringWithFormat:@"%@",self.payDic[@"sign"]];
     
@@ -268,15 +268,9 @@
     if (resp.errCode==WXSuccess)
     {
         
-        [SVProgressHUD showSuccessWithStatus:@"支付成功"];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            //            zkBaoMingChengGongVC * vc =[[zkBaoMingChengGongVC alloc] init];
-            //            vc.isHuoDong = YES;
-            //            vc.ID = self.ID;
-            //            [self.navigationController pushViewController:vc animated:YES];
-            
+        [SVProgressHUD showSuccessWithStatus:@"帖子置顶成功!"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.navigationController popViewControllerAnimated:YES];
         });
         
     }

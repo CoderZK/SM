@@ -12,388 +12,388 @@
 
 /** 登录 */
 + (NSString * )getLoginURL{
-   return [NSString stringWithFormat:@"%@%@",URL,@"/common/login"];
+   return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/login"];
 }
 /** 广告列表 */
 + (NSString * )getBannerListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/getBannerList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/getBannerList"];
 }
 /** 标签列表 */
 + (NSString * )getLabelsURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/getLabels"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/getLabels"];
 }
 /** 话题列表 */
 + (NSString * )getTopicListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/getTopicList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/getTopicList"];
 }
 /** 第三方登录 */
 + (NSString * )getloginAuthByThirdURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/loginAuthByThird"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/loginAuthByThird"];
 }
 /**省列表*/
 + (NSString * )provinceListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/provinceList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/provinceList"];
 }
 /**市列表*/
 + (NSString * )cityListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/cityList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/cityList"];
 }
 /** 注册 */
 + (NSString * )registerURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/register"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/register"];
 }
 /** 发送验证码 */
 + (NSString * )sendValidCodeURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/sendValidCode"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/sendValidCode"];
 }
 /** 街道列表 */
 + (NSString * )streetListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/streetList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/streetList"];
 }
 /** 上传文件 */
 + (NSString * )uploadURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/upload"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/upload"];
 }
 /** 用户主页 */
 + (NSString * )gethomeURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/home"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/home"];
 }
 /** 设置标签 */
 + (NSString * )getsetMyLabelURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/setMyLabel"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/setMyLabel"];
 }
 /** 发帖*/
 + (NSString * )getaddURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/add"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/add"];
 }
 /** 帖子详情 */
 + (NSString * )getdetailURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/detail"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/detail"];
 }
 /** 社交圈子 */
 + (NSString * )getSysSocialCircleListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/getSysSocialCircleList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/getSysSocialCircleList"];
 }
 /** 点赞 */
 + (NSString * )getlikeURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/like"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/like"];
 }
 /** 评论帖子*/
 + (NSString * )getreplyURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/reply"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/reply"];
 }
 /** 帖子列表 */
 + (NSString * )getsearchURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/search"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/search"];
 }
 /** 校验验证码 */
 +(NSString *)validCodeURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/validCode"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/validCode"];
 }
 /** 上包地理位置 */
 +(NSString *)reportLocationURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/reportLocation"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/reportLocation"];
 }
 /** 送花 */
 +(NSString *)sendFlowers{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/sendFlowers"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/sendFlowers"];
 }
 /** 获取隐私设置*/
 + (NSString * )getUserConfigURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getUserConfig"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getUserConfig"];
 }
 /** 热度榜 */
 + (NSString * )heatUserListURL{
-   return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/heatUserList"];
+   return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/heatUserList"];
 }
 /** 附近的人 */
 + (NSString * )nearbyUserListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/nearbyUserList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/nearbyUserList"];
 }
 /** 修改头像和背景图片 */
 + (NSString * )updateAvatarURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/updateAvatar"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/updateAvatar"];
 }
 /** 换帮手机号*/
 + (NSString * )updatePhoneURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/updatePhone"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/updatePhone"];
 }
 /** 修改密码 */
 + (NSString * )updatePwdURL{
-   return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/updatePwd"];
+   return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/updatePwd"];
 }
 /** 换绑第三方*/
 +(NSString *)updateThirdAppURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/updateThirdApp"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/updateThirdApp"];
 }
 /** 隐私设置更新*/
 +(NSString *)updateUserConfigURL{
-   return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/updateUserConfig"];
+   return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/updateUserConfig"];
 }
 /** 关于我们 */
 +(NSString *)aboutUsURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/aboutUs"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/aboutUs"];
 }
 /** 退出登录 */
 + (NSString * )getlogoutURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/logout"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/logout"];
 }
 
 /** 我收到的赞列表*/
 + (NSString * )getPostLikeListForMyPostURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getPostLikeListForMyPost"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getPostLikeListForMyPost"];
 }
 /** 我收到的评论列表 */
 + (NSString * )getReplyListForMyPostURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getReplyListForMyPost"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getReplyListForMyPost"];
 }
 /** 我的粉丝列表 */
 + (NSString * )getMyFansUserListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyFansUserList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyFansUserList"];
 }
 /** 我的详细资料 */
 + (NSString * )getMyInfoURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyInfo"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyInfo"];
 }
 /** 我的个人中心*/
 + (NSString * )getMyInfoCenterURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyInfoCenter"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyInfoCenter"];
 }
 /** 我的订阅 */
 + (NSString * )getMySubscribeUserListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMySubscribeUserList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMySubscribeUserList"];
 }
 /** 修改我的个人资料*/
 +(NSString *)updateMyInfoURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/updateMyInfo"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/updateMyInfo"];
 }
 /**  用户上传相册 */
 +(NSString *)uploadPhotoURL{
-   return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/uploadPhoto"];
+   return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/uploadPhoto"];
 }
 /** 提交反馈*/
 +(NSString *)addMyFeedBackURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/addMyFeedBack"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/addMyFeedBack"];
 }
 /** 添加好友*/
 +(NSString *)addNewFriendURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/addNewFriend"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/addNewFriend"];
 }
 /** 同意或者绝好友*/
 +(NSString *)agreeNewFriendApplyURL{
-   return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/agreeNewFriendApply"];
+   return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/agreeNewFriendApply"];
 }
 
 /** 删除拉黑好友*/
 +(NSString *)deleteFriendURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/deleteFriend"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/deleteFriend"];
 }
 
 /** 我的反馈列表*/
 +(NSString *)getMyFeedBackListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyFeedBackList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyFeedBackList"];
 }
 /** 好友列表*/
 +(NSString *)getMyFriendUserListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyFriendUserList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyFriendUserList"];
 }
 /** 我的访客列表*/
 +(NSString *)getMyVisitorListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyVisitorList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyVisitorList"];
 }
 /** 根据id查找新朋友*/
 +(NSString *)getNewFriendByUserNoURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getNewFriendByUserNo"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getNewFriendByUserNo"];
 }
 /** 实名认证*/
 +(NSString *)userAuthURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/userAuth"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/userAuth"];
 }
 /**拉黑好友 我的动态点赞列表*/
 +(NSString *)addUserFriendBlackURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/addUserFriendBlack"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/addUserFriendBlack"];
 }
 /** 恢复好友*/
 +(NSString *)deleteUserFriendBlackURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/deleteUserFriendBlack"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/deleteUserFriendBlack"];
 }
 /** 我的任务中心*/
 +(NSString *)getMyTaskListURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyTaskList"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyTaskList"];
 }
 /** 我的黑名单*/
 +(NSString *)getMyUserFriendBlackListURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyUserFriendBlackList"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyUserFriendBlackList"];
 }
 /** 获取我的消息*/
 +(NSString *)getMyMessageListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyMessageList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyMessageList"];
 }
 
 /** 提交提现申请*/
 +(NSString *)addWithDrawURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/addWithDraw"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/addWithDraw"];
 }
 /** cancelOrder*/
 +(NSString *)cancelOrderURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/cancelOrder"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/cancelOrder"];
 }
 /** closeOrder*/
 +(NSString *)closeOrderURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/closeOrder"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/closeOrder"];
 }
 /** 我的订单列表*/
 +(NSString *)getMyOrderListURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/getMyOrderList"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/getMyOrderList"];
 }
 /** 订单支付*/
 +(NSString *)orderPayURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/orderPay"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/orderPay"];
 }
 /**订单退款*/
 +(NSString *)refundOrderURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/refundOrder"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/refundOrder"];
 }
 /** 添加收藏*/
 +(NSString *)addMyCollectionURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/addMyCollection"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/addMyCollection"];
 }
 /**  删除我的收藏*/
 +(NSString *)deleteMyCollectionURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/deleteMyCollection"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/deleteMyCollection"];
 }
 /** 添加我的收藏 */
 +(NSString *)getMyCollectionListURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyCollectionList"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyCollectionList"];
 }
 /** 我的消费记录*/
 +(NSString *)getMyConsumeOrderListURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyConsumeOrderList"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyConsumeOrderList"];
 }
 /** 我的充值记录*/
 +(NSString *)getMyReChargeOrderListURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyReChargeOrderList"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyReChargeOrderList"];
 }
 /** 我的提现列表*/
 +(NSString *)getMyWithDrawListURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyWithDrawList"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyWithDrawList"];
 }
 /** 新朋友列表*/
 +(NSString *)getNewFriendMsgListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getNewFriendMsgList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getNewFriendMsgList"];
 }
 /** 帖子评论列表*/
 +(NSString *)getReplyPageListForPostURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/getReplyPageListForPost"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/getReplyPageListForPost"];
 }
 
 /**@我的消息*/
 +(NSString *)getAtMeMsgListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getAtMeMsgList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getAtMeMsgList"];
 }
 ///** 我的动态评论列表*/
 +(NSString *)deleteMegURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/deleteMsg"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/deleteMsg"];
 }
 /** 关注 */
 +(NSString *)addUserSubscribeURL{
-   return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/addUserSubscribe"];
+   return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/addUserSubscribe"];
 }
 /** 取消订阅*/
 +(NSString *)deleteUserSubscribeURL{
-  return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/deleteUserSubscribe"];
+  return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/deleteUserSubscribe"];
 }
 /** 取消订阅*/
 +(NSString *)getSysSocialCircleDetailURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/getSysSocialCircleDetail"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/getSysSocialCircleDetail"];
 }
 /**鲜花套餐*/
 +(NSString *)getHeatPkgListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/getHeatPkgList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/getHeatPkgList"];
 }
 /** vip 套餐*/
 +(NSString *)getVipPkgListURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/getVipPkgList"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/getVipPkgList"];
 }
 /** 上传最后一条信息*/
 +(NSString *)uploadUserChatRecordURL{
     
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userChat/uploadUserChatRecord"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userChat/uploadUserChatRecord"];
     
 }
 /** vip 订单提交*/
 +(NSString *)vipReChargeURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/vipReCharge"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/vipReCharge"];
 }
 
 /** 鲜花交易记录 */
 +(NSString *)getMyFlowerOrderListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyFlowerOrderList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyFlowerOrderList"];
 }
 
 /** 鲜花充值*/
 +(NSString *)heatReChargeURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/heatReCharge"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/heatReCharge"];
 }
 
 /** 我的动态评论列表*/
 +(NSString *)addMyReportURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/addMyReport"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/addMyReport"];
 }
 /** 添加银行卡*/
 +(NSString *)addMyBankCardURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/addMyBankCard"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/addMyBankCard"];
 }
 /** 银行卡列表*/
 +(NSString *)getMyBankCardListURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMyBankCardList"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyBankCardList"];
 }
 /** 删除银行卡*/
 +(NSString *)deleteMyBankCardURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/deleteMyBankCard"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/deleteMyBankCard"];
 }
 /** 取消点赞*/
 +(NSString *)notlikeURL{
     
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/notlike"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/notlike"];
     
 }
 
 /** 删除回话*/
 +(NSString *)deleteUserChatHoldURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userChat/deleteUserChatHold"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userChat/deleteUserChatHold"];
     
 }
 /** 我的系统消息列表 */
 +(NSString *)getMySysMsgListURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/userInfo/getMySysMsgList"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMySysMsgList"];
 }
 
 /** 获取客服*/
 +(NSString *)contactKefURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/contactKef"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/contactKef"];
 }
 /** 删除帖子*/
 +(NSString *)deletePostURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/delete"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/delete"];
 }
 
 /** 帖子置顶套餐*/
 +(NSString *)getPostTopPkgListURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/getPostTopPkgList"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/getPostTopPkgList"];
 }
 /** 置顶提交*/
 +(NSString *)postTopURL{
-     return [NSString stringWithFormat:@"%@%@",URL,@"/api/order/postTop"];
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/order/postTop"];
 }
 
 /** 绑定手机和第三方*/
 +(NSString *)bindPhoneAndAppKeyURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/common/bindPhoneAndAppKey"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/bindPhoneAndAppKey"];
 }
 /** 分享*/
 +(NSString *)shareURL{
-    return [NSString stringWithFormat:@"%@%@",URL,@"/api/postInfo/share"];
+    return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/share"];
 }
 
 //图片地址

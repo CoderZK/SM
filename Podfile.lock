@@ -33,6 +33,7 @@ PODS:
     - DACircularProgress (~> 2.3)
     - MBProgressHUD (~> 0.9)
     - "SDWebImage (!= 3.7.2, ~> 3.7)"
+  - ReactiveObjC (3.1.1)
   - SDCycleScrollView (1.65):
     - SDWebImage (~> 3.7)
   - SDWebImage (3.8.3):
@@ -72,6 +73,7 @@ DEPENDENCIES:
   - Masonry
   - MJExtension
   - MJRefresh
+  - ReactiveObjC
   - SDCycleScrollView
   - SDWebImage
   - SVProgressHUD
@@ -96,6 +98,7 @@ SPEC REPOS:
     - MJExtension
     - MJRefresh
     - MWPhotoBrowser
+    - ReactiveObjC
     - SDCycleScrollView
     - SDWebImage
     - SVProgressHUD
@@ -126,6 +129,7 @@ SPEC CHECKSUMS:
   MJExtension: 74ec83124a68891619fb7ba9c5c811bbf1691076
   MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
   MWPhotoBrowser: 5836d7aa041dc05a13de380c246826578adc5ea5
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
   SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: a72e880a8fe0f7fc31efe15aaed443c074d2a80c
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
@@ -133,6 +137,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: bf4c57b98d8707fce41ea6be872414a71c7a8c9d
   UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
 
-PODFILE CHECKSUM: c15f55b67b8499982ece60ed2cdc4a62fa3c62fc
+PODFILE CHECKSUM: e25d9b18c52704b51490e563b34992712205412c
 
 COCOAPODS: 1.7.0
