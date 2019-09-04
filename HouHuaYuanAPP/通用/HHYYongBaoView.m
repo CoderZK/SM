@@ -145,6 +145,7 @@
         self.number+=100;
     }else {
         [self diss];
+        [self.TF endEditing:YES];
         if (self.deletage != nil && [self.deletage respondsToSelector:@selector(didClcikIndex:withIndexPath:WithNumber:)]) {
             
             [self.deletage didClcikIndex:button.tag - 100 withIndexPath:self.indexPath WithNumber:self.TF.text];
@@ -189,6 +190,10 @@
         [self removeFromSuperview];
     }];
     
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.number = 0;
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{

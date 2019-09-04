@@ -509,7 +509,10 @@
 
 
 - (void)yongBaoAction {
-    
+    if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+        [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
+        return;
+    }
     [self.showView showWithIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     
 }
@@ -545,7 +548,10 @@
         
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"送花给他/她 充值买花" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"送花" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
+            if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+                [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
+                return;
+            }
              [self.showView showWithIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
             
         }];
@@ -862,14 +868,8 @@
                     }
                     
                 }
-                
-                if (isUser) {
-                   [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:(UITableViewRowAnimationNone)];
-                }else {
+
                    [weakSelf.tableView reloadRowsAtIndexPaths:@[indexPath,[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:(UITableViewRowAnimationNone)];
-                }
-                
-                
             }
             
             

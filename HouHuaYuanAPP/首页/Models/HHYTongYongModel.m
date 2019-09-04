@@ -29,4 +29,12 @@
     _postContent = [NSString emojiRecovery:postContent];
 }
 
+- (void)setRemark:(NSString *)remark {
+    _remark = [NSString emojiRecovery:remark];
+}
+
+- (void)setChatContent:(NSString *)chatContent {
+    _chatContent = [NSString emojiRecovery:chatContent];
+}
+
 @end

@@ -132,7 +132,7 @@
                 [[EMClient sharedClient].options setIsAutoLogin:YES]; //设定自动登录
                 [self dismissViewControllerAnimated:YES completion:nil];
                 NSLog(@"%@",@"登录成功");
-                
+            
             }else {
              
             }

@@ -67,6 +67,7 @@
         return;
     }
     NSMutableDictionary * dict = @{@"phone":self.phoneTF.text}.mutableCopy;
+    dict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
     if (self.isBangDing) {
         dict[@"type"] = @(4);
     }else {

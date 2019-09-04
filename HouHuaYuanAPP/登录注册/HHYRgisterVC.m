@@ -116,6 +116,8 @@
         return;
     }
     NSMutableDictionary * dict = @{@"phone":self.phoneTF.text,@"type":@"1"}.mutableCopy;
+    dict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
+    
     if (self.isTherd) {
         dict[@"type"] = @"0";
     }
