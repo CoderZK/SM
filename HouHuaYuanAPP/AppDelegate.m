@@ -24,8 +24,8 @@
 #define SinaAppSecret @"21538c5bda3ff74eed852ed4baf250f3"
 #define WXAppID @"wxa9d5e96c3c7560c5"
 #define WXAppSecret @"831141212f70062d7cab39b2571cfb7e"
-#define QQAppID @"1104758682"
-#define QQAppKey @"h97lgfazyRUzXJKy"
+#define QQAppID @"1109767681"
+#define QQAppKey @"K299TMqRouNznqcl"
 
 
 @interface AppDelegate ()<EMChatManagerDelegate,RBDMuteSwitchDelegate,UNUserNotificationCenterDelegate,WXApiDelegate>
@@ -119,7 +119,7 @@
     }
     
     
-    UITabBarController * tabvc = self.window.rootViewController;
+    TabBarController * tabvc = self.window.rootViewController;
     if (tabvc.selectedIndex == 2) {
         BaseNavigationController * navc = tabvc.childViewControllers[2];
         if ([[navc.childViewControllers lastObject] isKindOfClass:[HangQingVC class]]) {
