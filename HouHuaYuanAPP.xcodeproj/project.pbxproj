@@ -208,6 +208,8 @@
 		5841A44B229E1E1F00878F30 /* HHYMineFourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5841A449229E1E1F00878F30 /* HHYMineFourCell.xib */; };
 		5841A44E229E372200878F30 /* HHYMineFriendsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5841A44D229E372200878F30 /* HHYMineFriendsTVC.m */; };
 		5841A451229E37BF00878F30 /* HHYMineFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5841A450229E37BF00878F30 /* HHYMineFriendsCell.m */; };
+		5848861D232628620099675D /* HHYYinSiXieYiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5848861B232628620099675D /* HHYYinSiXieYiVC.m */; };
+		5848861E232628620099675D /* HHYYinSiXieYiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5848861C232628620099675D /* HHYYinSiXieYiVC.xib */; };
 		5857C81C22B7A63100F9F01B /* HHYDongTaiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5857C81B22B7A63100F9F01B /* HHYDongTaiDetailCell.m */; };
 		588286C622BA0D46002AB876 /* HHYpublicFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 588286C522BA0D46002AB876 /* HHYpublicFunction.m */; };
 		589ABFEE2297AF20000BBD89 /* BSCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 589ABFED2297AF20000BBD89 /* BSCustom.m */; };
@@ -600,6 +602,10 @@
 		5841A44D229E372200878F30 /* HHYMineFriendsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYMineFriendsTVC.m; sourceTree = "<group>"; };
 		5841A44F229E37BF00878F30 /* HHYMineFriendsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYMineFriendsCell.h; sourceTree = "<group>"; };
 		5841A450229E37BF00878F30 /* HHYMineFriendsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYMineFriendsCell.m; sourceTree = "<group>"; };
+		5848861A232628620099675D /* HHYYinSiXieYiVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYYinSiXieYiVC.h; sourceTree = "<group>"; };
+		5848861B232628620099675D /* HHYYinSiXieYiVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYYinSiXieYiVC.m; sourceTree = "<group>"; };
+		5848861C232628620099675D /* HHYYinSiXieYiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HHYYinSiXieYiVC.xib; sourceTree = "<group>"; };
+		5848861F23263A5D0099675D /* HouHuaYuanAPP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HouHuaYuanAPP.entitlements; sourceTree = "<group>"; };
 		5857C81A22B7A63100F9F01B /* HHYDongTaiDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYDongTaiDetailCell.h; sourceTree = "<group>"; };
 		5857C81B22B7A63100F9F01B /* HHYDongTaiDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYDongTaiDetailCell.m; sourceTree = "<group>"; };
 		588286C422BA0D46002AB876 /* HHYpublicFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYpublicFunction.h; sourceTree = "<group>"; };
@@ -719,6 +725,7 @@
 		337F3E5820E9FE3B00C5526A /* HouHuaYuanAPP */ = {
 			isa = PBXGroup;
 			children = (
+				5848861F23263A5D0099675D /* HouHuaYuanAPP.entitlements */,
 				583ADD4E22A7507F0064E60F /* 发帖 */,
 				58333297229FBDD3008DD9CF /* 通用 */,
 				337F3E8F20E9FF3500C5526A /* 基类 */,
@@ -790,6 +797,9 @@
 				583F623522ADDF5C00FE353D /* HHYRgisterVC.h */,
 				583F623622ADDF5C00FE353D /* HHYRgisterVC.m */,
 				583F623722ADDF5C00FE353D /* HHYRgisterVC.xib */,
+				5848861A232628620099675D /* HHYYinSiXieYiVC.h */,
+				5848861B232628620099675D /* HHYYinSiXieYiVC.m */,
+				5848861C232628620099675D /* HHYYinSiXieYiVC.xib */,
 				583F623A22ADE82200FE353D /* HHYForGetPassVC.h */,
 				583F623B22ADE82200FE353D /* HHYForGetPassVC.m */,
 				583F623C22ADE82200FE353D /* HHYForGetPassVC.xib */,
@@ -1507,6 +1517,11 @@
 				TargetAttributes = {
 					337F3E5520E9FE3B00C5526A = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					337F3E6D20E9FE5400C5526A = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1590,6 +1605,7 @@
 				5830B9F4229E6E7200E724A4 /* HHYHuaDuoOneCell.xib in Resources */,
 				583ADD4622A7479F0064E60F /* gesture_indicator_selected@2x.png in Resources */,
 				5831C61622A4BDAC0023D1E5 /* HHYTiXianTwoTVC.xib in Resources */,
+				5848861E232628620099675D /* HHYYinSiXieYiVC.xib in Resources */,
 				582FFA4E229B84170039971E /* mx_pic_selected_yes@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1676,6 +1692,7 @@
 				5841A451229E37BF00878F30 /* HHYMineFriendsCell.m in Sources */,
 				335010DA20EDF8E400F8486B /* UIViewController+AlertShow.m in Sources */,
 				58E2D1C5229D30220060BAD4 /* HHYShauiXuanView.m in Sources */,
+				5848861D232628620099675D /* HHYYinSiXieYiVC.m in Sources */,
 				5831DAB622D56AA2001C5E4A /* CustomEmojiView.m in Sources */,
 				583297CB22A63B9E00B52104 /* HHYBindPoneTwoVC.m in Sources */,
 				582FFA53229B84170039971E /* MXALAsset.m in Sources */,
@@ -1994,8 +2011,9 @@
 			baseConfigurationReference = C0333005ECB5A67F63F21483 /* Pods-HouHuaYuanAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZSL4MW2WKS;
+				DEVELOPMENT_TEAM = CHS3MS5N2G;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2021,7 +2039,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.houhuayuan.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
-				PROVISIONING_PROFILE_SPECIFIER = ccccc;
+				PROVISIONING_PROFILE_SPECIFIER = houhuayuandev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2031,8 +2049,9 @@
 			baseConfigurationReference = 93517C6A5478579AE5177242 /* Pods-HouHuaYuanAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZSL4MW2WKS;
+				DEVELOPMENT_TEAM = CHS3MS5N2G;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2057,7 +2076,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.houhuayuan.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = ccccc;
+				PROVISIONING_PROFILE_SPECIFIER = houhuayuandis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

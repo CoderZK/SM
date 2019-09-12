@@ -8,6 +8,7 @@
 
 #import "HHYRgisterVC.h"
 #import "HHYAddZiLiaoTVC.h"
+#import "HHYYinSiXieYiVC.h"
 @interface HHYRgisterVC ()
 @property (weak, nonatomic) IBOutlet UIView *view1;
 @property (weak, nonatomic) IBOutlet UIView *view2;
@@ -66,6 +67,10 @@
         button.selected = !button.selected;
     }else if (button.tag == 102){
         //用户协议
+        HHYYinSiXieYiVC * vc =[[HHYYinSiXieYiVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+        
         
     }else if (button.tag == 103){
         //隐私协议

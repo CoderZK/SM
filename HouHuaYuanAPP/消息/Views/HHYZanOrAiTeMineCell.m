@@ -38,6 +38,11 @@
     self.nameLB.text = model.nickName;
  
     self.timeLB.text = [NSString stringWithTime:model.createTime];
+    
+    
+    if (model.postContent.length == 0) {
+        model.postContent = @"帖子被帖主删除";
+    }
     if (self.type == 1) {
         NSString * str = [NSString stringWithFormat:@"赞了我的帖子: %@",model.postContent];
         self.contentLB.attributedText = [str getMutableAttributeStringWithFont:14 lineSpace:0 textColor:CharacterBlackColor textColorTwo:[UIColor blackColor] nsrange:NSMakeRange(0, 7)];

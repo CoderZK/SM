@@ -322,11 +322,14 @@
     
     
     HHYTongYongModel * model = self.scrollDataArray[index];
-    LxmWebViewController *vc = [[LxmWebViewController alloc] init];
-    vc.loadUrl = [NSURL URLWithString:model.url];
-    vc.navigationItem.title = model.name;
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    if (model.url.length > 0) {
+        LxmWebViewController *vc = [[LxmWebViewController alloc] init];
+        vc.loadUrl = [NSURL URLWithString:model.url];
+        vc.navigationItem.title = model.name;
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+  
     
     
 }

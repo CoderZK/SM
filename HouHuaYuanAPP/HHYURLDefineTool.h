@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 ////测试本地
-#define URLOne @"http://yx4ytd.natappfree.cc"
+#define URLOne @"http://47.100.198.68"
 ////图片地址
 #define ImgURL @"http://47.100.198.68/upload"
 
