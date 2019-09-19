@@ -39,4 +39,6 @@
 #import "HangQingVC.h"
 #import <ReactiveObjC.h>
 
+#import "FMDBSingle.h"
+
 #endif /* importHead_h */

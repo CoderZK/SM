@@ -197,7 +197,7 @@
     }else {
         HHYHuiYuanThreeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellThree" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.titleLB.text = [NSString stringWithFormat:@"%@  %@ 元",self.dataArray[indexPath.row].name,self.dataArray[indexPath.row].price];
+        cell.titleLB.text = [NSString stringWithFormat:@"%@  %0.2f 元",self.dataArray[indexPath.row].name,[self.dataArray[indexPath.row].price floatValue]];
         cell.rightBt.tag = indexPath.row + 100;
         [cell.rightBt addTarget:self action:@selector(rightBtAction:) forControlEvents:UIControlEventTouchUpInside];
         return cell;

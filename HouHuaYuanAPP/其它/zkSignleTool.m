@@ -31,6 +31,15 @@ static zkSignleTool * tool = nil;
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"isLogin"];
 }
 
+- (void)setIsUpdate:(BOOL)isUpdate {
+    [[NSUserDefaults standardUserDefaults] setBool:isUpdate forKey:@"isUpdate"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (BOOL)isUpdate {
+     return [[NSUserDefaults standardUserDefaults] boolForKey:@"isUpdate"];
+}
+
 -(void)setSession_token:(NSString *)session_token
 {
     

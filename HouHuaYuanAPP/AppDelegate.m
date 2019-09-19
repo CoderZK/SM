@@ -90,7 +90,8 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(systemVolumeDidChangeNoti:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     
-
+    [self updateNewAppWith:nil];
+    
     
     
     return YES;
@@ -236,6 +237,50 @@
     //打开日志，方便调试
     [UMessage setLogEnabled:YES];
 }
+
+- (void)updateNewAppWith:(NSString *)strOfAppid {
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",@"1476003936"]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                         if (data)
+                                         {
+                                             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                                             
+                                             if (dic)
+                                             {
+                                                 NSArray * arr = [dic objectForKey:@"results"];
+                                                 if (arr.count>0)
+                                                 {
+                                                     NSDictionary * versionDict = arr.firstObject;
+                                                     
+                                                     NSString * version = [[versionDict objectForKey:@"version"] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                                                     NSString * currentVersion = [[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                                                     
+                                                     if ([version integerValue] < [currentVersion integerValue])
+                                                     {
+                                                         [zkSignleTool shareTool].isUpdate = YES;
+                                                       
+                                                     }else {
+                                                          [zkSignleTool shareTool].isUpdate = NO;
+                                                     }
+                                                 }else {
+                                                     
+                                                     [zkSignleTool shareTool].isUpdate = YES;
+                                                     
+                                                 }
+                                             }
+                                         }
+                                     }] resume];
+    
+    
+}
+
+
 
 - (void)confitUShareSettings
 {

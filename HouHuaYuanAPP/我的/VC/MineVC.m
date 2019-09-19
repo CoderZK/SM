@@ -25,6 +25,12 @@
 #import "HHYYiJianTVC.h"
 #import "HHYTiXianTVC.h"
 #import "HHYSettingTVC.h"
+
+
+#import "YJGouWuChe.h"
+#import "kkMineGouWuListTVC.h"
+#import "YJAddressTVC.h"
+
 @interface MineVC ()<HHYMineFourCellDelegate>
 @property(nonatomic,strong)NSArray *titleArr;
 @property(nonatomic,strong)HHYUserModel *dataModel;
@@ -49,7 +55,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"HHYMineFourCell" bundle:nil] forCellReuseIdentifier:@"cellFour"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.titleArr = @[@[],@[],@[],@[@"我的主页",@"我的动态",@"谁看过我",@"我的相册",@"我的收藏",@"我的黑名单"],@[@"任务中心",@"实名认证",@"会员服务",@"我的订单",@"我的提现",@"意见反馈"]];
+    self.titleArr = @[@[],@[],@[],@[@"我的主页",@"我的动态",@"谁看过我",@"我的相册",@"我的收藏",@"我的黑名单"],@[@"任务中心",@"实名认证",@"会员服务",@"我的订单",@"我的提现",@"意见反馈"],@[@"购物车",@"购物记录",@"地址"]];
     
     
     UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
@@ -97,6 +103,9 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (isPPPPPP) {
+        return 6;
+    }
     return 5;
 }
 
@@ -104,11 +113,14 @@
     if (section <3) {
         return 1;
     }
+    if (section == 5) {
+        return 3;
+    }
     return 6;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 3) {
+    if (section == 3 || section == 4) {
         return 10;
     }
     return 0.01;
@@ -133,7 +145,13 @@
     }else if (indexPath.section == 1) {
         return 80;
     }else if (indexPath.section == 2) {
+        if (isPPPPPP) {
+            return 0;
+        }
         return (ScreenW- 40) / 2 * (5/17.0) + 30;
+    }
+    if ((indexPath.section == 4 && indexPath.row == 2 && isPPPPPP) || (indexPath.section == 4 && indexPath.row == 4 && isPPPPPP)){
+        return 0;
     }
     return 50;
 }
@@ -157,11 +175,13 @@
         HHYMineTwoCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellTwo" forIndexPath:indexPath];
         [cell.leftBt addTarget:self action:@selector(huiYuanOrZiLiaoAction:) forControlEvents:UIControlEventTouchUpInside];
         [cell.rightBt addTarget:self action:@selector(huiYuanOrZiLiaoAction:) forControlEvents:UIControlEventTouchUpInside];
+        cell.clipsToBounds = YES;
         return cell;
     }else {
         HHYMineThreeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellThree" forIndexPath:indexPath];
         cell.leftImgV.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld-%ld",indexPath.section-3,indexPath.row]];
         cell.leftLB.text = self.titleArr[indexPath.section][indexPath.row];
+        cell.clipsToBounds = YES;
         return cell;
     }
 
@@ -269,6 +289,22 @@
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
+    }else if(indexPath.section == 5) {
+        if (indexPath.row == 0) {
+            YJGouWuChe * vc =[[YJGouWuChe alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else if (indexPath.row == 1) {
+            kkMineGouWuListTVC* vc =[[kkMineGouWuListTVC alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }else if (indexPath.row == 2) {
+            YJAddressTVC* vc =[[YJAddressTVC alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        
     }
     
     
@@ -297,6 +333,7 @@
         HHYKaiTongHuiYuanTVC * vc =[[HHYKaiTongHuiYuanTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         vc.nickName = self.dataModel.nickName;
+        vc.imgStr = self.dataModel.avatar;
         [self.navigationController pushViewController:vc animated:YES];
     }else {
         //点击了修改资料
@@ -311,6 +348,9 @@
 #pragma mark ---- 点击了关注粉丝一栏 -----
 - (void)didClickView:(HHYMineFourCell *)cell withIndex:(NSInteger)index {
     if (index == 3) {
+        if (isPPPPPP) {
+            return;
+        }
         HHYReDuTVC * vc =[[HHYReDuTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];

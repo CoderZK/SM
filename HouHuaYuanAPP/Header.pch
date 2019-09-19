@@ -43,6 +43,12 @@
 #import "HHYURLDefineTool.h"
 #import "importHead.h"
 
+
+
+#import "yjHomeVC.h"
+#import <ReactiveObjC.h>
+
+
 //环信的appkey
 #define huanXinAppKey @"1153180726253609#54school"
 //环信登录的统一密码
@@ -51,6 +57,8 @@
 
 #define sxeArr @[@"",@"男",@"女"]
 
+
+#define isPPPPPP [zkSignleTool shareTool].isUpdate
 
 #define iOS11Later ([UIDevice currentDevice].systemVersion.floatValue >= 11.0f)
 

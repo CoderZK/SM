@@ -119,6 +119,9 @@
         chongZhiBt.tag = 104;
         chongZhiBt.titleLabel.font = kFont(14);
         [chongZhiBt setTitle:@"买花" forState:UIControlStateNormal];
+        if (isPPPPPP) {
+            [chongZhiBt setTitle:@"取消" forState:UIControlStateNormal];;
+        }
 //        [chongZhiBt setTitleColor:RGB(6, 174, 243) forState:UIControlStateNormal];
          [chongZhiBt setTitleColor:CharacterRedColor forState:UIControlStateNormal];
         [chongZhiBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -145,6 +148,9 @@
         self.number+=100;
     }else {
         [self diss];
+        if (isPPPPPP) {
+            return;
+        }
         [self.TF endEditing:YES];
         if (self.deletage != nil && [self.deletage respondsToSelector:@selector(didClcikIndex:withIndexPath:WithNumber:)]) {
             

@@ -108,6 +108,11 @@
     [rightbtn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     rightbtn1.tag = 10;
     self.zhidingBt = rightbtn1;
+    if (isPPPPPP){
+        self.zhidingBt.hidden = YES;
+    }else {
+        self.zhidingBt.hidden = NO;
+    }
     
     UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
     [rightbtn setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];

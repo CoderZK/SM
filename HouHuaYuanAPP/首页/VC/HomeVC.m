@@ -21,6 +21,8 @@
 #import "HHYHomeFiveCell.h"
 #import "HHYMineDongTaiTVC.h"
 #import "LxmWebViewController.h"
+#import "HHYShopingVC.h"
+
 
 @interface HomeVC ()<SDCycleScrollViewDelegate,HHYHomeDongTaiCellDelegate,HHYYongBaoViewDeletage,UITabBarControllerDelegate>
 @property(nonatomic,strong)UIView *headView;
@@ -162,14 +164,24 @@
 
 //设置头视图
 - (void)setHeadView {
-    self.headView =[[UIView alloc] initWithFrame:CGRectMake(0,0, ScreenW, ScreenW * 3/4)];
+    self.headView =[[UIView alloc] initWithFrame:CGRectMake(0,0, ScreenW, ScreenW * 3/4 )];
+    self.headView.clipsToBounds = YES;
+    if (isPPPPPP) {
+        self.headView.mj_h = ScreenW * 3/4 + 200;
+    }
     self.headView.backgroundColor  = WhiteColor;
+    
+    UIButton * imgBt = [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenW * 3/4, ScreenW, 200)];
+    [imgBt addTarget:self action:@selector(goShoping) forControlEvents:UIControlEventTouchUpInside];
+    [imgBt setBackgroundImage:[UIImage imageNamed:@"200"] forState:UIControlStateNormal];
+    [self.headView addSubview:imgBt];
+    
 //    UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, ScreenW, Kscale(230))];
 //    imgV.image = [UIImage imageNamed:@"86"];
 //    [self.headView addSubview:imgV];
 
 //    self.scrollDataArray = @[@"http://attachments.gfan.com/forum/201411/29/224352283mf2aaio2madbu.jpg",@"http://pic1.win4000.com/wallpaper/a/52e5ccc6a5f28.jpg",@"http://attach.bbs.miui.com/forum/201312/06/211410sxjtbyaj9abo5qzh.jpg",@"http://img17.3lian.com/d/file/201702/21/2d561f5e226af7b0a222c5432deb6d2a.jpg"].mutableCopy;
-    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:self.headView.bounds delegate:self placeholderImage:nil];
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, ScreenW, ScreenW * 3/4 ) delegate:self placeholderImage:nil];
     cycleScrollView.autoScrollTimeInterval = 3;
 //    cycleScrollView.layer.cornerRadius = 4;
 //    cycleScrollView.clipsToBounds = YES;
@@ -179,7 +191,6 @@
     CGFloat aa = 15;
     cycleScrollView.placeholderImage =[UIImage imageNamed:@"new_picture_default-1"];
     cycleScrollView.pageDotColor = [UIColor whiteColor];
-    cycleScrollView.localizationImageNamesGroup = @[[UIImage imageNamed:@"a"],[UIImage imageNamed:@"b"],[UIImage imageNamed:@"c"]];
     self.sdcycView = cycleScrollView;
     [self.headView addSubview:cycleScrollView];
     
@@ -191,6 +202,19 @@
     
 }
 
+
+- (void)goShoping {
+    
+//    if (![zkSignleTool shareTool].isLogin) {
+//        [self gotoLoginVC];
+//        return;
+//    }
+    
+    yjHomeVC * vc =[[yjHomeVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
@@ -527,11 +551,11 @@
   
     BaseTableViewController * tvc = (BaseTableViewController *)[vc.childViewControllers firstObject];
     
-    if (([tvc isKindOfClass:[HangQingVC class]] || [tvc isKindOfClass:[MineVC class]]) && ![zkSignleTool shareTool].isLogin) {
-        [self gotoLoginVC];
-        return NO;
-    }
-    
+//    if (([tvc isKindOfClass:[HangQingVC class]] || [tvc isKindOfClass:[MineVC class]]) && ![zkSignleTool shareTool].isLogin) {
+//        [self gotoLoginVC];
+//        return NO;
+//    }
+    return YES;
     NSLog(@"===\n%@",viewController);
     NSLog(@"+++++\n%@",vc.childViewControllers);
 

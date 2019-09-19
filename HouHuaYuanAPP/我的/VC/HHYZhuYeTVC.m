@@ -539,6 +539,10 @@
         
         if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
             
+            if (isPPPPPP) {
+                return;
+            }
+            
             HHYReDuTVC * vc =[[HHYReDuTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];

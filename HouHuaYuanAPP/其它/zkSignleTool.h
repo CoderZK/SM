@@ -13,6 +13,7 @@
 
 + (zkSignleTool *)shareTool;
 @property(nonatomic,assign)BOOL isLogin;
+@property(nonatomic,assign)BOOL isUpdate;
 @property(nonatomic,strong)NSString * session_token;
 @property(nonatomic,strong)NSString * nickName;
 @property(nonatomic,strong)NSString * img;
