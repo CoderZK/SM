@@ -187,7 +187,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 5) {
             //版本检测
-            [self updateNewAppWith:@"1476003936"];
+            [self updateNewAppWith:ppppppid];
         }
     }else if (indexPath.section == 2) {
         

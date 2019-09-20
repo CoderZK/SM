@@ -66,6 +66,9 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateHead) name:@"updateHead" object:nil];
+    
     self.pageNo = 1;
     [self getData];
 }
@@ -74,6 +77,7 @@
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.hidden = NO;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -112,6 +116,17 @@
     }];
     
     [self getDataDaLei];
+    
+}
+
+- (void)updateHead {
+   
+    if (isPPPPPP) {
+        self.headView.mj_h = ScreenW * 3/4 + 200;
+    }else {
+        self.headView.mj_h = ScreenW * 3/4;
+    }
+    self.tableView.tableHeaderView = self.headView;
     
 }
 

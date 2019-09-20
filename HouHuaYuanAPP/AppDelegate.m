@@ -240,7 +240,7 @@
 
 - (void)updateNewAppWith:(NSString *)strOfAppid {
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",@"1476003936"]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",ppppppid]];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
     [request setHTTPMethod:@"POST"];
@@ -264,13 +264,16 @@
                                                      if ([version integerValue] < [currentVersion integerValue])
                                                      {
                                                          [zkSignleTool shareTool].isUpdate = YES;
+                                                         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateHead" object:nil];
                                                        
                                                      }else {
                                                           [zkSignleTool shareTool].isUpdate = NO;
+                                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"updateHead" object:nil];
                                                      }
                                                  }else {
                                                      
                                                      [zkSignleTool shareTool].isUpdate = YES;
+                                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"updateHead" object:nil];
                                                      
                                                  }
                                              }
