@@ -225,7 +225,7 @@
 //        return;
 //    }
     
-    yjHomeVC * vc =[[yjHomeVC alloc] init];
+    HHYHomeVC * vc =[[HHYHomeVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     

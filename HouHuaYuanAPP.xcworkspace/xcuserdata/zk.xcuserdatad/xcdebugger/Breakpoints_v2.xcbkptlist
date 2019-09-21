@@ -36,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HouHuaYuanAPP/&#x9996;&#x9875;/&#x5546;&#x57ce;/JZKJ/kkJieSuanVC.m"
-            timestampString = "590573318.6707489"
+            timestampString = "590635939.032144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -52,7 +52,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HouHuaYuanAPP/&#x9996;&#x9875;/&#x5546;&#x57ce;/JZKJ/kkJieSuanVC.m"
-            timestampString = "590573318.6716681"
+            timestampString = "590635939.033255"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "79"
@@ -68,7 +68,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HouHuaYuanAPP/&#x9996;&#x9875;/&#x5546;&#x57ce;/JZKJ/kkJieSuanVC.m"
-            timestampString = "590573318.672307"
+            timestampString = "590635939.033538"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "74"
@@ -100,7 +100,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HouHuaYuanAPP/AppDelegate.m"
-            timestampString = "590579271.066166"
+            timestampString = "590719293.747492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "266"
@@ -116,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HouHuaYuanAPP/AppDelegate.m"
-            timestampString = "590579271.066633"
+            timestampString = "590719293.749413"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "270"
@@ -132,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HouHuaYuanAPP/AppDelegate.m"
-            timestampString = "590579271.067142"
+            timestampString = "590719293.74966"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "275"
@@ -148,13 +148,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HouHuaYuanAPP/AppDelegate.m"
-            timestampString = "590579271.067661"
+            timestampString = "590719293.749889"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "254"
             endingLineNumber = "254"
             landmarkName = "-updateNewAppWith:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HouHuaYuanAPP/Header.pch"
+            timestampString = "590730322.414151"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

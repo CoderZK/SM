@@ -712,9 +712,7 @@
 
 
 - (void)zanActionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
-    
 
-    
     NSMutableDictionary * dict = @{}.mutableCopy;
     dict[@"postId"] = model.postId;
     dict[@"type"] = @"1";

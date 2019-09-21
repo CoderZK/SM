@@ -53,41 +53,6 @@
 		582C80C82331CC6A00ADF27A /* HHYShopingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80C52331CC6A00ADF27A /* HHYShopingVC.m */; };
 		582C80C92331CC6A00ADF27A /* HHYShopingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80C62331CC6A00ADF27A /* HHYShopingCell.m */; };
 		582C80CC2331FFB100ADF27A /* FMDBSingle.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80CB2331FFB100ADF27A /* FMDBSingle.m */; };
-		582C81072331FFBC00ADF27A /* zkLoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80CE2331FFBC00ADF27A /* zkLoginVC.xib */; };
-		582C81082331FFBC00ADF27A /* kkMyCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80D12331FFBC00ADF27A /* kkMyCarCell.xib */; };
-		582C81092331FFBC00ADF27A /* YJOutVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80D22331FFBC00ADF27A /* YJOutVC.xib */; };
-		582C810A2331FFBC00ADF27A /* NewsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80D32331FFBC00ADF27A /* NewsVC.m */; };
-		582C810B2331FFBC00ADF27A /* kkRenZhengVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80D42331FFBC00ADF27A /* kkRenZhengVC.xib */; };
-		582C810C2331FFBC00ADF27A /* YJNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80D52331FFBC00ADF27A /* YJNewsCell.m */; };
-		582C810D2331FFBC00ADF27A /* YJAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80D72331FFBC00ADF27A /* YJAddressCell.m */; };
-		582C810E2331FFBC00ADF27A /* kkSearchTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80D92331FFBC00ADF27A /* kkSearchTVC.m */; };
-		582C810F2331FFBC00ADF27A /* yjMineCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80DE2331FFBC00ADF27A /* yjMineCell.xib */; };
-		582C81102331FFBC00ADF27A /* kkJieSuanVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80E02331FFBC00ADF27A /* kkJieSuanVC.xib */; };
-		582C81122331FFBC00ADF27A /* YJOutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80E62331FFBC00ADF27A /* YJOutVC.m */; };
-		582C81142331FFBC00ADF27A /* yjMineCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80E82331FFBC00ADF27A /* yjMineCell.m */; };
-		582C81152331FFBC00ADF27A /* YJGouWuChe.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80E92331FFBC00ADF27A /* YJGouWuChe.m */; };
-		582C81162331FFBC00ADF27A /* YJWenTiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80EA2331FFBC00ADF27A /* YJWenTiVC.m */; };
-		582C81172331FFBC00ADF27A /* kkMineGouWuListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80EC2331FFBC00ADF27A /* kkMineGouWuListTVC.m */; };
-		582C81182331FFBC00ADF27A /* YJXieYiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80ED2331FFBC00ADF27A /* YJXieYiVC.xib */; };
-		582C81192331FFBC00ADF27A /* YJWenTiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80EE2331FFBC00ADF27A /* YJWenTiVC.xib */; };
-		582C811A2331FFBC00ADF27A /* YJNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80F02331FFBC00ADF27A /* YJNewsCell.xib */; };
-		582C811B2331FFBC00ADF27A /* YJAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80F12331FFBC00ADF27A /* YJAddressCell.xib */; };
-		582C811C2331FFBC00ADF27A /* YJHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80F22331FFBC00ADF27A /* YJHomeCell.xib */; };
-		582C811D2331FFBC00ADF27A /* YJXieYiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80F42331FFBC00ADF27A /* YJXieYiVC.m */; };
-		582C811E2331FFBC00ADF27A /* YJHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80F52331FFBC00ADF27A /* YJHomeModel.m */; };
-		582C811F2331FFBC00ADF27A /* zkLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80F62331FFBC00ADF27A /* zkLoginVC.m */; };
-		582C81202331FFBC00ADF27A /* YJHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80F72331FFBC00ADF27A /* YJHomeCell.m */; };
-		582C81212331FFBC00ADF27A /* YJAddAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80F82331FFBC00ADF27A /* YJAddAddressVC.m */; };
-		582C81222331FFBC00ADF27A /* kkMyCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80F92331FFBC00ADF27A /* kkMyCarCell.m */; };
-		582C81232331FFBC00ADF27A /* kkJieSuanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80FA2331FFBC00ADF27A /* kkJieSuanVC.m */; };
-		582C81242331FFBC00ADF27A /* YJAddressTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80FC2331FFBC00ADF27A /* YJAddressTVC.m */; };
-		582C81252331FFBC00ADF27A /* YJhelpVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80FD2331FFBC00ADF27A /* YJhelpVC.xib */; };
-		582C81262331FFBC00ADF27A /* YJhelpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80FF2331FFBC00ADF27A /* YJhelpVC.m */; };
-		582C81272331FFBC00ADF27A /* YJAddAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C81022331FFBC00ADF27A /* YJAddAddressVC.xib */; };
-		582C81282331FFBC00ADF27A /* kkRenZhengVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C81052331FFBC00ADF27A /* kkRenZhengVC.m */; };
-		582C81292331FFBC00ADF27A /* YJGoodDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C81062331FFBC00ADF27A /* YJGoodDetailTVC.m */; };
-		582C812C233203BD00ADF27A /* yjHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C812B233203BD00ADF27A /* yjHomeVC.m */; };
-		582C812F2332044F00ADF27A /* yjMineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C812E2332044F00ADF27A /* yjMineVC.m */; };
 		582C8132233206FD00ADF27A /* GGG.db in Resources */ = {isa = PBXBuildFile; fileRef = 582C8131233206FD00ADF27A /* GGG.db */; };
 		582CD5FF231526BD0021725A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582CD5FE231526BD0021725A /* QuartzCore.framework */; };
 		582CD601231526D30021725A /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582CD600231526D30021725A /* CoreText.framework */; };
@@ -248,6 +213,23 @@
 		5841A44B229E1E1F00878F30 /* HHYMineFourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5841A449229E1E1F00878F30 /* HHYMineFourCell.xib */; };
 		5841A44E229E372200878F30 /* HHYMineFriendsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5841A44D229E372200878F30 /* HHYMineFriendsTVC.m */; };
 		5841A451229E37BF00878F30 /* HHYMineFriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5841A450229E37BF00878F30 /* HHYMineFriendsCell.m */; };
+		584724BF2335B216002F5D0B /* HHYMyCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 584724A22335B216002F5D0B /* HHYMyCarCell.xib */; };
+		584724C02335B216002F5D0B /* HHYAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724A42335B216002F5D0B /* HHYAddressCell.m */; };
+		584724C12335B216002F5D0B /* HHYHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724A52335B216002F5D0B /* HHYHomeModel.m */; };
+		584724C22335B216002F5D0B /* HHYHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 584724A82335B216002F5D0B /* HHYHomeCell.xib */; };
+		584724C32335B216002F5D0B /* HHYJieSuanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724A92335B216002F5D0B /* HHYJieSuanVC.m */; };
+		584724C42335B216002F5D0B /* HHYHomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724AB2335B216002F5D0B /* HHYHomeVC.m */; };
+		584724C52335B216002F5D0B /* HHYMyCarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724AC2335B216002F5D0B /* HHYMyCarCell.m */; };
+		584724C62335B216002F5D0B /* HHYJieSuanVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 584724AD2335B216002F5D0B /* HHYJieSuanVC.xib */; };
+		584724C72335B216002F5D0B /* HHYGouWuChe.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724AE2335B216002F5D0B /* HHYGouWuChe.m */; };
+		584724C82335B216002F5D0B /* HHYAddressTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724B02335B216002F5D0B /* HHYAddressTVC.m */; };
+		584724C92335B216002F5D0B /* HHYHomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724B22335B216002F5D0B /* HHYHomeCell.m */; };
+		584724CA2335B216002F5D0B /* HHYSearchTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724B42335B216002F5D0B /* HHYSearchTVC.m */; };
+		584724CB2335B216002F5D0B /* HHYGoodDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724B72335B216002F5D0B /* HHYGoodDetailTVC.m */; };
+		584724CC2335B216002F5D0B /* HHYAddAddressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724B82335B216002F5D0B /* HHYAddAddressVC.m */; };
+		584724CD2335B216002F5D0B /* HHYAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 584724BA2335B216002F5D0B /* HHYAddressCell.xib */; };
+		584724CE2335B216002F5D0B /* HHYAddAddressVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 584724BC2335B216002F5D0B /* HHYAddAddressVC.xib */; };
+		584724CF2335B216002F5D0B /* HHYMineGouWuListTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724BE2335B216002F5D0B /* HHYMineGouWuListTVC.m */; };
 		5848861D232628620099675D /* HHYYinSiXieYiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5848861B232628620099675D /* HHYYinSiXieYiVC.m */; };
 		5848861E232628620099675D /* HHYYinSiXieYiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5848861C232628620099675D /* HHYYinSiXieYiVC.xib */; };
 		5857C81C22B7A63100F9F01B /* HHYDongTaiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5857C81B22B7A63100F9F01B /* HHYDongTaiDetailCell.m */; };
@@ -375,63 +357,6 @@
 		582C80C62331CC6A00ADF27A /* HHYShopingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYShopingCell.m; sourceTree = "<group>"; };
 		582C80CA2331FFB100ADF27A /* FMDBSingle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBSingle.h; sourceTree = "<group>"; };
 		582C80CB2331FFB100ADF27A /* FMDBSingle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBSingle.m; sourceTree = "<group>"; };
-		582C80CE2331FFBC00ADF27A /* zkLoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = zkLoginVC.xib; sourceTree = "<group>"; };
-		582C80CF2331FFBC00ADF27A /* YJXieYiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJXieYiVC.h; sourceTree = "<group>"; };
-		582C80D02331FFBC00ADF27A /* YJHomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHomeModel.h; sourceTree = "<group>"; };
-		582C80D12331FFBC00ADF27A /* kkMyCarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = kkMyCarCell.xib; sourceTree = "<group>"; };
-		582C80D22331FFBC00ADF27A /* YJOutVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJOutVC.xib; sourceTree = "<group>"; };
-		582C80D32331FFBC00ADF27A /* NewsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsVC.m; sourceTree = "<group>"; };
-		582C80D42331FFBC00ADF27A /* kkRenZhengVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = kkRenZhengVC.xib; sourceTree = "<group>"; };
-		582C80D52331FFBC00ADF27A /* YJNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJNewsCell.m; sourceTree = "<group>"; };
-		582C80D62331FFBC00ADF27A /* kkMineGouWuListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kkMineGouWuListTVC.h; sourceTree = "<group>"; };
-		582C80D72331FFBC00ADF27A /* YJAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAddressCell.m; sourceTree = "<group>"; };
-		582C80D82331FFBC00ADF27A /* YJWenTiVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJWenTiVC.h; sourceTree = "<group>"; };
-		582C80D92331FFBC00ADF27A /* kkSearchTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kkSearchTVC.m; sourceTree = "<group>"; };
-		582C80DA2331FFBC00ADF27A /* kkJieSuanVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kkJieSuanVC.h; sourceTree = "<group>"; };
-		582C80DB2331FFBC00ADF27A /* kkMyCarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kkMyCarCell.h; sourceTree = "<group>"; };
-		582C80DC2331FFBC00ADF27A /* YJAddAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAddAddressVC.h; sourceTree = "<group>"; };
-		582C80DD2331FFBC00ADF27A /* YJHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJHomeCell.h; sourceTree = "<group>"; };
-		582C80DE2331FFBC00ADF27A /* yjMineCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = yjMineCell.xib; sourceTree = "<group>"; };
-		582C80DF2331FFBC00ADF27A /* zkLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkLoginVC.h; sourceTree = "<group>"; };
-		582C80E02331FFBC00ADF27A /* kkJieSuanVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = kkJieSuanVC.xib; sourceTree = "<group>"; };
-		582C80E22331FFBC00ADF27A /* YJhelpVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJhelpVC.h; sourceTree = "<group>"; };
-		582C80E32331FFBC00ADF27A /* YJAddressTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAddressTVC.h; sourceTree = "<group>"; };
-		582C80E42331FFBC00ADF27A /* YJGoodDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJGoodDetailTVC.h; sourceTree = "<group>"; };
-		582C80E52331FFBC00ADF27A /* kkRenZhengVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kkRenZhengVC.h; sourceTree = "<group>"; };
-		582C80E62331FFBC00ADF27A /* YJOutVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJOutVC.m; sourceTree = "<group>"; };
-		582C80E82331FFBC00ADF27A /* yjMineCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = yjMineCell.m; sourceTree = "<group>"; };
-		582C80E92331FFBC00ADF27A /* YJGouWuChe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGouWuChe.m; sourceTree = "<group>"; };
-		582C80EA2331FFBC00ADF27A /* YJWenTiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJWenTiVC.m; sourceTree = "<group>"; };
-		582C80EB2331FFBC00ADF27A /* YJAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJAddressCell.h; sourceTree = "<group>"; };
-		582C80EC2331FFBC00ADF27A /* kkMineGouWuListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kkMineGouWuListTVC.m; sourceTree = "<group>"; };
-		582C80ED2331FFBC00ADF27A /* YJXieYiVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJXieYiVC.xib; sourceTree = "<group>"; };
-		582C80EE2331FFBC00ADF27A /* YJWenTiVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJWenTiVC.xib; sourceTree = "<group>"; };
-		582C80EF2331FFBC00ADF27A /* YJNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJNewsCell.h; sourceTree = "<group>"; };
-		582C80F02331FFBC00ADF27A /* YJNewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJNewsCell.xib; sourceTree = "<group>"; };
-		582C80F12331FFBC00ADF27A /* YJAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJAddressCell.xib; sourceTree = "<group>"; };
-		582C80F22331FFBC00ADF27A /* YJHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJHomeCell.xib; sourceTree = "<group>"; };
-		582C80F32331FFBC00ADF27A /* NewsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsVC.h; sourceTree = "<group>"; };
-		582C80F42331FFBC00ADF27A /* YJXieYiVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJXieYiVC.m; sourceTree = "<group>"; };
-		582C80F52331FFBC00ADF27A /* YJHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHomeModel.m; sourceTree = "<group>"; };
-		582C80F62331FFBC00ADF27A /* zkLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkLoginVC.m; sourceTree = "<group>"; };
-		582C80F72331FFBC00ADF27A /* YJHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJHomeCell.m; sourceTree = "<group>"; };
-		582C80F82331FFBC00ADF27A /* YJAddAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAddAddressVC.m; sourceTree = "<group>"; };
-		582C80F92331FFBC00ADF27A /* kkMyCarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kkMyCarCell.m; sourceTree = "<group>"; };
-		582C80FA2331FFBC00ADF27A /* kkJieSuanVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kkJieSuanVC.m; sourceTree = "<group>"; };
-		582C80FB2331FFBC00ADF27A /* kkSearchTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kkSearchTVC.h; sourceTree = "<group>"; };
-		582C80FC2331FFBC00ADF27A /* YJAddressTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJAddressTVC.m; sourceTree = "<group>"; };
-		582C80FD2331FFBC00ADF27A /* YJhelpVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJhelpVC.xib; sourceTree = "<group>"; };
-		582C80FF2331FFBC00ADF27A /* YJhelpVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJhelpVC.m; sourceTree = "<group>"; };
-		582C81002331FFBC00ADF27A /* YJGouWuChe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJGouWuChe.h; sourceTree = "<group>"; };
-		582C81012331FFBC00ADF27A /* yjMineCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = yjMineCell.h; sourceTree = "<group>"; };
-		582C81022331FFBC00ADF27A /* YJAddAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YJAddAddressVC.xib; sourceTree = "<group>"; };
-		582C81042331FFBC00ADF27A /* YJOutVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJOutVC.h; sourceTree = "<group>"; };
-		582C81052331FFBC00ADF27A /* kkRenZhengVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kkRenZhengVC.m; sourceTree = "<group>"; };
-		582C81062331FFBC00ADF27A /* YJGoodDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJGoodDetailTVC.m; sourceTree = "<group>"; };
-		582C812A233203BD00ADF27A /* yjHomeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yjHomeVC.h; sourceTree = "<group>"; };
-		582C812B233203BD00ADF27A /* yjHomeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = yjHomeVC.m; sourceTree = "<group>"; };
-		582C812D2332044F00ADF27A /* yjMineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = yjMineVC.h; sourceTree = "<group>"; };
-		582C812E2332044F00ADF27A /* yjMineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = yjMineVC.m; sourceTree = "<group>"; };
 		582C8131233206FD00ADF27A /* GGG.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = GGG.db; sourceTree = "<group>"; };
 		582CD5FE231526BD0021725A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		582CD600231526D30021725A /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -707,6 +632,35 @@
 		5841A44D229E372200878F30 /* HHYMineFriendsTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYMineFriendsTVC.m; sourceTree = "<group>"; };
 		5841A44F229E37BF00878F30 /* HHYMineFriendsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYMineFriendsCell.h; sourceTree = "<group>"; };
 		5841A450229E37BF00878F30 /* HHYMineFriendsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYMineFriendsCell.m; sourceTree = "<group>"; };
+		584724A22335B216002F5D0B /* HHYMyCarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHYMyCarCell.xib; sourceTree = "<group>"; };
+		584724A32335B216002F5D0B /* HHYHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYHomeCell.h; sourceTree = "<group>"; };
+		584724A42335B216002F5D0B /* HHYAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYAddressCell.m; sourceTree = "<group>"; };
+		584724A52335B216002F5D0B /* HHYHomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYHomeModel.m; sourceTree = "<group>"; };
+		584724A62335B216002F5D0B /* HHYAddAddressVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYAddAddressVC.h; sourceTree = "<group>"; };
+		584724A72335B216002F5D0B /* HHYGoodDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYGoodDetailTVC.h; sourceTree = "<group>"; };
+		584724A82335B216002F5D0B /* HHYHomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHYHomeCell.xib; sourceTree = "<group>"; };
+		584724A92335B216002F5D0B /* HHYJieSuanVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYJieSuanVC.m; sourceTree = "<group>"; };
+		584724AA2335B216002F5D0B /* HHYSearchTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYSearchTVC.h; sourceTree = "<group>"; };
+		584724AB2335B216002F5D0B /* HHYHomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYHomeVC.m; sourceTree = "<group>"; };
+		584724AC2335B216002F5D0B /* HHYMyCarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYMyCarCell.m; sourceTree = "<group>"; };
+		584724AD2335B216002F5D0B /* HHYJieSuanVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHYJieSuanVC.xib; sourceTree = "<group>"; };
+		584724AE2335B216002F5D0B /* HHYGouWuChe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYGouWuChe.m; sourceTree = "<group>"; };
+		584724AF2335B216002F5D0B /* HHYMineGouWuListTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYMineGouWuListTVC.h; sourceTree = "<group>"; };
+		584724B02335B216002F5D0B /* HHYAddressTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYAddressTVC.m; sourceTree = "<group>"; };
+		584724B12335B216002F5D0B /* HHYAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYAddressCell.h; sourceTree = "<group>"; };
+		584724B22335B216002F5D0B /* HHYHomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYHomeCell.m; sourceTree = "<group>"; };
+		584724B32335B216002F5D0B /* HHYMyCarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYMyCarCell.h; sourceTree = "<group>"; };
+		584724B42335B216002F5D0B /* HHYSearchTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYSearchTVC.m; sourceTree = "<group>"; };
+		584724B52335B216002F5D0B /* HHYHomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYHomeVC.h; sourceTree = "<group>"; };
+		584724B62335B216002F5D0B /* HHYJieSuanVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYJieSuanVC.h; sourceTree = "<group>"; };
+		584724B72335B216002F5D0B /* HHYGoodDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYGoodDetailTVC.m; sourceTree = "<group>"; };
+		584724B82335B216002F5D0B /* HHYAddAddressVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYAddAddressVC.m; sourceTree = "<group>"; };
+		584724B92335B216002F5D0B /* HHYHomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYHomeModel.h; sourceTree = "<group>"; };
+		584724BA2335B216002F5D0B /* HHYAddressCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHYAddressCell.xib; sourceTree = "<group>"; };
+		584724BB2335B216002F5D0B /* HHYGouWuChe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYGouWuChe.h; sourceTree = "<group>"; };
+		584724BC2335B216002F5D0B /* HHYAddAddressVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHYAddAddressVC.xib; sourceTree = "<group>"; };
+		584724BD2335B216002F5D0B /* HHYAddressTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYAddressTVC.h; sourceTree = "<group>"; };
+		584724BE2335B216002F5D0B /* HHYMineGouWuListTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYMineGouWuListTVC.m; sourceTree = "<group>"; };
 		5848861A232628620099675D /* HHYYinSiXieYiVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYYinSiXieYiVC.h; sourceTree = "<group>"; };
 		5848861B232628620099675D /* HHYYinSiXieYiVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYYinSiXieYiVC.m; sourceTree = "<group>"; };
 		5848861C232628620099675D /* HHYYinSiXieYiVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HHYYinSiXieYiVC.xib; sourceTree = "<group>"; };
@@ -1310,8 +1264,8 @@
 		582C80C12331CC2D00ADF27A /* 商城 */ = {
 			isa = PBXGroup;
 			children = (
+				584724A12335B216002F5D0B /* JZKJ */,
 				582C8130233206FD00ADF27A /* FYMySqli */,
-				582C80CD2331FFBC00ADF27A /* JZKJ */,
 				582C80CA2331FFB100ADF27A /* FMDBSingle.h */,
 				582C80CB2331FFB100ADF27A /* FMDBSingle.m */,
 				582C80C42331CC6A00ADF27A /* HHYShopingCell.h */,
@@ -1321,70 +1275,6 @@
 				582C80C52331CC6A00ADF27A /* HHYShopingVC.m */,
 			);
 			path = "商城";
-			sourceTree = "<group>";
-		};
-		582C80CD2331FFBC00ADF27A /* JZKJ */ = {
-			isa = PBXGroup;
-			children = (
-				582C80DB2331FFBC00ADF27A /* kkMyCarCell.h */,
-				582C80F92331FFBC00ADF27A /* kkMyCarCell.m */,
-				582C80D12331FFBC00ADF27A /* kkMyCarCell.xib */,
-				582C81012331FFBC00ADF27A /* yjMineCell.h */,
-				582C80E82331FFBC00ADF27A /* yjMineCell.m */,
-				582C80DE2331FFBC00ADF27A /* yjMineCell.xib */,
-				582C80DA2331FFBC00ADF27A /* kkJieSuanVC.h */,
-				582C80FA2331FFBC00ADF27A /* kkJieSuanVC.m */,
-				582C80E02331FFBC00ADF27A /* kkJieSuanVC.xib */,
-				582C812D2332044F00ADF27A /* yjMineVC.h */,
-				582C812E2332044F00ADF27A /* yjMineVC.m */,
-				582C81042331FFBC00ADF27A /* YJOutVC.h */,
-				582C80E62331FFBC00ADF27A /* YJOutVC.m */,
-				582C80D22331FFBC00ADF27A /* YJOutVC.xib */,
-				582C812A233203BD00ADF27A /* yjHomeVC.h */,
-				582C812B233203BD00ADF27A /* yjHomeVC.m */,
-				582C80D82331FFBC00ADF27A /* YJWenTiVC.h */,
-				582C80EA2331FFBC00ADF27A /* YJWenTiVC.m */,
-				582C80D62331FFBC00ADF27A /* kkMineGouWuListTVC.h */,
-				582C80EC2331FFBC00ADF27A /* kkMineGouWuListTVC.m */,
-				582C80EE2331FFBC00ADF27A /* YJWenTiVC.xib */,
-				582C80EF2331FFBC00ADF27A /* YJNewsCell.h */,
-				582C80D52331FFBC00ADF27A /* YJNewsCell.m */,
-				582C80F02331FFBC00ADF27A /* YJNewsCell.xib */,
-				582C80EB2331FFBC00ADF27A /* YJAddressCell.h */,
-				582C80D72331FFBC00ADF27A /* YJAddressCell.m */,
-				582C80F12331FFBC00ADF27A /* YJAddressCell.xib */,
-				582C80F32331FFBC00ADF27A /* NewsVC.h */,
-				582C80D32331FFBC00ADF27A /* NewsVC.m */,
-				582C80CF2331FFBC00ADF27A /* YJXieYiVC.h */,
-				582C80F42331FFBC00ADF27A /* YJXieYiVC.m */,
-				582C80ED2331FFBC00ADF27A /* YJXieYiVC.xib */,
-				582C80D02331FFBC00ADF27A /* YJHomeModel.h */,
-				582C80F52331FFBC00ADF27A /* YJHomeModel.m */,
-				582C80DF2331FFBC00ADF27A /* zkLoginVC.h */,
-				582C80F62331FFBC00ADF27A /* zkLoginVC.m */,
-				582C80CE2331FFBC00ADF27A /* zkLoginVC.xib */,
-				582C80DD2331FFBC00ADF27A /* YJHomeCell.h */,
-				582C80F72331FFBC00ADF27A /* YJHomeCell.m */,
-				582C80F22331FFBC00ADF27A /* YJHomeCell.xib */,
-				582C80DC2331FFBC00ADF27A /* YJAddAddressVC.h */,
-				582C80F82331FFBC00ADF27A /* YJAddAddressVC.m */,
-				582C81022331FFBC00ADF27A /* YJAddAddressVC.xib */,
-				582C80FB2331FFBC00ADF27A /* kkSearchTVC.h */,
-				582C80D92331FFBC00ADF27A /* kkSearchTVC.m */,
-				582C80E32331FFBC00ADF27A /* YJAddressTVC.h */,
-				582C80FC2331FFBC00ADF27A /* YJAddressTVC.m */,
-				582C80E22331FFBC00ADF27A /* YJhelpVC.h */,
-				582C80FF2331FFBC00ADF27A /* YJhelpVC.m */,
-				582C80FD2331FFBC00ADF27A /* YJhelpVC.xib */,
-				582C81002331FFBC00ADF27A /* YJGouWuChe.h */,
-				582C80E92331FFBC00ADF27A /* YJGouWuChe.m */,
-				582C80E52331FFBC00ADF27A /* kkRenZhengVC.h */,
-				582C81052331FFBC00ADF27A /* kkRenZhengVC.m */,
-				582C80D42331FFBC00ADF27A /* kkRenZhengVC.xib */,
-				582C80E42331FFBC00ADF27A /* YJGoodDetailTVC.h */,
-				582C81062331FFBC00ADF27A /* YJGoodDetailTVC.m */,
-			);
-			path = JZKJ;
 			sourceTree = "<group>";
 		};
 		582C8130233206FD00ADF27A /* FYMySqli */ = {
@@ -1619,6 +1509,42 @@
 			path = VCs;
 			sourceTree = "<group>";
 		};
+		584724A12335B216002F5D0B /* JZKJ */ = {
+			isa = PBXGroup;
+			children = (
+				584724A22335B216002F5D0B /* HHYMyCarCell.xib */,
+				584724A32335B216002F5D0B /* HHYHomeCell.h */,
+				584724A42335B216002F5D0B /* HHYAddressCell.m */,
+				584724A52335B216002F5D0B /* HHYHomeModel.m */,
+				584724A62335B216002F5D0B /* HHYAddAddressVC.h */,
+				584724A72335B216002F5D0B /* HHYGoodDetailTVC.h */,
+				584724A82335B216002F5D0B /* HHYHomeCell.xib */,
+				584724A92335B216002F5D0B /* HHYJieSuanVC.m */,
+				584724AA2335B216002F5D0B /* HHYSearchTVC.h */,
+				584724AB2335B216002F5D0B /* HHYHomeVC.m */,
+				584724AC2335B216002F5D0B /* HHYMyCarCell.m */,
+				584724AD2335B216002F5D0B /* HHYJieSuanVC.xib */,
+				584724AE2335B216002F5D0B /* HHYGouWuChe.m */,
+				584724AF2335B216002F5D0B /* HHYMineGouWuListTVC.h */,
+				584724B02335B216002F5D0B /* HHYAddressTVC.m */,
+				584724B12335B216002F5D0B /* HHYAddressCell.h */,
+				584724B22335B216002F5D0B /* HHYHomeCell.m */,
+				584724B32335B216002F5D0B /* HHYMyCarCell.h */,
+				584724B42335B216002F5D0B /* HHYSearchTVC.m */,
+				584724B52335B216002F5D0B /* HHYHomeVC.h */,
+				584724B62335B216002F5D0B /* HHYJieSuanVC.h */,
+				584724B72335B216002F5D0B /* HHYGoodDetailTVC.m */,
+				584724B82335B216002F5D0B /* HHYAddAddressVC.m */,
+				584724B92335B216002F5D0B /* HHYHomeModel.h */,
+				584724BA2335B216002F5D0B /* HHYAddressCell.xib */,
+				584724BB2335B216002F5D0B /* HHYGouWuChe.h */,
+				584724BC2335B216002F5D0B /* HHYAddAddressVC.xib */,
+				584724BD2335B216002F5D0B /* HHYAddressTVC.h */,
+				584724BE2335B216002F5D0B /* HHYMineGouWuListTVC.m */,
+			);
+			path = JZKJ;
+			sourceTree = "<group>";
+		};
 		58E2D1BC229D30210060BAD4 /* showViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1752,31 +1678,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				582C81252331FFBC00ADF27A /* YJhelpVC.xib in Resources */,
 				583297DE22A63C6800B52104 /* HHYAboutUsVC.xib in Resources */,
 				583ADD4922A7479F0064E60F /* gesture_normal@2x.png in Resources */,
 				583297D122A63BD400B52104 /* HHYBindQWXVC.xib in Resources */,
-				582C811B2331FFBC00ADF27A /* YJAddressCell.xib in Resources */,
 				5831C61122A4BD710023D1E5 /* HHYTiXianGuiZeVC.xib in Resources */,
 				583297CC22A63B9E00B52104 /* HHYBindPoneTwoVC.xib in Resources */,
 				583ADD4122A7479F0064E60F /* YWUnlockView.xib in Resources */,
+				584724C62335B216002F5D0B /* HHYJieSuanVC.xib in Resources */,
 				337F3EB920EA050000C5526A /* Podfile in Resources */,
 				5839187E22A7ABCC007B03EE /* HHYAddLinkVC.xib in Resources */,
 				583297AA22A5FD1100B52104 /* HHYGongGaoOneCell.xib in Resources */,
 				5830097B22C59D4700FDCC50 /* HHYFlowerListCell.xib in Resources */,
-				582C810F2331FFBC00ADF27A /* yjMineCell.xib in Resources */,
 				58BAF3BE22CDEAB800FAFEDD /* gesture_selected@2x.png in Resources */,
 				583297AF22A5FD5800B52104 /* HHYGongGaoTwoCell.xib in Resources */,
 				582C8132233206FD00ADF27A /* GGG.db in Resources */,
+				584724C22335B216002F5D0B /* HHYHomeCell.xib in Resources */,
 				583F623922ADDF5C00FE353D /* HHYRgisterVC.xib in Resources */,
-				582C81272331FFBC00ADF27A /* YJAddAddressVC.xib in Resources */,
 				5831C62622A4C8EB0023D1E5 /* HHYYingHangKaCell.xib in Resources */,
 				583297D622A63C0B00B52104 /* HHYChangePasswordVC.xib in Resources */,
-				582C810B2331FFBC00ADF27A /* kkRenZhengVC.xib in Resources */,
 				582FFA55229B84170039971E /* mx_pic_selected_no@2x.png in Resources */,
 				5841A440229E146900878F30 /* HHYMineTwoCell.xib in Resources */,
 				58326AEF22A13D2400EEF426 /* HHYShouDaoDePingLunCell.xib in Resources */,
-				582C811A2331FFBC00ADF27A /* YJNewsCell.xib in Resources */,
+				584724CE2335B216002F5D0B /* HHYAddAddressVC.xib in Resources */,
 				58326AF422A1427600EEF426 /* HHYXiaoFeiListCell.xib in Resources */,
 				58326AF922A148C700EEF426 /* HHYYiJianTVC.xib in Resources */,
 				337F3EB020EA014600C5526A /* noneDataBg.png in Resources */,
@@ -1785,10 +1708,7 @@
 				583ADD4422A7479F0064E60F /* gesture_back@2x.png in Resources */,
 				582C80C72331CC6A00ADF27A /* HHYShopingCell.xib in Resources */,
 				5841A43B229E145500878F30 /* HHYMineOneCell.xib in Resources */,
-				582C811C2331FFBC00ADF27A /* YJHomeCell.xib in Resources */,
 				583ADD4322A7479F0064E60F /* gesture_indicator_normal@2x.png in Resources */,
-				582C81072331FFBC00ADF27A /* zkLoginVC.xib in Resources */,
-				582C81102331FFBC00ADF27A /* kkJieSuanVC.xib in Resources */,
 				583F623E22ADE82200FE353D /* HHYForGetPassVC.xib in Resources */,
 				583297C722A63B8200B52104 /* HHYBindPhoneVC.xib in Resources */,
 				582FFA51229B84170039971E /* mx_picker_back_image@2x.png in Resources */,
@@ -1802,17 +1722,15 @@
 				337F3E6320E9FE5300C5526A /* Assets.xcassets in Resources */,
 				337F3E6120E9FE3C00C5526A /* Main.storyboard in Resources */,
 				583297A222A5F96E00B52104 /* HHYPingLunTwoCell.xib in Resources */,
-				582C81182331FFBC00ADF27A /* YJXieYiVC.xib in Resources */,
 				58333283229F716A008DD9CF /* HHYHuiYuanTwoCell.xib in Resources */,
+				584724BF2335B216002F5D0B /* HHYMyCarCell.xib in Resources */,
+				584724CD2335B216002F5D0B /* HHYAddressCell.xib in Resources */,
 				58326AD622A10A1000EEF426 /* HHYTaskTCell.xib in Resources */,
 				5831C61E22A4BE970023D1E5 /* HHYAddYinHangKaVC.xib in Resources */,
 				58333281229F716A008DD9CF /* HHYHuiYuanThreeCell.xib in Resources */,
 				583BF0DF22C98D360033D2F3 /* HHYJuBaoVC.xib in Resources */,
-				582C81082331FFBC00ADF27A /* kkMyCarCell.xib in Resources */,
-				582C81192331FFBC00ADF27A /* YJWenTiVC.xib in Resources */,
 				5830B9F4229E6E7200E724A4 /* HHYHuaDuoOneCell.xib in Resources */,
 				583ADD4622A7479F0064E60F /* gesture_indicator_selected@2x.png in Resources */,
-				582C81092331FFBC00ADF27A /* YJOutVC.xib in Resources */,
 				5831C61622A4BDAC0023D1E5 /* HHYTiXianTwoTVC.xib in Resources */,
 				5848861E232628620099675D /* HHYYinSiXieYiVC.xib in Resources */,
 				582FFA4E229B84170039971E /* mx_pic_selected_yes@2x.png in Resources */,
@@ -1897,37 +1815,31 @@
 			files = (
 				5841A43A229E145500878F30 /* HHYMineOneCell.m in Sources */,
 				58E2D1D1229D3C7D0060BAD4 /* HHYAiTeMeCell.m in Sources */,
-				582C81212331FFBC00ADF27A /* YJAddAddressVC.m in Sources */,
 				5831C62122A4BFC60023D1E5 /* HHYTiXianJiLuTVC.m in Sources */,
 				5841A451229E37BF00878F30 /* HHYMineFriendsCell.m in Sources */,
 				335010DA20EDF8E400F8486B /* UIViewController+AlertShow.m in Sources */,
 				58E2D1C5229D30220060BAD4 /* HHYShauiXuanView.m in Sources */,
+				584724C32335B216002F5D0B /* HHYJieSuanVC.m in Sources */,
 				5848861D232628620099675D /* HHYYinSiXieYiVC.m in Sources */,
-				582C810D2331FFBC00ADF27A /* YJAddressCell.m in Sources */,
 				5831DAB622D56AA2001C5E4A /* CustomEmojiView.m in Sources */,
 				583297CB22A63B9E00B52104 /* HHYBindPoneTwoVC.m in Sources */,
 				582FFA53229B84170039971E /* MXALAsset.m in Sources */,
 				58E2D1BB229D26B90060BAD4 /* HHYNewsOneCell.m in Sources */,
-				582C81282331FFBC00ADF27A /* kkRenZhengVC.m in Sources */,
 				582FFA5A229B8AA00039971E /* zkHomelModel.m in Sources */,
 				58326AD522A10A1000EEF426 /* HHYTaskTCell.m in Sources */,
 				5831C69C22A510C80023D1E5 /* HHYDetailZanCell.m in Sources */,
 				5831C61922A4BDC40023D1E5 /* HHYYinHangKaTVC.m in Sources */,
 				58333290229F8BD6008DD9CF /* HHYZhuYeThreeCell.m in Sources */,
 				58333284229F716A008DD9CF /* HHYHuiYuanThreeCell.m in Sources */,
-				582C81172331FFBC00ADF27A /* kkMineGouWuListTVC.m in Sources */,
 				337F3E5E20E9FE3C00C5526A /* ViewController.m in Sources */,
 				583ADD4222A7479F0064E60F /* YWUnlockView.m in Sources */,
 				337F3EAA20EA014600C5526A /* BaseViewController.m in Sources */,
-				582C81242331FFBC00ADF27A /* YJAddressTVC.m in Sources */,
 				582FFA64229BAEE90039971E /* GuanZhuVC.m in Sources */,
-				582C81262331FFBC00ADF27A /* YJhelpVC.m in Sources */,
 				58AD90A622AF5C9E005E23F5 /* HHYAddFriendsTVC.m in Sources */,
 				583297A922A5FD1100B52104 /* HHYGongGaoOneCell.m in Sources */,
 				58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */,
 				582FD55022C0A68D00A29CC1 /* UIViewController+NewWorkTwo.m in Sources */,
 				5841A44A229E1E1F00878F30 /* HHYMineFourCell.m in Sources */,
-				582C812F2332044F00ADF27A /* yjMineVC.m in Sources */,
 				583041E522B73BF900B4BE42 /* HHYUserModel.m in Sources */,
 				5831C61022A4BD710023D1E5 /* HHYTiXianGuiZeVC.m in Sources */,
 				58333282229F716A008DD9CF /* HHYHuiYuanTwoCell.m in Sources */,
@@ -1935,9 +1847,7 @@
 				58333293229FA8CF008DD9CF /* HHYZhuYeFourCell.m in Sources */,
 				582FFA54229B84170039971E /* MXImageEditController.m in Sources */,
 				583332A3229FD488008DD9CF /* SelectTimeV.m in Sources */,
-				582C811F2331FFBC00ADF27A /* zkLoginVC.m in Sources */,
 				5830097A22C59D4700FDCC50 /* HHYFlowerListCell.m in Sources */,
-				582C81122331FFBC00ADF27A /* YJOutVC.m in Sources */,
 				58326ACE22A0C84900EEF426 /* HHYPhotoCell.m in Sources */,
 				5833326A229F64FC008DD9CF /* HHYKaiTongHuiYuanTVC.m in Sources */,
 				5831C69922A50C790023D1E5 /* HHYDetailPingLunCell.m in Sources */,
@@ -1963,6 +1873,7 @@
 				582FFA50229B84170039971E /* UIViewController+MXPhotoPicker.m in Sources */,
 				58E2D1C3229D30220060BAD4 /* HHYShowView.m in Sources */,
 				58326AD922A10F6400EEF426 /* HHYShiMingRenZhengTVC.m in Sources */,
+				584724C72335B216002F5D0B /* HHYGouWuChe.m in Sources */,
 				583041E822B769F000B4BE42 /* HHYHomeFiveCell.m in Sources */,
 				58BAF3B522CD9C6600FAFEDD /* HHYSysMsgTVC.m in Sources */,
 				58E2D1C4229D30220060BAD4 /* HHYSerachShowView.m in Sources */,
@@ -1972,10 +1883,8 @@
 				583297BF22A6257900B52104 /* UIViewController+shareAction.m in Sources */,
 				583297D922A63C3B00B52104 /* HHYPrivacyTVC.m in Sources */,
 				583297D022A63BD400B52104 /* HHYBindQWXVC.m in Sources */,
-				582C81202331FFBC00ADF27A /* YJHomeCell.m in Sources */,
 				5830B9F3229E6E7200E724A4 /* HHYHuaDuoOneCell.m in Sources */,
 				33DC824F20EA224F00D1C283 /* HangQingVC.m in Sources */,
-				582C81152331FFBC00ADF27A /* YJGouWuChe.m in Sources */,
 				5839187922A7A121007B03EE /* HHYHuaTiTVC.m in Sources */,
 				337F3E5B20E9FE3B00C5526A /* AppDelegate.m in Sources */,
 				583297C622A63B8200B52104 /* HHYBindPhoneVC.m in Sources */,
@@ -1992,13 +1901,12 @@
 				5831C62522A4C8EB0023D1E5 /* HHYYingHangKaCell.m in Sources */,
 				582C80C92331CC6A00ADF27A /* HHYShopingCell.m in Sources */,
 				58326AE522A1362400EEF426 /* HHYReceivePingLunTVC.m in Sources */,
+				584724CB2335B216002F5D0B /* HHYGoodDetailTVC.m in Sources */,
 				335010DD20EDF9AE00F8486B /* zkRequestTool.m in Sources */,
 				33DC825520EA245E00D1C283 /* HomeVC.m in Sources */,
-				582C81142331FFBC00ADF27A /* yjMineCell.m in Sources */,
 				58326AC222A0B7A300EEF426 /* HHYXingQuBiaoQianTVC.m in Sources */,
 				5841A443229E148700878F30 /* HHYMineThreeCell.m in Sources */,
 				583297E422A6501300B52104 /* HHYTongYongTwoCell.m in Sources */,
-				582C81162331FFBC00ADF27A /* YJWenTiVC.m in Sources */,
 				5830BA00229E89EF00E724A4 /* HHYZhiFuCell.m in Sources */,
 				58326AF822A148C700EEF426 /* HHYYiJianTVC.m in Sources */,
 				589AC0032297E35A000BBD89 /* HHYHomeThreeCell.m in Sources */,
@@ -2013,14 +1921,13 @@
 				582FFA31229B7BC00039971E /* HHYHomeDongTaiCell.m in Sources */,
 				582FFA56229B84170039971E /* MXPhotoPickerController.m in Sources */,
 				582FFA4F229B84170039971E /* MXImagePreviewCell.m in Sources */,
-				582C810C2331FFBC00ADF27A /* YJNewsCell.m in Sources */,
 				583F623322ADDEFB00FE353D /* HHYLoginVC.m in Sources */,
 				5838A06222F415AC00119DDE /* HHYTaoCanCell.m in Sources */,
 				5835C2EB22B22583002122A0 /* HHYAddressModel.m in Sources */,
 				582FFA57229B84170039971E /* MXImageGroupController.m in Sources */,
 				58333296229FBAAD008DD9CF /* HHYXiuGaiZiLiaoTVC.m in Sources */,
+				584724C12335B216002F5D0B /* HHYHomeModel.m in Sources */,
 				58E2D1D4229D3DF80060BAD4 /* HHYAiTeMeTVC.m in Sources */,
-				582C81222331FFBC00ADF27A /* kkMyCarCell.m in Sources */,
 				582FFA52229B84170039971E /* MXImagePreviewController.m in Sources */,
 				583ADD4D22A747E40064E60F /* HHYPrivacyPassWordVC.m in Sources */,
 				583F623822ADDF5C00FE353D /* HHYRgisterVC.m in Sources */,
@@ -2032,6 +1939,7 @@
 				58326ADC22A10F9A00EEF426 /* HHYXiaoFeiVC.m in Sources */,
 				5831C62A22A4C9090023D1E5 /* HHYTiXianListCell.m in Sources */,
 				5836EB9622CC4F4E00EE6611 /* LxmWebViewController.m in Sources */,
+				584724CA2335B216002F5D0B /* HHYSearchTVC.m in Sources */,
 				583297DD22A63C6800B52104 /* HHYAboutUsVC.m in Sources */,
 				5830B9FC229E79D200E724A4 /* HHYHuaDuoFiveCell.m in Sources */,
 				582FFA38229B84100039971E /* zkPhotoShowCell.m in Sources */,
@@ -2042,16 +1950,15 @@
 				58326ADF22A10FB700EEF426 /* HHYXiaoFeiListTVC.m in Sources */,
 				5831C69622A509280023D1E5 /* HHYDetailTVC.m in Sources */,
 				5831C60C22A4B42F0023D1E5 /* HHYTiXianTVC.m in Sources */,
-				582C81232331FFBC00ADF27A /* kkJieSuanVC.m in Sources */,
 				589ABFFF2297E15F000BBD89 /* HHYHomeTwoCell.m in Sources */,
 				58E2D1C8229D32290060BAD4 /* HHYNewsTwoCell.m in Sources */,
+				584724C42335B216002F5D0B /* HHYHomeVC.m in Sources */,
 				5833329A229FBDFA008DD9CF /* HHYTongYongCell.m in Sources */,
 				335010EF20EE05C100F8486B /* UIButton+Badge.m in Sources */,
 				58326AE922A1378500EEF426 /* HHYZanOrAiTeMineCell.m in Sources */,
 				582FFA69229BB0D80039971E /* HHYMakeFriendsTVC.m in Sources */,
 				5833328A229F7F10008DD9CF /* HHYZhuYeOneCell.m in Sources */,
 				5831C61D22A4BE970023D1E5 /* HHYAddYinHangKaVC.m in Sources */,
-				582C81292331FFBC00ADF27A /* YJGoodDetailTVC.m in Sources */,
 				337F3EAF20EA014600C5526A /* BaseViewController+PublicMethod.m in Sources */,
 				58BAF3B922CD9C9000FAFEDD /* HHYSysMsgCell.m in Sources */,
 				58333287229F789D008DD9CF /* HHYZhuYeTVC.m in Sources */,
@@ -2059,23 +1966,24 @@
 				583332A0229FD39E008DD9CF /* HHYShowPickerView.m in Sources */,
 				583F623D22ADE82200FE353D /* HHYForGetPassVC.m in Sources */,
 				5839188122A7C837007B03EE /* HHYYongBaoView.m in Sources */,
+				584724C52335B216002F5D0B /* HHYMyCarCell.m in Sources */,
+				584724CF2335B216002F5D0B /* HHYMineGouWuListTVC.m in Sources */,
 				5833329D229FC816008DD9CF /* zkJuBaoView.m in Sources */,
-				582C812C233203BD00ADF27A /* yjHomeVC.m in Sources */,
+				584724CC2335B216002F5D0B /* HHYAddAddressVC.m in Sources */,
 				5830B9EC229E638400E724A4 /* HHYReDuTVC.m in Sources */,
+				584724C92335B216002F5D0B /* HHYHomeCell.m in Sources */,
+				584724C82335B216002F5D0B /* HHYAddressTVC.m in Sources */,
 				583297D522A63C0B00B52104 /* HHYChangePasswordVC.m in Sources */,
 				58333280229F716A008DD9CF /* HHYHuiYuanOneCell.m in Sources */,
 				58326AC822A0C1FF00EEF426 /* HHYMinePhotoTVC.m in Sources */,
-				582C811E2331FFBC00ADF27A /* YJHomeModel.m in Sources */,
 				5841A44E229E372200878F30 /* HHYMineFriendsTVC.m in Sources */,
-				582C810A2331FFBC00ADF27A /* NewsVC.m in Sources */,
 				5833328D229F81DF008DD9CF /* HHYZhuYeTwoCell.m in Sources */,
+				584724C02335B216002F5D0B /* HHYAddressCell.m in Sources */,
 				58AD90A922AF9A36005E23F5 /* HHYQunSettingTVC.m in Sources */,
-				582C811D2331FFBC00ADF27A /* YJXieYiVC.m in Sources */,
 				5835C2EF22B239C0002122A0 /* HHYTongYongModel.m in Sources */,
 				582FFA37229B84100039971E /* zkPhotoShowVC.m in Sources */,
 				58E2D1CE229D3A390060BAD4 /* HHYReceiveZanTVC.m in Sources */,
 				58326AC522A0C19B00EEF426 /* HHYMineCollectTVC.m in Sources */,
-				582C810E2331FFBC00ADF27A /* kkSearchTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

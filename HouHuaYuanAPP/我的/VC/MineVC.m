@@ -27,9 +27,9 @@
 #import "HHYSettingTVC.h"
 
 
-#import "YJGouWuChe.h"
-#import "kkMineGouWuListTVC.h"
-#import "YJAddressTVC.h"
+#import "HHYGouWuChe.h"
+#import "HHYMineGouWuListTVC.h"
+#import "HHYAddressTVC.h"
 
 @interface MineVC ()<HHYMineFourCellDelegate>
 @property(nonatomic,strong)NSArray *titleArr;
@@ -150,7 +150,7 @@
         }
         return (ScreenW- 40) / 2 * (5/17.0) + 30;
     }
-    if ((indexPath.section == 4 && indexPath.row == 2 && isPPPPPP) || (indexPath.section == 4 && indexPath.row == 4 && isPPPPPP)){
+    if ((indexPath.section == 4 && indexPath.row == 2 && isPPPPPP) || (indexPath.section == 4 && indexPath.row == 4 && isPPPPPP) ||(indexPath.section == 4 && indexPath.row == 3 && isPPPPPP)){
         return 0;
     }
     return 50;
@@ -291,15 +291,15 @@
         }
     }else if(indexPath.section == 5) {
         if (indexPath.row == 0) {
-            YJGouWuChe * vc =[[YJGouWuChe alloc] init];
+            HHYGouWuChe * vc =[[HHYGouWuChe alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 1) {
-            kkMineGouWuListTVC* vc =[[kkMineGouWuListTVC alloc] init];
+            HHYMineGouWuListTVC* vc =[[HHYMineGouWuListTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 2) {
-            YJAddressTVC* vc =[[YJAddressTVC alloc] init];
+           HHYAddressTVC* vc =[[HHYAddressTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
