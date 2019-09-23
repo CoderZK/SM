@@ -29,10 +29,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"HHYMyCarCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
    
-    [self getData];
+    [self getDataResult];
 }
 
-- (void)getData {
+- (void)getDataResult {
     
     NSString * sql = [NSString stringWithFormat:@"select *from HHY_mygoodscar where userName = '%@' and status = 1",[zkSignleTool shareTool].session_uid];
     

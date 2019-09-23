@@ -93,6 +93,26 @@
     
     
 }
+- (void)eerrttg{
+    NSLog(@"%@",@"588dsfghnghdmj969");
+    int i ;
+    for (i = 0; i< 100; i++) {
+        printf("idokfrikrkrtikfk");
+    }
+    
+}
+- (void)ededer{
+    NSLog(@"%@",@"588afdrgheryh969");
+    
+}
+- (void)eeedvcfr{
+    NSLog(@"%@",@"588ergrtyh969");
+    
+}
+- (void)erdcf {
+    NSLog(@"%@",@"5889ertyhrtyuhj69");
+    
+}
 - (IBAction)addressaction:(id)sender {
     
   
@@ -108,16 +128,5 @@
     
 }
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

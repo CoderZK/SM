@@ -391,6 +391,11 @@
 +(NSString *)bindPhoneAndAppKeyURL{
     return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/bindPhoneAndAppKey"];
 }
+    
++(NSString *)getIosConfigURL{
+   return [NSString stringWithFormat:@"%@%@",URLOne,@"/common/getIosConfig"];
+}
+    
 /** 分享*/
 +(NSString *)shareURL{
     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/postInfo/share"];

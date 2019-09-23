@@ -71,6 +71,7 @@
     
     self.pageNo = 1;
     [self getData];
+    [self getConfig];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -130,6 +131,25 @@
     
 }
 
+- (void)getConfig {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getIosConfigURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
+        if ([responseObject[@"code"] intValue]== 0) {
+            
+            if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"1"]) {
+                [zkSignleTool shareTool].isUpdate = YES;
+            }else {
+                [zkSignleTool shareTool].isUpdate = NO;
+            }
+            [self updateHead];
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+
+    }];
+    
+}
+
+    
 - (void)getData {
     
     [SVProgressHUD show];
@@ -211,12 +231,10 @@
     
     self.tableView.tableHeaderView = self.headView;
     
-    
-   
-    
-    
 }
 
+    
+    
 
 - (void)goShoping {
     

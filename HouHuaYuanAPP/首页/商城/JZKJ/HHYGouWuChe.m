@@ -31,17 +31,17 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self getData];
+    [self getDataFFFF];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"我的购物车";
     [self.tableView registerNib:[UINib nibWithNibName:@"HHYMyCarCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    [self createFootV];
+    [self createFootVggggg];
 }
 
-- (void)createFootV {
+- (void)createFootVggggg {
     self.footV = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenH - 60 - sstatusHeight - 44 , ScreenW, 60)];
     self.footV.backgroundColor =[UIColor whiteColor];
     [self.view addSubview:self.footV];
@@ -60,29 +60,24 @@
     self.jieSuanBt.layer.cornerRadius = 4;
     self.jieSuanBt.clipsToBounds = YES;
     [self.footV addSubview:self.jieSuanBt];
-    [self.jieSuanBt addTarget:self action:@selector(qiangdanAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.jieSuanBt addTarget:self action:@selector(qiangdanActionfffff:) forControlEvents:UIControlEventTouchUpInside];
     
     
 }
 
-- (void)qiangdanAction:(UIButton *)button {
-    
+- (void)qiangdanActionfffff:(UIButton *)button {
     if (self.itemArr.count == 0) {
         [SVProgressHUD showErrorWithStatus:@"至少要选择一个商品"];
         return;
     }
-    
     HHYJieSuanVC * vc =[[HHYJieSuanVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.itemArr = self.itemArr;
     [self.navigationController pushViewController:vc  animated:YES];
-    
 }
 
-- (void)getData {
-    
+- (void)getDataFFFF {
     NSString * sql = [NSString stringWithFormat:@"select *from kk_mygoodscar where userName = '%@' and status = 0",[zkSignleTool shareTool].session_uid];
-    
     FMDatabase * db = [FMDBSingle shareFMDB].fd;
     if ([db open]) {
         FMResultSet * result = [db executeQuery:sql];
@@ -108,7 +103,6 @@
 }
 - (UITableViewCell * )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HHYMyCarCell * cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    // cell.nameLB.text = @"fgkodkgfeoprkgkp";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.titleLB.text = self.dataArray[indexPath.row].title;
     cell.contentLB.text = self.dataArray[indexPath.row].des;
@@ -130,12 +124,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     self.dataArray[indexPath.row].isSelect = !self.dataArray[indexPath.row].isSelect;
-    [self updateFootV];
+    [self updateFootVTwo];
     [self.tableView reloadData];
     
 }
 
-- (void)updateFootV {
+- (void)updateFootVTwo {
     CGFloat allmoey = 0;
     NSMutableArray<HHYHomeModel *> * arr = @[].mutableCopy;
     for (HHYHomeModel * model  in self.dataArray) {

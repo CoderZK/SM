@@ -15,11 +15,16 @@
    
     self.button.layer.cornerRadius = 4;
     self.button.clipsToBounds = YES;
-    
+    [self asjdefuqeh];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+
+}
+
+- (void)asjdefuqeh {
+    NSLog(@"%@",@"rjgfiewrjo");
 
 }
 

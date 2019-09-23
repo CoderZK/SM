@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface HHYHomeModel : NSObject
 @property(nonatomic,strong)NSString *img,*title,*des,*desTwo,*content,*name,*phone,*address,*userID;
 @property(nonatomic,assign)NSInteger ID,status;
-/** <#注释#> */
 @property(nonatomic , strong)NSString *goodId;
 @property(nonatomic,assign)float price;
 @property(nonatomic,assign)NSInteger number;

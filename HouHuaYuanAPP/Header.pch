@@ -54,7 +54,7 @@
 //环信登录的统一密码
 #define huanXinMiMa @"hhy123456!@#$%"
 //检查更新的时候使用的APPID
-#define ppppppid @"1480655667"
+#define ppppppid @"1481025797"
 
 
 #define sxeArr @[@"",@"男",@"女"]

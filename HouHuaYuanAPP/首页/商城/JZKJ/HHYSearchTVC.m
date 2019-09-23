@@ -47,7 +47,7 @@
         return NO;
     }else {
         
-        [self searchAction];
+        [self searchActionResult];
         return YES;
     }
     
@@ -56,7 +56,7 @@
 }
 
 
-- (void)searchAction {
+- (void)searchActionResult {
     FMDatabase * db = [FMDBSingle shareFMDB].fd;
     [db open];
     NSString * sql = [NSString stringWithFormat:@"select * from 'HHY_home' where title like '%%%@%%'",self.TF.text];
