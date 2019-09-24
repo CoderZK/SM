@@ -30,8 +30,8 @@
 #import <IQKeyboardManager.h>
 #import <UMSocialCore/UMSocialCore.h>
 #import <UShareUI/UShareUI.h>
-#import "NSString+Size.h"
-#import "UIButton+Badge.h"
+#import "NSString+AttributeSizeAndText.h"
+#import "UIButton+BadgeNumber.h"
 #import "UIViewController+AlertShow.h"
 
 #import "TZImagePickerController.h"

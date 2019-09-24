@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		335010DA20EDF8E400F8486B /* UIViewController+AlertShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 335010D720EDF8E300F8486B /* UIViewController+AlertShow.m */; };
 		335010DD20EDF9AE00F8486B /* zkRequestTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 335010DC20EDF9AE00F8486B /* zkRequestTool.m */; };
-		335010EE20EE05C100F8486B /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = 335010EA20EE05C000F8486B /* NSString+Size.m */; };
-		335010EF20EE05C100F8486B /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 335010EB20EE05C000F8486B /* UIButton+Badge.m */; };
 		337F3E5B20E9FE3B00C5526A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F3E5A20E9FE3B00C5526A /* AppDelegate.m */; };
 		337F3E5E20E9FE3C00C5526A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 337F3E5D20E9FE3C00C5526A /* ViewController.m */; };
 		337F3E6120E9FE3C00C5526A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 337F3E5F20E9FE3C00C5526A /* Main.storyboard */; };
@@ -212,6 +210,8 @@
 		58452D322339BCD300F9CE75 /* cacheClear.m in Sources */ = {isa = PBXBuildFile; fileRef = 58452D312339BCD300F9CE75 /* cacheClear.m */; };
 		58452D382339BECD00F9CE75 /* HHYShowViewTWO.m in Sources */ = {isa = PBXBuildFile; fileRef = 58452D372339BECD00F9CE75 /* HHYShowViewTWO.m */; };
 		58452D3B2339C0DD00F9CE75 /* HHYReportView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58452D3A2339C0DD00F9CE75 /* HHYReportView.m */; };
+		58452D3E2339C47B00F9CE75 /* NSString+AttributeSizeAndText.m in Sources */ = {isa = PBXBuildFile; fileRef = 58452D3D2339C47B00F9CE75 /* NSString+AttributeSizeAndText.m */; };
+		58452D412339C70800F9CE75 /* UIButton+BadgeNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = 58452D402339C70800F9CE75 /* UIButton+BadgeNumber.m */; };
 		584724BF2335B216002F5D0B /* HHYMyCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 584724A22335B216002F5D0B /* HHYMyCarCell.xib */; };
 		584724C02335B216002F5D0B /* HHYAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724A42335B216002F5D0B /* HHYAddressCell.m */; };
 		584724C12335B216002F5D0B /* HHYHomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 584724A52335B216002F5D0B /* HHYHomeModel.m */; };
@@ -279,10 +279,6 @@
 		335010D820EDF8E400F8486B /* UIViewController+AlertShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AlertShow.h"; sourceTree = "<group>"; };
 		335010DB20EDF9AE00F8486B /* zkRequestTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zkRequestTool.h; sourceTree = "<group>"; };
 		335010DC20EDF9AE00F8486B /* zkRequestTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = zkRequestTool.m; sourceTree = "<group>"; };
-		335010EA20EE05C000F8486B /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
-		335010EB20EE05C000F8486B /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
-		335010EC20EE05C100F8486B /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
-		335010ED20EE05C100F8486B /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
 		337F3E5620E9FE3B00C5526A /* HouHuaYuanAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HouHuaYuanAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		337F3E5920E9FE3B00C5526A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		337F3E5A20E9FE3B00C5526A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -629,6 +625,10 @@
 		58452D372339BECD00F9CE75 /* HHYShowViewTWO.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYShowViewTWO.m; sourceTree = "<group>"; };
 		58452D392339C0DD00F9CE75 /* HHYReportView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYReportView.h; sourceTree = "<group>"; };
 		58452D3A2339C0DD00F9CE75 /* HHYReportView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYReportView.m; sourceTree = "<group>"; };
+		58452D3C2339C47B00F9CE75 /* NSString+AttributeSizeAndText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+AttributeSizeAndText.h"; sourceTree = "<group>"; };
+		58452D3D2339C47B00F9CE75 /* NSString+AttributeSizeAndText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+AttributeSizeAndText.m"; sourceTree = "<group>"; };
+		58452D3F2339C70800F9CE75 /* UIButton+BadgeNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+BadgeNumber.h"; sourceTree = "<group>"; };
+		58452D402339C70800F9CE75 /* UIButton+BadgeNumber.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+BadgeNumber.m"; sourceTree = "<group>"; };
 		584724A22335B216002F5D0B /* HHYMyCarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHYMyCarCell.xib; sourceTree = "<group>"; };
 		584724A32335B216002F5D0B /* HHYHomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYHomeCell.h; sourceTree = "<group>"; };
 		584724A42335B216002F5D0B /* HHYAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHYAddressCell.m; sourceTree = "<group>"; };
@@ -925,10 +925,10 @@
 				58E2D1BC229D30210060BAD4 /* showViews */,
 				582FFA39229B84170039971E /* MXPhotoPickerController */,
 				582FFA32229B840F0039971E /* zk_picShow */,
-				335010ED20EE05C100F8486B /* NSString+Size.h */,
-				335010EA20EE05C000F8486B /* NSString+Size.m */,
-				335010EC20EE05C100F8486B /* UIButton+Badge.h */,
-				335010EB20EE05C000F8486B /* UIButton+Badge.m */,
+				58452D3C2339C47B00F9CE75 /* NSString+AttributeSizeAndText.h */,
+				58452D3D2339C47B00F9CE75 /* NSString+AttributeSizeAndText.m */,
+				58452D3F2339C70800F9CE75 /* UIButton+BadgeNumber.h */,
+				58452D402339C70800F9CE75 /* UIButton+BadgeNumber.m */,
 				58452D302339BCD300F9CE75 /* cacheClear.h */,
 				58452D312339BCD300F9CE75 /* cacheClear.m */,
 				335010D820EDF8E400F8486B /* UIViewController+AlertShow.h */,
@@ -1885,7 +1885,6 @@
 				583297C622A63B8200B52104 /* HHYBindPhoneVC.m in Sources */,
 				58326AD122A109EC00EEF426 /* HHYMineTaskTVC.m in Sources */,
 				5832EFD622B0EE9900BA019E /* HHYURLDefineTool.m in Sources */,
-				335010EE20EE05C100F8486B /* NSString+Size.m in Sources */,
 				5831DAB922D575BD001C5E4A /* WZCustomEmojiView.m in Sources */,
 				583297AE22A5FD5800B52104 /* HHYGongGaoTwoCell.m in Sources */,
 				583297B222A5FD6E00B52104 /* HHYGongGaoThreeCell.m in Sources */,
@@ -1944,12 +1943,12 @@
 				5831C69622A509280023D1E5 /* HHYDetailTVC.m in Sources */,
 				5831C60C22A4B42F0023D1E5 /* HHYTiXianTVC.m in Sources */,
 				589ABFFF2297E15F000BBD89 /* HHYHomeTwoCell.m in Sources */,
+				58452D3E2339C47B00F9CE75 /* NSString+AttributeSizeAndText.m in Sources */,
 				58E2D1C8229D32290060BAD4 /* HHYNewsTwoCell.m in Sources */,
 				584724C42335B216002F5D0B /* HHYHomeVC.m in Sources */,
 				58452D322339BCD300F9CE75 /* cacheClear.m in Sources */,
 				58452D3B2339C0DD00F9CE75 /* HHYReportView.m in Sources */,
 				5833329A229FBDFA008DD9CF /* HHYTongYongCell.m in Sources */,
-				335010EF20EE05C100F8486B /* UIButton+Badge.m in Sources */,
 				58326AE922A1378500EEF426 /* HHYZanOrAiTeMineCell.m in Sources */,
 				582FFA69229BB0D80039971E /* HHYMakeFriendsTVC.m in Sources */,
 				5833328A229F7F10008DD9CF /* HHYZhuYeOneCell.m in Sources */,
@@ -1961,6 +1960,7 @@
 				583332A0229FD39E008DD9CF /* HHYShowPickerView.m in Sources */,
 				583F623D22ADE82200FE353D /* HHYForGetPassVC.m in Sources */,
 				5839188122A7C837007B03EE /* HHYYongBaoView.m in Sources */,
+				58452D412339C70800F9CE75 /* UIButton+BadgeNumber.m in Sources */,
 				584724C52335B216002F5D0B /* HHYMyCarCell.m in Sources */,
 				584724CF2335B216002F5D0B /* HHYMineGouWuListTVC.m in Sources */,
 				584724CC2335B216002F5D0B /* HHYAddAddressVC.m in Sources */,
