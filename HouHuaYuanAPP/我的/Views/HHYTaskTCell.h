@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *titleLB;
 @property (weak, nonatomic) IBOutlet UILabel *contentLB;
 @property (weak, nonatomic) IBOutlet UIImageView *imgV;
-@property (weak, nonatomic) IBOutlet UIButton *rightBt;
+@property (weak, nonatomic) IBOutlet UIButton *hitClickButton;
 @property(nonatomic,strong)HHYTongYongModel *model;
 @end
 

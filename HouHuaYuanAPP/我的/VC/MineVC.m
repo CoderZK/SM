@@ -40,7 +40,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self getData];
+    [self loadFromServeTTTT];
 }
 
 - (void)viewDidLoad {
@@ -58,27 +58,27 @@
     self.titleArr = @[@[],@[],@[],@[@"我的主页",@"我的动态",@"谁看过我",@"我的相册",@"我的收藏",@"我的黑名单"],@[@"任务中心",@"实名认证",@"会员服务",@"我的订单",@"我的提现",@"意见反馈"],@[@"购物车",@"购物记录",@"地址"]];
     
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [rightbtn setBackgroundImage:[UIImage imageNamed:@"85"] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"85"] forState:UIControlStateNormal];
+    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn.tag = 11;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyInfoCenterURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyInfoCenterURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
             self.dataModel = [HHYUserModel mj_objectWithKeyValues:responseObject[@"object"]];
-            [zkSignleTool shareTool].nickName = self.dataModel.nickName;
-            [zkSignleTool shareTool].img = self.dataModel.avatar;
+            [HHYSignleTool shareTool].nickName = self.dataModel.nickName;
+            [HHYSignleTool shareTool].img = self.dataModel.avatar;
             [self.tableView reloadData];
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
@@ -174,7 +174,7 @@
     }else if (indexPath.section == 2) {
         HHYMineTwoCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellTwo" forIndexPath:indexPath];
         [cell.leftBt addTarget:self action:@selector(huiYuanOrZiLiaoAction:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.rightBt addTarget:self action:@selector(huiYuanOrZiLiaoAction:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.hitClickButton addTarget:self action:@selector(huiYuanOrZiLiaoAction:) forControlEvents:UIControlEventTouchUpInside];
         cell.clipsToBounds = YES;
         return cell;
     }else {

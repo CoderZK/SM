@@ -82,7 +82,7 @@
         self.headBt.clipsToBounds = YES;
         [self.headBt setBackgroundImage:[UIImage imageNamed:@"369"] forState:UIControlStateNormal];
         [whiteV addSubview:self.headBt];
-        [self.headBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.headBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         self.headBt.tag = 100;
         //昵称
         self.nameLB =[[UILabel alloc] initWithFrame:CGRectMake(70, 20 , 120, 20)];
@@ -154,7 +154,7 @@
         self.cancelBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         self.cancelBt.tag = 107;
         self.cancelBt.titleLabel.font = kFont(13);
-        [self.cancelBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.cancelBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
 //        [whiteV addSubview:self.cancelBt];
 //        self.cancelBt.hidden = YES;
         //内容
@@ -172,7 +172,7 @@
 ////        self.moreContentBt.userInteractionEnabled = NO;
 //        [self.moreContentBt sizeToFit];
 //        [whiteV addSubview:self.moreContentBt];
-//        [self.moreContentBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.moreContentBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
 //        self.moreContentBt.tag = 106;
         
         //图片
@@ -248,17 +248,17 @@
         [self.zanView addSubview:self.shareBt];
         
         
-//        [self.scanBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.scanBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
 //        self.scanBt.tag = 101;
-//        [self.pingBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.pingBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
 //        self.pingBt.tag = 102;
         self.scanBt.userInteractionEnabled = NO;
         self.pingBt.userInteractionEnabled = NO;
-        [self.zanBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.zanBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         self.zanBt.tag = 103;
-        [self.LikeBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.LikeBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         self.LikeBt.tag = 104;
-        [self.shareBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.shareBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         self.shareBt.tag = 105;
 
         
@@ -298,7 +298,7 @@
 }
 
 
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
     
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickButtonWithCell:andIndex:)]) {
         [self.delegate didClickButtonWithCell:self andIndex:button.tag - 100];

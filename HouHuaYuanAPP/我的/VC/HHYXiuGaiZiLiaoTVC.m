@@ -14,7 +14,7 @@
 #import "HHYHomeDongTaiCell.h"
 #import "zkHomelModel.h"
 #import "HHYTongYongCell.h"
-#import "zkJuBaoView.h"
+#import "HHYReportView.h"
 #import "SelectTimeV.h"
 #import "HHYShowPickerView.h"
 #import "HHYXingQuBiaoQianTVC.h"
@@ -77,21 +77,21 @@
     self.sexArr = @[@"男",@"女"];
     self.marryArr = @[@"单身",@"已婚",@"保密"];
     
-    [self getData];
+    [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
 
     
 }
 
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyInfoURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyInfoURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -304,7 +304,7 @@
         
     }else if (indexPath.section == 1) {
         if (indexPath.row == 1) {
-//           [zkJuBaoView showWithArray:@[@"男",@"女",@"CD",@"FtM",@"MtF"] withIndexPath:indexPath];
+//           [HHYReportView showWithArray:@[@"男",@"女",@"CD",@"FtM",@"MtF"] withIndexPath:indexPath];
             //性别
 //            HHYShowPickerView * pickerV = [[HHYShowPickerView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.bounds];
 //            Weak(weakSelf);
@@ -568,16 +568,16 @@
 - (void)updateHeadImgOrbackImge {
     
    
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     if(self.type == 1) {
-        dict[@"type"] = @"avatar";
-        dict[@"avatar"] = self.dataModel.avatar;
+        dataDict[@"type"] = @"avatar";
+        dataDict[@"avatar"] = self.dataModel.avatar;
     }else {
-        dict[@"type"] = @"background";
-        dict[@"avatar"] = self.dataModel.background;
+        dataDict[@"type"] = @"background";
+        dataDict[@"avatar"] = self.dataModel.background;
     }
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool updateAvatarURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool updateAvatarURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -601,29 +601,29 @@
 - (void)xiugGAIAction {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"avatar"] = self.dataModel.avatar;
-    dict[@"birthday"] = self.dataModel.birthday;
-    dict[@"gender"] = @(self.dataModel.gender);
-    dict[@"height"] = self.dataModel.height;
-    dict[@"weight"] = self.dataModel.weight;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"avatar"] = self.dataModel.avatar;
+    dataDict[@"birthday"] = self.dataModel.birthday;
+    dataDict[@"gender"] = @(self.dataModel.gender);
+    dataDict[@"height"] = self.dataModel.height;
+    dataDict[@"weight"] = self.dataModel.weight;
     if (self.dataModel.marriageStatus != 0) {
-        dict[@"marriageStatus"] = @(self.dataModel.marriageStatus);
+        dataDict[@"marriageStatus"] = @(self.dataModel.marriageStatus);
     }
-    dict[@"nickName"] = self.dataModel.nickName;
+    dataDict[@"nickName"] = self.dataModel.nickName;
     if (self.provinceldID.length > 0) {
-      dict[@"provinceId"] = self.provinceldID;
+      dataDict[@"provinceId"] = self.provinceldID;
     }
     if (self.cityID.length > 0) {
-      dict[@"cityId"] = self.cityID;
+      dataDict[@"cityId"] = self.cityID;
     }
     if (self.sexGo != 0) {
-       dict[@"sexualOrientation"] = @(self.sexGo);
+       dataDict[@"sexualOrientation"] = @(self.sexGo);
     }
-    dict[@"sign"] = self.dataModel.sign;
-    dict[@"tags"] = self.tagIds;
-//    dict[@""]
-    [zkRequestTool networkingPOST:[HHYURLDefineTool updateMyInfoURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    dataDict[@"sign"] = self.dataModel.sign;
+    dataDict[@"tags"] = self.tagIds;
+//    dataDict[@""]
+    [zkRequestTool networkingPOST:[HHYURLDefineTool updateMyInfoURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

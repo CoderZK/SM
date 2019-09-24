@@ -40,9 +40,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self getDataBBBBB];
+    [self loadFromServeTTTTBBBBB];
 }
-- (void)getDataBBBBB {
+- (void)loadFromServeTTTTBBBBB {
  
     FMDatabase * db =[FMDBSingle shareFMDB].fd;
     NSString * sql = [NSString stringWithFormat:@"select * from kk_address"];

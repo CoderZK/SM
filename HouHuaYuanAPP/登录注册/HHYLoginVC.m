@@ -72,7 +72,7 @@
     }else if (button.tag == 104) {
         //登录
         
-//        [zkSignleTool shareTool].isLogin = YES;
+//        [HHYSignleTool shareTool].isLogin = YES;
 //        [self dismissViewControllerAnimated:YES completion:nil];
 //        return;
 //
@@ -115,17 +115,17 @@
         return;
     }
     [SVProgressHUD show];
-    NSMutableDictionary * dict = @{@"phone":self.phoneTF.text}.mutableCopy;
-    dict[@"password"] = self.passWordTF.text;
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getLoginURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{@"phone":self.phoneTF.text}.mutableCopy;
+    dataDict[@"password"] = self.passWordTF.text;
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getLoginURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD dismiss];
-            [zkSignleTool shareTool].isLogin = YES;
-            [zkSignleTool shareTool].session_token = responseObject[@"object"][@"token"];
-            [zkSignleTool shareTool].session_uid = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"userId"]];
-            [zkSignleTool shareTool].img =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"avatar"]];
-            [zkSignleTool shareTool].nickName =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"nickName"]];
-             [zkSignleTool shareTool].huanxin =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"huanxin"]];
+            [HHYSignleTool shareTool].isLogin = YES;
+            [HHYSignleTool shareTool].session_token = responseObject[@"object"][@"token"];
+            [HHYSignleTool shareTool].session_uid = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"userId"]];
+            [HHYSignleTool shareTool].img =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"avatar"]];
+            [HHYSignleTool shareTool].nickName =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"nickName"]];
+             [HHYSignleTool shareTool].huanxin =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"huanxin"]];
             EMError * error = [[EMClient sharedClient] loginWithUsername:responseObject[@"object"][@"huanxin"] password:huanXinMiMa];
             if (!error) {
                 
@@ -175,17 +175,17 @@
 - (void)logWithUMSocialUserInfoResponse:(UMSocialUserInfoResponse *)resp {
     
      [SVProgressHUD show];
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"appkey"] = resp.openid;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"appkey"] = resp.openid;
     if (resp.platformType == UMSocialPlatformType_WechatSession) {
-        dict[@"type"] = @"wechat";
+        dataDict[@"type"] = @"wechat";
     }else if (resp.platformType == UMSocialPlatformType_Sina) {
-        dict[@"type"] = @"xinlang";
+        dataDict[@"type"] = @"xinlang";
     }else if (resp.platformType == UMSocialPlatformType_QQ) {
-        dict[@"type"] = @"qq";
+        dataDict[@"type"] = @"qq";
     }
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getloginAuthByThirdURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getloginAuthByThirdURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [SVProgressHUD dismiss];
         if ([responseObject[@"code"] intValue]== 10003) {
             //用户未注册
@@ -205,12 +205,12 @@
             
         }else if ([responseObject[@"code"] intValue]== 0) {
             
-            [zkSignleTool shareTool].isLogin = YES;
-            [zkSignleTool shareTool].session_token = responseObject[@"object"][@"token"];
-            [zkSignleTool shareTool].session_uid = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"userId"]];
-            [zkSignleTool shareTool].img =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"avatar"]];
-            [zkSignleTool shareTool].nickName =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"nickName"]];
-            [zkSignleTool shareTool].huanxin =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"huanxin"]];
+            [HHYSignleTool shareTool].isLogin = YES;
+            [HHYSignleTool shareTool].session_token = responseObject[@"object"][@"token"];
+            [HHYSignleTool shareTool].session_uid = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"userId"]];
+            [HHYSignleTool shareTool].img =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"avatar"]];
+            [HHYSignleTool shareTool].nickName =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"nickName"]];
+            [HHYSignleTool shareTool].huanxin =[NSString stringWithFormat:@"%@",responseObject[@"object"][@"huanxin"]];
             EMError * error = [[EMClient sharedClient] loginWithUsername:responseObject[@"object"][@"huanxin"] password:huanXinMiMa];
             if (!error) {
 

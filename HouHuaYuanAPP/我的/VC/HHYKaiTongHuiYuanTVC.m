@@ -27,8 +27,8 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WXWX:) name:@"WXPAY" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBZFB:) name:@"ZFBPAY" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WWWWX:) name:@"WXPAY" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBPAY:) name:@"ZFBPAY" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -53,9 +53,9 @@
     [self initHeadV];
     [self initNav];
     
-    [self getData];
+    [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
 
 }
@@ -74,12 +74,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getVipPkgListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getVipPkgListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -198,28 +198,28 @@
         HHYHuiYuanThreeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellThree" forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.titleLB.text = [NSString stringWithFormat:@"%@  %0.2f 元",self.dataArray[indexPath.row].name,[self.dataArray[indexPath.row].price floatValue]];
-        cell.rightBt.tag = indexPath.row + 100;
-        [cell.rightBt addTarget:self action:@selector(rightBtAction:) forControlEvents:UIControlEventTouchUpInside];
+        cell.hitClickButton.tag = indexPath.row + 100;
+        [cell.hitClickButton addTarget:self action:@selector(hitClickButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
   
     
 }
 
-- (void)rightBtAction:(UIButton *)button {
+- (void)hitClickButtonAction:(UIButton *)button {
   
     HHYTongYongModel * model = self.dataArray[button.tag - 100];
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     if (self.selectIndexZhiFu == 0) {
-        dict[@"payType"] = @(4);
+        dataDict[@"payType"] = @(4);
     }else {
-        dict[@"payType"] = @(3);
+        dataDict[@"payType"] = @(3);
     }
-    dict[@"pkgId"] = model.pkgId;
+    dataDict[@"pkgId"] = model.pkgId;
     
     [SVProgressHUD show];
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool vipReChargeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool vipReChargeURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [SVProgressHUD dismiss];
         if ([responseObject[@"code"] intValue]== 0) {
             
@@ -291,7 +291,7 @@
 }
 
 //微信支付结果处理
-- (void)WXWX:(NSNotification *)no {
+- (void)WWWWX:(NSNotification *)no {
     
     BaseResp * resp = no.object;
     if (resp.errCode==WXSuccess)
@@ -351,7 +351,7 @@
 
 
 //支付宝支付结果处理,此处是app 被杀死之后用的
-- (void)ZFBZFB:(NSNotification *)notic {
+- (void)ZFBPAY:(NSNotification *)notic {
     
     NSDictionary *resultDic = notic.object;
     

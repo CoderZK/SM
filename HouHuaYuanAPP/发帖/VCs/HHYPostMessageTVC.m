@@ -11,8 +11,8 @@
 #import "HHYTongXunLuTVC.h"
 #import "HHYHuaTiTVC.h"
 #import "HHYAddLinkVC.h"
-#import "zkShowVIew.h"
-@interface HHYPostMessageTVC ()<zkShowVIewDelegate>
+#import "HHYShowViewTWO.h"
+@interface HHYPostMessageTVC ()<HHYShowViewTWODelegate>
 @property(nonatomic,strong)UIView  *headView,*linkV,*bottomView;
 @property(nonatomic,strong)UILabel *rightLB,*desLB,*tiXingLB;
 @property(nonatomic,strong)UIButton *BT,*linkBt,*huaTiView;
@@ -22,7 +22,7 @@
 @property(nonatomic,strong)NSMutableArray<HHYTongYongModel *> *huaTiArr;
 @property(nonatomic,strong)NSString *linkStr ,*circleID,*circleName;
 @property(nonatomic,strong)NSMutableArray *selectFriendsArr;
-@property(nonatomic,strong)zkShowVIew *showView;
+@property(nonatomic,strong)HHYShowViewTWO *showView;
 @property(nonatomic,strong)NSMutableArray<HHYTongYongModel *> *dataArray;
 @property(nonatomic,strong)NSString *idStr,*nickNameStr;
 @end
@@ -50,9 +50,9 @@
     return _picsStrArr;
 }
 
-- (zkShowVIew *)showView {
+- (HHYShowViewTWO *)showView {
     if (_showView == nil) {
-        _showView = [[zkShowVIew alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
+        _showView = [[HHYShowViewTWO alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
         _showView.deleate  = self;
     }
     return _showView;
@@ -72,26 +72,26 @@
          self.tableView.frame = CGRectMake(0, 0, ScreenW , ScreenH  - 50 - 34 );
     }
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 30)];
+    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 30)];
     
-    [rightbtn setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
-    [rightbtn setTitle:@"发布" forState:UIControlStateNormal];
-//    rightbtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    rightbtn.layer.cornerRadius = 4;
-    rightbtn.clipsToBounds = YES;
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    //    [self.view addSubview:rightbtn];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
+    [hitClickButtonn setTitle:@"发布" forState:UIControlStateNormal];
+//    hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    hitClickButtonn.layer.cornerRadius = 4;
+    hitClickButtonn.clipsToBounds = YES;
+    hitClickButtonn.titleLabel.font = kFont(14);
+    [hitClickButtonn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn.tag = 11;
+    //    [self.view addSubview:hitClickButtonn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     
     
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
  
     [self createViews];
     
-    [self getData];
+    [self loadFromServeTTTT];
     
     
     
@@ -210,11 +210,11 @@
     NSArray * mmArr = @[@"57",@"12",@"28"];
     for (int i = 0 ; i < mmArr.count ; i++) {
         
-        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(15 + 80 * i, 0, 50, 50)];
-        [button setImage:[UIImage imageNamed:mmArr[i]] forState:UIControlStateNormal];
-        [self.bottomView addSubview:button];
-        button.tag = 300+i;
-        [button addTarget:self action:@selector(bottomAction:) forControlEvents:UIControlEventTouchUpInside];
+        UIButton * anNiuBt = [[UIButton alloc] initWithFrame:CGRectMake(15 + 80 * i, 0, 50, 50)];
+        [anNiuBt setImage:[UIImage imageNamed:mmArr[i]] forState:UIControlStateNormal];
+        [self.bottomView addSubview:anNiuBt];
+        anNiuBt.tag = 300+i;
+        [anNiuBt addTarget:self action:@selector(bottomAction:) forControlEvents:UIControlEventTouchUpInside];
         
     }
     
@@ -229,34 +229,34 @@
 
     for (int i = 0 ; i < picsArr.count; i++) {
         
-        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(15 +  ((ScreenW - 60) /3 +15 )* i , 0, (ScreenW - 60) /3, (ScreenW - 60) /3)];
-        button.layer.cornerRadius = 3;
-        button.tag = 100+i;
-        button.clipsToBounds = YES;
-        button.backgroundColor = RGB(250, 250, 250);
-        [button setBackgroundImage:picsArr[i] forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.scrollview addSubview:button];
+        UIButton * anNiuBt = [[UIButton alloc] initWithFrame:CGRectMake(15 +  ((ScreenW - 60) /3 +15 )* i , 0, (ScreenW - 60) /3, (ScreenW - 60) /3)];
+        anNiuBt.layer.cornerRadius = 3;
+        anNiuBt.tag = 100+i;
+        anNiuBt.clipsToBounds = YES;
+        anNiuBt.backgroundColor = RGB(250, 250, 250);
+        [anNiuBt setBackgroundImage:picsArr[i] forState:UIControlStateNormal];
+        [anNiuBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.scrollview addSubview:anNiuBt];
         
         UIButton * deleteBt = [[UIButton alloc] initWithFrame:CGRectMake((ScreenW - 60) /3 - 25 , 0, 25, 25)];
         [deleteBt setImage:[UIImage imageNamed:@"48"] forState:UIControlStateNormal];
         deleteBt.tag = 200+i;
         deleteBt.backgroundColor = RGB(245, 245, 245);
         [deleteBt setBackgroundImage:picsArr[i] forState:UIControlStateNormal];
-        [deleteBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
-        [button addSubview:deleteBt];
+        [deleteBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
+        [anNiuBt addSubview:deleteBt];
         self.scrollview.contentSize = CGSizeMake(15 + (15 + (ScreenW - 60)/3) * picsArr.count, (ScreenW - 60)/3);
     }
         
     if (picsArr.count < 9) {
-        UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(15 +  ((ScreenW - 60) /3 +15)* picsArr.count , 0, (ScreenW - 60) /3, (ScreenW - 60) /3)];
-        button.layer.cornerRadius = 3;
-        button.tag = 100+picsArr.count;
-        button.clipsToBounds = YES;
-        button.backgroundColor = RGB(245, 245, 245);
-        [button setImage:[UIImage imageNamed:@"11"] forState:UIControlStateNormal];
-        [button addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.scrollview addSubview:button];
+        UIButton * anNiuBt = [[UIButton alloc] initWithFrame:CGRectMake(15 +  ((ScreenW - 60) /3 +15)* picsArr.count , 0, (ScreenW - 60) /3, (ScreenW - 60) /3)];
+        anNiuBt.layer.cornerRadius = 3;
+        anNiuBt.tag = 100+picsArr.count;
+        anNiuBt.clipsToBounds = YES;
+        anNiuBt.backgroundColor = RGB(245, 245, 245);
+        [anNiuBt setImage:[UIImage imageNamed:@"11"] forState:UIControlStateNormal];
+        [anNiuBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.scrollview addSubview:anNiuBt];
         self.scrollview.contentSize = CGSizeMake(15 + (15 + (ScreenW - 60)/3) * (picsArr.count + 1), (ScreenW - 60)/3);
     }else {
         self.scrollview.contentSize = CGSizeMake(15 + (15 + (ScreenW - 60)/3) * picsArr.count, (ScreenW - 60)/3);
@@ -265,18 +265,14 @@
     
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
-    
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getSysSocialCircleListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getSysSocialCircleListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
-            
             self.dataArray = [HHYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];
-            
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
@@ -292,16 +288,14 @@
 
 //添加话题
 - (void)createHuaTiVIews {
-    
-    
     for (int i = 0 ; i < 3; i++) {
-        UIButton * button = (UIButton * )[self.huaTiView viewWithTag:100+i];
-        UIButton * button1 = (UIButton * )[self.huaTiView viewWithTag:200+i];
-        if (button != nil) {
-            [button removeFromSuperview];
+        UIButton * anNiuBt = (UIButton * )[self.huaTiView viewWithTag:100+i];
+        UIButton * anNiuBt1 = (UIButton * )[self.huaTiView viewWithTag:200+i];
+        if (anNiuBt != nil) {
+            [anNiuBt removeFromSuperview];
         }
-        if (button1 != nil) {
-            [button1 removeFromSuperview];
+        if (anNiuBt1 != nil) {
+            [anNiuBt1 removeFromSuperview];
         }
     }
     
@@ -321,38 +315,36 @@
     CGFloat btY0 =2.5;
     
     for (int i = 0 ; i < self.huaTiArr.count; i++) {
-        UIButton * button =[UIButton new];
-        // button.hidden = YES;
-        button.tag = 100+i;
-        [button setTitleColor:CharacterRedColor forState:UIControlStateNormal];
-        button.layer.borderColor = CharacterRedColor.CGColor;
-        button.layer.borderWidth = 0.8;
-        button.titleLabel.textAlignment = NSTextAlignmentCenter;
-        button.titleLabel.font =[UIFont systemFontOfSize:13];
-        button.layer.cornerRadius = 3;
-        button.clipsToBounds = YES;
+        UIButton * anNiuBt =[UIButton new];
+        // anNiuBt.hidden = YES;
+        anNiuBt.tag = 100+i;
+        [anNiuBt setTitleColor:CharacterRedColor forState:UIControlStateNormal];
+        anNiuBt.layer.borderColor = CharacterRedColor.CGColor;
+        anNiuBt.layer.borderWidth = 0.8;
+        anNiuBt.titleLabel.textAlignment = NSTextAlignmentCenter;
+        anNiuBt.titleLabel.font =[UIFont systemFontOfSize:13];
+        anNiuBt.layer.cornerRadius = 3;
+        anNiuBt.clipsToBounds = YES;
         NSString * str = [NSString stringWithFormat:@"%@",self.huaTiArr[i].name];
-        [button setTitleColor:WhiteColor forState:UIControlStateSelected];
-        [button setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateSelected];
-        [button setTitle:str forState:UIControlStateNormal];
+        [anNiuBt setTitleColor:WhiteColor forState:UIControlStateSelected];
+        [anNiuBt setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateSelected];
+        [anNiuBt setTitle:str forState:UIControlStateNormal];
         CGFloat width =[str sizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]}].width;
+
+        anNiuBt.x = totalW;
+        anNiuBt.y = btY0+(number-1) *(btH+spaceH);
+        anNiuBt.height =btH;
+        anNiuBt.width = width+30;
+        totalW = anNiuBt.x + anNiuBt.width + spaceW;
         
-       
-        
-        button.x = totalW;
-        button.y = btY0+(number-1) *(btH+spaceH);
-        button.height =btH;
-        button.width = width+30;
-        totalW = button.x + button.width + spaceW;
-        
-        UIButton * closeBt = [[UIButton alloc] initWithFrame:CGRectMake(button.x + button.width - 5 , button.y - 5  , 10, 10)];
+        UIButton * closeBt = [[UIButton alloc] initWithFrame:CGRectMake(anNiuBt.x + anNiuBt.width - 5 , anNiuBt.y - 5  , 10, 10)];
         [closeBt setImage:[UIImage imageNamed:@"101"] forState:UIControlStateNormal];
         closeBt.tag = 200+i;
         [self.huaTiView addSubview:closeBt];
-        [button addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
+        [anNiuBt addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
         [closeBt addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
         
-        [self.huaTiView addSubview:button];
+        [self.huaTiView addSubview:anNiuBt];
 
         
         self.scrollview.mj_y = CGRectGetMaxY(self.huaTiView.frame) + 15;
@@ -392,8 +384,8 @@
 }
 
 //点击link
-- (void)linkAction:(UIButton *)button {
-    if (button.tag == 400) {
+- (void)linkAction:(UIButton *)anNiuBt {
+    if (anNiuBt.tag == 400) {
         //
     }else {
         [self addLinkWithStr:@""];
@@ -403,13 +395,13 @@
 }
 
 //点击图片
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)anNiuBt {
     
-    if (button.tag >=200) {
-        [self.picsArr removeObjectAtIndex:button.tag - 200];
+    if (anNiuBt.tag >=200) {
+        [self.picsArr removeObjectAtIndex:anNiuBt.tag - 200];
         [self addPicWithArr:self.picsArr];
     }else {
-        if (button.tag - 100  == self.picsArr.count) {
+        if (anNiuBt.tag - 100  == self.picsArr.count) {
             
             [self addPict];
             
@@ -418,18 +410,18 @@
 }
 
 //点击下面的按钮
-- (void)bottomAction:(UIButton *)button {
-    if (button.tag == 300) {
+- (void)bottomAction:(UIButton *)anNiuBt {
+    if (anNiuBt.tag == 300) {
         if (self.picsArr.count == 9) {
             [SVProgressHUD showErrorWithStatus:@"图片已经到最大张数了"];
             return;
         }
         [self addPict];
         
-    }else if (button.tag == 301) {
+    }else if (anNiuBt.tag == 301) {
         [self tapOne:nil];
         
-    }else if (button.tag == 302) {
+    }else if (anNiuBt.tag == 302) {
         [self goBiaoQian];
     }else {
         Weak(weakSelf);
@@ -478,12 +470,12 @@
     
 }
 
-- (void)closeAction:(UIButton *)button {
+- (void)closeAction:(UIButton *)anNiuBt {
     
-    if (button.tag >=200) {
-      [self.huaTiArr removeObjectAtIndex:button.tag-200];
+    if (anNiuBt.tag >=200) {
+      [self.huaTiArr removeObjectAtIndex:anNiuBt.tag-200];
     }else {
-       [self.huaTiArr removeObjectAtIndex:button.tag-100];
+       [self.huaTiArr removeObjectAtIndex:anNiuBt.tag-100];
     }
     [self createHuaTiVIews];
     
@@ -555,13 +547,13 @@
 }
 
 //点击发布
-- (void)navBtnClick:(UIButton *)button {
-    if (button.tag == 11) {
+- (void)navBtnClick:(UIButton *)anNiuBt {
+    if (anNiuBt.tag == 11) {
         
-        [self faBuAction:button];
+        [self faBuAction:anNiuBt];
         
         
-    }else if (button.tag == 12) {
+    }else if (anNiuBt.tag == 12) {
       
 //        HHYQuanZiGuiZeListTVC * vc =[[HHYQuanZiGuiZeListTVC alloc] init];
 //        vc.hidesBottomBarWhenPushed = YES;
@@ -596,7 +588,7 @@
     
 }
 
-- (void)faBuAction:(UIButton *)button {
+- (void)faBuAction:(UIButton *)anNiuBt {
 
     if (!self.circleID) {
         [SVProgressHUD showErrorWithStatus:@"请选择圈子"];
@@ -624,23 +616,23 @@
     Weak(weakSelf);
     if (self.picsArr.count > 0) {
         [zkRequestTool uploadImagsWithArr:self.picsArr withType:@"5" result:^(NSString *str) {
-            [weakSelf sendTwoWithButton:button withStr:str];
+            [weakSelf sendTwoWithButton:anNiuBt withStr:str];
         }];
         
     }else {
-        [self sendTwoWithButton:button withStr:nil];
+        [self sendTwoWithButton:anNiuBt withStr:nil];
     }
 }
 
 
-- (void)sendTwoWithButton:(UIButton *)button withStr:(NSString * )picStr{
+- (void)sendTwoWithButton:(UIButton *)anNiuBt withStr:(NSString * )picStr{
     
 
 
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"circleId"] = self.circleID;
-    dict[@"circleName"] = self.circleName;
-    dict[@"content"] = [NSString emojiConvert:self.TV.text];
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"circleId"] = self.circleID;
+    dataDict[@"circleName"] = self.circleName;
+    dataDict[@"content"] = [NSString emojiConvert:self.TV.text];
     
 //    if (self.nickNameStr.length > 0) {
 //        NSString * str = [NSString stringWithFormat:@"@%@ ",self.nickNameStr];
@@ -649,27 +641,27 @@
 //            [SVProgressHUD showErrorWithStatus:@"请输入发帖内容!"];
 //            return;
 //        }
-//        dict[@"content"] = contentStr;
+//        dataDict[@"content"] = contentStr;
 //
 //    }
     
-    dict[@"atUserId"] = self.idStr;
+    dataDict[@"atUserId"] = self.idStr;
     if (picStr) {
-        dict[@"pic"] = picStr;
+        dataDict[@"pic"] = picStr;
     }
     if (self.linkStr) {
-        dict[@"linkUrl"] = self.linkStr;
+        dataDict[@"linkUrl"] = self.linkStr;
     }
     NSMutableArray * arr = @[].mutableCopy;
     for (HHYTongYongModel * model  in self.huaTiArr) {
         [arr addObject:model.ID];
     }
-    dict[@"tagId"] = [arr componentsJoinedByString:@","];
-    button.userInteractionEnabled = NO;
+    dataDict[@"tagId"] = [arr componentsJoinedByString:@","];
+    anNiuBt.userInteractionEnabled = NO;
     [SVProgressHUD show];
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getaddURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getaddURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [SVProgressHUD dismiss];
-        button.userInteractionEnabled = YES;
+        anNiuBt.userInteractionEnabled = YES;
         if ([responseObject[@"code"] intValue]== 0) {
             
             [SVProgressHUD showSuccessWithStatus:@"发帖成功"];
@@ -682,7 +674,7 @@
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
-        button.userInteractionEnabled = YES;
+        anNiuBt.userInteractionEnabled = YES;
         
     }];
     

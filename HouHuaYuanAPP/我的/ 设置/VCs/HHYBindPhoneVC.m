@@ -66,15 +66,15 @@
         [SVProgressHUD showErrorWithStatus:@"请输入正确手机号"];
         return;
     }
-    NSMutableDictionary * dict = @{@"phone":self.phoneTF.text}.mutableCopy;
-    dict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
+    NSMutableDictionary * dataDict = @{@"phone":self.phoneTF.text}.mutableCopy;
+    dataDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
     if (self.isBangDing) {
-        dict[@"type"] = @(4);
+        dataDict[@"type"] = @(4);
     }else {
-        dict[@"type"] = @(2);
+        dataDict[@"type"] = @(2);
     }
    
-    [zkRequestTool networkingPOST:[HHYURLDefineTool sendValidCodeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool sendValidCodeURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [self timeAction];
         }else {
@@ -105,20 +105,20 @@
     }
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"code"] = self.codeTF.text;
-    dict[@"phone"] = self.phoneTF.text;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"code"] = self.codeTF.text;
+    dataDict[@"phone"] = self.phoneTF.text;
     if (self.isBangDing) {
-        dict[@"type"] = @(4);
+        dataDict[@"type"] = @(4);
         if (self.passwordTF.text.length == 0 ) {
             [SVProgressHUD showErrorWithStatus:@"请输入手机登录时的密码"];
             return;
         }
-        dict[@"newPwd"] = self.passwordTF.text;
+        dataDict[@"newPwd"] = self.passwordTF.text;
     }else {
-        dict[@"type"] = @(2);
+        dataDict[@"type"] = @(2);
     }
-    [zkRequestTool networkingPOST:[HHYURLDefineTool updatePhoneURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool updatePhoneURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             

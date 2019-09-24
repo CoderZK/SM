@@ -23,20 +23,20 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.navigationItem.title = @"新朋友";
-//    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
-//    [rightbtn setTitle:@"清空" forState:UIControlStateNormal];
-//    [rightbtn setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
-//    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    rightbtn.tag = 11;
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+//    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
+//    [hitClickButtonn setTitle:@"清空" forState:UIControlStateNormal];
+//    [hitClickButtonn setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
+//    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    hitClickButtonn.tag = 11;
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     
 }
@@ -48,13 +48,13 @@
     
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getNewFriendMsgListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getNewFriendMsgListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -136,10 +136,10 @@
     
     HHYTongYongModel * model = self.dataArray[index];
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"userFriendId"] = model.ID;
-    dict[@"agree"] = @(isOk);
-    [zkRequestTool networkingPOST:[HHYURLDefineTool agreeNewFriendApplyURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"userFriendId"] = model.ID;
+    dataDict[@"agree"] = @(isOk);
+    [zkRequestTool networkingPOST:[HHYURLDefineTool agreeNewFriendApplyURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

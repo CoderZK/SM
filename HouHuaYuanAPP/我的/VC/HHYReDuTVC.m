@@ -28,8 +28,8 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WXWX:) name:@"WXPAY" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBZFB:) name:@"ZFBPAY" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WWWWX:) name:@"WXPAY" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBPAY:) name:@"ZFBPAY" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -53,14 +53,14 @@
     [self initHeadV];
     [self initNav];
     
-    [self getData];
-    [self getDataTwo];
+    [self loadFromServeTTTT];
+    [self loadFromServeTTTTTwo];
 }
 
-- (void)getDataTwo {
+- (void)loadFromServeTTTTTwo {
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyInfoCenterURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyInfoCenterURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -88,15 +88,15 @@
     [self.view addSubview:leftbtn];
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftbtn];
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
     
-//    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [rightbtn setTitle:@"历史记录" forState:UIControlStateNormal];
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    [self.view addSubview:rightbtn];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+//    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [hitClickButtonn setTitle:@"历史记录" forState:UIControlStateNormal];
+    hitClickButtonn.titleLabel.font = kFont(14);
+    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn.tag = 11;
+    [self.view addSubview:hitClickButtonn];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
 }
 
 - (void)initHeadV {
@@ -134,12 +134,12 @@
     self.tableView.tableHeaderView = headView;
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getHeatPkgListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getHeatPkgListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -287,15 +287,15 @@
     }
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pkgId"] = self.dataArray[self.selctIndex].pkgId;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"pkgId"] = self.dataArray[self.selctIndex].pkgId;
     if (self.selectIndexZhiFu == 0) {
-        dict[@"payType"] = @(4);
+        dataDict[@"payType"] = @(4);
     }else {
-        dict[@"payType"] = @(3);
+        dataDict[@"payType"] = @(3);
     }
     [SVProgressHUD show];
-    [zkRequestTool networkingPOST:[HHYURLDefineTool heatReChargeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool heatReChargeURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [SVProgressHUD dismiss];
         if ([responseObject[@"code"] intValue]== 0) {
             if (self.selectIndexZhiFu == 0) {
@@ -370,7 +370,7 @@
 }
 
 //微信支付结果处理
-- (void)WXWX:(NSNotification *)no {
+- (void)WWWWX:(NSNotification *)no {
     
     BaseResp * resp = no.object;
     if (resp.errCode==WXSuccess)
@@ -433,7 +433,7 @@
 
 
 //支付宝支付结果处理,此处是app 被杀死之后用的
-- (void)ZFBZFB:(NSNotification *)notic {
+- (void)ZFBPAY:(NSNotification *)notic {
     
     NSDictionary *resultDic = notic.object;
     

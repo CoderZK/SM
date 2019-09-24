@@ -33,15 +33,15 @@
 
     self.dataArray = @[].mutableCopy;
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
 
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     
     if (!self.isHot) {
@@ -50,24 +50,24 @@
     
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(10);
     NSString * url = [HHYURLDefineTool nearbyUserListURL];
     if (self.isHot) {
         url = [HHYURLDefineTool heatUserListURL];
     }else {
         
-        if ([zkSignleTool shareTool].latitude > 0) {
-            dict[@"latitude"] = @([zkSignleTool shareTool].latitude);
-            dict[@"longitude"] = @([zkSignleTool shareTool].longitude);
+        if ([HHYSignleTool shareTool].latitude > 0) {
+            dataDict[@"latitude"] = @([HHYSignleTool shareTool].latitude);
+            dataDict[@"longitude"] = @([HHYSignleTool shareTool].longitude);
         }
     }
     
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -98,8 +98,8 @@
 
 - (void)changeView:(NSNotification *)noti {
     
-    NSDictionary * dict = noti.userInfo;
-    if ([dict[@"type"] integerValue] == 1) {
+    NSDictionary * dataDict = noti.userInfo;
+    if ([dataDict[@"type"] integerValue] == 1) {
         //点击的热度的筛选
         
     }else {

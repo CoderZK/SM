@@ -113,7 +113,7 @@
     }
     
 
-    self.guanZhuBt.hidden = [[zkSignleTool shareTool].session_uid isEqualToString:model.userId];
+    self.guanZhuBt.hidden = [[HHYSignleTool shareTool].session_uid isEqualToString:model.userId];
     
     
     if (model.subscribed) {
@@ -129,7 +129,7 @@
     
 }
 
-- (void)guanZhuAction:(UIButton *)button {
+- (void)attentionAction:(UIButton *)button {
     
     self.model.subscribed = !self.model.subscribed;
    

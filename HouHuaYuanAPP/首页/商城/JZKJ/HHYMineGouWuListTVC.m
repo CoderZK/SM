@@ -29,12 +29,12 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"HHYMyCarCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
    
-    [self getDataResult];
+    [self loadFromServeTTTTResult];
 }
 
-- (void)getDataResult {
+- (void)loadFromServeTTTTResult {
     
-    NSString * sql = [NSString stringWithFormat:@"select *from HHY_mygoodscar where userName = '%@' and status = 1",[zkSignleTool shareTool].session_uid];
+    NSString * sql = [NSString stringWithFormat:@"select *from HHY_mygoodscar where userName = '%@' and status = 1",[HHYSignleTool shareTool].session_uid];
     
     FMDatabase * db = [FMDBSingle shareFMDB].fd;
     if ([db open]) {

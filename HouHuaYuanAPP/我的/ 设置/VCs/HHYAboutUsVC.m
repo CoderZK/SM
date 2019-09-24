@@ -20,16 +20,16 @@
     self.navigationItem.title = @"关于我们";
     self.contentLB.text = @"账户、支付出现问题，或有任何意见，可点击反馈菜单进行反馈; \n也可使用如下方式联系我们 我的->设置->意见反馈->联系在线客服";
     
-    [self getData];
+    [self loadFromServeTTTT];
     
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
  
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getBannerListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getBannerListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
  
         if ([responseObject[@"code"] intValue]== 0) {
             

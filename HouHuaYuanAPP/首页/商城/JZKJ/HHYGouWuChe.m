@@ -31,7 +31,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self getDataFFFF];
+    [self loadFromServeTTTTFFFF];
 }
 
 - (void)viewDidLoad {
@@ -76,8 +76,8 @@
     [self.navigationController pushViewController:vc  animated:YES];
 }
 
-- (void)getDataFFFF {
-    NSString * sql = [NSString stringWithFormat:@"select *from kk_mygoodscar where userName = '%@' and status = 0",[zkSignleTool shareTool].session_uid];
+- (void)loadFromServeTTTTFFFF {
+    NSString * sql = [NSString stringWithFormat:@"select *from kk_mygoodscar where userName = '%@' and status = 0",[HHYSignleTool shareTool].session_uid];
     FMDatabase * db = [FMDBSingle shareFMDB].fd;
     if ([db open]) {
         FMResultSet * result = [db executeQuery:sql];

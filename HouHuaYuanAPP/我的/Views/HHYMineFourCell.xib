@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -76,25 +72,25 @@
                             <constraint firstAttribute="height" constant="60" id="LpI-Si-Wxg"/>
                         </constraints>
                         <connections>
-                            <action selector="clickAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Gzc-cd-25z"/>
+                            <action selector="hitAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Gzc-cd-25z"/>
                         </connections>
                     </button>
                     <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lev-tM-goO">
                         <rect key="frame" x="214.5" y="14" width="90" height="60"/>
                         <connections>
-                            <action selector="clickAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7BB-L2-peN"/>
+                            <action selector="hitAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7BB-L2-peN"/>
                         </connections>
                     </button>
                     <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FUm-y8-2rY">
                         <rect key="frame" x="115" y="14" width="89.5" height="60"/>
                         <connections>
-                            <action selector="clickAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PR2-P7-0rH"/>
+                            <action selector="hitAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PR2-P7-0rH"/>
                         </connections>
                     </button>
                     <button opaque="NO" tag="103" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0r-0q-krA">
                         <rect key="frame" x="314.5" y="14" width="89.5" height="60"/>
                         <connections>
-                            <action selector="clickAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cuk-yw-gZx"/>
+                            <action selector="hitAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="cuk-yw-gZx"/>
                         </connections>
                     </button>
                 </subviews>

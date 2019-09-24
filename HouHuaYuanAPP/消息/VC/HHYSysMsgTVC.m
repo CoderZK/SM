@@ -23,26 +23,26 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 20;
     self.pageNo = 1;
-     [self getData];
+     [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-         [self getData];
+         [self loadFromServeTTTT];
     }];
     
 }
 
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    //    dict[@"tagId"] = @(self.tagId);
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(20);
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getMySysMsgListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    //    dataDict[@"tagId"] = @(self.tagId);
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(20);
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getMySysMsgListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

@@ -10,7 +10,7 @@
 #define importHead_h
 
 #import "zkRequestTool.h"
-#import "zkSignleTool.h"
+#import "HHYSignleTool.h"
 
 #import "zkHomelModel.h"
 #import "YWUnlockView.h"

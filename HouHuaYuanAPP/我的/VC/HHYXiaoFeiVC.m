@@ -10,7 +10,7 @@
 #import "HHYXiaoFeiListTVC.h"
 @interface HHYXiaoFeiVC ()<UIScrollViewDelegate>
 @property(nonatomic,strong)UIView *whiteV,*topTitleView;
-@property(nonatomic,strong)UIButton *leftBt,*rightBt;
+@property(nonatomic,strong)UIButton *leftBt,*hitClickButton;
 @property(nonatomic,strong)UIScrollView *scrollView;
 @property(nonatomic,strong)HHYXiaoFeiListTVC *neraTV,*hotTV;
 @property(nonatomic,assign)NSInteger selectIndex;
@@ -52,13 +52,13 @@
     
     
     
-    self.rightBt = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, 80, 44)];
-    [self.rightBt setTitle:@"消费记录" forState:UIControlStateNormal];
-    self.rightBt.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    self.rightBt.tag = 101;
-    [self.rightBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.rightBt addTarget:self action:@selector(topTitleAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.topTitleView addSubview:self.rightBt];
+    self.hitClickButton = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, 80, 44)];
+    [self.hitClickButton setTitle:@"消费记录" forState:UIControlStateNormal];
+    self.hitClickButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    self.hitClickButton.tag = 101;
+    [self.hitClickButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.hitClickButton addTarget:self action:@selector(topTitleAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.topTitleView addSubview:self.hitClickButton];
     
     
     self.whiteV = [[UIView alloc] init];

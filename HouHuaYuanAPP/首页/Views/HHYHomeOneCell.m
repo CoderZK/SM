@@ -24,7 +24,7 @@
             vv.bt.tag = i;
 
             vv.imgV.image = [UIImage imageNamed:[NSString stringWithFormat:@"home_%d",i]];
-            [vv.bt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+            [vv.bt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:vv];
 
         }
@@ -35,7 +35,7 @@
 }
 
 
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
     if (self.indexBlock != nil ) {
         self.indexBlock(button.tag);
     }

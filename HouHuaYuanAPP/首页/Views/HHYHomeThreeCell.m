@@ -11,7 +11,7 @@
 @interface HHYHomeThreeCell()
 @property(nonatomic,strong)UIButton *leftBt;
 @property(nonatomic,strong)UIButton *centerBt;
-@property(nonatomic,strong)UIButton *rightBt;
+@property(nonatomic,strong)UIButton *hitClickButton;
 @property(nonatomic,strong)UIView *leftV,*centerV,*rightV;
 @end
 
@@ -43,7 +43,7 @@
         
         [self addSubview:self.leftBt];
         self.leftBt.tag = 0;
-        [self.leftBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.leftBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         
         self.centerBt = [[UIButton alloc] initWithFrame:CGRectMake(15 +  55, 0, 50, 40)];
         self.centerBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -54,7 +54,7 @@
         self.centerBt.titleLabel.font = kFont(15);
         [self addSubview:self.centerBt];
         self.centerBt.tag = 1;
-        [self.centerBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.centerBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         
 //        self.centerV = [[UIView alloc] initWithFrame:CGRectMake(38, 10, 15, 15)];
 //        self.centerV.backgroundColor = RGB(250, 105, 178);
@@ -70,36 +70,17 @@
         
         
         
-        self.rightBt = [[UIButton alloc] initWithFrame:CGRectMake(15 +  110 , 0, 50, 40)];
-        self.rightBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-        self.rightBt.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
-        [self.rightBt setTitle:@"关注" forState:UIControlStateNormal];
-        [self.rightBt setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-        [self.rightBt setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
-        self.rightBt.titleLabel.font = kFont(15);
-        [self addSubview:self.rightBt];
-        self.rightBt.tag = 2;
-        [self.rightBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
-        
-//        self.rightV = [[UIView alloc] initWithFrame:CGRectMake(38, 10, 15, 15)];
-//        self.rightV.backgroundColor = RGB(250, 105, 178);
-//        self.rightV.alpha = 0.5;
-//        self.rightV.clipsToBounds = YES;
-//        self.rightV.layer.cornerRadius = 7.5;
-//        self.rightV.layer.shadowColor = ShadowColor.CGColor;
-//        self.rightV.layer.shadowOffset = CGSizeMake(0, 0);
-//        self.rightV.layer.shadowOpacity = 0.1;//不透明度
-//        self.rightV.layer.shadowRadius = 10.0;
-//        self.rightV.hidden = YES;
-//        [self.rightBt addSubview:self.rightV];
-        
-//        self.desBt = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 10-40, 0, 40, 40)];
-//        self.desBt.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
-//        [self.desBt setImage: [UIImage imageNamed:@"21"] forState:UIControlStateNormal];
-//        self.desBt.tag = 3;
-//        [self.desBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
-//        [self addSubview:self.desBt];
-        
+        self.hitClickButton = [[UIButton alloc] initWithFrame:CGRectMake(15 +  110 , 0, 50, 40)];
+        self.hitClickButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+        self.hitClickButton.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+        [self.hitClickButton setTitle:@"关注" forState:UIControlStateNormal];
+        [self.hitClickButton setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+        [self.hitClickButton setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
+        self.hitClickButton.titleLabel.font = kFont(15);
+        [self addSubview:self.hitClickButton];
+        self.hitClickButton.tag = 2;
+        [self.hitClickButton addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
+
     }
     self.backgroundColor =[UIColor clearColor];
     return self;
@@ -113,8 +94,8 @@
         self.leftBt.titleLabel.font = [UIFont systemFontOfSize:20 weight:0.2];
         self.centerBt.selected = NO;
         self.centerBt.titleLabel.font = kFont(15);
-        self.rightBt.selected =  NO;
-        self.rightBt.titleLabel.font = kFont(15);
+        self.hitClickButton.selected =  NO;
+        self.hitClickButton.titleLabel.font = kFont(15);
         
         
         
@@ -124,15 +105,15 @@
         self.centerBt.titleLabel.font = [UIFont systemFontOfSize:20 weight:0.2];
         self.leftBt.selected = NO;
         self.leftBt.titleLabel.font = kFont(15);
-        self.rightBt.selected = NO;
-        self.rightBt.titleLabel.font = kFont(15);
+        self.hitClickButton.selected = NO;
+        self.hitClickButton.titleLabel.font = kFont(15);
     }else  if (selectIndex == 2) {
         
        
     
-        self.rightBt.selected = self.leftV.hidden = self.centerV.hidden = YES;
+        self.hitClickButton.selected = self.leftV.hidden = self.centerV.hidden = YES;
         self.rightV.hidden = NO;
-        self.rightBt.titleLabel.font = [UIFont systemFontOfSize:20 weight:0.2];
+        self.hitClickButton.titleLabel.font = [UIFont systemFontOfSize:20 weight:0.2];
         self.centerBt.selected = NO;
         self.centerBt.titleLabel.font = kFont(15);
         self.leftBt.selected = NO;
@@ -152,15 +133,15 @@
         [self.centerBt setTitle:dataArray[1] forState:UIControlStateNormal];
     }
     if (dataArray.count > 2) {
-        [self.rightBt setTitle:dataArray[2] forState:UIControlStateNormal];
+        [self.hitClickButton setTitle:dataArray[2] forState:UIControlStateNormal];
     }
     
 }
 
 
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
     
-    if (button.tag == 2 && ![zkSignleTool shareTool].isLogin) {
+    if (button.tag == 2 && ![HHYSignleTool shareTool].isLogin) {
         if (self.clickIndexBlock != nil) {
             self.clickIndexBlock(button.tag);
         }

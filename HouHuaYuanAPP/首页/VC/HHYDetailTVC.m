@@ -13,13 +13,13 @@
 #import "HHYDetailPingLunCell.h"
 #import "HHYPingLunTwoCell.h"
 #import "HHYGuanZhuHeadTVC.h"
-#import "zkJuBaoView.h"
+#import "HHYReportView.h"
 #import "HHYReDuTVC.h"
 #import "HHYJuBaoVC.h"
 #import "CustomEmojiView.h"
 #import "WZCustomEmojiView.h"
 #import "HHYZhiDingTaoCanTVC.h"
-@interface HHYDetailTVC ()<UITextFieldDelegate,HHYDetailZanCellDelegate,zkJuBaoViewDelegate,HHYDongTaiDetailCellDelegate,HHYYongBaoViewDeletage,CustomEmojiDelegate,WZCustomEmojiDelegate,UITextViewDelegate>
+@interface HHYDetailTVC ()<UITextFieldDelegate,HHYDetailZanCellDelegate,HHYReportViewDelegate,HHYDongTaiDetailCellDelegate,HHYYongBaoViewDeletage,CustomEmojiDelegate,WZCustomEmojiDelegate,UITextViewDelegate>
 @property(nonatomic,strong)zkHomelModel *dataModel;
 @property(nonatomic,strong)UIView *pingLunV;
 //@property(nonatomic,strong)UITextField *TF;
@@ -100,31 +100,31 @@
     // 键盘消失的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHiden:) name:UIKeyboardWillHideNotification object:nil];
     
-    UIButton * rightbtn1=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-//    [rightbtn1 setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
-    [rightbtn1 setTitle:@"置顶" forState:UIControlStateNormal];
-    [rightbtn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    rightbtn1.titleLabel.font = kFont(13);
-    [rightbtn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn1.tag = 10;
-    self.zhidingBt = rightbtn1;
+    UIButton * hitClickButtonn1=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+//    [hitClickButtonn1 setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
+    [hitClickButtonn1 setTitle:@"置顶" forState:UIControlStateNormal];
+    [hitClickButtonn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    hitClickButtonn1.titleLabel.font = kFont(13);
+    [hitClickButtonn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn1.tag = 10;
+    self.zhidingBt = hitClickButtonn1;
     if (isPPPPPP){
         self.zhidingBt.hidden = YES;
     }else {
         self.zhidingBt.hidden = NO;
     }
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [rightbtn setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:rightbtn],[[UIBarButtonItem alloc] initWithCustomView:rightbtn1]];
+    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
+    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn.tag = 11;
+    self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn],[[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn1]];
     
-    [self getData];
+    [self loadFromServeTTTT];
     self.pageNo = 1;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
     }];
 
     //评论更多
@@ -149,17 +149,17 @@
     }else {
     
         if  (self.dataModel.currentUserCollect) {
-            [zkJuBaoView showWithArray:@[@"举报",@"取消收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            [HHYReportView showWithArray:@[@"举报",@"取消收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         }else {
-            [zkJuBaoView showWithArray:@[@"举报",@"收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            [HHYReportView showWithArray:@[@"举报",@"收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         }
         
 
-        [zkJuBaoView shareInstance].delegate = self;
+        [HHYReportView shareInstance].delegate = self;
     }
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
 
     [zkRequestTool networkingPOST:[HHYURLDefineTool getdetailURL] parameters:self.ID success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
@@ -167,7 +167,7 @@
         if ([responseObject[@"code"] intValue]== 0) {
             self.dataModel = [zkHomelModel mj_objectWithKeyValues:responseObject[@"object"]];
             
-            if ([zkSignleTool shareTool].isLogin && [[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.createBy] && !self.dataModel.isTop) {
+            if ([HHYSignleTool shareTool].isLogin && [[HHYSignleTool shareTool].session_uid isEqualToString:self.dataModel.createBy] && !self.dataModel.isTop) {
                 self.zhidingBt.hidden = NO;
             }else {
                 self.zhidingBt.hidden = YES;
@@ -201,11 +201,11 @@
 - (void)getPingLun {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = self.ID;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getReplyPageListForPostURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"postId"] = self.ID;
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getReplyPageListForPostURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -236,15 +236,6 @@
 }
 
 - (void)setpingLunV {
-    
-//    self.TF = [[UITextField alloc] initWithFrame:CGRectMake(10, 7.5, ScreenW - 20 - 75 - 50 , 35)];
-//    self.TF.backgroundColor = RGB(245, 245, 245);
-//    self.TF.font = kFont(14);
-//    self.TF.delegate = self;
-////    self.TF.inputView = self.emojiKeyboard;
-//    self.TF.returnKeyType = UIReturnKeySend;
-//    [self.pingLunV addSubview:self.TF];
-    
     self.TV1 = [[UITextView alloc] initWithFrame:CGRectMake(10, 7.5, ScreenW - 20 - 75 - 50 , 35)];
     self.TV1.userInteractionEnabled = NO;
     self.TV1.textColor = CharacterBackColor;
@@ -524,13 +515,13 @@
         [SVProgressHUD showErrorWithStatus:@"请输入评论内容"];
         return;
     }
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = self.ID;
-    dict[@"content"] = [NSString emojiConvert:self.TV2.text];
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"postId"] = self.ID;
+    dataDict[@"content"] = [NSString emojiConvert:self.TV2.text];
     if (!self.isPingTie) {
-        dict[@"replyId"] = self.dataModel.replyInfoVoList[self.selectIndexPath.row].ID;
+        dataDict[@"replyId"] = self.dataModel.replyInfoVoList[self.selectIndexPath.row].ID;
     }
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getreplyURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getreplyURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -583,7 +574,7 @@
 
 #pragma mark ----- 点击了点赞人的头像  -----
 - (void)didClickZanHeadBtWithIndex:(NSInteger)index{
-    if (![zkSignleTool shareTool].isLogin) {
+    if (![HHYSignleTool shareTool].isLogin) {
         [self gotoLoginVC];
         return;
     }
@@ -616,11 +607,11 @@
         [self zanActionWithModel:self.dataModel WithIndePath:[NSIndexPath indexPathForRow:0 inSection:0]];
     }else if (index == 4) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.createBy]) {
+        if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.dataModel.createBy]) {
             [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
             return;
         }
@@ -634,7 +625,7 @@
        
     }else if (index == 7) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
@@ -649,9 +640,9 @@
 //收藏或者取消操作
 - (void)collectionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"targetId"] = model.postId;
-    dict[@"type"] = @"2";
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"targetId"] = model.postId;
+    dataDict[@"type"] = @"2";
     NSString * url = [HHYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
         url = [HHYURLDefineTool deleteMyCollectionURL];
@@ -680,7 +671,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -713,14 +704,14 @@
 
 - (void)zanActionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
 
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = model.postId;
-    dict[@"type"] = @"1";
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"postId"] = model.postId;
+    dataDict[@"type"] = @"1";
     NSString * url = [HHYURLDefineTool getlikeURL];
     if (model.currentUserLike) {
         url = [HHYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -729,15 +720,15 @@
             if (model.currentUserLike) {
                 model.likeNum = model.likeNum + 1;
                 zkHomelModel * modelNei = [[zkHomelModel alloc] init];
-                modelNei.avatar = [zkSignleTool shareTool].img;
-                modelNei.nickName = [zkSignleTool shareTool].nickName;
-                modelNei.createBy = [zkSignleTool shareTool].session_uid;
+                modelNei.avatar = [HHYSignleTool shareTool].img;
+                modelNei.nickName = [HHYSignleTool shareTool].nickName;
+                modelNei.createBy = [HHYSignleTool shareTool].session_uid;
                 [self.dataModel.postLikeVoList insertObject:modelNei atIndex:0];
             }else {
                 model.likeNum = model.likeNum - 1;
                 
                 for (zkHomelModel * zanModel  in self.dataModel.postLikeVoList) {
-                    if ([zanModel.createBy isEqualToString:[zkSignleTool shareTool].session_uid]) {
+                    if ([zanModel.createBy isEqualToString:[HHYSignleTool shareTool].session_uid]) {
                         [self.dataModel.postLikeVoList removeObject:zanModel];
                         break;
                     }

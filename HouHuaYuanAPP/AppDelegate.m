@@ -121,7 +121,7 @@
         if ([[navc.childViewControllers lastObject] isKindOfClass:[HangQingVC class]]) {
             HangQingVC * vc = (HangQingVC *)[navc.childViewControllers lastObject];
             vc.pageNo = 1;
-            [vc getData];
+            [vc loadFromServeTTTT];
         }
     }
     
@@ -164,12 +164,12 @@
     //退出登录
 - (void)outLogin {
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getlogoutURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getlogoutURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             
-            [zkSignleTool shareTool].isLogin = NO;
+            [HHYSignleTool shareTool].isLogin = NO;
             TabBarController * tavc = (TabBarController *)self.window.rootViewController;
             tavc.selectedIndex = 0;
             [[EMClient sharedClient] logout:YES];
@@ -258,16 +258,16 @@
     //
     //                                                     if ([version integerValue] < [currentVersion integerValue])
     //                                                     {
-    //                                                         [zkSignleTool shareTool].isUpdate = YES;
+    //                                                         [HHYSignleTool shareTool].isUpdate = YES;
     //                                                         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateHead" object:nil];
     //
     //                                                     }else {
-    //                                                          [zkSignleTool shareTool].isUpdate = NO;
+    //                                                          [HHYSignleTool shareTool].isUpdate = NO;
     //                                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"updateHead" object:nil];
     //                                                     }
     //                                                 }else {
     //
-    //                                                     [zkSignleTool shareTool].isUpdate = YES;
+    //                                                     [HHYSignleTool shareTool].isUpdate = YES;
     //                                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"updateHead" object:nil];
     //
     //                                                 }
@@ -290,10 +290,10 @@
         /*
          * 关闭强制验证https，可允许http图片分享，但需要在info.plist设置安全域名
          <key>NSAppTransportSecurity</key>
-         <dict>
+         <dataDict>
          <key>NSAllowsArbitraryLoads</key>
          <true/>
-         </dict>
+         </dataDict>
          */
         //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
         

@@ -19,13 +19,13 @@
 //    manager.securityPolicy.validatesDomainName = NO;
 //    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/html",@"text/json",@"text/javascript",@"text/x-chdr", nil];
 //
-//    if ([zkSignleTool shareTool].session_token != nil) {
+//    if ([HHYSignleTool shareTool].session_token != nil) {
 //
-//        NSLog(@"\ntoken ==== %@",[zkSignleTool shareTool].session_token);
+//        NSLog(@"\ntoken ==== %@",[HHYSignleTool shareTool].session_token);
 //
 //
-//        if ([zkSignleTool shareTool].isLogin) {
-//            [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[zkSignleTool shareTool].session_token] forHTTPHeaderField:@"Authorization"];
+//        if ([HHYSignleTool shareTool].isLogin) {
+//            [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[HHYSignleTool shareTool].session_token] forHTTPHeaderField:@"Authorization"];
 //        }else {
 //            [manager.requestSerializer setValue:@"Bearer " forHTTPHeaderField:@"Authorization"];
 //        }
@@ -68,13 +68,13 @@
     }
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:nil error:nil];
-    if ([zkSignleTool shareTool].session_token != nil) {
+    if ([HHYSignleTool shareTool].session_token != nil) {
         
-        NSLog(@"===\n%@",[zkSignleTool shareTool].session_token);
+        NSLog(@"===\n%@",[HHYSignleTool shareTool].session_token);
 
         
-        if ([zkSignleTool shareTool].isLogin) {
-            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[zkSignleTool shareTool].session_token]};
+        if ([HHYSignleTool shareTool].isLogin) {
+            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[HHYSignleTool shareTool].session_token]};
         }else {
             req.allHTTPHeaderFields = @{@"Authorization":@"Bearer "};
         }
@@ -102,9 +102,9 @@
     NSString * jsonStr = [NSString convertToJsonDataWithDict:parameters];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:nil error:nil];
-    if ([zkSignleTool shareTool].session_token != nil) {
-        if ([zkSignleTool shareTool].isLogin) {
-            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[zkSignleTool shareTool].session_token]};
+    if ([HHYSignleTool shareTool].session_token != nil) {
+        if ([HHYSignleTool shareTool].isLogin) {
+            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[HHYSignleTool shareTool].session_token]};
         }else {
             req.allHTTPHeaderFields = @{@"Authorization":@"Bearer "};
         }
@@ -142,9 +142,9 @@
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/html",@"text/json",@"text/javascript", nil];
-    if ([zkSignleTool shareTool].session_token != nil) {
-        if ([zkSignleTool shareTool].isLogin) {
-            [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[zkSignleTool shareTool].session_token] forHTTPHeaderField:@"Authorization"];
+    if ([HHYSignleTool shareTool].session_token != nil) {
+        if ([HHYSignleTool shareTool].isLogin) {
+            [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[HHYSignleTool shareTool].session_token] forHTTPHeaderField:@"Authorization"];
         }else {
             [manager.requestSerializer setValue:@"Bearer " forHTTPHeaderField:@"Authorization"];
         }
@@ -187,14 +187,14 @@
 //    [manager.requestSerializer setValue:@"http://iosapi.jkcsoft.com/public/index.html" forHTTPHeaderField:@"Referer"];
     //    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
-//    NSDictionary * dict = parameters;
+//    NSDictionary * dataDict = parameters;
     //获取josnzi字符串
-//    NSString * josnStr = [NSString convertToJsonData:dict];
+//    NSString * josnStr = [NSString convertToJsonData:dataDict];
 //    //获取MD5字符串
 //    NSString * MD5Str = [NSString stringToMD5:[josnStr stringByAppendingString:@"1375d7ac2b2a8e25"]];
 //    NSDictionary * paraDict = @{@"authCode":MD5Str,@"jsonObj":josnStr};
-    if ([zkSignleTool shareTool].isLogin) {
-        [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[zkSignleTool shareTool].session_token] forHTTPHeaderField:@"Authorization"];
+    if ([HHYSignleTool shareTool].isLogin) {
+        [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[HHYSignleTool shareTool].session_token] forHTTPHeaderField:@"Authorization"];
     }else {
         [manager.requestSerializer setValue:@"Bearer " forHTTPHeaderField:@"Authorization"];
     }
@@ -226,9 +226,9 @@
     NSMutableDictionary *mDict = [NSMutableDictionary dictionaryWithDictionary:parameters];
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/html",@"text/json",@"text/javascript", nil];
-    NSDictionary * dict = parameters;
+    NSDictionary * dataDict = parameters;
     //    //获取josnzi字符串
-    //    NSString * josnStr = [NSString convertToJsonData:dict];
+    //    NSString * josnStr = [NSString convertToJsonData:dataDict];
     //    //获取MD5字符串
     //    NSString * MD5Str = [NSString stringToMD5:[josnStr stringByAppendingString:@"1375d7ac2b2a8e25"]];
     //    NSDictionary * paraDict = @{@"authCode":MD5Str,@"jsonObj":josnStr};
@@ -279,9 +279,9 @@
     [manager.requestSerializer setValue:@"http://iosapi.jkcsoft.com/public/index.html" forHTTPHeaderField:@"Referer"];
     
     
-//    NSDictionary * dict = parameters;
+//    NSDictionary * dataDict = parameters;
 //    //获取josnzi字符串
-//    NSString * josnStr = [NSString convertToJsonData:dict];
+//    NSString * josnStr = [NSString convertToJsonData:dataDict];
 //    //获取MD5字符串
 //    NSString * MD5Str = [NSString stringToMD5:[josnStr stringByAppendingString:@"1375d7ac2b2a8e25"]];
 //    NSDictionary * paraDict = @{@"authCode":MD5Str,@"jsonObj":josnStr};

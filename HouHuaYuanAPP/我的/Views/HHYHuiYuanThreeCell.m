@@ -12,8 +12,8 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.rightBt.layer.cornerRadius = 18;
-    self.rightBt.clipsToBounds = YES;
+    self.hitClickButton.layer.cornerRadius = 18;
+    self.hitClickButton.clipsToBounds = YES;
     self.titleLB.textColor = CharacterBlackColor;
 }
 

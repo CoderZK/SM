@@ -32,8 +32,8 @@
             [imgBt addSubview:delectBt];
             delectBt.tag = 200+i;
             
-            [imgBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
-            [delectBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+            [imgBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
+            [delectBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:imgBt];
         }
         
@@ -77,7 +77,7 @@
     
 }
 
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
     
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickView:isDelect:andIsAdd:withIndex:)]) {
         

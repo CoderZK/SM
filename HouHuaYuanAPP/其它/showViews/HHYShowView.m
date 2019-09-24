@@ -65,7 +65,7 @@
         }
         vvv.imgVTwo.image = [UIImage imageNamed:imgeStrArr[i]];
         vvv.titleLB.text = titleArr[i];
-        [vvv.button addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [vvv.button addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         
     }
     
@@ -76,7 +76,7 @@
 }
 
 
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickIndex:)]) {
         [self diss];
         [self.delegate didClickIndex:button.tag];

@@ -166,13 +166,13 @@
     }
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"actualName"] = self.nameTF.text;
-    dict[@"idNo"] = self.numberTF.text;
-    dict[@"idCardFront"] = self.footStr;
-    dict[@"idCardBack"] = self.backStr;
-    dict[@"handIdCard"] = self.handStr;
-    [zkRequestTool networkingPOST:[HHYURLDefineTool userAuthURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"actualName"] = self.nameTF.text;
+    dataDict[@"idNo"] = self.numberTF.text;
+    dataDict[@"idCardFront"] = self.footStr;
+    dataDict[@"idCardBack"] = self.backStr;
+    dataDict[@"handIdCard"] = self.handStr;
+    [zkRequestTool networkingPOST:[HHYURLDefineTool userAuthURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

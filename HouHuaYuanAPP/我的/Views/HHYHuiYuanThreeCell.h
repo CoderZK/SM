@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHYHuiYuanThreeCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLB;
-@property (weak, nonatomic) IBOutlet UIButton *rightBt;
+@property (weak, nonatomic) IBOutlet UIButton *hitClickButton;
 
 @end
 

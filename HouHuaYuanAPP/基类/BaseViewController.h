@@ -10,7 +10,7 @@
 
 
 @interface BaseViewController : UIViewController
-@property(strong,nonatomic)UIButton * rightBtn2;
+@property(strong,nonatomic)UIButton * hitClickButtonn2;
 - (void)gotoLoginVC;
 
 /**
@@ -28,10 +28,10 @@
  *  导航条右侧按钮的赋值/点击
  *  @param imgName   导航条图片
  *  @param title     导航条标题
- *  @param rightBtn   右侧按钮
+ *  @param hitClickButtonn   右侧按钮
  *  @param buttonClick 点击bloc
  */
-- (void)setNavRightBtnWithImg:(NSString *)imgName title:(NSString *)title withBlock:(void (^)(UIButton *rightBtn))rightBtn handleBtn:(void(^)())buttonClick;
+- (void)setNavhitClickButtonnWithImg:(NSString *)imgName title:(NSString *)title withBlock:(void (^)(UIButton *hitClickButtonn))hitClickButtonn handleBtn:(void(^)())buttonClick;
 
 - (BOOL)isCanUsePhotos;
 - (BOOL)isCanUsePicture;

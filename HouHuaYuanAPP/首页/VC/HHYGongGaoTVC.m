@@ -64,7 +64,7 @@
         cell.imgV.image = [UIImage imageNamed:[NSString stringWithFormat:@"%ld",[self.cricleID integerValue] - 1]];
         cell.titleLB.text = self.cricleName;
         
-        [cell.guanZhuBt addTarget:self action:@selector(guanZhuAction) forControlEvents:UIControlEventTouchUpInside];
+        [cell.guanZhuBt addTarget:self action:@selector(attentionAction) forControlEvents:UIControlEventTouchUpInside];
         
         if (self.dataModel.subscribed) {
             cell.wwcon.constant= 100;
@@ -102,16 +102,16 @@
     
 }
 
-- (void)guanZhuAction{
+- (void)attentionAction{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"type"] = @"2";
-    dict[@"userId"] = self.cricleID;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"type"] = @"2";
+    dataDict[@"userId"] = self.cricleID;
     NSString * url = [HHYURLDefineTool addUserSubscribeURL];
     if (self.dataModel.subscribed) {
         url = [HHYURLDefineTool deleteUserSubscribeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -119,16 +119,16 @@
             if (self.dataModel.subscribed) {
                 
                 for (zkHomelModel * model  in self.dataModel.fansList) {
-                    if ([model.userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+                    if ([model.userId isEqualToString:[HHYSignleTool shareTool].session_uid]) {
                         [self.dataModel.fansList removeObject:model];
                         break ;
                     }
                 }
             }else {
                 zkHomelModel * model = [[zkHomelModel alloc] init];
-                model.avatar = [zkSignleTool shareTool].img;
-                model.nickName = [zkSignleTool shareTool].nickName;
-                model.userId = [zkSignleTool shareTool].session_uid;
+                model.avatar = [HHYSignleTool shareTool].img;
+                model.nickName = [HHYSignleTool shareTool].nickName;
+                model.userId = [HHYSignleTool shareTool].session_uid;
                 [self.dataModel.fansList addObject:model];
                 
             }

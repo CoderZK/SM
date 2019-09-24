@@ -9,7 +9,7 @@
 #import "HHYHuaDuoFiveCell.h"
 
 @interface HHYHuaDuoFiveCell()
-@property(nonatomic,strong)huoDuoBt *leftBt,*centerBt,*rightBt;
+@property(nonatomic,strong)huoDuoBt *leftBt,*centerBt,*hitClickButton;
 @end
 
 @implementation HHYHuaDuoFiveCell
@@ -27,23 +27,23 @@
         self.centerBt = [[huoDuoBt alloc] initWithFrame:CGRectMake(15+ ww, 7.5, ww, 75)];
         [self addSubview:self.centerBt];
         
-        self.rightBt = [[huoDuoBt alloc] initWithFrame:CGRectMake(20 + 2* ww, 7.5,ww, 75)];
-        [self addSubview:self.rightBt];
+        self.hitClickButton = [[huoDuoBt alloc] initWithFrame:CGRectMake(20 + 2* ww, 7.5,ww, 75)];
+        [self addSubview:self.hitClickButton];
         
         self.leftBt.tag = 0;
         self.centerBt.tag =1;
-        self.rightBt.tag = 2;
+        self.hitClickButton.tag = 2;
         
-        [self.leftBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.centerBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.rightBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.leftBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.centerBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.hitClickButton addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         
     }
     return self;
 }
 
 
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
     
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickCell:index:)]){
         [self.delegate didClickCell:self index:button.tag];
@@ -54,7 +54,7 @@
 
 - (void)setDataArray:(NSMutableArray<HHYTongYongModel *> *)dataArray {
     _dataArray = dataArray;
-    self.leftBt.hidden = self.centerBt.hidden = self.rightBt.hidden = YES;
+    self.leftBt.hidden = self.centerBt.hidden = self.hitClickButton.hidden = YES;
     if (dataArray.count > 0) {
         self.leftBt.hidden = NO;
         self.leftBt.LB2.text = [NSString stringWithFormat:@"%@朵花",dataArray[0].heat];
@@ -92,22 +92,22 @@
         self.centerBt.LB4.text = [NSString stringWithFormat:@"%@元",dataArray[1].price];
     }
     if (dataArray.count > 2) {
-        self.rightBt.hidden = NO;
-        self.rightBt.LB2.text = [NSString stringWithFormat:@"%@朵花",dataArray[2].heat];
+        self.hitClickButton.hidden = NO;
+        self.hitClickButton.LB2.text = [NSString stringWithFormat:@"%@朵花",dataArray[2].heat];
         if ([dataArray[2].heatGift floatValue] > 0) {
-            self.rightBt.LB1.hidden = NO;
-            self.rightBt.LB3.hidden = NO;
-            self.rightBt.LB3.text = [NSString stringWithFormat:@"赠送%@朵花",dataArray[2].heatGift];
+            self.hitClickButton.LB1.hidden = NO;
+            self.hitClickButton.LB3.hidden = NO;
+            self.hitClickButton.LB3.text = [NSString stringWithFormat:@"赠送%@朵花",dataArray[2].heatGift];
         }else {
-            self.rightBt.LB1.hidden = YES;
-            self.rightBt.LB3.hidden = YES;
+            self.hitClickButton.LB1.hidden = YES;
+            self.hitClickButton.LB3.hidden = YES;
         }
         if (dataArray[2].isSelect) {
-            [self.rightBt.gouBt setBackgroundImage:[UIImage imageNamed:@"80"] forState:UIControlStateNormal];
+            [self.hitClickButton.gouBt setBackgroundImage:[UIImage imageNamed:@"80"] forState:UIControlStateNormal];
         }else {
-            [self.rightBt.gouBt setBackgroundImage:[UIImage imageNamed:@"78"] forState:UIControlStateNormal];
+            [self.hitClickButton.gouBt setBackgroundImage:[UIImage imageNamed:@"78"] forState:UIControlStateNormal];
         }
-        self.rightBt.LB4.text = [NSString stringWithFormat:@"%@元",dataArray[2].price];
+        self.hitClickButton.LB4.text = [NSString stringWithFormat:@"%@元",dataArray[2].price];
     }
     
     

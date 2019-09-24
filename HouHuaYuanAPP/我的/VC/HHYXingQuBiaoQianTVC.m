@@ -35,17 +35,17 @@
     LB.font = kFont(14);
     LB.text = @"选择标签,作为个人兴趣爱好标识";
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
-    [rightbtn setTitle:@"完成" forState:UIControlStateNormal];
-    rightbtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    [hitClickButtonn setTitle:@"完成" forState:UIControlStateNormal];
+    hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    hitClickButtonn.titleLabel.font = kFont(14);
+    [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn.tag = 11;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     
     
-    [self getData];
+    [self loadFromServeTTTT];
 }
 
 
@@ -90,10 +90,10 @@
 - (void)xiugGAIActionWithTagIds:(NSString *)tagIds withtagsNmae:(NSString *)tags WithArr:(NSArray *)arr{
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"tags"] = tagIds;
-    //    dict[@""]
-    [zkRequestTool networkingPOST:[HHYURLDefineTool updateMyInfoURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"tags"] = tagIds;
+    //    dataDict[@""]
+    [zkRequestTool networkingPOST:[HHYURLDefineTool updateMyInfoURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -158,7 +158,7 @@
 }
 
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     [zkRequestTool networkingPOST:[HHYURLDefineTool getLabelsURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue] == 0) {

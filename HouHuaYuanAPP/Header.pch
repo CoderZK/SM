@@ -60,7 +60,7 @@
 #define sxeArr @[@"",@"男",@"女"]
 
 
-#define isPPPPPP [zkSignleTool shareTool].isUpdate
+#define isPPPPPP [HHYSignleTool shareTool].isUpdate
 #define Weak(weakSelf) __weak typeof(self) weakSelf = self;
 #define sstatusHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 #define NaviH  44

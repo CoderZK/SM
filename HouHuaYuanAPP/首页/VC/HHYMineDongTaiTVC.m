@@ -13,7 +13,7 @@
 @property(nonatomic,strong)NSMutableArray<zkHomelModel *> *dataArray;
 @property(nonatomic,strong)UIButton *leftBt;
 @property(nonatomic,strong)UIButton *centerBt;
-@property(nonatomic,strong)UIButton *rightBt,*desBt,*desTwobt;
+@property(nonatomic,strong)UIButton *hitClickButton,*desBt,*desTwobt;
 @property(nonatomic,strong)UIView *headV,*headTwoView;
 @property(nonatomic,strong)UILabel *desLB;
 @property(nonatomic,assign)NSInteger pageNo;
@@ -61,32 +61,32 @@
         self.navigationItem.title = @"我的动态";
          self.tableView.frame = CGRectMake(0,0, ScreenW, ScreenH);
         
-        UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+        UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
         
-        //    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-        [rightbtn setTitle:@"编辑" forState:UIControlStateNormal];
-        [rightbtn setTitle:@"删除" forState:UIControlStateSelected];
-        [rightbtn sizeToFit];
-        rightbtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        rightbtn.titleLabel.font = kFont(14);
-        [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        rightbtn.tag = 11;
-        self.editBt = rightbtn;
-        UIButton * rightbtn1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+        //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+        [hitClickButtonn setTitle:@"编辑" forState:UIControlStateNormal];
+        [hitClickButtonn setTitle:@"删除" forState:UIControlStateSelected];
+        [hitClickButtonn sizeToFit];
+        hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        hitClickButtonn.titleLabel.font = kFont(14);
+        [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        hitClickButtonn.tag = 11;
+        self.editBt = hitClickButtonn;
+        UIButton * hitClickButtonn1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
         
-        //    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-        [rightbtn1 setTitle:@"返回" forState:UIControlStateNormal];
+        //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+        [hitClickButtonn1 setTitle:@"返回" forState:UIControlStateNormal];
         
-        rightbtn1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        rightbtn1.titleLabel.font = kFont(14);
-        [rightbtn1 sizeToFit];
-        [rightbtn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [rightbtn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-        rightbtn1.tag = 12;
-        rightbtn1.hidden = YES;
-        self.backBt = rightbtn1;
-        //    [self.view addSubview:rightbtn];
+        hitClickButtonn1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        hitClickButtonn1.titleLabel.font = kFont(14);
+        [hitClickButtonn1 sizeToFit];
+        [hitClickButtonn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [hitClickButtonn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        hitClickButtonn1.tag = 12;
+        hitClickButtonn1.hidden = YES;
+        self.backBt = hitClickButtonn1;
+        //    [self.view addSubview:hitClickButtonn];
         self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.editBt],[[UIBarButtonItem alloc] initWithCustomView:self.backBt]];
         
        
@@ -98,13 +98,13 @@
     }
     
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     
     
@@ -218,7 +218,7 @@
     self.leftBt.titleLabel.font = [UIFont systemFontOfSize:20 weight:0.2];
     [self.headV addSubview:self.leftBt];
     self.leftBt.tag = 0;
-    [self.leftBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
     
     self.centerBt = [[UIButton alloc] initWithFrame:CGRectMake(15 +  55, 0, 50, 40)];
     self.centerBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
@@ -229,32 +229,32 @@
     self.centerBt.titleLabel.font = kFont(15);
     [self.headV addSubview:self.centerBt];
     self.centerBt.tag = 1;
-    [self.centerBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.centerBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    self.rightBt = [[UIButton alloc] initWithFrame:CGRectMake(15 +  110 , 0, 50, 40)];
-    self.rightBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-    self.rightBt.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
-    [self.rightBt setTitle:@"关注" forState:UIControlStateNormal];
-    [self.rightBt setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-    [self.rightBt setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
-    self.rightBt.titleLabel.font = kFont(15);
-    [self.headV addSubview:self.rightBt];
-    self.rightBt.tag = 2;
-    [self.rightBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.hitClickButton = [[UIButton alloc] initWithFrame:CGRectMake(15 +  110 , 0, 50, 40)];
+    self.hitClickButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    self.hitClickButton.contentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
+    [self.hitClickButton setTitle:@"关注" forState:UIControlStateNormal];
+    [self.hitClickButton setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+    [self.hitClickButton setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
+    self.hitClickButton.titleLabel.font = kFont(15);
+    [self.headV addSubview:self.hitClickButton];
+    self.hitClickButton.tag = 2;
+    [self.hitClickButton addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
 //
 //    self.desBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
 //    [self.desBt setImage: [UIImage imageNamed:@"21"] forState:UIControlStateNormal];
 //    self.desBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
 //    self.desBt.tag = 3;
-//    [self.desBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.desBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
 //
 //    self.desTwobt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 40)];
 //    [self.desTwobt setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
 //    [self.desTwobt setTitle:@"取消关注" forState:UIControlStateNormal];
 //    self.desTwobt.titleLabel.font = kFont(14);
 //    self.desTwobt.tag = 4;
-//    [self.desTwobt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.desTwobt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
 //
 //    UIBarButtonItem * item1 = [[UIBarButtonItem alloc] initWithCustomView:self.desTwobt];
 //    UIBarButtonItem * item2 = [[UIBarButtonItem alloc] initWithCustomView:self.desBt];
@@ -263,27 +263,27 @@
 }
 
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     [SVProgressHUD show];
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    //    dict[@"tagId"] = @(self.tagId);
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    //    dataDict[@"tagId"] = @(self.tagId);
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(10);
     if (self.isMine) {
-        dict[@"createBy"] = [zkSignleTool shareTool].session_uid;
+        dataDict[@"createBy"] = [HHYSignleTool shareTool].session_uid;
     }else {
-        dict[@"circleId"] = self.circleId;
+        dataDict[@"circleId"] = self.circleId;
         if (self.type == 0){
-            dict[@"orderBy"] = @(2);
+            dataDict[@"orderBy"] = @(2);
         }else if (self.type == 1) {
-            dict[@"orderBy"] = @(1);
+            dataDict[@"orderBy"] = @(1);
         }else if (self.type == 2){
-            dict[@"subscribed"] = @(1);
+            dataDict[@"subscribed"] = @(1);
         }
     }
    
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getsearchURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getsearchURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         [SVProgressHUD dismiss];
@@ -318,7 +318,7 @@
 
 
 
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
     
     if (button.tag != 2) {
       self.type = button.tag;
@@ -329,8 +329,8 @@
         self.leftBt.titleLabel.font = [UIFont systemFontOfSize:20 weight:0.2];
         self.centerBt.selected = NO;
         self.centerBt.titleLabel.font = kFont(15);
-        self.rightBt.selected = NO;
-        self.rightBt.titleLabel.font = kFont(15);
+        self.hitClickButton.selected = NO;
+        self.hitClickButton.titleLabel.font = kFont(15);
         
         
     }else if (button.tag == 1) {
@@ -338,17 +338,17 @@
         self.centerBt.titleLabel.font = [UIFont systemFontOfSize:20 weight:0.2];
         self.leftBt.selected = NO;
         self.leftBt.titleLabel.font = kFont(15);
-        self.rightBt.selected = NO;
-        self.rightBt.titleLabel.font = kFont(15);
+        self.hitClickButton.selected = NO;
+        self.hitClickButton.titleLabel.font = kFont(15);
     }else if (button.tag == 2) {
         
-        if (![zkSignleTool shareTool].isLogin){
+        if (![HHYSignleTool shareTool].isLogin){
             [self gotoLoginVC];
             return ;
         }
         self.type = button.tag;
-        self.rightBt.selected = YES;
-        self.rightBt.titleLabel.font = [UIFont systemFontOfSize:20 weight:0.2];
+        self.hitClickButton.selected = YES;
+        self.hitClickButton.titleLabel.font = [UIFont systemFontOfSize:20 weight:0.2];
         self.centerBt.selected = NO;
         self.centerBt.titleLabel.font = kFont(15);
         self.leftBt.selected = NO;
@@ -364,29 +364,28 @@
         
     }else if (button.tag == 4) {
         //关注
-        if (![zkSignleTool shareTool].isLogin){
+        if (![HHYSignleTool shareTool].isLogin){
             [self gotoLoginVC];
             return ;
         }
-        [self guanZhuAction];
+        [self attentionAction];
         return;
         
     }
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     
 }
 
-- (void)guanZhuAction{
-    
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"type"] = @"2";
-    dict[@"userId"] = self.circleId;
+- (void)attentionAction{
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"type"] = @"2";
+    dataDict[@"userId"] = self.circleId;
     NSString * url = [HHYURLDefineTool addUserSubscribeURL];
     if (self.isSubscribed) {
         url = [HHYURLDefineTool deleteUserSubscribeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -398,11 +397,9 @@
                 [self.desTwobt setTitle:@"关注" forState:UIControlStateNormal];
                 self.desTwobt.mj_w = 30;
             }
-            
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
-        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
         [self.tableView.mj_header endRefreshing];
@@ -480,7 +477,7 @@
         
         
     }else if (index == 3) {
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
@@ -488,11 +485,11 @@
         
     }else if (index == 4) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
+        if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
             [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
             return;
         }
@@ -506,7 +503,7 @@
         
     }else if (index == 7) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
@@ -521,14 +518,14 @@
 - (void)zanActionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
 
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = model.postId;
-    dict[@"type"] = @"1";
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"postId"] = model.postId;
+    dataDict[@"type"] = @"1";
     NSString * url = [HHYURLDefineTool getlikeURL];
     if (model.currentUserLike) {
         url = [HHYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -557,9 +554,9 @@
 //收藏或者取消操作
 - (void)collectionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"targetId"] = self.dataArray[indexPath.row].postId;
-    dict[@"type"] = @"2";
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"targetId"] = self.dataArray[indexPath.row].postId;
+    dataDict[@"type"] = @"2";
     NSString * url = [HHYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
         url = [HHYURLDefineTool deleteMyCollectionURL];
@@ -588,7 +585,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {

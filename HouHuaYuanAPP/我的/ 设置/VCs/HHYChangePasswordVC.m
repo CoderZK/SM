@@ -58,9 +58,9 @@
             [SVProgressHUD showErrorWithStatus:@"请输入正确手机号"];
             return;
         }
-        NSMutableDictionary * dict = @{@"phone":self.phoneTF.text,@"type":@"3"}.mutableCopy;
-        dict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
-        [zkRequestTool networkingPOST:[HHYURLDefineTool sendValidCodeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSMutableDictionary * dataDict = @{@"phone":self.phoneTF.text,@"type":@"3"}.mutableCopy;
+        dataDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
+        [zkRequestTool networkingPOST:[HHYURLDefineTool sendValidCodeURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
             if ([responseObject[@"code"] intValue]== 0) {
                 [self timeAction];
             }else {
@@ -90,11 +90,11 @@
         }
         
         
-        NSMutableDictionary * dict = @{}.mutableCopy;
-        dict[@"phone"] = self.phoneTF.text;
-        dict[@"code"] = self.codeTF.text;
-        dict[@"newPwd"]= self.passWordTF.text;
-        [zkRequestTool networkingPOST:[HHYURLDefineTool updatePwdURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSMutableDictionary * dataDict = @{}.mutableCopy;
+        dataDict[@"phone"] = self.phoneTF.text;
+        dataDict[@"code"] = self.codeTF.text;
+        dataDict[@"newPwd"]= self.passWordTF.text;
+        [zkRequestTool networkingPOST:[HHYURLDefineTool updatePwdURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
             if ([responseObject[@"code"] intValue]== 0) {
                 
                 [SVProgressHUD showErrorWithStatus:@"修改密码成功"];

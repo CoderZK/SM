@@ -22,29 +22,29 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     
     
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(10);
     NSString * url = [HHYURLDefineTool getMyReChargeOrderListURL];
     if (self.selectIndex == 1) {
         url = [HHYURLDefineTool getMyConsumeOrderListURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

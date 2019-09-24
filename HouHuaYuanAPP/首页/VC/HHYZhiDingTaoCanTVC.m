@@ -14,7 +14,7 @@
 @interface HHYZhiDingTaoCanTVC ()
 @property(nonatomic,strong)UIView *footView;
 @property(nonatomic,strong)NSMutableArray<HHYTongYongModel *> *dataArray;
-@property(nonatomic,strong)UIButton *leftBT,*centerBt,*rightBt;
+@property(nonatomic,strong)UIButton *leftBT,*centerBt,*hitClickButton;
 @property(nonatomic,assign)NSInteger selectIndex;
 @property (nonatomic,strong)NSDictionary *payDic;
 @end
@@ -32,8 +32,8 @@
     [super viewWillAppear:animated];
 
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WXWX:) name:@"WXPAY" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBZFB:) name:@"ZFBPAY" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(WWWWX:) name:@"WXPAY" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ZFBPAY:) name:@"ZFBPAY" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -52,9 +52,9 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
     
-      [self getData];
+      [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-      [self getData];
+      [self loadFromServeTTTT];
     }];
 
     self.tableView.frame = CGRectMake(0, 0, ScreenW , ScreenH - 50);
@@ -85,14 +85,14 @@
     [self.footView addSubview:self.centerBt];
     
     
-    self.rightBt = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW / 3 *2, 0, ScreenW / 3 , 50)];
-    [self.rightBt setTitle:@"支付宝支付" forState:UIControlStateNormal];
-    self.rightBt.titleLabel.font = kFont(14);
-    [self.rightBt setImage:[UIImage imageNamed:@"zhifu_2"] forState:UIControlStateNormal];
-    [self.rightBt setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
-    self.rightBt.tag = 2;
-    [self.rightBt addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
-    [self.footView addSubview:self.rightBt];
+    self.hitClickButton = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW / 3 *2, 0, ScreenW / 3 , 50)];
+    [self.hitClickButton setTitle:@"支付宝支付" forState:UIControlStateNormal];
+    self.hitClickButton.titleLabel.font = kFont(14);
+    [self.hitClickButton setImage:[UIImage imageNamed:@"zhifu_2"] forState:UIControlStateNormal];
+    [self.hitClickButton setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
+    self.hitClickButton.tag = 2;
+    [self.hitClickButton addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
+    [self.footView addSubview:self.hitClickButton];
     
     
 }
@@ -120,12 +120,12 @@
     
 
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"payType"] = @(type);
-    dict[@"pkgId"] = self.dataArray[self.selectIndex].pkgId;
-    dict[@"postId"] = self.postID;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"payType"] = @(type);
+    dataDict[@"pkgId"] = self.dataArray[self.selectIndex].pkgId;
+    dataDict[@"postId"] = self.postID;
     [SVProgressHUD show];
-    [zkRequestTool networkingPOST:[HHYURLDefineTool postTopURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool postTopURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
     
         [SVProgressHUD dismiss];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -162,7 +162,7 @@
 
 
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     [SVProgressHUD show];
 
@@ -262,7 +262,7 @@
 }
 
 //微信支付结果处理
-- (void)WXWX:(NSNotification *)no {
+- (void)WWWWX:(NSNotification *)no {
     
     BaseResp * resp = no.object;
     if (resp.errCode==WXSuccess)
@@ -323,10 +323,8 @@
 
 
 //支付宝支付结果处理,此处是app 被杀死之后用的
-- (void)ZFBZFB:(NSNotification *)notic {
-    
+- (void)ZFBPAY:(NSNotification *)notic {
     NSDictionary *resultDic = notic.object;
-    
     if ([resultDic[@"resultStatus"] isEqualToString:@"6001"]) {
         //用户取消支付
         [SVProgressHUD showErrorWithStatus:@"用户取消支付"];
@@ -340,7 +338,6 @@
     } else {
         [SVProgressHUD showErrorWithStatus:@"支付失败"];
     }
-    
     NSLog(@"%@",resultDic);
     NSLog(@"成功");
     //

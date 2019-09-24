@@ -77,8 +77,8 @@
 
 - (void)changeView:(NSNotification *)noti {
     
-    NSDictionary * dict = noti.userInfo;
-    if ([dict[@"type"] integerValue] == 1) {
+    NSDictionary * dataDict = noti.userInfo;
+    if ([dataDict[@"type"] integerValue] == 1) {
         //点击的热度的筛选
         
     }else {
@@ -114,51 +114,51 @@
     [self getQianMingData];
     [self getProvinceListData];
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
         [self getQianMingData];
         [self getProvinceListData];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     
   
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"pageNo"] = @(self.pageNo);
     NSString * url = [HHYURLDefineTool nearbyUserListURL];
     if (self.isHot) {
         url = [HHYURLDefineTool heatUserListURL];
     }else {
-        if ([zkSignleTool shareTool].latitude > 0) {
-            dict[@"latitude"] = @([zkSignleTool shareTool].latitude);
-            dict[@"longitude"] = @([zkSignleTool shareTool].longitude);
+        if ([HHYSignleTool shareTool].latitude > 0) {
+            dataDict[@"latitude"] = @([HHYSignleTool shareTool].latitude);
+            dataDict[@"longitude"] = @([HHYSignleTool shareTool].longitude);
         }
     }
     if (self.genderArr.count > 0) {
-         dict[@"gender"] = [self.genderArr componentsJoinedByString:@","];
+         dataDict[@"gender"] = [self.genderArr componentsJoinedByString:@","];
     }
     if (self.marriageArr.count > 0) {
-        dict[@"marriageStatus"] = [self.marriageArr componentsJoinedByString:@","];
+        dataDict[@"marriageStatus"] = [self.marriageArr componentsJoinedByString:@","];
     }
     if (self.cityIdArr.count > 0) {
-        dict[@"cityId"] = [self.cityIdArr componentsJoinedByString:@","];
+        dataDict[@"cityId"] = [self.cityIdArr componentsJoinedByString:@","];
     }
     if (self.tagsArr.count > 0) {
-        dict[@"tags"] = [self.tagsArr componentsJoinedByString:@","];
+        dataDict[@"tags"] = [self.tagsArr componentsJoinedByString:@","];
     }
     if (self.proviceId) {
-        dict[@"provinceId"] = self.proviceId;
+        dataDict[@"provinceId"] = self.proviceId;
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -368,7 +368,7 @@
     [self.searchV cancel];
     [self addSubView];
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     
 }
 
@@ -395,7 +395,7 @@
     }
     [self.searchV cancel];
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     
     
 }
@@ -516,7 +516,7 @@
     [self.searchV cancel];
     [self addSubView];
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     
 }
 

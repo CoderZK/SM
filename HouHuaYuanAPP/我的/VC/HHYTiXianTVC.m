@@ -50,15 +50,15 @@
     leftbtn.tag = 10;
     [self.view addSubview:leftbtn];
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
     
-    //    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [rightbtn setTitle:@"提现记录" forState:UIControlStateNormal];
-    rightbtn.titleLabel.font = kFont(14);
-//    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-     [self.view addSubview:rightbtn];
+    //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [hitClickButtonn setTitle:@"提现记录" forState:UIControlStateNormal];
+    hitClickButtonn.titleLabel.font = kFont(14);
+//    [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn.tag = 11;
+     [self.view addSubview:hitClickButtonn];
 
     
 

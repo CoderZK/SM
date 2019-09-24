@@ -46,14 +46,14 @@
     }
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"bankName"] = self.carTypeTF.text;
-    dict[@"cardNo"] = self.carNumberTF.text;
-    dict[@"phone"] = self.phuneTF.text;
-    dict[@"realName"] = self.nameTF.text;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"bankName"] = self.carTypeTF.text;
+    dataDict[@"cardNo"] = self.carNumberTF.text;
+    dataDict[@"phone"] = self.phuneTF.text;
+    dataDict[@"realName"] = self.nameTF.text;
     
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool addMyBankCardURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool addMyBankCardURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             

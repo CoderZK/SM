@@ -382,7 +382,7 @@
     cancelBt.tag = 100;
     cancelBt.layer.cornerRadius = 4;
     cancelBt.clipsToBounds = YES;
-    [cancelBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cancelBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
     [v addSubview:cancelBt];
     
     UIButton * confirmBt = [[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 125, 10, 110, 35)];
@@ -392,7 +392,7 @@
     confirmBt.tag = 101;
     confirmBt.layer.cornerRadius = 4;
     confirmBt.clipsToBounds = YES;
-    [confirmBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+    [confirmBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
     [v addSubview:confirmBt];
     
     return v;
@@ -487,7 +487,7 @@
 }
 
 //点击确定或者取消
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
     [self diss];
     NSMutableArray * arr = @[].mutableCopy;
     NSMutableArray * arrTwo = @[].mutableCopy;

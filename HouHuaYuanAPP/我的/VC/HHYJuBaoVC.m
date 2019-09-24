@@ -49,11 +49,11 @@
 - (void)send {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"reportRemark"] = self.TV.text;
-    dict[@"linkId"] = self.ID;
-    dict[@"type"] = @"2";
-    [zkRequestTool networkingPOST:[HHYURLDefineTool addMyReportURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"reportRemark"] = self.TV.text;
+    dataDict[@"linkId"] = self.ID;
+    dataDict[@"type"] = @"2";
+    [zkRequestTool networkingPOST:[HHYURLDefineTool addMyReportURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
             [SVProgressHUD showSuccessWithStatus:@"意见提交成功,感谢您的宝贵意见我们将进行改进"];

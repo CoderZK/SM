@@ -62,9 +62,9 @@
 - (void)getKeFu {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool contactKefURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool contactKefURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             self.model = [zkHomelModel mj_objectWithKeyValues:responseObject[@"object"]];
@@ -86,7 +86,7 @@
 - (void)send {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     [zkRequestTool networkingPOST:[HHYURLDefineTool addMyFeedBackURL] parameters:self.TV.text success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {

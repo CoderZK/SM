@@ -62,17 +62,17 @@
 //绑定第三方
 - (void)logWithUMSocialUserInfoResponse:(UMSocialUserInfoResponse *)resp {
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"appkey"] = resp.openid;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"appkey"] = resp.openid;
     if (resp.platformType == UMSocialPlatformType_WechatSession) {
-        dict[@"type"] = @"wechat";
+        dataDict[@"type"] = @"wechat";
     }else if (resp.platformType == UMSocialPlatformType_Sina) {
-        dict[@"type"] = @"xinlang";
+        dataDict[@"type"] = @"xinlang";
     }else if (resp.platformType == UMSocialPlatformType_QQ) {
-        dict[@"type"] = @"qq";
+        dataDict[@"type"] = @"qq";
     }
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool updateThirdAppURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool updateThirdAppURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             
             if ([responseObject[@"code"] intValue]== 0) {

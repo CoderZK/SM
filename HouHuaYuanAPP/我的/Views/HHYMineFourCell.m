@@ -24,7 +24,7 @@
 
     // Configure the view for the selected state
 }
-- (IBAction)clickAction:(UIButton *)sender {
+- (IBAction)hitAction:(UIButton *)sender {
     
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(didClickView:withIndex:)]){
         [self.delegate didClickView:self withIndex:sender.tag - 100];

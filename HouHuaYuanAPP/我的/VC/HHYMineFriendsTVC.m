@@ -29,22 +29,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-
-    
     [self.tableView registerClass:[HHYMineFriendsCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     if (self.type == 0) {
         self.navigationItem.title = @"我的朋友";
         [self createHeadView];
     }else if (self.type ==1) {
-        if (![[zkSignleTool shareTool].huanxin isEqualToString:self.userNo]) {
+        if (![[HHYSignleTool shareTool].huanxin isEqualToString:self.userNo]) {
             self.navigationItem.title = @"他/她的关注";
         }else {
              self.navigationItem.title = @"我的关注";
         }
     }else if(self.type == 2){
-        if (![[zkSignleTool shareTool].huanxin isEqualToString:self.userNo]) {
+        if (![[HHYSignleTool shareTool].huanxin isEqualToString:self.userNo]) {
            self.navigationItem.title = @"他/她的粉丝";
         }else {
            self.navigationItem.title = @"我的粉丝";
@@ -60,34 +57,34 @@
     }
     
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     
     
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(10);
   
     NSString * url = @"";
     if (self.type == 0) {
         url = [HHYURLDefineTool getMyFriendUserListURL];
     }else if (self.type ==1) {
         url = [HHYURLDefineTool getMySubscribeUserListURL];
-        dict[@"userNo"] = self.userNo;
+        dataDict[@"userNo"] = self.userNo;
     }else if(self.type == 2){
         url = [HHYURLDefineTool getMyFansUserListURL];
-        dict[@"userNo"] = self.userNo;
+        dataDict[@"userNo"] = self.userNo;
     }else if (self.type == 3) {
         url = [HHYURLDefineTool getMyVisitorListURL];
     }else if (self.type == 4) {
@@ -96,7 +93,7 @@
         return;
     }
     
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -140,8 +137,8 @@
         return;
     }
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"userNo"] = self.TF.text;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"userNo"] = self.TF.text;
     [zkRequestTool networkingPOST:[HHYURLDefineTool getNewFriendByUserNoURL] parameters:self.TF.text success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
@@ -225,7 +222,7 @@
         model.city = model.cityName;
     }
     cell.type = self.type;
-    if (![self.userNo isEqualToString:[zkSignleTool shareTool].huanxin]) {
+    if (![self.userNo isEqualToString:[HHYSignleTool shareTool].huanxin]) {
         if (self.type == 1 || self.type == 2) {
             cell.guanZhuBt.hidden = cell.xinImgV.hidden = cell.typeLB.hidden = YES;
         }
@@ -377,16 +374,16 @@
 
 - (void)cancelGuanZhu:(UIButton *)button {
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"type"] = @"1";
-    dict[@"userId"] = self.dataArray[button.tag - 100].userId;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"type"] = @"1";
+    dataDict[@"userId"] = self.dataArray[button.tag - 100].userId;
     NSString * url = [HHYURLDefineTool deleteUserSubscribeURL];
     if (self.type == 2) {
         if (!self.dataArray[button.tag - 100].subscribed) {
             url =  [HHYURLDefineTool addUserSubscribeURL];
         }
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

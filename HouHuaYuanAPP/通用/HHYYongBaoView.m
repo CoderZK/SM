@@ -51,7 +51,7 @@
             UIButton * button = [[UIButton alloc] initWithFrame:CGRectMake(space + space * 2* i + ww * i , 40 , ww, ww)];
             [self.whiteV addSubview:button];
             button.tag = 100+i;
-            [button addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+            [button addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
             
             
             UIImageView * imgV = [[UIImageView alloc] initWithFrame:CGRectMake((ww - 40)/2, 0, 40, 40)];
@@ -111,7 +111,7 @@
         [confrimBt setTitle:@"确认送花" forState:UIControlStateNormal];
 //        [confrimBt setTitleColor:RGB(6, 174, 243) forState:UIControlStateNormal];
         [confrimBt setTitleColor:CharacterRedColor forState:UIControlStateNormal];
-        [confrimBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [confrimBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.whiteV addSubview:confrimBt];
         
         
@@ -124,7 +124,7 @@
         }
 //        [chongZhiBt setTitleColor:RGB(6, 174, 243) forState:UIControlStateNormal];
          [chongZhiBt setTitleColor:CharacterRedColor forState:UIControlStateNormal];
-        [chongZhiBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [chongZhiBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.whiteV addSubview:chongZhiBt];
         
 
@@ -137,7 +137,7 @@
 }
 
 
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
     
     if (button.tag == 100) {
         self.number+=20;

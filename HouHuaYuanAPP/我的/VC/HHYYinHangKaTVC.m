@@ -17,7 +17,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self getData];
+    [self loadFromServeTTTT];
 }
 
 - (void)viewDidLoad {
@@ -27,32 +27,32 @@
     
     self.navigationItem.title = @"我的银行卡";
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
-    [rightbtn setTitle:@"添加银行卡" forState:UIControlStateNormal];
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
+    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    [hitClickButtonn setTitle:@"添加银行卡" forState:UIControlStateNormal];
+    hitClickButtonn.titleLabel.font = kFont(14);
+    [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn.tag = 11;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"HHYYingHangKaCell" bundle:nil] forCellReuseIdentifier:@"cell"];
 
  
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
 
     
     
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
  
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyBankCardListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyBankCardListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

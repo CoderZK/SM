@@ -70,7 +70,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateHead) name:@"updateHead" object:nil];
     
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     [self getConfig];
 }
 
@@ -84,9 +84,7 @@
     [super viewDidLoad];
     self.type = 0;
     self.dataArrayDaLei = @[].mutableCopy;
-    
     self.tableView.frame = CGRectMake(0, -sstatusHeight, ScreenW, ScreenH + sstatusHeight);
-    
     self.titleArr = @[].mutableCopy;
     self.selectIndex = 0;
     self.tagId = 1;
@@ -96,38 +94,22 @@
     [self.tableView registerClass:[HHYHomeFiveCell class] forCellReuseIdentifier:@"cellFive"];
     [self.tableView registerNib:[UINib nibWithNibName:@"HHYHomeTwoCell" bundle:nil] forCellReuseIdentifier:@"cellTwo"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
     self.tableView.estimatedSectionHeaderHeight = 0;
-    
     self.tableView.estimatedSectionFooterHeight = 0;
-    
-    
     self.tabBarController.delegate = self;
-    
     [self setHeadView];
     [self getBannerData];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
-        [self getDataDaLei];
+        [self loadFromServeTTTT];
+        [self loadFromServeTTTTDaLei];
         [self getBannerData];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
-    
-    [self getDataDaLei];
-    
-}
-
-- (void)updateHead {
-   
-    if (isPPPPPP) {
-        self.headView.mj_h = ScreenW * 3/4 + 200;
-    }else {
-        self.headView.mj_h = ScreenW * 3/4;
-    }
-    self.tableView.tableHeaderView = self.headView;
+    [self loadFromServeTTTTDaLei];
+    [self laji];
     
 }
 
@@ -136,9 +118,9 @@
         if ([responseObject[@"code"] intValue]== 0) {
             
             if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"1"]) {
-                [zkSignleTool shareTool].isUpdate = YES;
+                [HHYSignleTool shareTool].isUpdate = YES;
             }else {
-                [zkSignleTool shareTool].isUpdate = NO;
+                [HHYSignleTool shareTool].isUpdate = NO;
             }
             [self updateHead];
         }
@@ -150,21 +132,21 @@
 }
 
     
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     [SVProgressHUD show];
-    NSMutableDictionary * dict = @{}.mutableCopy;
-//    dict[@"tagId"] = @(self.tagId);
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+//    dataDict[@"tagId"] = @(self.tagId);
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(10);
     if (self.type == 0){
-        dict[@"orderBy"] = @(2);
+        dataDict[@"orderBy"] = @(2);
     }else if (self.type == 1) {
-        dict[@"orderBy"] = @(1);
+        dataDict[@"orderBy"] = @(1);
     }else if (self.type == 2){
-        dict[@"subscribed"] = @(1);
+        dataDict[@"subscribed"] = @(1);
     }
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getsearchURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getsearchURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
          [SVProgressHUD dismiss];
@@ -201,27 +183,17 @@
 - (void)setHeadView {
     self.headView =[[UIView alloc] initWithFrame:CGRectMake(0,0, ScreenW, ScreenW * 3/4 )];
     self.headView.clipsToBounds = YES;
-    if (isPPPPPP) {
-        self.headView.mj_h = ScreenW * 3/4 + 200;
-    }
+  
     self.headView.backgroundColor  = WhiteColor;
     
-    UIButton * imgBt = [[UIButton alloc] initWithFrame:CGRectMake(0, ScreenW * 3/4, ScreenW, 200)];
+    UIButton * imgBt = [[UIButton alloc] initWithFrame:CGRectMake(0,0, ScreenW, 200)];
     [imgBt addTarget:self action:@selector(goShoping) forControlEvents:UIControlEventTouchUpInside];
     [imgBt setBackgroundImage:[UIImage imageNamed:@"200"] forState:UIControlStateNormal];
     [self.headView addSubview:imgBt];
-    
-//    UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(0, -20, ScreenW, Kscale(230))];
-//    imgV.image = [UIImage imageNamed:@"86"];
-//    [self.headView addSubview:imgV];
 
-//    self.scrollDataArray = @[@"http://attachments.gfan.com/forum/201411/29/224352283mf2aaio2madbu.jpg",@"http://pic1.win4000.com/wallpaper/a/52e5ccc6a5f28.jpg",@"http://attach.bbs.miui.com/forum/201312/06/211410sxjtbyaj9abo5qzh.jpg",@"http://img17.3lian.com/d/file/201702/21/2d561f5e226af7b0a222c5432deb6d2a.jpg"].mutableCopy;
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, ScreenW, ScreenW * 3/4 ) delegate:self placeholderImage:nil];
     cycleScrollView.autoScrollTimeInterval = 3;
-//    cycleScrollView.layer.cornerRadius = 4;
-//    cycleScrollView.clipsToBounds = YES;
     cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-//    cycleScrollView.pageControlDotSize = CGSizeMake(6, 6);
     cycleScrollView.currentPageDotColor = [UIColor colorWithRed:80/255.0 green:72/255.0 blue:155/255.0 alpha:1.0];
     CGFloat aa = 15;
     cycleScrollView.placeholderImage =[UIImage imageNamed:@"new_picture_default-1"];
@@ -229,34 +201,43 @@
     self.sdcycView = cycleScrollView;
     [self.headView addSubview:cycleScrollView];
     
+    if (isPPPPPP) {
+        self.headView.mj_h =  200;
+        self.sdcycView.hidden = YES;
+    }else {
+        self.headView.mj_h =  ScreenW * 3/4;
+        self.sdcycView.hidden = NO;
+    }
+    
     self.tableView.tableHeaderView = self.headView;
     
 }
-
-    
-    
-
+- (void)updateHead {
+    if (isPPPPPP) {
+        self.headView.mj_h =  200;
+        self.sdcycView.hidden = YES;
+    }else {
+        self.headView.mj_h =  ScreenW * 3/4;
+        self.sdcycView.hidden = NO;
+    }
+    self.tableView.tableHeaderView = self.headView;
+}
 - (void)goShoping {
-    
-//    if (![zkSignleTool shareTool].isLogin) {
-//        [self gotoLoginVC];
-//        return;
-//    }
-    
+    if (![HHYSignleTool shareTool].isLogin) {
+        [self gotoLoginVC];
+        return;
+    }
     HHYHomeVC * vc =[[HHYHomeVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     
 }
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
 }
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 2;
-        
     }else if (section == 1) {
         return 1;
     }else if (section == 2) {
@@ -264,7 +245,6 @@
     }
     return 2;
 }
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
@@ -284,16 +264,6 @@
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-//            HHYHomeOneCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellOne" forIndexPath:indexPath];
-//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            Weak(weakSelf);
-//            cell.clickIndexBlock = ^(NSInteger index) {
-//
-//                weakSelf.titleArr = weakSelf.jiaArr[index];
-//                [weakSelf.tableView reloadData];
-//
-//            };
-//            return cell;
             HHYHomeFiveCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cellFive" forIndexPath:indexPath];
             cell.dataArray = self.dataArrayDaLei;
             Weak(weakSelf);
@@ -324,17 +294,17 @@
         cell.clickIndexBlock = ^(NSInteger index) {
             
             if (index == 2) {
-                if (![zkSignleTool shareTool].isLogin){
+                if (![HHYSignleTool shareTool].isLogin){
                     [weakSelf gotoLoginVC];
                     return ;
                 }
                 weakSelf.type = index;
                 weakSelf.pageNo = 1;
-                [weakSelf getData];
+                [weakSelf loadFromServeTTTT];
             }else {
                 weakSelf.type = index;
                 weakSelf.pageNo = 1;
-                [weakSelf getData];
+                [weakSelf loadFromServeTTTT];
             }
             
         };
@@ -368,16 +338,11 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    
-    
-    
 }
 
 
 #pragma mark ----- 轮播图的点击 --------
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
-    
-    
     HHYTongYongModel * model = self.scrollDataArray[index];
     if (model.url.length > 0) {
         LxmWebViewController *vc = [[LxmWebViewController alloc] init];
@@ -386,80 +351,55 @@
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
-  
-    
-    
 }
 
 #pragma mark ------ 点击cell 内部的按钮 ----
 //0 头像 1 查看,2 评论 3 赞 ,4送花,5分享 6 点击查看原文
 -(void)didClickButtonWithCell:(HHYHomeDongTaiCell *)cell andIndex:(NSInteger)index {
-    
     NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
-    
     if (index == 0) {
         HHYZhuYeTVC * vc =[[HHYZhuYeTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         vc.userId = self.dataArray[indexPath.row].createBy;
         [self.navigationController pushViewController:vc animated:YES];
-    }else if (index == 1) {
-        
-    }else if (index == 2) {
-        
-        
-        
     }else if (index == 3) {
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
         [self zanActionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
-        
     }else if (index == 4) {
-       
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
+        if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
             [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
             return;
         }
         [self.showView showWithIndexPath:indexPath];
         
     }else if (index == 5) {
-        
            [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:nil shareModel:self.dataArray[indexPath.row]];
-        
-    }else if (index == 6) {
-        
     }else if (index == 7) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
         [self collectionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
     }
-    
-    
-    
-    
 }
 
 - (void)zanActionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
-    
- 
-    
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = model.postId;
-    dict[@"type"] = @"1";
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"postId"] = model.postId;
+    dataDict[@"type"] = @"1";
     NSString * url = [HHYURLDefineTool getlikeURL];
     if (model.currentUserLike) {
        url = [HHYURLDefineTool notlikeURL];
     }
-    
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -490,9 +430,9 @@
 //收藏或者取消操作
 - (void)collectionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"targetId"] = self.dataArray[indexPath.row].postId;
-    dict[@"type"] = @"2";
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"targetId"] = self.dataArray[indexPath.row].postId;
+    dataDict[@"type"] = @"2";
     NSString * url = [HHYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
        url = [HHYURLDefineTool deleteMyCollectionURL];
@@ -521,7 +461,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -584,7 +524,7 @@
   
     BaseTableViewController * tvc = (BaseTableViewController *)[vc.childViewControllers firstObject];
     
-//    if (([tvc isKindOfClass:[HangQingVC class]] || [tvc isKindOfClass:[MineVC class]]) && ![zkSignleTool shareTool].isLogin) {
+//    if (([tvc isKindOfClass:[HangQingVC class]] || [tvc isKindOfClass:[MineVC class]]) && ![HHYSignleTool shareTool].isLogin) {
 //        [self gotoLoginVC];
 //        return NO;
 //    }
@@ -641,12 +581,12 @@
 }
 
 
-- (void)getDataDaLei {
+- (void)loadFromServeTTTTDaLei {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getSysSocialCircleListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getSysSocialCircleListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -667,6 +607,11 @@
     
 }
 
+- (void)laji {
+    for (int i = 0 ; i < 5; i++) {
+        
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

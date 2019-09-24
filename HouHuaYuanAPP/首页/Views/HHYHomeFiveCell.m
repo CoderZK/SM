@@ -87,7 +87,7 @@
         
         [vv.imgV sd_setImageWithURL:[NSURL URLWithString:[HHYURLDefineTool getImgURLWithStr:dataArray[i].icon]] placeholderImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d",i]] options:SDWebImageRetryFailed];
         vv.imgVTwo.image = [UIImage imageNamed:[NSString stringWithFormat:@"sybj%d",i]];
-        [vv.bt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [vv.bt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:vv];
         
     }
@@ -118,7 +118,7 @@
 
 
 
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
 
     if (self.clickIndexBlock != nil) {
         self.clickIndexBlock(button.tag);

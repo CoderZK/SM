@@ -8,7 +8,7 @@
 
 #import "HHYSettingTVC.h"
 #import "HHYTongYongCell.h"
-#import "Clear.h"
+#import "cacheClear.h"
 #import "HHYBindPhoneVC.h"
 #import "HHYBindPoneTwoVC.h"
 #import "HHYBindQWXVC.h"
@@ -50,12 +50,12 @@
 
 - (void)outLogin {
         
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getlogoutURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getlogoutURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             
-            [zkSignleTool shareTool].isLogin = NO;
+            [HHYSignleTool shareTool].isLogin = NO;
             self.tabBarController.selectedIndex = 0;
             [[EMClient sharedClient] logout:YES];
             [self.navigationController popToRootViewControllerAnimated:YES];
@@ -120,7 +120,7 @@
     if (indexPath.section == 1 && indexPath.row == 2) {
         cell.TF.hidden = NO;
         
-        cell.TF.text = [NSString stringWithFormat:@"%0.1fM",[Clear folderSizeAtPath]];
+        cell.TF.text = [NSString stringWithFormat:@"%0.1fM",[cacheClear folderSizeAtPath]];
         
     }
     return cell;
@@ -172,14 +172,14 @@
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 2) {
-            [Clear cleanCache:^{
+            [cacheClear cleanCache:^{
                 
                 [tableView reloadData];
                 
             }];
         }else if (indexPath.row == 3) {
             
-           [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:[zkSignleTool shareTool].huanxin shareModel:nil];
+           [self shareWithSetPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Sina)] withUrl:[HHYSignleTool shareTool].huanxin shareModel:nil];
             
         }else if (indexPath.row == 4) {
             HHYAboutUsVC * vc =[[HHYAboutUsVC alloc] init];

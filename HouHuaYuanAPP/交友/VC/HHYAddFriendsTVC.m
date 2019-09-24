@@ -62,10 +62,10 @@
     }
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"remark"] = [NSString emojiConvert:self.TV.text];
-    dict[@"userNo"] = self.model.userNo;
-    [zkRequestTool networkingPOST:[HHYURLDefineTool addNewFriendURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"remark"] = [NSString emojiConvert:self.TV.text];
+    dataDict[@"userNo"] = self.model.userNo;
+    [zkRequestTool networkingPOST:[HHYURLDefineTool addNewFriendURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

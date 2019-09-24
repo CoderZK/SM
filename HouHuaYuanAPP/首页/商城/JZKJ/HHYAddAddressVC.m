@@ -45,7 +45,7 @@
         return;
     }
     
-    NSString * sql = [NSString stringWithFormat:@"insert into kk_address (name,phone,address,userId) values ('%@','%@','%@','%@')",self.nameTF.text,self.phoneTF.text,self.TV.text,[zkSignleTool shareTool].session_uid];
+    NSString * sql = [NSString stringWithFormat:@"insert into kk_address (name,phone,address,userId) values ('%@','%@','%@','%@')",self.nameTF.text,self.phoneTF.text,self.TV.text,[HHYSignleTool shareTool].session_uid];
     
     FMDatabase * db = [FMDBSingle shareFMDB].fd;
     if ([db open]) {

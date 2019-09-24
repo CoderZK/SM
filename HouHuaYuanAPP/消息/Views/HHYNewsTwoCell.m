@@ -26,7 +26,7 @@
         self.headBt.clipsToBounds = YES;
 //        [self.headBt setBackgroundImage:[UIImage imageNamed:@"369"] forState:UIControlStateNormal];
         [self addSubview:self.headBt];
-        //        [self.headBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        //        [self.headBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         self.headBt.tag = 100;
         
         self.bageBt = [[UIButton alloc] initWithFrame:CGRectMake(15, 15, 55, 55)];

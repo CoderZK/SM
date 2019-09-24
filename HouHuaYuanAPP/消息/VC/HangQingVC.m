@@ -39,7 +39,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
 }
 
 - (void)viewDidLoad {
@@ -51,36 +51,27 @@
     [self.tableView registerClass:[HHYNewsTwoCell class] forCellReuseIdentifier:@"cellTwo"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
-    [rightbtn setBackgroundImage:[UIImage imageNamed:@"11"] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
-    
-//    //注册好友回调
-//    [[EMClient sharedClient].contactManager addDelegate:self delegateQueue:nil];
-//
-//    NSArray *conversations = [[EMClient sharedClient].chatManager getAllConversations];
+    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"11"] forState:UIControlStateNormal];
+    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn.tag = 11;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     
     NSLog(@"%@",@"123");
    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
     }];
-//    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-//        [self getData];
-//    }];
+
 }
 
 
-- (void)getData {
-    
-    
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyMessageListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+- (void)loadFromServeTTTT {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyMessageListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -136,9 +127,7 @@
     vc.hidesBottomBarWhenPushed = YES;
     vc.type = 5;
     [self.navigationController pushViewController:vc animated:YES];
-    
-//    [self.showV showWithTitleArr:@[@"我的好友",@"我的群组",@"添加好友",@"发起群聊",@"创建群组"] andImgeStrArr:@[@"73",@"74",@"72",@"71",@"70"] selectIndex:1000];
-    
+
 }
 
 

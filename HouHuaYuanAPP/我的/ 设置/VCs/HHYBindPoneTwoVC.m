@@ -56,9 +56,9 @@
 - (void)sendCode {
     
   
-    NSMutableDictionary * dict = @{@"phone":self.phoneStr,@"type":@"0"}.mutableCopy;
-    dict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
-    [zkRequestTool networkingPOST:[HHYURLDefineTool sendValidCodeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{@"phone":self.phoneStr,@"type":@"0"}.mutableCopy;
+    dataDict[@"deviceId"] = [NSString stringWithFormat:@"%@",[[UIDevice currentDevice] identifierForVendor]];
+    [zkRequestTool networkingPOST:[HHYURLDefineTool sendValidCodeURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             [self timeAction];
         }else {
@@ -75,9 +75,9 @@
 
 //验证验证码
 - (void)vaile {
-    NSMutableDictionary * dict = @{@"phone":self.phoneStr}.mutableCopy;
-    dict[@"code"] = self.codeTF.text;
-    [zkRequestTool networkingPOST:[HHYURLDefineTool validCodeURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{@"phone":self.phoneStr}.mutableCopy;
+    dataDict[@"code"] = self.codeTF.text;
+    [zkRequestTool networkingPOST:[HHYURLDefineTool validCodeURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             
             HHYBindPhoneVC * vc =[[HHYBindPhoneVC alloc] init];

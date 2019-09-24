@@ -39,55 +39,55 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableView reloadData];
     self.pageNo = 1;
-    [self getData];
+    [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
     
     
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
     
-    //    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [rightbtn setTitle:@"编辑" forState:UIControlStateNormal];
-    [rightbtn setTitle:@"取消收藏" forState:UIControlStateSelected];
-    [rightbtn sizeToFit];
-    rightbtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    self.editBt = rightbtn;
-    UIButton * rightbtn1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+    //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [hitClickButtonn setTitle:@"编辑" forState:UIControlStateNormal];
+    [hitClickButtonn setTitle:@"取消收藏" forState:UIControlStateSelected];
+    [hitClickButtonn sizeToFit];
+    hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    hitClickButtonn.titleLabel.font = kFont(14);
+    [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn.tag = 11;
+    self.editBt = hitClickButtonn;
+    UIButton * hitClickButtonn1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
     
-    //    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [rightbtn1 setTitle:@"返回" forState:UIControlStateNormal];
-    rightbtn1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    rightbtn1.titleLabel.font = kFont(14);
-    [rightbtn1 sizeToFit];
-    [rightbtn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn1.tag = 12;
-    self.backBt = rightbtn1;
+    //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [hitClickButtonn1 setTitle:@"返回" forState:UIControlStateNormal];
+    hitClickButtonn1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    hitClickButtonn1.titleLabel.font = kFont(14);
+    [hitClickButtonn1 sizeToFit];
+    [hitClickButtonn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [hitClickButtonn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn1.tag = 12;
+    self.backBt = hitClickButtonn1;
     self.backBt.hidden = YES;
-    //    [self.view addSubview:rightbtn];
+    //    [self.view addSubview:hitClickButtonn];
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.editBt],[[UIBarButtonItem alloc] initWithCustomView:self.backBt]];
     
 }
 
 
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    //    dict[@"tagId"] = @(self.tagId);
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyCollectionListURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    //    dataDict[@"tagId"] = @(self.tagId);
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyCollectionListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -249,23 +249,23 @@
     NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
     
     if (index == 3) {
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
         [self zanActionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
     }else if (index == 4) {
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
+        if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
             
             [SVProgressHUD showErrorWithStatus:@"自己不能对自己的帖子送花"];
             return;
             
         }else {
-            if (![zkSignleTool shareTool].isLogin) {
+            if (![HHYSignleTool shareTool].isLogin) {
                 [self gotoLoginVC];
                 return;
             }
-            if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
+            if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].createBy]) {
                 [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
                 return;
             }
@@ -328,14 +328,14 @@
     
   
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = model.postId;
-    dict[@"type"] = @"1";
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"postId"] = model.postId;
+    dataDict[@"type"] = @"1";
     NSString * url = [HHYURLDefineTool getlikeURL];
     if (model.currentUserLike) {
         url = [HHYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

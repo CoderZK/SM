@@ -46,7 +46,7 @@
         button.layer.cornerRadius = ww/2;
         button.clipsToBounds = YES;
         button.tag = i;
-        [button addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         [button sd_setImageWithURL:[NSURL URLWithString:[HHYURLDefineTool getImgURLWithStr:self.dataArray[i].avatar]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
         [self.headV addSubview:button];
         
@@ -74,7 +74,7 @@
     
 }
 
-- (void)clickAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)button {
     
     HHYZhuYeTVC * vc =[[HHYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;

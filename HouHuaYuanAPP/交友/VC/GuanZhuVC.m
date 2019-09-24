@@ -13,7 +13,7 @@
 #import "HHYMineFriendsTVC.h"
 @interface GuanZhuVC ()<UIScrollViewDelegate,HHYShowViewdelegate>
 @property(nonatomic,strong)UIView *whiteV,*topTitleView;
-@property(nonatomic,strong)UIButton *leftBt,*rightBt;
+@property(nonatomic,strong)UIButton *leftBt,*hitClickButton;
 @property(nonatomic,strong)UIScrollView *scrollView;
 @property(nonatomic,strong)HHYFriendsSearchTVC *neraTV,*hotTV;
 @property(nonatomic,assign)NSInteger selectIndex;
@@ -68,13 +68,13 @@
     
 
     
-    self.rightBt = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, 80, 44)];
-    [self.rightBt setTitle:@"热度榜" forState:UIControlStateNormal];
-    self.rightBt.titleLabel.font = [UIFont boldSystemFontOfSize:18];
-    self.rightBt.tag = 101;
-    [self.rightBt setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.rightBt addTarget:self action:@selector(topTitleAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.topTitleView addSubview:self.rightBt];
+    self.hitClickButton = [[UIButton alloc] initWithFrame:CGRectMake(80, 0, 80, 44)];
+    [self.hitClickButton setTitle:@"热度榜" forState:UIControlStateNormal];
+    self.hitClickButton.titleLabel.font = [UIFont boldSystemFontOfSize:18];
+    self.hitClickButton.tag = 101;
+    [self.hitClickButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.hitClickButton addTarget:self action:@selector(topTitleAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.topTitleView addSubview:self.hitClickButton];
     
     
     self.whiteV = [[UIView alloc] init];
@@ -145,12 +145,12 @@
 
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftbtn];
 //
-//    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
+//    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
 //
-//    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-//    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    rightbtn.tag = 11;
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+//    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+//    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    hitClickButtonn.tag = 11;
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
 }
 - (void)navBtnClick:(UIButton *)btn{
     

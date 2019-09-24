@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHYMineTwoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *leftBt;
-@property (weak, nonatomic) IBOutlet UIButton *rightBt;
+@property (weak, nonatomic) IBOutlet UIButton *hitClickButton;
 
 @end
 

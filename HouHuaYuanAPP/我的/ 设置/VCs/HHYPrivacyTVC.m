@@ -8,10 +8,10 @@
 
 #import "HHYPrivacyTVC.h"
 #import "HHYTongYongTwoCell.h"
-#import "zkJuBaoView.h"
+#import "HHYReportView.h"
 #import "HHYPrivacyPassWordVC.h"
 
-@interface HHYPrivacyTVC ()<zkJuBaoViewDelegate>
+@interface HHYPrivacyTVC ()<HHYReportViewDelegate>
 @property(nonatomic,strong)NSArray *titleArr;
 @property(nonatomic,strong)NSString *fuJinStr,*hotStr,*manyouStr;
 @property(nonatomic,assign)NSInteger fuJin,hot,manyou;
@@ -32,22 +32,22 @@
     
     self.titleArr = @[@"附近的人",@"热度榜",@"自动漫游聊天记录",@"设置隐私密码"];
     
-    [self getData];
+    [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getData];
+        [self loadFromServeTTTT];
     }];
 
-    UIButton * rightbtn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
+    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
     
-    //    [rightbtn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-    [rightbtn setTitle:@"完成" forState:UIControlStateNormal];
-    rightbtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    rightbtn.titleLabel.font = kFont(14);
-    [rightbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [rightbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    rightbtn.tag = 11;
-    //    [self.view addSubview:rightbtn];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightbtn];
+    //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+    [hitClickButtonn setTitle:@"完成" forState:UIControlStateNormal];
+    hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+    hitClickButtonn.titleLabel.font = kFont(14);
+    [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    hitClickButtonn.tag = 11;
+    //    [self.view addSubview:hitClickButtonn];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     
 }
 
@@ -56,11 +56,11 @@
     [self updatePrivacy];
 }
 
-- (void)getData {
+- (void)loadFromServeTTTT {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getUserConfigURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getUserConfigURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -130,18 +130,18 @@
     
     if (indexPath.row < 2) {
         
-        [zkJuBaoView showWithArray:@[@"出现",@"不出现"] withIndexPath:indexPath];
-        [zkJuBaoView shareInstance].delegate = self;
+        [HHYReportView showWithArray:@[@"出现",@"不出现"] withIndexPath:indexPath];
+        [HHYReportView shareInstance].delegate = self;
         
     }else if (indexPath.row == 2) {
-        [zkJuBaoView showWithArray:@[@"加载",@"不加载"] withIndexPath:indexPath];
-        [zkJuBaoView shareInstance].delegate = self;
+        [HHYReportView showWithArray:@[@"加载",@"不加载"] withIndexPath:indexPath];
+        [HHYReportView shareInstance].delegate = self;
     }else {
         //设置隐私密码
         
         if ([YWUnlockView haveGesturePassword]) {
-            [zkJuBaoView showWithArray:@[@"重置",@"关闭"] withIndexPath:indexPath];
-            [zkJuBaoView shareInstance].delegate = self;
+            [HHYReportView showWithArray:@[@"重置",@"关闭"] withIndexPath:indexPath];
+            [HHYReportView shareInstance].delegate = self;
         }else {
             HHYPrivacyPassWordVC * vc =[[HHYPrivacyPassWordVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
@@ -199,10 +199,10 @@
 - (void)updatePrivacy {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"showHeat"] = @(self.hot);
-    dict[@"showNearby"] = @(self.fuJin);
-    [zkRequestTool networkingPOST:[HHYURLDefineTool updateUserConfigURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"showHeat"] = @(self.hot);
+    dataDict[@"showNearby"] = @(self.fuJin);
+    [zkRequestTool networkingPOST:[HHYURLDefineTool updateUserConfigURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

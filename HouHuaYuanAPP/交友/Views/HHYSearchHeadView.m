@@ -45,7 +45,7 @@
 //            }
             x=x+[widhtArr[i] floatValue];
             button.tag = 1000+i;
-            [button addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+            [button addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
         }
         
@@ -53,7 +53,7 @@
     return self;
 }
 
-- (void)clickAction:(UIButton *)bt {
+- (void)hitAction:(UIButton *)bt {
     BOOL isShow = NO;
     for (int i = 1000 ; i < 1004 ; i++) {
         UIButton * button = [self viewWithTag:i];

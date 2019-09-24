@@ -23,7 +23,7 @@
 }
 
 /** 数据字典 */
-@property(nonatomic , strong)NSDictionary *dict;
+@property(nonatomic , strong)NSDictionary *dataDict;
 /** 最后一条数据 */
 @property(nonatomic , copy)NSString * lastText;
 @property(nonatomic , assign)BOOL isBaoMing;
@@ -47,17 +47,17 @@
 
     self.tableView.backgroundColor = BackgroundColor;
 
-    UIButton * rightBt =[UIButton new];
-    rightBt.titleLabel.font =[UIFont systemFontOfSize:14];
-    rightBt.frame = CGRectMake(0, 0, 40, 40);
-    [rightBt setTitle:@"删除" forState:UIControlStateNormal];
-//    [rightBt setImage:[UIImage imageNamed:@"24"] forState:UIControlStateNormal];
-    [rightBt setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
-    [rightBt addTarget:self action:@selector(deleteAllMessage) forControlEvents:UIControlEventTouchUpInside];
+    UIButton * hitClickButton =[UIButton new];
+    hitClickButton.titleLabel.font =[UIFont systemFontOfSize:14];
+    hitClickButton.frame = CGRectMake(0, 0, 40, 40);
+    [hitClickButton setTitle:@"删除" forState:UIControlStateNormal];
+//    [hitClickButton setImage:[UIImage imageNamed:@"24"] forState:UIControlStateNormal];
+    [hitClickButton setTitleColor:CharacterBlackColor forState:UIControlStateNormal];
+    [hitClickButton addTarget:self action:@selector(deleteAllMessage) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.title = self.otherName;
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButton];
     self.delegate = self;
     self.dataSource = self;
     
@@ -111,14 +111,14 @@
 //
 //
 //
-//    UIButton * rightBt =[UIButton new];
-//    rightBt.titleLabel.font =[UIFont systemFontOfSize:14];
-//    [rightBt setTitle:@"删除" forState:UIControlStateNormal];
-//    [rightBt sizeToFit];
-//    [rightBt setTitleColor:CharacterGrayColor forState:UIControlStateNormal];
-//    [rightBt addTarget:self action:@selector(deleteAllMessage) forControlEvents:UIControlEventTouchUpInside];
-//    rightBt.frame = CGRectMake(ScreenW - 40-10, sstatusHeight + 6, 40, 30);
-//   [self.view addSubview:rightBt];
+//    UIButton * hitClickButton =[UIButton new];
+//    hitClickButton.titleLabel.font =[UIFont systemFontOfSize:14];
+//    [hitClickButton setTitle:@"删除" forState:UIControlStateNormal];
+//    [hitClickButton sizeToFit];
+//    [hitClickButton setTitleColor:CharacterGrayColor forState:UIControlStateNormal];
+//    [hitClickButton addTarget:self action:@selector(deleteAllMessage) forControlEvents:UIControlEventTouchUpInside];
+//    hitClickButton.frame = CGRectMake(ScreenW - 40-10, sstatusHeight + 6, 40, 30);
+//   [self.view addSubview:hitClickButton];
 //    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:right1];
 
 
@@ -133,7 +133,7 @@
 - (void)tap {
     self.navigationItem.title = @"";
 //    LYHomeModel * model =[[LYHomeModel alloc] init];
-//    model.ID = self.dict[@"activityId"];
+//    model.ID = self.dataDict[@"activityId"];
 //    zkMineActionDetaliVC * vc = [[zkMineActionDetaliVC alloc] init];
 //    vc.model = model;
 //    [self.navigationController pushViewController:vc animated:YES];
@@ -148,12 +148,12 @@
 - (void)updateLastMessage {
     
 
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"friendId"] = self.otherId;
-    dict[@"userId"] = [zkSignleTool shareTool].session_uid;
-    dict[@"charType"] = @(1);
-    dict[@"chatContent"] = [NSString emojiConvert:self.lastText];
-    [zkRequestTool networkingPOST:[HHYURLDefineTool uploadUserChatRecordURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"friendId"] = self.otherId;
+    dataDict[@"userId"] = [HHYSignleTool shareTool].session_uid;
+    dataDict[@"charType"] = @(1);
+    dataDict[@"chatContent"] = [NSString emojiConvert:self.lastText];
+    [zkRequestTool networkingPOST:[HHYURLDefineTool uploadUserChatRecordURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

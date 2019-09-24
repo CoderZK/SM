@@ -79,10 +79,10 @@
     
     self.titleArr = @[@"",@"个人相册",@"个人信息",@"帖子",@"评论"];
     
-    [self getData];
+    [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
-        [self getData];
+        [self loadFromServeTTTT];
    
     }];
 
@@ -177,7 +177,7 @@
     [self.editBt addTarget:self action:@selector(updateAvatar:) forControlEvents:UIControlEventTouchUpInside];
     self.editBt.tag = 101;
     
-    if ([[zkSignleTool shareTool].session_uid isEqualToString:self.userId]) {
+    if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.userId]) {
         [headView addSubview:self.editBt];
          [self.headBt addTarget:self action:@selector(updateAvatar:) forControlEvents:UIControlEventTouchUpInside];
     }else {
@@ -204,7 +204,7 @@
     }else if (section == 1 || section == 2 ) {
         return 1;
     }else if (section == 3) {
-        if (![[zkSignleTool shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
+        if (![[HHYSignleTool shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
             return self.dataArray.count > 3?3:self.dataArray.count;
         }else {
             return self.dataArray.count;
@@ -269,7 +269,7 @@
         cell.model = self.dataModel;
         cell.biaoQianLB.text = [NSString stringWithFormat:@"已经选择标签(%lu)",(unsigned long)[self.dataModel.tagsName componentsSeparatedByString:@","].count];
         cell.arr = [self.tags componentsSeparatedByString:@","];
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.userId]) {
+        if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.userId]) {
             cell.gotoImgV.hidden = NO;
         }
         return cell;
@@ -323,13 +323,13 @@
         leftLB.tag = 100;
         [headV addSubview:leftLB];
         
-        UIButton  * rightBt =[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15 , 10, 60, 30)];
-        rightBt.tag = 101;
-        [rightBt setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
-        rightBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        rightBt.titleLabel.font = kFont(15);
-        [rightBt setTitle:@"编辑" forState:UIControlStateNormal];
-        [headV addSubview:rightBt];
+        UIButton  * hitClickButton =[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15 , 10, 60, 30)];
+        hitClickButton.tag = 101;
+        [hitClickButton setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
+        hitClickButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+        hitClickButton.titleLabel.font = kFont(15);
+        [hitClickButton setTitle:@"编辑" forState:UIControlStateNormal];
+        [headV addSubview:hitClickButton];
         
     }
     
@@ -340,7 +340,7 @@
     headV.clipsToBounds = YES;
     bt.hidden = YES;
     if (section == 1 ) {
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.userId]) {
+        if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.userId]) {
             bt.hidden = NO;
             lb.text = @"相册";
         }else {
@@ -349,7 +349,7 @@
     } else if (section == 2) {
         lb.text = @"个人信息";
     } else if (section == 3) {
-        if ( ![[zkSignleTool shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
+        if ( ![[HHYSignleTool shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
             lb.text = @"帖子(非好友最多看三条)";
         }else {
          lb.text = @"帖子";
@@ -477,16 +477,16 @@
 - (void)updateHeadImgOrbackImge {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     if(self.type == 1) {
-        dict[@"type"] = @"avatar";
-        dict[@"avatar"] = self.dataModel.avatar;
+        dataDict[@"type"] = @"avatar";
+        dataDict[@"avatar"] = self.dataModel.avatar;
     }else {
-        dict[@"type"] = @"background";
-        dict[@"avatar"] = self.dataModel.background;
+        dataDict[@"type"] = @"background";
+        dataDict[@"avatar"] = self.dataModel.background;
     }
     
-    [zkRequestTool networkingPOST:[HHYURLDefineTool updateAvatarURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool updateAvatarURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -509,7 +509,7 @@
 
 
 - (void)yongBaoAction {
-    if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+    if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
         [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
         return;
     }
@@ -537,7 +537,7 @@
         
     }else if (index == 2) {
         
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+        if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
             
             if (isPPPPPP) {
                 return;
@@ -552,7 +552,7 @@
         
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"送花给他/她 充值买花" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"送花" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+            if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
                 [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
                 return;
             }
@@ -588,7 +588,7 @@
         return;
     }
     
-    if (!self.dataModel.currentUserIsVip  && ![[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+    if (!self.dataModel.currentUserIsVip  && ![[HHYSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
         
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"只有开通Vip会员才能查看他人的关注和粉丝" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -644,14 +644,14 @@
         
     }
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"type"] = @"1";
-    dict[@"userId"] = self.userId;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"type"] = @"1";
+    dataDict[@"userId"] = self.userId;
     NSString * url = [HHYURLDefineTool addUserSubscribeURL];
     if (self.dataModel.subscribed) {
         url = [HHYURLDefineTool deleteUserSubscribeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
             
@@ -696,7 +696,7 @@
         
         
     }else if (index == 3) {
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
@@ -704,11 +704,11 @@
         
     }else if (index == 4) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
-        if ([[zkSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].userId]) {
+        if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.dataArray[indexPath.row].userId]) {
             [SVProgressHUD showErrorWithStatus:@"自己不能给自己送花"];
             return;
         }
@@ -722,7 +722,7 @@
         
     }else if (index == 7) {
         
-        if (![zkSignleTool shareTool].isLogin) {
+        if (![HHYSignleTool shareTool].isLogin) {
             [self gotoLoginVC];
             return;
         }
@@ -737,14 +737,14 @@
 - (void)zanActionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
   
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"postId"] = model.postId;
-    dict[@"type"] = @"1";
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"postId"] = model.postId;
+    dataDict[@"type"] = @"1";
     NSString * url = [HHYURLDefineTool getlikeURL];
     if (model.currentUserLike) {
         url = [HHYURLDefineTool notlikeURL];
     }
-    [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
@@ -775,9 +775,9 @@
 //收藏或者取消操作
 - (void)collectionWithModel:(zkHomelModel *)model WithIndePath:(NSIndexPath *)indexPath{
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"targetId"] = self.dataArray[indexPath.row].postId;
-    dict[@"type"] = @"2";
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"targetId"] = self.dataArray[indexPath.row].postId;
+    dataDict[@"type"] = @"2";
     NSString * url = [HHYURLDefineTool addMyCollectionURL];
     if (model.currentUserCollect) {
         url = [HHYURLDefineTool deleteMyCollectionURL];
@@ -806,7 +806,7 @@
             
         }];
     }else {
-        [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -859,14 +859,14 @@
                 [SVProgressHUD showSuccessWithStatus:@"送花成功!"];
                 
                 if (isUser) {
-                    if (![self.dataModel.userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+                    if (![self.dataModel.userId isEqualToString:[HHYSignleTool shareTool].session_uid]) {
                         //给他人送花要加花,自己送花不需要
                         weakSelf.dataModel.flowerNum += [str integerValue];
                     }
                 }else {
                     
                     self.dataArray[indexPath.row].heat += [str integerValue];
-                    if (![self.dataModel.userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+                    if (![self.dataModel.userId isEqualToString:[HHYSignleTool shareTool].session_uid]) {
                         //给他人送花要加花,自己送花不需要
                         weakSelf.dataModel.flowerNum += [str integerValue];
                     }
@@ -899,7 +899,7 @@
             }
         }else {
             
-            if (!self.dataModel.currentUserIsVip  && ![[zkSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
+            if (!self.dataModel.currentUserIsVip  && ![[HHYSignleTool shareTool].session_uid isEqualToString:self.dataModel.userId]) {
                 
                 UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"温馨提示" message:@"只有开通Vip会员才能添加好友" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -936,14 +936,14 @@
     }else {
         
         
-        NSMutableDictionary * dict = @{}.mutableCopy;
-        dict[@"type"] = @"1";
-        dict[@"userId"] = self.userId;
+        NSMutableDictionary * dataDict = @{}.mutableCopy;
+        dataDict[@"type"] = @"1";
+        dataDict[@"userId"] = self.userId;
         NSString * url = [HHYURLDefineTool addUserSubscribeURL];
         if (self.dataModel.subscribed) {
             url = [HHYURLDefineTool deleteUserSubscribeURL];
         }
-        [zkRequestTool networkingPOST:url parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
             [self.tableView.mj_header endRefreshing];
             [self.tableView.mj_footer endRefreshing];
             if ([responseObject[@"code"] intValue]== 0) {
@@ -990,7 +990,7 @@
 }
 
 
-- (void)getData {
+- (void)loadFromServeTTTT {
 
     [zkRequestTool networkingPOST:[HHYURLDefineTool gethomeURL] parameters:self.userId success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
@@ -1004,7 +1004,7 @@
             self.tags = self.dataModel.tagsName;
             self.tagIds = self.dataModel.tags;
             
-            if ([self.dataModel.userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+            if ([self.dataModel.userId isEqualToString:[HHYSignleTool shareTool].session_uid]) {
                   self.tableView.frame = CGRectMake(0, -sstatusHeight, ScreenW, ScreenH  + sstatusHeight );
             }else {
                 [self initfootView];
@@ -1029,19 +1029,19 @@
 
 - (void)getTieZiData {
     
-    if (self.pageNo>1 && ![[zkSignleTool shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
+    if (self.pageNo>1 && ![[HHYSignleTool shareTool].session_uid isEqualToString:self.userId] && !self.dataModel.friends) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         return;
     }
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    //    dict[@"tagId"] = @(self.tagId);
-    dict[@"pageNo"] = @(self.pageNo);
-    dict[@"pageSize"] = @(10);
-    dict[@"createBy"] = self.userId;
-    [zkRequestTool networkingPOST:[HHYURLDefineTool getsearchURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    //    dataDict[@"tagId"] = @(self.tagId);
+    dataDict[@"pageNo"] = @(self.pageNo);
+    dataDict[@"pageSize"] = @(10);
+    dataDict[@"createBy"] = self.userId;
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getsearchURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {

@@ -95,20 +95,20 @@ typedef void (^Nav2)();
 }
 
 //右侧点击按钮
--(void)setNavRightBtnWithImg:(NSString *)imgName title:(NSString *)title withBlock:(void (^)(UIButton *rightBtn))rightBtn handleBtn:(void (^)())butnClick{
-    _rightBtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    _rightBtn2.frame = CGRectMake(-20 , 0 , 60 , 44 );
+-(void)setNavhitClickButtonnWithImg:(NSString *)imgName title:(NSString *)title withBlock:(void (^)(UIButton *hitClickButtonn))hitClickButtonn handleBtn:(void (^)())butnClick{
+    _hitClickButtonn2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    _hitClickButtonn2.frame = CGRectMake(-20 , 0 , 60 , 44 );
     if (imgName!=nil&&imgName.length>0&&title!=nil&&title.length>0) {
-        _rightBtn2.frame = CGRectMake(-20, 0, 110, 44);
-        _rightBtn2.titleLabel.font = [UIFont systemFontOfSize:15.0f];
+        _hitClickButtonn2.frame = CGRectMake(-20, 0, 110, 44);
+        _hitClickButtonn2.titleLabel.font = [UIFont systemFontOfSize:15.0f];
     }
     title = title==nil||[title isEqual:[NSNull null]]?@"":title;
-    [_rightBtn2 addTarget : self action : @selector (tapRightBtn) forControlEvents : UIControlEventTouchUpInside ];//设置按钮点击事件
-    [_rightBtn2 setTitle:title forState:UIControlStateNormal];
-    _rightBtn2.titleLabel.font = [UIFont systemFontOfSize:14];
-    [_rightBtn2 setImage :[UIImage imageNamed:imgName] forState : UIControlStateNormal]; //设置按钮正常状态图片
-    [_rightBtn2 setImage :[UIImage imageNamed:imgName] forState : UIControlStateSelected ];//设置按钮选中图片
-    UIBarButtonItem *rightBarButon2 = [[ UIBarButtonItem alloc ] initWithCustomView:_rightBtn2];
+    [_hitClickButtonn2 addTarget : self action : @selector (taphitClickButtonn) forControlEvents : UIControlEventTouchUpInside ];//设置按钮点击事件
+    [_hitClickButtonn2 setTitle:title forState:UIControlStateNormal];
+    _hitClickButtonn2.titleLabel.font = [UIFont systemFontOfSize:14];
+    [_hitClickButtonn2 setImage :[UIImage imageNamed:imgName] forState : UIControlStateNormal]; //设置按钮正常状态图片
+    [_hitClickButtonn2 setImage :[UIImage imageNamed:imgName] forState : UIControlStateSelected ];//设置按钮选中图片
+    UIBarButtonItem *rightBarButon2 = [[ UIBarButtonItem alloc ] initWithCustomView:_hitClickButtonn2];
     if (([[[ UIDevice currentDevice ] systemVersion ] floatValue ]>= 7.0 ? 20 : 0 ))
     {
         UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc ]
@@ -122,7 +122,7 @@ typedef void (^Nav2)();
         self.navigationItem.leftBarButtonItem = rightBarButon2;
     }
     
-    rightBtn(_rightBtn2);
+    hitClickButtonn(_hitClickButtonn2);
     
     self.rightBlock2 = butnClick;
 }

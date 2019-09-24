@@ -21,7 +21,7 @@
         self.headBt.clipsToBounds = YES;
         [self.headBt setBackgroundImage:[UIImage imageNamed:@"369"] forState:UIControlStateNormal];
         [self addSubview:self.headBt];
-        //        [self.headBt addTarget:self action:@selector(clickAction:) forControlEvents:UIControlEventTouchUpInside];
+        //        [self.headBt addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
         self.headBt.tag = 100;
         //昵称
         self.nameLB =[[UILabel alloc] initWithFrame:CGRectMake(80, 18 , 150, 20)];

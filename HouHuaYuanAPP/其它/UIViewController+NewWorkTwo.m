@@ -35,7 +35,7 @@
 
 - (void)gotoCharWithOtherHuanXinID:(NSString *)huanxin andOtherUserId:(NSString *)userId andOtherNickName:(NSString *)nickName andOtherImg:(NSString *)img andVC:(BaseViewController *)baseVc{
     
-    if ([userId isEqualToString:[zkSignleTool shareTool].session_uid]) {
+    if ([userId isEqualToString:[HHYSignleTool shareTool].session_uid]) {
         [SVProgressHUD showErrorWithStatus:@"自己不能喝自己聊天"];
         return;
     }
@@ -45,9 +45,9 @@
     vc.otherName = nickName;
     vc.otherHuanXinId = huanxin;
     vc.otherHeadImg = [HHYURLDefineTool getImgURLWithStr:img];
-    vc.myName = [zkSignleTool shareTool].nickName;
-    vc.myHeadImg = [zkSignleTool shareTool].img;
-    vc.myHuanXinId = [zkSignleTool shareTool].huanxin;
+    vc.myName = [HHYSignleTool shareTool].nickName;
+    vc.myHeadImg = [HHYSignleTool shareTool].img;
+    vc.myHuanXinId = [HHYSignleTool shareTool].huanxin;
     vc.hidesBottomBarWhenPushed = YES;
     [baseVc.navigationController pushViewController:vc animated:YES];
     
@@ -57,15 +57,15 @@
 - (void)sendFlowerWithNumber:(NSString *)number andLinkId:(NSString *)ID andIsGiveUser:(BOOL)isGeiUser result:(void(^)(BOOL isOK))resultBlock {
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"flowerNum"] = @([number integerValue]);
-    dict[@"linkId"] = ID;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"flowerNum"] = @([number integerValue]);
+    dataDict[@"linkId"] = ID;
     if (isGeiUser) {
-        dict[@"type"] = @"userInfo";
+        dataDict[@"type"] = @"userInfo";
     }else {
-        dict[@"type"] = @"postInfo";
+        dataDict[@"type"] = @"postInfo";
     }
-    [zkRequestTool networkingPOST:[HHYURLDefineTool sendFlowers] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    [zkRequestTool networkingPOST:[HHYURLDefineTool sendFlowers] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
 
         if ([responseObject[@"code"] intValue]== 0) {
             

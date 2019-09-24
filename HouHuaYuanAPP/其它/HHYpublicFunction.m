@@ -95,8 +95,8 @@ static HHYpublicFunction * hhyP = nil;
     NSLog(@"%f,%f",currentLocation.coordinate.latitude,currentLocation.coordinate.longitude);
     
     [self updateLatitudeAndLongtude:currentLocation.coordinate.latitude andLongitude:currentLocation.coordinate.longitude];
-    [zkSignleTool shareTool].latitude = currentLocation.coordinate.latitude;
-    [zkSignleTool shareTool].longitude = currentLocation.coordinate.longitude;
+    [HHYSignleTool shareTool].latitude = currentLocation.coordinate.latitude;
+    [HHYSignleTool shareTool].longitude = currentLocation.coordinate.longitude;
     
     //反地理编码
 //    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error)
@@ -121,10 +121,10 @@ static HHYpublicFunction * hhyP = nil;
 - (void)updateLatitudeAndLongtude:(CGFloat)latitude andLongitude:(CGFloat)longitude{
     
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
-    dict[@"latitude"]  = @(latitude);
-    dict[@"longitude"] = @(longitude);
-    [zkRequestTool networkingPOST:[HHYURLDefineTool reportLocationURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"latitude"]  = @(latitude);
+    dataDict[@"longitude"] = @(longitude);
+    [zkRequestTool networkingPOST:[HHYURLDefineTool reportLocationURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if ([responseObject[@"code"] intValue]== 0) {
             

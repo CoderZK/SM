@@ -8,12 +8,12 @@
 
 #import "HHYAddZiLiaoTVC.h"
 #import "HHYTongYongCell.h"
-#import "zkJuBaoView.h"
+#import "HHYReportView.h"
 #import "SelectTimeV.h"
 #import "HHYShowPickerView.h"
 #import "HHYXingQuBiaoQianTVC.h"
 #import "HHYLoginVC.h"
-@interface HHYAddZiLiaoTVC ()<zkJuBaoViewDelegate,UITextFieldDelegate>
+@interface HHYAddZiLiaoTVC ()<HHYReportViewDelegate,UITextFieldDelegate>
 @property(nonatomic,strong)UIButton * headBt;
 @property(nonatomic,strong)NSArray *titleArr;
 @property(nonatomic,strong)NSArray *placeHolderArr;
@@ -259,23 +259,23 @@
     }
    
     
-    NSMutableDictionary * dict = @{}.mutableCopy;
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
     if (self.isThred) {
-        dict[@"appKey"] = self.appOpenId;
-        dict[@"appName"] = self.appType;
+        dataDict[@"appKey"] = self.appOpenId;
+        dataDict[@"appName"] = self.appType;
     }else {
-        dict[@"phone"] = self.phoneStr;
-        dict[@"password"] = self.passdWord;
+        dataDict[@"phone"] = self.phoneStr;
+        dataDict[@"password"] = self.passdWord;
     }
-    dict[@"birthday"] = self.birthday;
-    dict[@"avatar"] = self.headImgStr;
-    dict[@"gender"] = @(self.gender);
-    dict[@"nickName"] = self.nickName;
-    dict[@"provinceId"] = self.provinceldID;
-    dict[@"cityId"] = self.cityID;
-    dict[@"tags"] = self.tagIds;
-    dict[@"invitationCode"] = self.yaoQingStr;
-    [zkRequestTool networkingPOST:[HHYURLDefineTool registerURL] parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+    dataDict[@"birthday"] = self.birthday;
+    dataDict[@"avatar"] = self.headImgStr;
+    dataDict[@"gender"] = @(self.gender);
+    dataDict[@"nickName"] = self.nickName;
+    dataDict[@"provinceId"] = self.provinceldID;
+    dataDict[@"cityId"] = self.cityID;
+    dataDict[@"tags"] = self.tagIds;
+    dataDict[@"invitationCode"] = self.yaoQingStr;
+    [zkRequestTool networkingPOST:[HHYURLDefineTool registerURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
            [SVProgressHUD showSuccessWithStatus:@"注册成功"];
             HHYLoginVC * vc = (HHYLoginVC *)[self.navigationController.childViewControllers firstObject];
