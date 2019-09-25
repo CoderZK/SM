@@ -35,8 +35,7 @@
     self.navigationItem.title = @"开学购物季";
     self.tableView.backgroundColor =[UIColor groupTableViewBackgroundColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"HHYHomeCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    FMDatabase * db = [FMDBSingle shareFMDB].fd;
-    [db open];
+
     UIButton * button =[UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 60, 30);
     [button setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
@@ -55,6 +54,8 @@
     
     self.tabBarController.delegate = self;
     
+    FMDatabase * db = [FMDBSingle shareFMDB].fd;
+    [db open];
     FMResultSet *result = [db executeQuery:@"select * from 'kk_home' "];
     while ([result next]) {
         HHYHomeModel *person = [HHYHomeModel new];

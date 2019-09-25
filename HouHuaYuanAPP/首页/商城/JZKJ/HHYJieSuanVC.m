@@ -93,26 +93,7 @@
     
     
 }
-- (void)eerrttg{
-    NSLog(@"%@",@"588dsfghnghdmj969");
-    int i ;
-    for (i = 0; i< 100; i++) {
-        printf("idokfrikrkrtikfk");
-    }
-    
-}
-- (void)ededer{
-    NSLog(@"%@",@"588afdrgheryh969");
-    
-}
-- (void)eeedvcfr{
-    NSLog(@"%@",@"588ergrtyh969");
-    
-}
-- (void)erdcf {
-    NSLog(@"%@",@"5889ertyhrtyuhj69");
-    
-}
+
 - (IBAction)addressaction:(id)sender {
     
   

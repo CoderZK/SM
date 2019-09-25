@@ -137,24 +137,25 @@
 }
 
 
-- (void)hitAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)BBTT {
     
-    if (button.tag == 100) {
+    if (BBTT.tag == 100) {
         self.number+=20;
         
-    }else if (button.tag == 101) {
+    }else if (BBTT.tag == 101) {
         self.number+=50;
-    }else if (button.tag == 102) {
+    }else if (BBTT.tag == 102) {
         self.number+=100;
     }else {
         [self diss];
-        if (isPPPPPP) {
+        
+        if (BBTT.tag == 104 && isPPPPPP) {
             return;
         }
         [self.TF endEditing:YES];
         if (self.deletage != nil && [self.deletage respondsToSelector:@selector(didClcikIndex:withIndexPath:WithNumber:)]) {
             
-            [self.deletage didClcikIndex:button.tag - 100 withIndexPath:self.indexPath WithNumber:self.TF.text];
+            [self.deletage didClcikIndex:BBTT.tag - 100 withIndexPath:self.indexPath WithNumber:self.TF.text];
             
         }
     }

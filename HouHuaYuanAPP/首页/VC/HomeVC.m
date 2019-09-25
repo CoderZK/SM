@@ -22,7 +22,7 @@
 #import "HHYMineDongTaiTVC.h"
 #import "LxmWebViewController.h"
 #import "HHYShopingVC.h"
-
+#import "JJJJGouWuHomeVC.h"
 
 @interface HomeVC ()<SDCycleScrollViewDelegate,HHYHomeDongTaiCellDelegate,HHYYongBaoViewDeletage,UITabBarControllerDelegate>
 @property(nonatomic,strong)UIView *headView;
@@ -188,7 +188,7 @@
     
     UIButton * imgBt = [[UIButton alloc] initWithFrame:CGRectMake(0,0, ScreenW, 200)];
     [imgBt addTarget:self action:@selector(goShoping) forControlEvents:UIControlEventTouchUpInside];
-    [imgBt setBackgroundImage:[UIImage imageNamed:@"200"] forState:UIControlStateNormal];
+    [imgBt setBackgroundImage:[UIImage imageNamed:@"222"] forState:UIControlStateNormal];
     [self.headView addSubview:imgBt];
 
     SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0,0, ScreenW, ScreenW * 3/4 ) delegate:self placeholderImage:nil];
@@ -227,7 +227,7 @@
         [self gotoLoginVC];
         return;
     }
-    HHYHomeVC * vc =[[HHYHomeVC alloc] init];
+    JJJJGouWuHomeVC * vc =[[JJJJGouWuHomeVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     
