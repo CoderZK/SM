@@ -62,18 +62,13 @@
     [super viewDidLoad];
     self.view.backgroundColor = WhiteColor;
     self.dataArray = @[].mutableCopy;
-    
     self.huaTiArr = @[].mutableCopy;
-    
     self.navigationItem.title = @"发帖";
-    
     self.tableView.frame = CGRectMake(0, 0, ScreenW , ScreenH  - 50);
     if (sstatusHeight > 20) {
          self.tableView.frame = CGRectMake(0, 0, ScreenW , ScreenH  - 50 - 34 );
     }
-    
     UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 30)];
-    
     [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
     [hitClickButtonn setTitle:@"发布" forState:UIControlStateNormal];
 //    hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
@@ -81,21 +76,13 @@
     hitClickButtonn.clipsToBounds = YES;
     hitClickButtonn.titleLabel.font = kFont(14);
     [hitClickButtonn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn.tag = 11;
     //    [self.view addSubview:hitClickButtonn];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
-    
-    
     self.headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
- 
     [self createViews];
-    
     [self loadFromServeTTTT];
-    
-    
-    
-    
 }
 
 - (void)createViews {
@@ -105,33 +92,26 @@
     lb.text = @"选择圈子";
     lb.font = kFont(14);
     [self.headView addSubview:lb];
-    
     UIImageView * imgV =[[UIImageView alloc] initWithFrame:CGRectMake(ScreenW - 35, 15, 20, 20)];
     imgV.image = [UIImage imageNamed:@"more"];
     [self.headView addSubview:imgV];
-    
     self.rightLB = [[UILabel alloc] initWithFrame:CGRectMake(120 , 15, ScreenW - 120 - 40 , 20)];
     [self.headView addSubview:self.rightLB];
     self.rightLB.textAlignment = NSTextAlignmentRight;
     self.rightLB.font = kFont(14);
-    
     self.BT = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, ScreenW, 50)];
     self.BT.tag = 12;
-    [self.BT addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.BT addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.headView addSubview:self.BT];
-    
     UIView * backV =[[UIView alloc] initWithFrame:CGRectMake(15, 50, ScreenW-30, 0.0)];
     backV.backgroundColor = lineBackColor;
     [self.headView addSubview:backV];
-    
-
     
     self.TV = [[IQTextView alloc] initWithFrame:CGRectMake(8, CGRectGetMaxY(backV.frame) + 10, ScreenW - 16 , 150)];
     self.TV.backgroundColor = RGB(250, 250, 250);
     self.TV.placeholder = @"说点什么吧~请注意遵守圈子规则 (圈子规则可以在我的-设置-查看圈子规则中查看)";
     self.TV.font = kFont(14);
     [self.headView addSubview:self.TV];
-    
     self.huaTiView = [[UIButton alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.TV.frame) + 15, ScreenW, 40)];
     [self.huaTiView setTitle:@"    点击请选择话题 >" forState:UIControlStateNormal];
     self.huaTiView.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
@@ -140,13 +120,10 @@
     [self.huaTiView addTarget:self action:@selector(goBiaoQian) forControlEvents:UIControlEventTouchUpInside];
     [self.headView addSubview:self.huaTiView];
     
- 
-    
     self.scrollview = [[UIScrollView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.huaTiView.frame) + 15, ScreenW, (ScreenW - 60)/3)];
     [self.headView addSubview:self.scrollview];
-    [self addPicWithArr:self.picsArr];
-    
-    
+    [self productPicWithArray:self.picsArr];
+
     self.linkV = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.scrollview.frame) + 15, ScreenW, 0)];
     self.linkV.clipsToBounds = YES;
     [self.headView addSubview:self.linkV];
@@ -175,10 +152,6 @@
     
     
     [self.headView addSubview:self.huaTiView];
-    
-    
-    
-    
     self.desLB = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(self.linkV.frame) + 50 , ScreenW - 30, 50)];
     self.desLB.numberOfLines = 0;
     [self.headView addSubview:self.desLB];
@@ -186,8 +159,6 @@
     NSString * str = @"请遵守文明规范, 不准有不可描述的内容出现哦~被发现会被禁言~非会员每日最多可发五个帖子, 会员不受限制~请大家尽量不要发没有意义的内容, 共同打造和谐美好的社会文化~";
     self.desLB.attributedText = [str getMutableAttributeStringWithFont:14 lineSpace:5 textColor:CharacterBlack40];
     self.desLB.mj_h = [str getHeigtWithFontSize:14 lineSpace:5 width:ScreenW - 30];
-    
-    
     self.tiXingLB = [[UILabel alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(self.desLB.frame) + 15 , ScreenW - 30, 0)];
     self.tiXingLB.numberOfLines = 0;
     self.tiXingLB.font = kFont(13);
@@ -198,10 +169,8 @@
     [self.tiXingLB addGestureRecognizer:tap];
     
     [self.headView addSubview:self.tiXingLB];
-    
     self.headView.mj_h = CGRectGetMaxY(self.tiXingLB.frame)+20;
     self.tableView.tableHeaderView = self.headView;
-    
     self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenH - sstatusHeight - 44 -50, ScreenW, 50)];
     if (sstatusHeight>20) {
         self.bottomView.frame = CGRectMake(0, ScreenH - sstatusHeight - 44 - 50- 34, ScreenW, 50);
@@ -209,26 +178,18 @@
     [self.view addSubview:self.bottomView];
     NSArray * mmArr = @[@"57",@"12",@"28"];
     for (int i = 0 ; i < mmArr.count ; i++) {
-        
         UIButton * anNiuBt = [[UIButton alloc] initWithFrame:CGRectMake(15 + 80 * i, 0, 50, 50)];
         [anNiuBt setImage:[UIImage imageNamed:mmArr[i]] forState:UIControlStateNormal];
         [self.bottomView addSubview:anNiuBt];
         anNiuBt.tag = 300+i;
         [anNiuBt addTarget:self action:@selector(bottomAction:) forControlEvents:UIControlEventTouchUpInside];
-        
     }
-    
-    
-    
-    
 }
 
-- (void)addPicWithArr:(NSMutableArray *)picsArr {
+- (void)productPicWithArray:(NSMutableArray *)picsArr {
 
     [self.scrollview.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-
     for (int i = 0 ; i < picsArr.count; i++) {
-        
         UIButton * anNiuBt = [[UIButton alloc] initWithFrame:CGRectMake(15 +  ((ScreenW - 60) /3 +15 )* i , 0, (ScreenW - 60) /3, (ScreenW - 60) /3)];
         anNiuBt.layer.cornerRadius = 3;
         anNiuBt.tag = 100+i;
@@ -399,7 +360,7 @@
     
     if (anNiuBt.tag >=200) {
         [self.picsArr removeObjectAtIndex:anNiuBt.tag - 200];
-        [self addPicWithArr:self.picsArr];
+        [self productPicWithArray:self.picsArr];
     }else {
         if (anNiuBt.tag - 100  == self.picsArr.count) {
             
@@ -505,7 +466,7 @@
             [self showMXPhotoCameraAndNeedToEdit:YES completion:^(UIImage *image, UIImage *originImage, CGRect cutRect) {
                 
                 [self.picsArr addObject:image];
-                [self addPicWithArr:self.picsArr];
+                [self productPicWithArray:self.picsArr];
             }];
         }else{
             UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"无法使用相机" message:@"请在iPhone的""设置-隐私-相机""中允许访问相机" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
@@ -527,7 +488,7 @@
             [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
                 [self.picsArr addObjectsFromArray:photos];
                
-                [self addPicWithArr:self.picsArr];
+                [self productPicWithArray:self.picsArr];
                 
                 
             }];
@@ -547,7 +508,7 @@
 }
 
 //点击发布
-- (void)navBtnClick:(UIButton *)anNiuBt {
+- (void)navigationItemButtonAction:(UIButton *)anNiuBt {
     if (anNiuBt.tag == 11) {
         
         [self faBuAction:anNiuBt];

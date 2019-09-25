@@ -22,10 +22,8 @@
     [self.headV addSubview:imgV];
     imgV.image =[UIImage imageNamed: [NSString stringWithFormat:@"%@",_model.img]];
     self.tableView.tableHeaderView = self.headV;
-    
     self.tableView.estimatedRowHeight = 100;
     self.tableView.frame = CGRectMake(0, 0, ScreenW, ScreenH - 60);
-    self.tableView.backgroundColor = [UIColor redColor];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

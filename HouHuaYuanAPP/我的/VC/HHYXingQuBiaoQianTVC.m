@@ -40,7 +40,7 @@
     hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     hitClickButtonn.titleLabel.font = kFont(14);
     [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn.tag = 11;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     
@@ -49,7 +49,7 @@
 }
 
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)navigationItemButtonAction:(UIButton *)button {
     
     NSMutableArray * arr = @[].mutableCopy;
     NSMutableArray * arr1 = @[].mutableCopy;

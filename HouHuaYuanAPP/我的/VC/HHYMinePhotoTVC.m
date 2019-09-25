@@ -54,7 +54,7 @@
     [hitClickButtonn setTitle:@"编辑" forState:UIControlStateNormal];
     hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     hitClickButtonn.titleLabel.font = kFont(14);
-    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn.tag = 11;
     [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
@@ -65,7 +65,7 @@
     if (self.photos.length > 0) {
         self.dataArray = [self.photos componentsSeparatedByString:@","].mutableCopy;
     }else {
-        [self navBtnClick:hitClickButtonn];
+        [self navigationItemButtonAction:hitClickButtonn];
     }
 
 //    self.dataArray =  @[@"http://i0.hdslb.com/bfs/article/3fea53d61f069aa72c71330fc229e075c5b3c1b4.jpg",@"http://5b0988e595225.cdn.sohucs.com/images/20190417/478c8d1c31c74273a504f2335b371591.jpeg",@"http://5b0988e595225.cdn.sohucs.com/images/20190404/a30336a6914b4929994450b9941afa40.jpeg",@"http://p0.qhimgs4.com/t01d406e56973481579.jpg",@"http://5b0988e595225.cdn.sohucs.com/images/20190508/a3df05de51954e2891f829380af31754.jpeg",@"http://5b0988e595225.cdn.sohucs.com/images/20190507/2e2a6a6e43304433bd7a558292fcb487.jpeg",@"http://b-ssl.duitang.com/uploads/item/201804/06/20180406212446_mclnu.jpg"].mutableCopy;
@@ -73,7 +73,7 @@
 
 }
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)navigationItemButtonAction:(UIButton *)button {
     if ([button.titleLabel.text isEqualToString:@"编辑"]) {
         [button setTitle:@"完成" forState:UIControlStateNormal];
         self.isBianJi = YES;
@@ -249,7 +249,7 @@
         if ([responseObject[@"code"] intValue]== 0) {
             
             if (self.photos.length == 0) {
-                [self navBtnClick:self.hitClickButton];
+                [self navigationItemButtonAction:self.hitClickButton];
             }
             
         }else {

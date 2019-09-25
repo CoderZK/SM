@@ -146,8 +146,6 @@
                 self.payDic = responseObject[@"object"];
                 [self goZFB];
             }
-            
-        
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
@@ -230,24 +228,7 @@
 
 #pragma mark -微信、支付宝支付
 - (void)goWXpay {
-    
-    
-    
     PayReq * req = [[PayReq alloc]init];
-    
-    //    /** 商家向财付通申请的商家id */
-    //    @property (nonatomic, retain) NSString *partnerId;
-    //    /** 预支付订单 */
-    //    @property (nonatomic, retain) NSString *prepayId;
-    //    /** 随机串，防重发 */
-    //    @property (nonatomic, retain) NSString *nonceStr;
-    //    /** 时间戳，防重发 */
-    //    @property (nonatomic, assign) UInt32 timeStamp;
-    //    /** 商家根据财付通文档填写的数据和签名 */
-    //    @property (nonatomic, retain) NSString *package;
-    //    /** 商家根据微信开放平台文档对数据做的签名 */
-    //    @property (nonatomic, retain) NSString *sign;
-    
     req.partnerId = [NSString stringWithFormat:@"%@",self.payDic[@"partnerId"]];
     req.prepayId =  [NSString stringWithFormat:@"%@",self.payDic[@"prepayId"]];
     req.nonceStr =  [NSString stringWithFormat:@"%@",self.payDic[@"nonceStr"]];
@@ -272,7 +253,6 @@
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self.navigationController popViewControllerAnimated:YES];
         });
-        
     }
     else if (resp.errCode==WXErrCodeUserCancel)
     {
@@ -293,32 +273,19 @@
     str = self.payDic[@"prepayId"];
     
     [[AlipaySDK defaultService] payOrder:self.payDic[@"prepayId"] fromScheme:@"com.houhuayuan.app" callback:^(NSDictionary *resultDic) {
-        
-        
         if ([resultDic[@"resultStatus"] isEqualToString:@"6001"]) {
             //用户取消支付
             [SVProgressHUD showErrorWithStatus:@"用户取消支付"];
-            
         } else if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
             
             [SVProgressHUD showSuccessWithStatus:@"帖子置顶成功!"];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];
             });
-         
-            
         } else {
             [SVProgressHUD showErrorWithStatus:@"支付失败"];
         }
-        
-        NSLog(@"-----------%@",resultDic);
-        
-        NSLog(@"==========成功");
-        
-        
     }];
-    
-    
 }
 
 
@@ -338,9 +305,7 @@
     } else {
         [SVProgressHUD showErrorWithStatus:@"支付失败"];
     }
-    NSLog(@"%@",resultDic);
-    NSLog(@"成功");
-    //
+
 }
 
 

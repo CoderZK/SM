@@ -80,10 +80,6 @@
     [self.tableView registerClass:[HHYDetailPingLunCell class] forCellReuseIdentifier:@"cell3"];
     [self.tableView registerNib:[UINib nibWithNibName:@"HHYPingLunTwoCell" bundle:nil] forCellReuseIdentifier:@"cell4"];
     self.tableView.estimatedRowHeight = 0.1;
-//    self.tableView.rowHeight = UITableViewAutomaticDimension;
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    _dataModel = [[zkHomelModel alloc] init];
-//    _dataModel.content = @"安排发GIF个疯女人废粉盒呢哇我来啊约啊hi而不能发给你分为hiUR个安排发GIF个疯女人废粉盒呢哇我来啊约啊hi而不能发给你分为hiUR个安排发GIF个疯女人废粉盒呢哇我来啊约啊hi而不能发给你分为hiUR个安排发GIF个疯女人废粉盒呢哇我来啊约啊hi而不能发给你分为hiUR个";
     self.pingLunV = [[UIView alloc] initWithFrame:CGRectMake(0, ScreenH - 50 - sstatusHeight - 44 , ScreenW, 50)];
     self.pingLunV.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.pingLunV];
@@ -105,7 +101,7 @@
     [hitClickButtonn1 setTitle:@"置顶" forState:UIControlStateNormal];
     [hitClickButtonn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     hitClickButtonn1.titleLabel.font = kFont(13);
-    [hitClickButtonn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn1 addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn1.tag = 10;
     self.zhidingBt = hitClickButtonn1;
     if (isPPPPPP){
@@ -116,7 +112,7 @@
     
     UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
     [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"sandian"] forState:UIControlStateNormal];
-    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn.tag = 11;
     self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn],[[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn1]];
     
@@ -134,39 +130,31 @@
         
     }];
     
-    
+ 
 }
 
-- (void)navBtnClick:(UIButton *)button {
-    
+- (void)navigationItemButtonAction:(UIButton *)button {
     if (button.tag == 10) {
-        
         HHYZhiDingTaoCanTVC * vc =[[HHYZhiDingTaoCanTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
         vc.postID = self.dataModel.postId;
         [self.navigationController pushViewController:vc animated:YES];
-        
     }else {
-    
         if  (self.dataModel.currentUserCollect) {
             [HHYReportView showWithArray:@[@"举报",@"取消收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         }else {
             [HHYReportView showWithArray:@[@"举报",@"收藏"] withIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
         }
-        
-
         [HHYReportView shareInstance].delegate = self;
     }
 }
 
 - (void)loadFromServeTTTT {
-
     [zkRequestTool networkingPOST:[HHYURLDefineTool getdetailURL] parameters:self.ID success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
             self.dataModel = [zkHomelModel mj_objectWithKeyValues:responseObject[@"object"]];
-            
             if ([HHYSignleTool shareTool].isLogin && [[HHYSignleTool shareTool].session_uid isEqualToString:self.dataModel.createBy] && !self.dataModel.isTop) {
                 self.zhidingBt.hidden = NO;
             }else {
@@ -215,13 +203,8 @@
                 [self.dataModel.replyInfoVoList removeAllObjects];
             }
             [self.dataModel.replyInfoVoList addObjectsFromArray:arr];
-            
-//            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:(UITableViewRowAnimationNone)];
             [self.tableView reloadData];
-            
             self.pageNo++;
-            
-            
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
@@ -240,7 +223,6 @@
     self.TV1.userInteractionEnabled = NO;
     self.TV1.textColor = CharacterBackColor;
     [self.pingLunV addSubview:self.TV1];
-    
     
     self.TV2 = [[UITextView alloc] initWithFrame:CGRectMake(10, 7.5, ScreenW - 20 - 75 - 50 , 35)];
     self.TV2.backgroundColor =[UIColor clearColor];

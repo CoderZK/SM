@@ -140,7 +140,7 @@
     
     UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
     [leftbtn setBackgroundImage:[UIImage imageNamed:@"53"] forState:UIControlStateNormal];
-    [leftbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftbtn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     leftbtn.tag = 10;
 
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftbtn];
@@ -148,11 +148,11 @@
 //    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
 //
 //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-//    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
 //    hitClickButtonn.tag = 11;
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
 }
-- (void)navBtnClick:(UIButton *)btn{
+- (void)navigationItemButtonAction:(UIButton *)btn{
     
     if (btn.tag == 10) {
        //搜索

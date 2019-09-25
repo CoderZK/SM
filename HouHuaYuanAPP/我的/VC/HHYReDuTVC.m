@@ -83,7 +83,7 @@
     
     UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
     [leftbtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [leftbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftbtn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     leftbtn.tag = 10;
     [self.view addSubview:leftbtn];
 //    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftbtn];
@@ -93,7 +93,7 @@
 //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
     [hitClickButtonn setTitle:@"历史记录" forState:UIControlStateNormal];
     hitClickButtonn.titleLabel.font = kFont(14);
-    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn.tag = 11;
     [self.view addSubview:hitClickButtonn];
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
@@ -323,7 +323,7 @@
     
 }
 
-- (void)navBtnClick:(UIButton *)btn{
+- (void)navigationItemButtonAction:(UIButton *)btn{
     
     if (btn.tag == 10) {
         //返回

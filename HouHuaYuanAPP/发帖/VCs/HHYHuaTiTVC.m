@@ -28,17 +28,13 @@
     self.selectArr = @[].mutableCopy;
 
     UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 60 - 15,  sstatusHeight + 2,60, 40)];
-    
-    //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
     [hitClickButtonn setTitle:@"完成" forState:UIControlStateNormal];
     hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
     hitClickButtonn.titleLabel.font = kFont(14);
     [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn.tag = 11;
-    //    [self.view addSubview:hitClickButtonn];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
-    
     self.navigationItem.title = @"话题";
     self.headV = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH)];
     self.headV.backgroundColor = WhiteColor;
@@ -47,53 +43,36 @@
     lb.text = @"请选择和您话题相关的话题, 若无相关科选自其它分类";
     [self.headV addSubview:lb];
     self.whiteView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(lb.frame) + 10 , ScreenW, 20)];
-
     [self.headV addSubview:self.whiteView];
-    
-//    [self setHuaTiWithArr:@[@"女王范",@"参赛活动",@"实力了",@"道具",@"自拍",@"玩法",@"故事",@"运动",@"面积",@"其它"]];
-    
- 
     [self loadFromServeTTTT];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self loadFromServeTTTT];
     }];
 
-    
-    
 }
 
 - (void)loadFromServeTTTT {
     
-    
     NSMutableDictionary * dataDict = @{}.mutableCopy;
-    
     [zkRequestTool networkingPOST:[HHYURLDefineTool getTopicListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         if ([responseObject[@"code"] intValue]== 0) {
-            
             self.dataArray = [HHYTongYongModel mj_objectArrayWithKeyValuesArray:responseObject[@"object"]];
             [self setHuaTiWithArr:self.dataArray];
             [self.selectArr removeAllObjects];
-
-            
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         
     }];
-    
-
-    
-    
 }
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)navigationItemButtonAction:(UIButton *)button {
     
     if (self.htBlock != nil) {
         self.htBlock(self.selectArr);
@@ -103,8 +82,6 @@
 }
 
 - (void)setHuaTiWithArr:(NSArray<HHYTongYongModel *> *)arr {
-  
-    
     CGFloat XX = 15;
     CGFloat totalW = XX;
     NSInteger number = 1;
@@ -112,18 +89,12 @@
     CGFloat spaceW = 10;
     CGFloat spaceH = 10;
     CGFloat btY0 = 0;
-    
     [self.whiteView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    
     for (int i = 0 ; i < arr.count; i++) {
-        
         UIButton * button = (UIButton *)[self.whiteView viewWithTag:100+i];
-        
         if (button==nil) {
             button =[UIButton new];
         }
-        
-        // button.hidden = YES;
         button.tag = 100+i;
         [button setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
 
@@ -177,7 +148,6 @@
                 return;
             }
         }
-       
     }else {
         if (self.selectArr.count >=3) {
             [SVProgressHUD showErrorWithStatus:@"最多只能选择三个"];
@@ -188,22 +158,6 @@
                  [self.selectArr addObject:self.dataArray[button.tag - 100]];
             }
         }
-       
-        
     }
-    
-    
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

@@ -127,13 +127,13 @@
     
     UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
     [leftbtn setImage:[UIImage imageNamed:@"nav_back"] forState:UIControlStateNormal];
-    [leftbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftbtn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     leftbtn.tag = 10;
     [self.view addSubview:leftbtn];
     
 }
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)navigationItemButtonAction:(UIButton *)button {
     [self.navigationController popViewControllerAnimated:YES];
 }
 

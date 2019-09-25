@@ -31,7 +31,7 @@
     [hitClickButtonn setTitle:@"添加银行卡" forState:UIControlStateNormal];
     hitClickButtonn.titleLabel.font = kFont(14);
     [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn.tag = 11;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
@@ -122,7 +122,7 @@
 }
 
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)navigationItemButtonAction:(UIButton *)button {
     HHYAddYinHangKaVC * vc =[[HHYAddYinHangKaVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];

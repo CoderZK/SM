@@ -26,7 +26,7 @@
 //    UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 24)];
 //    [hitClickButtonn setTitle:@"清空" forState:UIControlStateNormal];
 //    [hitClickButtonn setTitleColor:CharacterBlack40 forState:UIControlStateNormal];
-//    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
 //    hitClickButtonn.tag = 11;
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     self.pageNo = 1;
@@ -42,7 +42,7 @@
 }
 
 //加好友
-- (void)navBtnClick:(UIButton *)button {
+- (void)navigationItemButtonAction:(UIButton *)button {
     
    
     

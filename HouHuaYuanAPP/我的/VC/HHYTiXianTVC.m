@@ -46,7 +46,7 @@
     
     UIButton * leftbtn=[[UIButton alloc] initWithFrame:CGRectMake(10, sstatusHeight + 2 , 40, 40)];
     [leftbtn setImage:[UIImage imageNamed:@"icon_back"] forState:UIControlStateNormal];
-    [leftbtn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [leftbtn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     leftbtn.tag = 10;
     [self.view addSubview:leftbtn];
     
@@ -56,7 +56,7 @@
     [hitClickButtonn setTitle:@"提现记录" forState:UIControlStateNormal];
     hitClickButtonn.titleLabel.font = kFont(14);
 //    [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn.tag = 11;
      [self.view addSubview:hitClickButtonn];
 
@@ -64,7 +64,7 @@
 
 }
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)navigationItemButtonAction:(UIButton *)button {
     if (button.tag == 10) {
         [self.navigationController popViewControllerAnimated:YES];
     }else if (button.tag == 11) {
@@ -173,7 +173,7 @@
     btt.frame = CGRectMake(15, CGRectGetMaxY(headView.frame) + 40, ScreenW - 30, 30);
     [btt setTitle:@"提现会产生一定的手续费,1~3工作日到账,以到账时间为准" forState:UIControlStateNormal];
     btt.titleLabel.font = kFont(13);
-//    [btt addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+//    [btt addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     btt.tag = 12;
     [self.headV addSubview:btt];
     
@@ -185,7 +185,7 @@
     confirmBt.titleLabel.font = kFont(15);
     confirmBt.clipsToBounds = YES;
     [confirmBt setBackgroundImage:[UIImage imageNamed:@"backr"] forState:UIControlStateNormal];
-    [confirmBt addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [confirmBt addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     confirmBt.tag = 13;
     [self.headV addSubview:confirmBt];
     

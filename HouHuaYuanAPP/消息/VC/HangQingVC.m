@@ -53,7 +53,7 @@
     
     UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
     [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"11"] forState:UIControlStateNormal];
-    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn.tag = 11;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     
@@ -121,7 +121,7 @@
 }
 
 //加好友
-- (void)navBtnClick:(UIButton *)button {
+- (void)navigationItemButtonAction:(UIButton *)button {
     
     HHYMineFriendsTVC * vc =[[HHYMineFriendsTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;

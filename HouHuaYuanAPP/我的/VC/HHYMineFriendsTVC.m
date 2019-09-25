@@ -325,10 +325,7 @@
 - (void)deleteMesgWithIndexPath:(NSIndexPath *)indexPath withIsDeletefriends:(NSInteger )type {
     // type 1 删除 2 拉黑 3 解除
     Weak(weakSelf);
-
-    
     NSString * url = @"";
-    
     if (type == 1) {
         url = [HHYURLDefineTool deleteFriendURL];
     }else if (type == 2) {

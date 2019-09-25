@@ -8,7 +8,6 @@
 
 #import "JJJJGouWuHomeVC.h"
 #import "JJJJGouWuHomeCell.h"
-#import "HHYHomeModel.h"
 #import "JJJJDetailTVC.h"
 @interface JJJJGouWuHomeVC ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *leftTV,*rightTV;
@@ -38,22 +37,30 @@
     self.leftTV.delegate = self;
     [self.view addSubview:self.leftTV];
     
-    self.rightTV = [[UITableView alloc] initWithFrame:CGRectMake(80, 0, ScreenW - 80 , ScreenH)];
+    self.rightTV = [[UITableView alloc] initWithFrame:CGRectMake(80, 0, ScreenW - 80 , ScreenH - sstatusHeight - 44)];
     self.rightTV.dataSource = self;
     self.rightTV.delegate = self;
     [self.view addSubview:self.rightTV];
     
     [self.rightTV registerNib:[UINib nibWithNibName:@"JJJJGouWuHomeCell" bundle:nil] forCellReuseIdentifier:@"cellTwo"];
     [self.leftTV registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-    self.leftDataArr = @[@"全部",@"棉被",@"水果",@"其它"];
+    self.leftDataArr = @[@"全部",@"生活",@"学生",@"送人",@"其它"];
     [self.leftTV selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:(UITableViewScrollPositionNone)];
     [self getDataWithIndex:0];
     self.rightTV.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageSize = 1;
+        [self.dataArray removeAllObjects];
         [self getDataWithIndex:self.leftIndex];
     }];
     self.rightTV.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-          [self getDataWithIndex:self.leftIndex];
+        [SVProgressHUD show];
+        self.pageSize++;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.rightTV.mj_footer endRefreshing];
+            [self.rightTV reloadData];
+            [SVProgressHUD dismiss];
+        });
+        
     }];
     
 }
@@ -79,7 +86,9 @@
         [self.dataArray addObject:person];
     }
     [db close];
-    self.pageSize++;
+    [self.rightTV.mj_header endRefreshing];
+    [self.rightTV.mj_footer endRefreshing];
+
     [self.rightTV reloadData];
     
 }
@@ -123,6 +132,7 @@
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         HHYHomeModel * model = self.dataArray[indexPath.row];
         JJJJDetailTVC * vc =[[JJJJDetailTVC alloc] init];
+        vc.model = model;
         vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }else {

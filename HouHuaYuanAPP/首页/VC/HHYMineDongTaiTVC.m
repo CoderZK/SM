@@ -46,7 +46,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!self.isMine) {
-        [self getDetailData];
+        [self getDetailDataTWO];
     }
 }
 
@@ -70,7 +70,7 @@
         hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         hitClickButtonn.titleLabel.font = kFont(14);
         [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         hitClickButtonn.tag = 11;
         self.editBt = hitClickButtonn;
         UIButton * hitClickButtonn1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
@@ -82,7 +82,7 @@
         hitClickButtonn1.titleLabel.font = kFont(14);
         [hitClickButtonn1 sizeToFit];
         [hitClickButtonn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [hitClickButtonn1 addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [hitClickButtonn1 addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         hitClickButtonn1.tag = 12;
         hitClickButtonn1.hidden = YES;
         self.backBt = hitClickButtonn1;
@@ -110,7 +110,7 @@
     
 }
 
-- (void)navBtnClick:(UIButton *)button {
+- (void)navigationItemButtonAction:(UIButton *)button {
     
     if  (button.tag == 11) {
         button.selected = !button.selected;
@@ -639,7 +639,7 @@
     
 }
 
-- (void)getDetailData {
+- (void)getDetailDataTWO {
     
     [zkRequestTool networkingPOST:[HHYURLDefineTool getSysSocialCircleDetailURL] parameters:self.circleId success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];

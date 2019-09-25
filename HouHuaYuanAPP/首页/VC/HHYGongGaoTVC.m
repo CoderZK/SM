@@ -26,9 +26,9 @@
     self.tableView.estimatedRowHeight = 40;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    [self getDetailData];
+    [self getDetailDataTWO];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self getDetailData];
+        [self getDetailDataTWO];
     }];
 
     
@@ -176,7 +176,7 @@
     
 }
 
-- (void)getDetailData {
+- (void)getDetailDataTWO {
     
     [zkRequestTool networkingPOST:[HHYURLDefineTool getSysSocialCircleDetailURL] parameters:self.cricleID success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];

@@ -27,9 +27,9 @@
 #import "HHYSettingTVC.h"
 
 
-#import "HHYGouWuChe.h"
-#import "HHYMineGouWuListTVC.h"
-#import "HHYAddressTVC.h"
+//#import "HHYGouWuChe.h"
+//#import "HHYMineGouWuListTVC.h"
+//#import "HHYAddressTVC.h"
 
 @interface MineVC ()<HHYMineFourCellDelegate>
 @property(nonatomic,strong)NSArray *titleArr;
@@ -55,12 +55,12 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"HHYMineFourCell" bundle:nil] forCellReuseIdentifier:@"cellFour"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.titleArr = @[@[],@[],@[],@[@"我的主页",@"我的动态",@"谁看过我",@"我的相册",@"我的收藏",@"我的黑名单"],@[@"任务中心",@"实名认证",@"会员服务",@"我的订单",@"我的提现",@"意见反馈"],@[@"购物车",@"购物记录",@"地址"]];
+    self.titleArr = @[@[],@[],@[],@[@"我的主页",@"我的动态",@"谁看过我",@"我的相册",@"我的收藏",@"我的黑名单"],@[@"任务中心",@"实名认证",@"会员服务",@"我的订单",@"我的提现",@"意见反馈"]];
     
     
     UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(0, 0, 24, 24)];
     [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"85"] forState:UIControlStateNormal];
-    [hitClickButtonn addTarget:self action:@selector(navBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     hitClickButtonn.tag = 11;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     
@@ -94,7 +94,7 @@
 
 
 //设置
-- (void)navBtnClick:(UIButton *)button {
+- (void)navigationItemButtonAction:(UIButton *)button {
     
     HHYSettingTVC  * vc =[[HHYSettingTVC alloc] initWithTableViewStyle:UITableViewStyleGrouped];
     vc.hidesBottomBarWhenPushed = YES;
@@ -103,9 +103,7 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (isPPPPPP) {
-        return 6;
-    }
+
     return 5;
 }
 
@@ -289,23 +287,24 @@
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
-    }else if(indexPath.section == 5) {
-        if (indexPath.row == 0) {
-            HHYGouWuChe * vc =[[HHYGouWuChe alloc] init];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if (indexPath.row == 1) {
-            HHYMineGouWuListTVC* vc =[[HHYMineGouWuListTVC alloc] init];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }else if (indexPath.row == 2) {
-           HHYAddressTVC* vc =[[HHYAddressTVC alloc] init];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        
-        
     }
+//    else if(indexPath.section == 5) {
+//        if (indexPath.row == 0) {
+//            HHYGouWuChe * vc =[[HHYGouWuChe alloc] init];
+//            vc.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController pushViewController:vc animated:YES];
+//        }else if (indexPath.row == 1) {
+//            HHYMineGouWuListTVC* vc =[[HHYMineGouWuListTVC alloc] init];
+//            vc.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController pushViewController:vc animated:YES];
+//        }else if (indexPath.row == 2) {
+//           HHYAddressTVC* vc =[[HHYAddressTVC alloc] init];
+//            vc.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController pushViewController:vc animated:YES];
+//        }
+//
+//
+//    }
     
     
 }

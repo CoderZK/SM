@@ -29,27 +29,21 @@
 
 
 - (void)setViewS {
- 
     CGFloat ww = 50;
-    
     CGFloat space = (ScreenW - ww*5) / 6;
     CGFloat ww2 = ww + space ;
-    
     CGFloat spaceY = 15;
-    
     for ( int i = 0 ; i < self.dataArray.count; i++) {
-        
-        UIButton * button = [[UIButton alloc] init];
-        button.size = CGSizeMake(ww, ww);
-        button.mj_x = space + (space + ww) * (i % 5);
-        button.mj_y = 15 + (spaceY + ww + 25) * (i/5);
-        button.layer.cornerRadius = ww/2;
-        button.clipsToBounds = YES;
-        button.tag = i;
-        [button addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
-        [button sd_setImageWithURL:[NSURL URLWithString:[HHYURLDefineTool getImgURLWithStr:self.dataArray[i].avatar]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
-        [self.headV addSubview:button];
-        
+        UIButton * BBBTTT = [[UIButton alloc] init];
+        BBBTTT.size = CGSizeMake(ww, ww);
+        BBBTTT.mj_x = space + (space + ww) * (i % 5);
+        BBBTTT.mj_y = 15 + (spaceY + ww + 25) * (i/5);
+        BBBTTT.layer.cornerRadius = ww/2;
+        BBBTTT.clipsToBounds = YES;
+        BBBTTT.tag = i;
+        [BBBTTT addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
+        [BBBTTT sd_setImageWithURL:[NSURL URLWithString:[HHYURLDefineTool getImgURLWithStr:self.dataArray[i].avatar]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
+        [self.headV addSubview:BBBTTT];
         
         UILabel * lb =[[UILabel alloc] init];
         lb.textColor = [UIColor blackColor];
@@ -57,8 +51,8 @@
         lb.textAlignment = NSTextAlignmentCenter;
         lb.text = self.dataArray[i].nickName;
         lb.size = CGSizeMake(ww2, 20);
-        lb.mj_y = CGRectGetMaxY(button.frame) + 5;
-        lb.mj_x = CGRectGetMinX(button.frame) - space/2;
+        lb.mj_y = CGRectGetMaxY(BBBTTT.frame) + 5;
+        lb.mj_x = CGRectGetMinX(BBBTTT.frame) - space/2;
         [self.headV addSubview:lb];
         
         if (i + 1 == self.dataArray.count) {
@@ -67,35 +61,21 @@
                 self.headV.mj_h = CGRectGetMaxY(lb.frame) + 40;
             }
         }
-        
     }
-    
-    
-    
 }
 
-- (void)hitAction:(UIButton *)button {
+- (void)hitAction:(UIButton *)BBBTTT {
     
     HHYZhuYeTVC * vc =[[HHYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     if (self.isQuanZi) {
-       vc.userId = self.dataArray[button.tag].userId;
+       vc.userId = self.dataArray[BBBTTT.tag].userId;
     }else {
-        vc.userId = self.dataArray[button.tag].createBy;
+        vc.userId = self.dataArray[BBBTTT.tag].createBy;
     }
     [self.navigationController pushViewController:vc animated:YES];
     
     
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
