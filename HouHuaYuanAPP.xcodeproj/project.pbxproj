@@ -187,6 +187,16 @@
 		583ADD4D22A747E40064E60F /* HHYPrivacyPassWordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583ADD4C22A747E40064E60F /* HHYPrivacyPassWordVC.m */; };
 		583ADD5422A751100064E60F /* HHYPostMessageTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583ADD5322A751100064E60F /* HHYPostMessageTVC.m */; };
 		583ADD5722A753D30064E60F /* HHYTongXunLuTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583ADD5622A753D30064E60F /* HHYTongXunLuTVC.m */; };
+		583B54AC233D9C2800613177 /* GGGGLaJOneTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B54AB233D9C2800613177 /* GGGGLaJOneTVC.m */; };
+		583B54AF233D9C8E00613177 /* GGGGLaJTwoTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B54AE233D9C8E00613177 /* GGGGLaJTwoTVC.m */; };
+		583B54B3233D9D2700613177 /* GGGGLaJTwoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B54B1233D9D2700613177 /* GGGGLaJTwoCell.m */; };
+		583B54B4233D9D2700613177 /* GGGGLaJTwoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583B54B2233D9D2700613177 /* GGGGLaJTwoCell.xib */; };
+		583B54B7233DAE2C00613177 /* GGGGLaJThreeTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B54B6233DAE2C00613177 /* GGGGLaJThreeTVC.m */; };
+		583B54BB233DAE4600613177 /* GGGGLaJThreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B54B9233DAE4600613177 /* GGGGLaJThreeCell.m */; };
+		583B54BC233DAE4600613177 /* GGGGLaJThreeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583B54BA233DAE4600613177 /* GGGGLaJThreeCell.xib */; };
+		583B54BF233DD9EE00613177 /* GGGGLaJFourTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B54BE233DD9EE00613177 /* GGGGLaJFourTVC.m */; };
+		583B54C3233DDA8700613177 /* GGGGLaJFourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B54C1233DDA8700613177 /* GGGGLaJFourCell.m */; };
+		583B54C4233DDA8700613177 /* GGGGLaJFourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583B54C2233DDA8700613177 /* GGGGLaJFourCell.xib */; };
 		583BAB1C233A0A4D0008C351 /* GGG.db in Resources */ = {isa = PBXBuildFile; fileRef = 583BAB1B233A0A4D0008C351 /* GGG.db */; };
 		583BAB1F233A0E530008C351 /* JJJJDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BAB1E233A0E520008C351 /* JJJJDetailTVC.m */; };
 		583BF0DE22C98D360033D2F3 /* HHYJuBaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BF0DC22C98D360033D2F3 /* HHYJuBaoVC.m */; };
@@ -576,6 +586,23 @@
 		583ADD5322A751100064E60F /* HHYPostMessageTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYPostMessageTVC.m; sourceTree = "<group>"; };
 		583ADD5522A753D30064E60F /* HHYTongXunLuTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYTongXunLuTVC.h; sourceTree = "<group>"; };
 		583ADD5622A753D30064E60F /* HHYTongXunLuTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYTongXunLuTVC.m; sourceTree = "<group>"; };
+		583B54AA233D9C2800613177 /* GGGGLaJOneTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJOneTVC.h; sourceTree = "<group>"; };
+		583B54AB233D9C2800613177 /* GGGGLaJOneTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJOneTVC.m; sourceTree = "<group>"; };
+		583B54AD233D9C8E00613177 /* GGGGLaJTwoTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJTwoTVC.h; sourceTree = "<group>"; };
+		583B54AE233D9C8E00613177 /* GGGGLaJTwoTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJTwoTVC.m; sourceTree = "<group>"; };
+		583B54B0233D9D2700613177 /* GGGGLaJTwoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJTwoCell.h; sourceTree = "<group>"; };
+		583B54B1233D9D2700613177 /* GGGGLaJTwoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJTwoCell.m; sourceTree = "<group>"; };
+		583B54B2233D9D2700613177 /* GGGGLaJTwoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GGGGLaJTwoCell.xib; sourceTree = "<group>"; };
+		583B54B5233DAE2C00613177 /* GGGGLaJThreeTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJThreeTVC.h; sourceTree = "<group>"; };
+		583B54B6233DAE2C00613177 /* GGGGLaJThreeTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJThreeTVC.m; sourceTree = "<group>"; };
+		583B54B8233DAE4600613177 /* GGGGLaJThreeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJThreeCell.h; sourceTree = "<group>"; };
+		583B54B9233DAE4600613177 /* GGGGLaJThreeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJThreeCell.m; sourceTree = "<group>"; };
+		583B54BA233DAE4600613177 /* GGGGLaJThreeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GGGGLaJThreeCell.xib; sourceTree = "<group>"; };
+		583B54BD233DD9EE00613177 /* GGGGLaJFourTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJFourTVC.h; sourceTree = "<group>"; };
+		583B54BE233DD9EE00613177 /* GGGGLaJFourTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJFourTVC.m; sourceTree = "<group>"; };
+		583B54C0233DDA8700613177 /* GGGGLaJFourCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJFourCell.h; sourceTree = "<group>"; };
+		583B54C1233DDA8700613177 /* GGGGLaJFourCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJFourCell.m; sourceTree = "<group>"; };
+		583B54C2233DDA8700613177 /* GGGGLaJFourCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GGGGLaJFourCell.xib; sourceTree = "<group>"; };
 		583BAB1B233A0A4D0008C351 /* GGG.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = GGG.db; sourceTree = "<group>"; };
 		583BAB1D233A0E520008C351 /* JJJJDetailTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJJJDetailTVC.h; sourceTree = "<group>"; };
 		583BAB1E233A0E520008C351 /* JJJJDetailTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJJJDetailTVC.m; sourceTree = "<group>"; };
@@ -1484,6 +1511,23 @@
 				58452D552339F86600F9CE75 /* JJJJGouWuHomeCell.h */,
 				58452D562339F86700F9CE75 /* JJJJGouWuHomeCell.m */,
 				58452D572339F86700F9CE75 /* JJJJGouWuHomeCell.xib */,
+				583B54AA233D9C2800613177 /* GGGGLaJOneTVC.h */,
+				583B54AB233D9C2800613177 /* GGGGLaJOneTVC.m */,
+				583B54AD233D9C8E00613177 /* GGGGLaJTwoTVC.h */,
+				583B54AE233D9C8E00613177 /* GGGGLaJTwoTVC.m */,
+				583B54B0233D9D2700613177 /* GGGGLaJTwoCell.h */,
+				583B54B1233D9D2700613177 /* GGGGLaJTwoCell.m */,
+				583B54B2233D9D2700613177 /* GGGGLaJTwoCell.xib */,
+				583B54B5233DAE2C00613177 /* GGGGLaJThreeTVC.h */,
+				583B54B6233DAE2C00613177 /* GGGGLaJThreeTVC.m */,
+				583B54B8233DAE4600613177 /* GGGGLaJThreeCell.h */,
+				583B54B9233DAE4600613177 /* GGGGLaJThreeCell.m */,
+				583B54BA233DAE4600613177 /* GGGGLaJThreeCell.xib */,
+				583B54BD233DD9EE00613177 /* GGGGLaJFourTVC.h */,
+				583B54BE233DD9EE00613177 /* GGGGLaJFourTVC.m */,
+				583B54C0233DDA8700613177 /* GGGGLaJFourCell.h */,
+				583B54C1233DDA8700613177 /* GGGGLaJFourCell.m */,
+				583B54C2233DDA8700613177 /* GGGGLaJFourCell.xib */,
 			);
 			path = JJJJJJJ;
 			sourceTree = "<group>";
@@ -1654,12 +1698,15 @@
 				582FFA51229B84170039971E /* mx_picker_back_image@2x.png in Resources */,
 				583F623422ADDEFB00FE353D /* HHYLoginVC.xib in Resources */,
 				58326AEA22A1378500EEF426 /* HHYZanOrAiTeMineCell.xib in Resources */,
+				583B54B4233D9D2700613177 /* GGGGLaJTwoCell.xib in Resources */,
 				5841A44B229E1E1F00878F30 /* HHYMineFourCell.xib in Resources */,
 				58BAF3BA22CD9C9000FAFEDD /* HHYSysMsgCell.xib in Resources */,
 				589AC0002297E15F000BBD89 /* HHYHomeTwoCell.xib in Resources */,
 				5838A06322F415AC00119DDE /* HHYTaoCanCell.xib in Resources */,
 				5831C62B22A4C9090023D1E5 /* HHYTiXianListCell.xib in Resources */,
 				337F3E6320E9FE5300C5526A /* Assets.xcassets in Resources */,
+				583B54BC233DAE4600613177 /* GGGGLaJThreeCell.xib in Resources */,
+				583B54C4233DDA8700613177 /* GGGGLaJFourCell.xib in Resources */,
 				337F3E6120E9FE3C00C5526A /* Main.storyboard in Resources */,
 				583297A222A5F96E00B52104 /* HHYPingLunTwoCell.xib in Resources */,
 				58333283229F716A008DD9CF /* HHYHuiYuanTwoCell.xib in Resources */,
@@ -1800,13 +1847,16 @@
 				583ADD5422A751100064E60F /* HHYPostMessageTVC.m in Sources */,
 				588286C622BA0D46002AB876 /* HHYpublicFunction.m in Sources */,
 				58326AF322A1427600EEF426 /* HHYXiaoFeiListCell.m in Sources */,
+				583B54AF233D9C8E00613177 /* GGGGLaJTwoTVC.m in Sources */,
 				33DC824920EA220400D1C283 /* MineVC.m in Sources */,
 				589ABFF52297D55B000BBD89 /* HHYHomeOneCell.m in Sources */,
 				582FFA7A229BD97D0039971E /* HHYFriendsSearchTVC.m in Sources */,
+				583B54BB233DAE4600613177 /* GGGGLaJThreeCell.m in Sources */,
 				583297A522A5FCF700B52104 /* HHYGongGaoTVC.m in Sources */,
 				337F3EAB20EA014600C5526A /* BaseNavigationController.m in Sources */,
 				5841A43F229E146900878F30 /* HHYMineTwoCell.m in Sources */,
 				337F3EAD20EA014600C5526A /* BaseTableViewHeaderFooterView.m in Sources */,
+				583B54AC233D9C2800613177 /* GGGGLaJOneTVC.m in Sources */,
 				337F3EAC20EA014600C5526A /* BaseTableViewController.m in Sources */,
 				582FFA4D229B84170039971E /* MXImageListController.m in Sources */,
 				582FFA50229B84170039971E /* UIViewController+MXPhotoPicker.m in Sources */,
@@ -1828,6 +1878,7 @@
 				583297C622A63B8200B52104 /* HHYBindPhoneVC.m in Sources */,
 				58326AD122A109EC00EEF426 /* HHYMineTaskTVC.m in Sources */,
 				5832EFD622B0EE9900BA019E /* HHYURLDefineTool.m in Sources */,
+				583B54BF233DD9EE00613177 /* GGGGLaJFourTVC.m in Sources */,
 				5831DAB922D575BD001C5E4A /* WZCustomEmojiView.m in Sources */,
 				583297AE22A5FD5800B52104 /* HHYGongGaoTwoCell.m in Sources */,
 				583297B222A5FD6E00B52104 /* HHYGongGaoThreeCell.m in Sources */,
@@ -1846,6 +1897,7 @@
 				58326AF822A148C700EEF426 /* HHYYiJianTVC.m in Sources */,
 				589AC0032297E35A000BBD89 /* HHYHomeThreeCell.m in Sources */,
 				5857C81C22B7A63100F9F01B /* HHYDongTaiDetailCell.m in Sources */,
+				583B54B7233DAE2C00613177 /* GGGGLaJThreeTVC.m in Sources */,
 				58452D542339E90700F9CE75 /* JJJJGouWuHomeVC.m in Sources */,
 				583ADD5722A753D30064E60F /* HHYTongXunLuTVC.m in Sources */,
 				589ABFEE2297AF20000BBD89 /* BSCustom.m in Sources */,
@@ -1860,6 +1912,7 @@
 				5838A06222F415AC00119DDE /* HHYTaoCanCell.m in Sources */,
 				5835C2EB22B22583002122A0 /* HHYAddressModel.m in Sources */,
 				582FFA57229B84170039971E /* MXImageGroupController.m in Sources */,
+				583B54B3233D9D2700613177 /* GGGGLaJTwoCell.m in Sources */,
 				58333296229FBAAD008DD9CF /* HHYXiuGaiZiLiaoTVC.m in Sources */,
 				58E2D1D4229D3DF80060BAD4 /* HHYAiTeMeTVC.m in Sources */,
 				582FFA52229B84170039971E /* MXImagePreviewController.m in Sources */,
@@ -1888,6 +1941,7 @@
 				58452D3E2339C47B00F9CE75 /* NSString+AttributeSizeAndText.m in Sources */,
 				58E2D1C8229D32290060BAD4 /* HHYNewsTwoCell.m in Sources */,
 				58452D322339BCD300F9CE75 /* cacheClear.m in Sources */,
+				583B54C3233DDA8700613177 /* GGGGLaJFourCell.m in Sources */,
 				58452D3B2339C0DD00F9CE75 /* HHYReportView.m in Sources */,
 				5833329A229FBDFA008DD9CF /* HHYTongYongCell.m in Sources */,
 				58326AE922A1378500EEF426 /* HHYZanOrAiTeMineCell.m in Sources */,

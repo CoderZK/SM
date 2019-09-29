@@ -9,6 +9,12 @@
 #import "JJJJGouWuHomeVC.h"
 #import "JJJJGouWuHomeCell.h"
 #import "JJJJDetailTVC.h"
+
+#import "GGGGLaJOneTVC.h"
+#import "GGGGLaJTwoTVC.h"
+#import "GGGGLaJThreeTVC.h"
+#import "GGGGLaJFourTVC.h"
+
 @interface JJJJGouWuHomeVC ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *leftTV,*rightTV;
 @property(nonatomic,strong)NSArray *leftDataArr;
