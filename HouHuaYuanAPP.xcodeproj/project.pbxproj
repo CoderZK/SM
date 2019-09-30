@@ -43,6 +43,9 @@
 		33DC824920EA220400D1C283 /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC824820EA220400D1C283 /* MineVC.m */; };
 		33DC824F20EA224F00D1C283 /* HangQingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC824E20EA224F00D1C283 /* HangQingVC.m */; };
 		33DC825520EA245E00D1C283 /* HomeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 33DC825320EA245E00D1C283 /* HomeVC.m */; };
+		580262DA23409B800083CCE8 /* GGGGLaJSevenTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 580262D923409B800083CCE8 /* GGGGLaJSevenTVC.m */; };
+		580262DE23409BDF0083CCE8 /* GGGGLaJSevenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 580262DC23409BDF0083CCE8 /* GGGGLaJSevenCell.m */; };
+		580262DF23409BDF0083CCE8 /* GGGGLaJSevenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 580262DD23409BDF0083CCE8 /* GGGGLaJSevenCell.xib */; };
 		58035E8F22C44DDC006F1F6F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58035E8E22C44DDC006F1F6F /* Photos.framework */; };
 		58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */; };
 		582C80C72331CC6A00ADF27A /* HHYShopingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80C32331CC6A00ADF27A /* HHYShopingCell.xib */; };
@@ -197,6 +200,12 @@
 		583B54BF233DD9EE00613177 /* GGGGLaJFourTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B54BE233DD9EE00613177 /* GGGGLaJFourTVC.m */; };
 		583B54C3233DDA8700613177 /* GGGGLaJFourCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B54C1233DDA8700613177 /* GGGGLaJFourCell.m */; };
 		583B54C4233DDA8700613177 /* GGGGLaJFourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583B54C2233DDA8700613177 /* GGGGLaJFourCell.xib */; };
+		583B8620234038A3004E0015 /* GGGGLaJFiveTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B861F234038A3004E0015 /* GGGGLaJFiveTVC.m */; };
+		583B8624234038C2004E0015 /* GGGGLaJFiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B8622234038C2004E0015 /* GGGGLaJFiveCell.m */; };
+		583B8625234038C2004E0015 /* GGGGLaJFiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583B8623234038C2004E0015 /* GGGGLaJFiveCell.xib */; };
+		583B862823405B87004E0015 /* GGGGLaJSixTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B862723405B87004E0015 /* GGGGLaJSixTVC.m */; };
+		583B862C23405BD3004E0015 /* GGGGLaJSixCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 583B862A23405BD3004E0015 /* GGGGLaJSixCell.m */; };
+		583B862D23405BD3004E0015 /* GGGGLaJSixCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 583B862B23405BD3004E0015 /* GGGGLaJSixCell.xib */; };
 		583BAB1C233A0A4D0008C351 /* GGG.db in Resources */ = {isa = PBXBuildFile; fileRef = 583BAB1B233A0A4D0008C351 /* GGG.db */; };
 		583BAB1F233A0E530008C351 /* JJJJDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BAB1E233A0E520008C351 /* JJJJDetailTVC.m */; };
 		583BF0DE22C98D360033D2F3 /* HHYJuBaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 583BF0DC22C98D360033D2F3 /* HHYJuBaoVC.m */; };
@@ -243,6 +252,12 @@
 		58BAF3B922CD9C9000FAFEDD /* HHYSysMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BAF3B722CD9C9000FAFEDD /* HHYSysMsgCell.m */; };
 		58BAF3BA22CD9C9000FAFEDD /* HHYSysMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58BAF3B822CD9C9000FAFEDD /* HHYSysMsgCell.xib */; };
 		58BAF3BE22CDEAB800FAFEDD /* gesture_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 58BAF3BD22CDEAB800FAFEDD /* gesture_selected@2x.png */; };
+		58CCF07C23418FAB00818C62 /* GGGGNineLaJTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CCF07B23418FAB00818C62 /* GGGGNineLaJTVC.m */; };
+		58CCF07F23418FDD00818C62 /* GGGGEightLaJTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CCF07E23418FDD00818C62 /* GGGGEightLaJTVC.m */; };
+		58CCF0832341900800818C62 /* GGGGEightLaJCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CCF0812341900800818C62 /* GGGGEightLaJCell.m */; };
+		58CCF0842341900800818C62 /* GGGGEightLaJCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CCF0822341900800818C62 /* GGGGEightLaJCell.xib */; };
+		58CCF0882341901D00818C62 /* GGGGNineLaJCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58CCF0862341901D00818C62 /* GGGGNineLaJCell.m */; };
+		58CCF0892341901D00818C62 /* GGGGNineLaJCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58CCF0872341901D00818C62 /* GGGGNineLaJCell.xib */; };
 		58E2D1BB229D26B90060BAD4 /* HHYNewsOneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E2D1BA229D26B90060BAD4 /* HHYNewsOneCell.m */; };
 		58E2D1C3229D30220060BAD4 /* HHYShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E2D1BF229D30210060BAD4 /* HHYShowView.m */; };
 		58E2D1C4229D30220060BAD4 /* HHYSerachShowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58E2D1C0229D30210060BAD4 /* HHYSerachShowView.m */; };
@@ -336,6 +351,11 @@
 		33DC824E20EA224F00D1C283 /* HangQingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HangQingVC.m; sourceTree = "<group>"; };
 		33DC825320EA245E00D1C283 /* HomeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeVC.m; sourceTree = "<group>"; };
 		33DC825420EA245E00D1C283 /* HomeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeVC.h; sourceTree = "<group>"; };
+		580262D823409B800083CCE8 /* GGGGLaJSevenTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJSevenTVC.h; sourceTree = "<group>"; };
+		580262D923409B800083CCE8 /* GGGGLaJSevenTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJSevenTVC.m; sourceTree = "<group>"; };
+		580262DB23409BDF0083CCE8 /* GGGGLaJSevenCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJSevenCell.h; sourceTree = "<group>"; };
+		580262DC23409BDF0083CCE8 /* GGGGLaJSevenCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJSevenCell.m; sourceTree = "<group>"; };
+		580262DD23409BDF0083CCE8 /* GGGGLaJSevenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GGGGLaJSevenCell.xib; sourceTree = "<group>"; };
 		58035E8E22C44DDC006F1F6F /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkDanLiaoVC.m; sourceTree = "<group>"; };
 		58035E9122C45182006F1F6F /* zkDanLiaoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkDanLiaoVC.h; sourceTree = "<group>"; };
@@ -603,6 +623,16 @@
 		583B54C0233DDA8700613177 /* GGGGLaJFourCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJFourCell.h; sourceTree = "<group>"; };
 		583B54C1233DDA8700613177 /* GGGGLaJFourCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJFourCell.m; sourceTree = "<group>"; };
 		583B54C2233DDA8700613177 /* GGGGLaJFourCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GGGGLaJFourCell.xib; sourceTree = "<group>"; };
+		583B861E234038A3004E0015 /* GGGGLaJFiveTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJFiveTVC.h; sourceTree = "<group>"; };
+		583B861F234038A3004E0015 /* GGGGLaJFiveTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJFiveTVC.m; sourceTree = "<group>"; };
+		583B8621234038C2004E0015 /* GGGGLaJFiveCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJFiveCell.h; sourceTree = "<group>"; };
+		583B8622234038C2004E0015 /* GGGGLaJFiveCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJFiveCell.m; sourceTree = "<group>"; };
+		583B8623234038C2004E0015 /* GGGGLaJFiveCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GGGGLaJFiveCell.xib; sourceTree = "<group>"; };
+		583B862623405B87004E0015 /* GGGGLaJSixTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJSixTVC.h; sourceTree = "<group>"; };
+		583B862723405B87004E0015 /* GGGGLaJSixTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJSixTVC.m; sourceTree = "<group>"; };
+		583B862923405BD3004E0015 /* GGGGLaJSixCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGLaJSixCell.h; sourceTree = "<group>"; };
+		583B862A23405BD3004E0015 /* GGGGLaJSixCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGLaJSixCell.m; sourceTree = "<group>"; };
+		583B862B23405BD3004E0015 /* GGGGLaJSixCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GGGGLaJSixCell.xib; sourceTree = "<group>"; };
 		583BAB1B233A0A4D0008C351 /* GGG.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = GGG.db; sourceTree = "<group>"; };
 		583BAB1D233A0E520008C351 /* JJJJDetailTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JJJJDetailTVC.h; sourceTree = "<group>"; };
 		583BAB1E233A0E520008C351 /* JJJJDetailTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JJJJDetailTVC.m; sourceTree = "<group>"; };
@@ -682,6 +712,16 @@
 		58BAF3B722CD9C9000FAFEDD /* HHYSysMsgCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYSysMsgCell.m; sourceTree = "<group>"; };
 		58BAF3B822CD9C9000FAFEDD /* HHYSysMsgCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HHYSysMsgCell.xib; sourceTree = "<group>"; };
 		58BAF3BD22CDEAB800FAFEDD /* gesture_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_selected@2x.png"; sourceTree = "<group>"; };
+		58CCF07A23418FAB00818C62 /* GGGGNineLaJTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGNineLaJTVC.h; sourceTree = "<group>"; };
+		58CCF07B23418FAB00818C62 /* GGGGNineLaJTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGNineLaJTVC.m; sourceTree = "<group>"; };
+		58CCF07D23418FDD00818C62 /* GGGGEightLaJTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGEightLaJTVC.h; sourceTree = "<group>"; };
+		58CCF07E23418FDD00818C62 /* GGGGEightLaJTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGEightLaJTVC.m; sourceTree = "<group>"; };
+		58CCF0802341900800818C62 /* GGGGEightLaJCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGEightLaJCell.h; sourceTree = "<group>"; };
+		58CCF0812341900800818C62 /* GGGGEightLaJCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGEightLaJCell.m; sourceTree = "<group>"; };
+		58CCF0822341900800818C62 /* GGGGEightLaJCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GGGGEightLaJCell.xib; sourceTree = "<group>"; };
+		58CCF0852341901D00818C62 /* GGGGNineLaJCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GGGGNineLaJCell.h; sourceTree = "<group>"; };
+		58CCF0862341901D00818C62 /* GGGGNineLaJCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GGGGNineLaJCell.m; sourceTree = "<group>"; };
+		58CCF0872341901D00818C62 /* GGGGNineLaJCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GGGGNineLaJCell.xib; sourceTree = "<group>"; };
 		58E2D1B9229D26B90060BAD4 /* HHYNewsOneCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYNewsOneCell.h; sourceTree = "<group>"; };
 		58E2D1BA229D26B90060BAD4 /* HHYNewsOneCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYNewsOneCell.m; sourceTree = "<group>"; };
 		58E2D1BD229D30210060BAD4 /* HHYSerachShowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYSerachShowView.h; sourceTree = "<group>"; };
@@ -1528,6 +1568,31 @@
 				583B54C0233DDA8700613177 /* GGGGLaJFourCell.h */,
 				583B54C1233DDA8700613177 /* GGGGLaJFourCell.m */,
 				583B54C2233DDA8700613177 /* GGGGLaJFourCell.xib */,
+				583B861E234038A3004E0015 /* GGGGLaJFiveTVC.h */,
+				583B861F234038A3004E0015 /* GGGGLaJFiveTVC.m */,
+				583B8621234038C2004E0015 /* GGGGLaJFiveCell.h */,
+				583B8622234038C2004E0015 /* GGGGLaJFiveCell.m */,
+				583B8623234038C2004E0015 /* GGGGLaJFiveCell.xib */,
+				583B862623405B87004E0015 /* GGGGLaJSixTVC.h */,
+				583B862723405B87004E0015 /* GGGGLaJSixTVC.m */,
+				583B862923405BD3004E0015 /* GGGGLaJSixCell.h */,
+				583B862A23405BD3004E0015 /* GGGGLaJSixCell.m */,
+				583B862B23405BD3004E0015 /* GGGGLaJSixCell.xib */,
+				580262D823409B800083CCE8 /* GGGGLaJSevenTVC.h */,
+				580262D923409B800083CCE8 /* GGGGLaJSevenTVC.m */,
+				580262DB23409BDF0083CCE8 /* GGGGLaJSevenCell.h */,
+				580262DC23409BDF0083CCE8 /* GGGGLaJSevenCell.m */,
+				580262DD23409BDF0083CCE8 /* GGGGLaJSevenCell.xib */,
+				58CCF07D23418FDD00818C62 /* GGGGEightLaJTVC.h */,
+				58CCF07E23418FDD00818C62 /* GGGGEightLaJTVC.m */,
+				58CCF0802341900800818C62 /* GGGGEightLaJCell.h */,
+				58CCF0812341900800818C62 /* GGGGEightLaJCell.m */,
+				58CCF0822341900800818C62 /* GGGGEightLaJCell.xib */,
+				58CCF07A23418FAB00818C62 /* GGGGNineLaJTVC.h */,
+				58CCF07B23418FAB00818C62 /* GGGGNineLaJTVC.m */,
+				58CCF0852341901D00818C62 /* GGGGNineLaJCell.h */,
+				58CCF0862341901D00818C62 /* GGGGNineLaJCell.m */,
+				58CCF0872341901D00818C62 /* GGGGNineLaJCell.xib */,
 			);
 			path = JJJJJJJ;
 			sourceTree = "<group>";
@@ -1666,6 +1731,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				583297DE22A63C6800B52104 /* HHYAboutUsVC.xib in Resources */,
+				58CCF0892341901D00818C62 /* GGGGNineLaJCell.xib in Resources */,
 				583ADD4922A7479F0064E60F /* gesture_normal@2x.png in Resources */,
 				583297D122A63BD400B52104 /* HHYBindQWXVC.xib in Resources */,
 				5831C61122A4BD710023D1E5 /* HHYTiXianGuiZeVC.xib in Resources */,
@@ -1677,6 +1743,7 @@
 				5830097B22C59D4700FDCC50 /* HHYFlowerListCell.xib in Resources */,
 				58BAF3BE22CDEAB800FAFEDD /* gesture_selected@2x.png in Resources */,
 				583297AF22A5FD5800B52104 /* HHYGongGaoTwoCell.xib in Resources */,
+				58CCF0842341900800818C62 /* GGGGEightLaJCell.xib in Resources */,
 				583F623922ADDF5C00FE353D /* HHYRgisterVC.xib in Resources */,
 				5831C62622A4C8EB0023D1E5 /* HHYYingHangKaCell.xib in Resources */,
 				583297D622A63C0B00B52104 /* HHYChangePasswordVC.xib in Resources */,
@@ -1698,6 +1765,7 @@
 				582FFA51229B84170039971E /* mx_picker_back_image@2x.png in Resources */,
 				583F623422ADDEFB00FE353D /* HHYLoginVC.xib in Resources */,
 				58326AEA22A1378500EEF426 /* HHYZanOrAiTeMineCell.xib in Resources */,
+				580262DF23409BDF0083CCE8 /* GGGGLaJSevenCell.xib in Resources */,
 				583B54B4233D9D2700613177 /* GGGGLaJTwoCell.xib in Resources */,
 				5841A44B229E1E1F00878F30 /* HHYMineFourCell.xib in Resources */,
 				58BAF3BA22CD9C9000FAFEDD /* HHYSysMsgCell.xib in Resources */,
@@ -1706,6 +1774,8 @@
 				5831C62B22A4C9090023D1E5 /* HHYTiXianListCell.xib in Resources */,
 				337F3E6320E9FE5300C5526A /* Assets.xcassets in Resources */,
 				583B54BC233DAE4600613177 /* GGGGLaJThreeCell.xib in Resources */,
+				583B862D23405BD3004E0015 /* GGGGLaJSixCell.xib in Resources */,
+				583B8625234038C2004E0015 /* GGGGLaJFiveCell.xib in Resources */,
 				583B54C4233DDA8700613177 /* GGGGLaJFourCell.xib in Resources */,
 				337F3E6120E9FE3C00C5526A /* Main.storyboard in Resources */,
 				583297A222A5F96E00B52104 /* HHYPingLunTwoCell.xib in Resources */,
@@ -1804,15 +1874,18 @@
 				5831C62122A4BFC60023D1E5 /* HHYTiXianJiLuTVC.m in Sources */,
 				5841A451229E37BF00878F30 /* HHYMineFriendsCell.m in Sources */,
 				335010DA20EDF8E400F8486B /* UIViewController+AlertShow.m in Sources */,
+				58CCF07C23418FAB00818C62 /* GGGGNineLaJTVC.m in Sources */,
 				58E2D1C5229D30220060BAD4 /* HHYShauiXuanView.m in Sources */,
 				5848861D232628620099675D /* HHYYinSiXieYiVC.m in Sources */,
 				5831DAB622D56AA2001C5E4A /* CustomEmojiView.m in Sources */,
 				583297CB22A63B9E00B52104 /* HHYBindPoneTwoVC.m in Sources */,
+				58CCF07F23418FDD00818C62 /* GGGGEightLaJTVC.m in Sources */,
 				582FFA53229B84170039971E /* MXALAsset.m in Sources */,
 				58E2D1BB229D26B90060BAD4 /* HHYNewsOneCell.m in Sources */,
 				582FFA5A229B8AA00039971E /* zkHomelModel.m in Sources */,
 				58326AD522A10A1000EEF426 /* HHYTaskTCell.m in Sources */,
 				5831C69C22A510C80023D1E5 /* HHYDetailZanCell.m in Sources */,
+				583B862823405B87004E0015 /* GGGGLaJSixTVC.m in Sources */,
 				5831C61922A4BDC40023D1E5 /* HHYYinHangKaTVC.m in Sources */,
 				58333290229F8BD6008DD9CF /* HHYZhuYeThreeCell.m in Sources */,
 				58333284229F716A008DD9CF /* HHYHuiYuanThreeCell.m in Sources */,
@@ -1828,6 +1901,7 @@
 				5841A44A229E1E1F00878F30 /* HHYMineFourCell.m in Sources */,
 				583041E522B73BF900B4BE42 /* HHYUserModel.m in Sources */,
 				584332EB233B1B9100691E2D /* HHYHomeModel.m in Sources */,
+				580262DE23409BDF0083CCE8 /* GGGGLaJSevenCell.m in Sources */,
 				5831C61022A4BD710023D1E5 /* HHYTiXianGuiZeVC.m in Sources */,
 				58333282229F716A008DD9CF /* HHYHuiYuanTwoCell.m in Sources */,
 				583ADD4722A7479F0064E60F /* YWFingerprintVerification.m in Sources */,
@@ -1837,6 +1911,7 @@
 				5830097A22C59D4700FDCC50 /* HHYFlowerListCell.m in Sources */,
 				58326ACE22A0C84900EEF426 /* HHYPhotoCell.m in Sources */,
 				5833326A229F64FC008DD9CF /* HHYKaiTongHuiYuanTVC.m in Sources */,
+				583B862C23405BD3004E0015 /* GGGGLaJSixCell.m in Sources */,
 				5831C69922A50C790023D1E5 /* HHYDetailPingLunCell.m in Sources */,
 				582C80C82331CC6A00ADF27A /* HHYShopingVC.m in Sources */,
 				58326ACB22A0C30E00EEF426 /* HHYMineDongTaiTVC.m in Sources */,
@@ -1847,7 +1922,9 @@
 				583ADD5422A751100064E60F /* HHYPostMessageTVC.m in Sources */,
 				588286C622BA0D46002AB876 /* HHYpublicFunction.m in Sources */,
 				58326AF322A1427600EEF426 /* HHYXiaoFeiListCell.m in Sources */,
+				58CCF0832341900800818C62 /* GGGGEightLaJCell.m in Sources */,
 				583B54AF233D9C8E00613177 /* GGGGLaJTwoTVC.m in Sources */,
+				583B8620234038A3004E0015 /* GGGGLaJFiveTVC.m in Sources */,
 				33DC824920EA220400D1C283 /* MineVC.m in Sources */,
 				589ABFF52297D55B000BBD89 /* HHYHomeOneCell.m in Sources */,
 				582FFA7A229BD97D0039971E /* HHYFriendsSearchTVC.m in Sources */,
@@ -1880,6 +1957,8 @@
 				5832EFD622B0EE9900BA019E /* HHYURLDefineTool.m in Sources */,
 				583B54BF233DD9EE00613177 /* GGGGLaJFourTVC.m in Sources */,
 				5831DAB922D575BD001C5E4A /* WZCustomEmojiView.m in Sources */,
+				583B8624234038C2004E0015 /* GGGGLaJFiveCell.m in Sources */,
+				58CCF0882341901D00818C62 /* GGGGNineLaJCell.m in Sources */,
 				583297AE22A5FD5800B52104 /* HHYGongGaoTwoCell.m in Sources */,
 				583297B222A5FD6E00B52104 /* HHYGongGaoThreeCell.m in Sources */,
 				337F3EAE20EA014600C5526A /* BaseCollectionReusableView.m in Sources */,
@@ -1914,6 +1993,7 @@
 				582FFA57229B84170039971E /* MXImageGroupController.m in Sources */,
 				583B54B3233D9D2700613177 /* GGGGLaJTwoCell.m in Sources */,
 				58333296229FBAAD008DD9CF /* HHYXiuGaiZiLiaoTVC.m in Sources */,
+				580262DA23409B800083CCE8 /* GGGGLaJSevenTVC.m in Sources */,
 				58E2D1D4229D3DF80060BAD4 /* HHYAiTeMeTVC.m in Sources */,
 				582FFA52229B84170039971E /* MXImagePreviewController.m in Sources */,
 				583ADD4D22A747E40064E60F /* HHYPrivacyPassWordVC.m in Sources */,
@@ -2137,8 +2217,9 @@
 			baseConfigurationReference = C0333005ECB5A67F63F21483 /* Pods-HouHuaYuanAPP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ningyu lu (U3Q86F3XKR)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CHS3MS5N2G;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2162,10 +2243,11 @@
 					"$(PROJECT_DIR)/HouHuaYuanAPP/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/HouHuaYuanAPP/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hhyhhy.app;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hhhhyy.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
-				PROVISIONING_PROFILE_SPECIFIER = hhyhhydev;
+				PROVISIONING_PROFILE_SPECIFIER = comhhhhyydev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2175,8 +2257,9 @@
 			baseConfigurationReference = 93517C6A5478579AE5177242 /* Pods-HouHuaYuanAPP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Shanghai Yuliang Network Technology Co., Ltd. (CHS3MS5N2G)";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = CHS3MS5N2G;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2200,9 +2283,10 @@
 					"$(PROJECT_DIR)/HouHuaYuanAPP/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/HouHuaYuanAPP/消息/环信/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hhyhhy.app;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hhhhyy.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = hhyhhyrrrdis;
+				PROVISIONING_PROFILE_SPECIFIER = comhhhhyydis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

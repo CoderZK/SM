@@ -14,6 +14,9 @@
 #import "GGGGLaJTwoTVC.h"
 #import "GGGGLaJThreeTVC.h"
 #import "GGGGLaJFourTVC.h"
+#import "GGGGLaJFiveTVC.h"
+#import "GGGGLaJSixTVC.h"
+#import "GGGGLaJSevenTVC.h"
 
 @interface JJJJGouWuHomeVC ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UITableView *leftTV,*rightTV;
@@ -148,6 +151,60 @@
         [self getDataWithIndex:indexPath.row];
     }
     
+    
+}
+
+- (void)pushFive {
+    GGGGLaJFiveTVC * vc =[[GGGGLaJFiveTVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushFour {
+    GGGGLaJFourTVC * vc =[[GGGGLaJFourTVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushThree {
+    GGGGLaJThreeTVC * vc =[[GGGGLaJThreeTVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushTwo {
+    GGGGLaJTwoTVC * vc =[[GGGGLaJTwoTVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushOne {
+    GGGGLaJOneTVC * vc =[[GGGGLaJOneTVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushSix {
+    GGGGLaJSixTVC * vc =[[GGGGLaJSixTVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushSeven {
+    GGGGLaJSevenTVC * vc =[[GGGGLaJSevenTVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)pushALl {
+    
+    [self pushOne];
+    [self pushTwo];
+    [self pushThree];
+    [self pushFour];
+    [self pushFive];
+    [self pushSix];
+    [self pushSeven];
     
 }
 
