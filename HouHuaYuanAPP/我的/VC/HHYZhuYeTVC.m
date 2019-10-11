@@ -561,7 +561,7 @@
         }];
         UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"买花" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
-            HHYKaiTongHuiYuanTVC * vc =[[HHYKaiTongHuiYuanTVC alloc] init];
+            HHYReDuTVC * vc =[[HHYReDuTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:vc animated:YES];
             
