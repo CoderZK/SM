@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 //用户ID
 @property(nonatomic,strong)NSString * session_uid;
 @property(nonatomic,strong)NSString * deviceToken;
+@property(nonatomic,strong)NSString * downUrl;
 @property(nonatomic,strong)HHYUserModel *userModel;
 
 -(void)uploadDeviceToken;

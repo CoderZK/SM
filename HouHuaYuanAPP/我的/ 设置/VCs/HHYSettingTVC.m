@@ -84,6 +84,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        return 0;
+    }
     return 50;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -164,9 +167,9 @@
         
     }else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
-            HHYQuanZiGuiZeListTVC * vc =[[HHYQuanZiGuiZeListTVC alloc] init];
-            vc.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:vc animated:YES];
+//            HHYQuanZiGuiZeListTVC * vc =[[HHYQuanZiGuiZeListTVC alloc] init];
+//            vc.hidesBottomBarWhenPushed = YES;
+//            [self.navigationController pushViewController:vc animated:YES];
         }else if (indexPath.row == 1) {
             HHYPrivacyTVC * vc =[[HHYPrivacyTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;

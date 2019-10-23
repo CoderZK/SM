@@ -29,6 +29,15 @@ static HHYSignleTool * tool = nil;
     return [[NSUserDefaults standardUserDefaults] boolForKey:@"isLogin"];
 }
 
+- (void)setDownUrl:(NSString *)downUrl {
+    [[NSUserDefaults standardUserDefaults] setObject:downUrl forKey:@"downUrl"];
+       [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (NSString *)downUrl {
+    return [[NSUserDefaults standardUserDefaults] objectForKey:@"downUrl"];
+}
+
 - (void)setIsUpdate:(BOOL)isUpdate {
     [[NSUserDefaults standardUserDefaults] setBool:isUpdate forKey:@"isUpdate"];
     [[NSUserDefaults standardUserDefaults] synchronize];

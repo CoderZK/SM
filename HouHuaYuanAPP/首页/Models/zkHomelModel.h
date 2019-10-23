@@ -23,7 +23,8 @@
 @property(nonatomic,strong)NSString *province;//省份
 @property(nonatomic,strong)NSString *city;//省份
 @property(nonatomic,strong)NSString *cityName;
-@property(nonatomic,strong)NSString *userNo;//环信ID 
+@property(nonatomic,strong)NSString *userNo;//环信ID
+@property(nonatomic,strong)NSString *downUrl;//环信ID 
 
 @property(nonatomic,strong)NSString *distance;
 @property(nonatomic,strong)NSString *userTags;//标签
@@ -39,6 +40,7 @@
 @property(nonatomic,assign)NSInteger clickNum;
 @property(nonatomic,assign)NSInteger gender;
 @property(nonatomic,assign)NSInteger isOnline;
+
 
 
 @property(nonatomic,assign)BOOL currentUserLike;//是否点赞

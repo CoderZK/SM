@@ -122,6 +122,7 @@
             }else {
                 [HHYSignleTool shareTool].isUpdate = NO;
             }
+            [HHYSignleTool shareTool].downUrl = [NSString stringWithFormat:@"%@",responseObject[@"object"][@"downUrl"]];;
             [self updateHead];
         }
         
