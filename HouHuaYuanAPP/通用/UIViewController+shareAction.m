@@ -28,6 +28,7 @@ static const void *urlKey = &urlKey;
                     if (model.pic.length > 0) {
                         thumbURL = [HHYURLDefineTool getImgURLWithStr:[[model.pic componentsSeparatedByString:@","] firstObject]];
                     }
+                    
                     // @"https://mobile.umeng.com/images/pic/home/social/img-1.png";
                     NSString * title = model.content;
                     if (model.content.length > 20) {

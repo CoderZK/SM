@@ -226,6 +226,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** 更新*/
 +(NSString *)getIosConfigURL;
 
+    /** 领取奖励*/
++(NSString *)getMyTaskRewardURL;
+
 
 +(NSString *)getImgURLWithStr:(NSString * )str;
 

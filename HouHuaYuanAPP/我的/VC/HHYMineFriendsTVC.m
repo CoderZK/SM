@@ -242,6 +242,9 @@
     HHYZhuYeTVC * vc =[[HHYZhuYeTVC alloc] init];
     vc.hidesBottomBarWhenPushed = YES;
     vc.userId = model.userId;
+    if (self.type == 3) {
+        vc.userId = model.createBy;
+    }
     [self.navigationController pushViewController:vc animated:YES];
     
 //    if (model.friends) {
@@ -375,10 +378,13 @@
     dataDict[@"type"] = @"1";
     dataDict[@"userId"] = self.dataArray[button.tag - 100].userId;
     NSString * url = [HHYURLDefineTool deleteUserSubscribeURL];
-    if (self.type == 2) {
+    if (self.type == 2 || self.type == 3) {
         if (!self.dataArray[button.tag - 100].subscribed) {
             url =  [HHYURLDefineTool addUserSubscribeURL];
         }
+    }
+    if (self.type == 3) {
+       dataDict[@"userId"] = self.dataArray[button.tag - 100].createBy;
     }
     [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];

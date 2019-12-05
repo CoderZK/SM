@@ -236,17 +236,19 @@
                                                          if ([version integerValue]>[currentVersion integerValue])
                                                          {
                                                            
+                                                             dispatch_async(dispatch_get_main_queue(), ^{
+                                                                 UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"发现新版本" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                                                                 
+                                                                   [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
+                                                                   [alert addAction:[UIAlertAction actionWithTitle:@"去更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                                                       
+                                                                       [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@?mt=8",strOfAppid]]];
+                                                                       exit(0);
+                                                                       
+                                                                   }]];
+                                                                   [self presentViewController:alert animated:YES completion:nil];
+                                                             });
                                                              
-                                                             UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"发现新版本" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                                                           
-                                                             [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
-                                                             [alert addAction:[UIAlertAction actionWithTitle:@"去更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                                                                 
-                                                                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@?mt=8",strOfAppid]]];
-                                                                 exit(0);
-                                                                 
-                                                             }]];
-                                                             [self presentViewController:alert animated:YES completion:nil];
                                                          }else {
                                                              [SVProgressHUD showSuccessWithStatus:@"目前安装的已是最新版本"];
                                                          }

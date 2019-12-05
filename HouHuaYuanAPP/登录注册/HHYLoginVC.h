@@ -10,10 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+typedef void(^BBBB)();
+
 @interface HHYLoginVC : BaseViewController
 
 @property(nonatomic,assign)NSInteger loginType;
 @property(nonatomic,strong)NSString *phoneStr,*passwordStr;
+
+- (void)aa:(NSInteger)dd;
+- (void)hhhh:(void(^)(void))block;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -38,7 +38,7 @@
 //
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:hitClickButtonn];
     
-    self.titleLB.text = [NSString stringWithFormat:@"可提现%@元(1元对应10朵花)",self.flowerNumber];
+     self.titleLB.text = [NSString stringWithFormat:@"可提现%0.2f元(1元对应10个鲜花)",[self.flowerNumber floatValue]];
     
     
 }
@@ -69,7 +69,7 @@
         
     }else if(button.tag == 101) {
         //点击全部提现
-        self.moneyTF.text = self.flowerNumber;
+        self.moneyTF.text = [NSString stringWithFormat:@"%0.2f",[self.flowerNumber floatValue]];
         
     }else {
         //单击确认提现

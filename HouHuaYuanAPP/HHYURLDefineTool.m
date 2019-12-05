@@ -359,11 +359,19 @@
     
 }
 
+
 /** 删除回话*/
 +(NSString *)deleteUserChatHoldURL{
     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userChat/deleteUserChatHold"];
     
 }
+
+    /** 领取奖励*/
++(NSString *)getMyTaskRewardURL{
+     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMyTaskReward"];
+    
+}
+
 /** 我的系统消息列表 */
 +(NSString *)getMySysMsgListURL{
     return [NSString stringWithFormat:@"%@%@",URLOne,@"/api/userInfo/getMySysMsgList"];

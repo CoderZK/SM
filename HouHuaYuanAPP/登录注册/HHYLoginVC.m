@@ -50,6 +50,7 @@
     [self.confrimBt addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
     self.loginType = -1;
     
+    
 }
 - (IBAction)action:(UIButton *)button {
     if (button.tag == 100) {

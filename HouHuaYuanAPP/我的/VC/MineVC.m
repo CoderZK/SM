@@ -209,6 +209,8 @@
                     
                     HHYKaiTongHuiYuanTVC * vc =[[HHYKaiTongHuiYuanTVC alloc] init];
                     vc.hidesBottomBarWhenPushed = YES;
+                    vc.nickName = self.dataModel.nickName;
+                    vc.imgStr = self.dataModel.avatar;
                     [self.navigationController pushViewController:vc animated:YES];
                             
                             
@@ -266,6 +268,7 @@
             HHYKaiTongHuiYuanTVC * vc =[[HHYKaiTongHuiYuanTVC alloc] init];
             vc.hidesBottomBarWhenPushed = YES;
             vc.nickName = self.dataModel.nickName;
+            vc.imgStr = self.dataModel.avatar;
             [self.navigationController pushViewController:vc animated:YES];
             
         }else if (indexPath.row == 3) {

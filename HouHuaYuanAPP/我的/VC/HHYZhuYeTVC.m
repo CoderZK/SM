@@ -178,18 +178,18 @@
     self.editBt.tag = 101;
     
     if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.userId]) {
-        [headView addSubview:self.editBt];
+         [headView addSubview:self.editBt];
          [self.headBt addTarget:self action:@selector(updateAvatar:) forControlEvents:UIControlEventTouchUpInside];
     }else {
-        
+        [self.headBt addTarget:self action:@selector(showPic) forControlEvents:UIControlEventTouchUpInside];
+         
     }
-    
-    
-    
     self.tableView.tableHeaderView = headView;
 }
 
-
+- (void)showPic {
+     [[zkPhotoShowVC alloc] initWithArray:@[[HHYURLDefineTool getImgURLWithStr:self.dataModel.avatar]] index:0];
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (self.dataModel == nil) {
@@ -464,9 +464,17 @@
             [alert show];
         }
     }];
+    
+    UIAlertAction * action4 = [UIAlertAction actionWithTitle:@"看大图" style:(UIAlertActionStyleDefault) handler:^(UIAlertAction * _Nonnull action) {
+
+        [[zkPhotoShowVC alloc] initWithArray:@[[HHYURLDefineTool getImgURLWithStr:self.dataModel.avatar]] index:0];
+
+    }];
+    
     UIAlertAction *action3 = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     [ac addAction:action1];
     [ac addAction:action2];
+    [ac addAction:action4];
     [ac addAction:action3];
     
     [self.navigationController presentViewController:ac animated:YES completion:nil];

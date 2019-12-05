@@ -117,6 +117,7 @@
     [zkRequestTool networkingPOST:[HHYURLDefineTool getIosConfigURL] parameters:@{} success:^(NSURLSessionDataTask *task, id responseObject) {
         if ([responseObject[@"code"] intValue]== 0) {
             
+            //1为展示购物
             if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"1"]) {
                 [HHYSignleTool shareTool].isUpdate = YES;
             }else {
@@ -132,7 +133,8 @@
     
 }
 
-    
+   
+
 - (void)loadFromServeTTTT {
     
     [SVProgressHUD show];

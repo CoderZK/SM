@@ -399,8 +399,7 @@
 
 //支付宝支付结果处理
 - (void)goZFB{
-    NSString *str;
-    str = self.payDic[@"prepayId"];
+
     
     [[AlipaySDK defaultService] payOrder:self.payDic[@"prepayId"] fromScheme:@"com.houhuayuan.app" callback:^(NSDictionary *resultDic) {
         
