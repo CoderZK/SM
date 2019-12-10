@@ -93,17 +93,17 @@ static HHYSignleTool * tool = nil;
     if (self.isLogin&&self.session_token&&self.deviceToken)
     {
         NSDictionary * dic = @{
-                               @"token":self.session_token,
+                               @"userId":self.session_uid,
                                @"type":@1,
-                               @"deviceToken":self.deviceToken
+                               @"pushToken":self.deviceToken
                                };
-        //        [zkRequestTool networkingPOST:[zkFMURL GETapi_user_upTokenURL] parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
-        //
-        //            NSLog(@"上传友盟推送成功\n%@",responseObject);
-        //
-        //        } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        //            NSLog(@"%@",error);
-        //        }];
+                [zkRequestTool networkingPOST:[HHYURLDefineTool GETapi_user_upTokenURL] parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+                    NSLog(@"上传友盟推送成功\n%@",responseObject);
+        
+                } failure:^(NSURLSessionDataTask *task, NSError *error) {
+                    NSLog(@"%@",error);
+                }];
     }
     
 }

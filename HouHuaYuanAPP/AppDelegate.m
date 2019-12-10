@@ -18,8 +18,8 @@
 #import <MediaPlayer/MediaPlayer.h>
 
 
-#define UMKey @"5d43d8d13fc195f5a2000497"
-//友盟安全密钥//r6xbw5gy0zenei6x56xtm9wmkrrz653y
+#define UMKey @"5d4d1fc90cafb2e93d00066c"
+//友盟安全密钥//ejgdywphxmg48nejku6jbusvxwigb8rv
 #define SinaAppKey @"3605220977"
 #define SinaAppSecret @"21538c5bda3ff74eed852ed4baf250f3"
 #define WXAppID @"wxa9d5e96c3c7560c5"
@@ -304,25 +304,16 @@
     //在用户接受推送通知后系统会调用
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
     {
-        //    self.pushToken = deviceToken;
-        //    if (![LxmTool ShareTool].isClosePush)
-        //    {
-        //        [UMessage registerDeviceToken:deviceToken];
-        //        //2.获取到deviceToken
-        //        NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
-        //        //将deviceToken给后台
-        //        NSLog(@"send_token:%@",token);
-        //        [LxmTool ShareTool].deviceToken = token;
-        //        //[[LxmTool ShareTool] uploadDeviceToken];
-        //    }
-        //    else
-        //    {
-        //        [UMessage registerDeviceToken:nil];
-        //        [LxmTool ShareTool].deviceToken = @"";
-        //        //[[LxmTool ShareTool] uploadDeviceToken];
-        //    }
-        
-        
+            self.pushToken = deviceToken;
+       
+            [UMessage registerDeviceToken:deviceToken];
+            //2.获取到deviceToken
+            NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+                //将deviceToken给后台
+            NSLog(@"send_token:%@",token);
+            [HHYSignleTool shareTool].deviceToken = token;
+            [[HHYSignleTool shareTool] uploadDeviceToken];
+
     }
     
     

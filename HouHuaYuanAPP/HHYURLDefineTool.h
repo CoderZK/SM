@@ -12,9 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 ////测试本地
-#define URLOne @"http://47.100.198.68"
+#define URLOne @"http://hhyqqp.com"
 ////图片地址
-#define ImgURL @"http://47.100.198.68/upload"
+#define ImgURL @"http://hhyqqp.com/upload"
 
 ////测试本地映射
 //#define URL @"http://jgcbxt.natappfree.cc"
@@ -228,6 +228,9 @@ NS_ASSUME_NONNULL_BEGIN
 
     /** 领取奖励*/
 +(NSString *)getMyTaskRewardURL;
+    /** 上传推送token*/
++(NSString *)GETapi_user_upTokenURL;
+
 
 
 +(NSString *)getImgURLWithStr:(NSString * )str;

@@ -88,7 +88,7 @@
         
         NSMutableDictionary * dataDict = @{}.mutableCopy;
         dataDict[@"accountType"] = @(1);
-        dataDict[@"flowerNum"] = @((int)([self.moneyTF.text floatValue] * 10));
+        dataDict[@"flowerNum"] = self.moneyTF.text;
         dataDict[@"targetAccount"] = self.carNumber;
         
         [zkRequestTool networkingPOST:[HHYURLDefineTool addWithDrawURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
