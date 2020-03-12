@@ -42,7 +42,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [self instantiateRootVC];
     [self.window makeKeyAndVisible];
-//    self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
     
     /* 设置友盟appkey */
     [[UMSocialManager defaultManager] setUmSocialAppkey:UMKey];

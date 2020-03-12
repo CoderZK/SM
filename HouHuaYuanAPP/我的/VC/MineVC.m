@@ -148,7 +148,7 @@
         }
         return (ScreenW- 40) / 2 * (5/17.0) + 30;
     }
-    if ((indexPath.section == 4 && indexPath.row == 2 && isPPPPPP) || (indexPath.section == 4 && indexPath.row == 4 && isPPPPPP) ||(indexPath.section == 4 && indexPath.row == 3 && isPPPPPP)){
+    if ((indexPath.section == 4 && indexPath.row == 2 && isPPPPPP) || (indexPath.section == 4 && indexPath.row == 4 && isPPPPPP) ||(indexPath.section == 4 && indexPath.row == 3 && isPPPPPP)||(indexPath.section == 3 && indexPath.row == 2 && isPPPPPP)){
         return 0;
     }
     return 50;
@@ -187,6 +187,11 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (![HHYSignleTool shareTool].isLogin) {
+        [self gotoLoginVC];
+        return;
+    }
     
     if (indexPath.section == 3) {
         if (indexPath.row == 0) {
