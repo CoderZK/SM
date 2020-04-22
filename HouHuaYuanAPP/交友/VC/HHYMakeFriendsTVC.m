@@ -9,7 +9,7 @@
 #import "HHYMakeFriendsTVC.h"
 #import "HHYMakeFriendsCell.h"
 @interface HHYMakeFriendsTVC ()
-@property(nonatomic,assign)NSInteger pageNo;
+
 @property(nonatomic,strong)NSMutableArray<zkHomelModel *> *dataArray;
 @end
 
@@ -18,6 +18,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeView:) name:@"DAIBAN" object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doubleClick) name:@"ffreach" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -25,6 +26,12 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 }
+
+
+//- (void)doubleClick {
+//    self.pageNo = 1;
+//    [self loadFromServeTTTT];
+//}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

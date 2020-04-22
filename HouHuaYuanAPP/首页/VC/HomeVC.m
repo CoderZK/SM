@@ -24,7 +24,7 @@
 #import "HHYShopingVC.h"
 #import "JJJJGouWuHomeVC.h"
 
-@interface HomeVC ()<SDCycleScrollViewDelegate,HHYHomeDongTaiCellDelegate,HHYYongBaoViewDeletage,UITabBarControllerDelegate>
+@interface HomeVC ()<SDCycleScrollViewDelegate,HHYHomeDongTaiCellDelegate,HHYYongBaoViewDeletage,UITabBarControllerDelegate,UIScrollViewDelegate>
 @property(nonatomic,strong)UIView *headView;
 @property(nonatomic,strong)SDCycleScrollView *sdcycView;
 @property(nonatomic,strong)NSMutableArray<HHYTongYongModel *> *scrollDataArray;
@@ -69,8 +69,11 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateHead) name:@"updateHead" object:nil];
     
-    self.pageNo = 1;
-    [self loadFromServeTTTT];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doubleClick) name:@"doubleClick" object:nil];
+    
+    
+    
+  
     [self getConfig];
 }
 
@@ -80,6 +83,13 @@
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+- (void)doubleClick {
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UIViewTintAdjustmentModeAutomatic animated:YES];
+    self.pageNo = 1;
+    [self loadFromServeTTTT];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.type = 0;
@@ -98,7 +108,12 @@
     self.tableView.estimatedSectionFooterHeight = 0;
     self.tabBarController.delegate = self;
     [self setHeadView];
+    
     [self getBannerData];
+    
+    self.pageNo = 1;
+    [self loadFromServeTTTT];
+    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
         [self loadFromServeTTTT];
@@ -110,6 +125,7 @@
     }];
     [self loadFromServeTTTTDaLei];
     [self laji];
+    
     
 }
 
@@ -343,6 +359,15 @@
     }
 }
 
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
+    
+    NSLog(@"%@",@"123456");
+    
+    [self doubleClick];
+    
+
+    
+}
 
 #pragma mark ----- 轮播图的点击 --------
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
@@ -531,6 +556,10 @@
 //        [self gotoLoginVC];
 //        return NO;
 //    }
+    
+    if(viewController == tabBarController.selectedViewController) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"doubleClick" object:nil];
+     }
     return YES;
     NSLog(@"===\n%@",viewController);
     NSLog(@"+++++\n%@",vc.childViewControllers);

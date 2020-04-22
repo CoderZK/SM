@@ -48,6 +48,9 @@
 		580262DF23409BDF0083CCE8 /* GGGGLaJSevenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 580262DD23409BDF0083CCE8 /* GGGGLaJSevenCell.xib */; };
 		58035E8F22C44DDC006F1F6F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58035E8E22C44DDC006F1F6F /* Photos.framework */; };
 		58035E9222C45182006F1F6F /* zkDanLiaoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */; };
+		58237839244FCEFE0083D2C0 /* UIView+RedBadege.m in Sources */ = {isa = PBXBuildFile; fileRef = 58237836244FCEFD0083D2C0 /* UIView+RedBadege.m */; };
+		5823783A244FCEFE0083D2C0 /* UITabBarItem+RedBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 58237837244FCEFD0083D2C0 /* UITabBarItem+RedBadge.m */; };
+		5823783B244FCEFE0083D2C0 /* UITabBar+RedTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 58237838244FCEFE0083D2C0 /* UITabBar+RedTabBar.m */; };
 		582C80C72331CC6A00ADF27A /* HHYShopingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 582C80C32331CC6A00ADF27A /* HHYShopingCell.xib */; };
 		582C80C82331CC6A00ADF27A /* HHYShopingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80C52331CC6A00ADF27A /* HHYShopingVC.m */; };
 		582C80C92331CC6A00ADF27A /* HHYShopingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 582C80C62331CC6A00ADF27A /* HHYShopingCell.m */; };
@@ -359,6 +362,12 @@
 		58035E8E22C44DDC006F1F6F /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		58035E9022C4517F006F1F6F /* zkDanLiaoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = zkDanLiaoVC.m; sourceTree = "<group>"; };
 		58035E9122C45182006F1F6F /* zkDanLiaoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zkDanLiaoVC.h; sourceTree = "<group>"; };
+		58237833244FCEFD0083D2C0 /* UITabBar+RedTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+RedTabBar.h"; sourceTree = "<group>"; };
+		58237834244FCEFD0083D2C0 /* UIView+RedBadege.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RedBadege.h"; sourceTree = "<group>"; };
+		58237835244FCEFD0083D2C0 /* UITabBarItem+RedBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+RedBadge.h"; sourceTree = "<group>"; };
+		58237836244FCEFD0083D2C0 /* UIView+RedBadege.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RedBadege.m"; sourceTree = "<group>"; };
+		58237837244FCEFD0083D2C0 /* UITabBarItem+RedBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+RedBadge.m"; sourceTree = "<group>"; };
+		58237838244FCEFE0083D2C0 /* UITabBar+RedTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+RedTabBar.m"; sourceTree = "<group>"; };
 		582C80C22331CC6A00ADF27A /* HHYShopingVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYShopingVC.h; sourceTree = "<group>"; };
 		582C80C32331CC6A00ADF27A /* HHYShopingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HHYShopingCell.xib; sourceTree = "<group>"; };
 		582C80C42331CC6A00ADF27A /* HHYShopingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHYShopingCell.h; sourceTree = "<group>"; };
@@ -962,6 +971,12 @@
 		337F3EB120EA040400C5526A /* 其它 */ = {
 			isa = PBXGroup;
 			children = (
+				58237833244FCEFD0083D2C0 /* UITabBar+RedTabBar.h */,
+				58237838244FCEFE0083D2C0 /* UITabBar+RedTabBar.m */,
+				58237835244FCEFD0083D2C0 /* UITabBarItem+RedBadge.h */,
+				58237837244FCEFD0083D2C0 /* UITabBarItem+RedBadge.m */,
+				58237834244FCEFD0083D2C0 /* UIView+RedBadege.h */,
+				58237836244FCEFD0083D2C0 /* UIView+RedBadege.m */,
 				58E2D1BC229D30210060BAD4 /* showViews */,
 				582FFA39229B84170039971E /* MXPhotoPickerController */,
 				582FFA32229B840F0039971E /* zk_picShow */,
@@ -1879,9 +1894,12 @@
 				5841A451229E37BF00878F30 /* HHYMineFriendsCell.m in Sources */,
 				335010DA20EDF8E400F8486B /* UIViewController+AlertShow.m in Sources */,
 				58CCF07C23418FAB00818C62 /* GGGGNineLaJTVC.m in Sources */,
+				5823783A244FCEFE0083D2C0 /* UITabBarItem+RedBadge.m in Sources */,
 				58E2D1C5229D30220060BAD4 /* HHYShauiXuanView.m in Sources */,
 				5848861D232628620099675D /* HHYYinSiXieYiVC.m in Sources */,
+				58237839244FCEFE0083D2C0 /* UIView+RedBadege.m in Sources */,
 				5831DAB622D56AA2001C5E4A /* CustomEmojiView.m in Sources */,
+				5823783B244FCEFE0083D2C0 /* UITabBar+RedTabBar.m in Sources */,
 				583297CB22A63B9E00B52104 /* HHYBindPoneTwoVC.m in Sources */,
 				58CCF07F23418FDD00818C62 /* GGGGEightLaJTVC.m in Sources */,
 				582FFA53229B84170039971E /* MXALAsset.m in Sources */,
@@ -2222,7 +2240,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "HouHuaYuanAPP/逅花园测试Debug.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = CHS3MS5N2G;
@@ -2252,7 +2270,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhhhyy.app;
 				PRODUCT_NAME = "逅花园";
 				PROVISIONING_PROFILE = "3bdcf4b3-e396-4d7a-ab2b-739f2269ddaa";
-				PROVISIONING_PROFILE_SPECIFIER = 129adDis;
+				PROVISIONING_PROFILE_SPECIFIER = 129hhhhyydev;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;

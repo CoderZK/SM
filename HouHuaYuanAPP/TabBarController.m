@@ -17,6 +17,7 @@
 {
     BaseNavigationController * _mineNavi;
     UIButton * button;
+    NSTimer *timer;
 }
 @end
 
@@ -95,7 +96,53 @@
     _mineNavi = arr.lastObject;
     self.tabBar.barTintColor = [UIColor whiteColor];
     
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(redRefresh) userInfo:nil repeats:YES];
+    
+     [[NSRunLoop currentRunLoop] addTimer: timer  forMode:NSRunLoopCommonModes];
   
+    
+}
+
+- (void)redRefresh {
+    
+    [self loadFromServeTTTT];
+    
+    
+    
+}
+
+- (void)loadFromServeTTTT {
+    
+    if ([HHYSignleTool shareTool].isLogin ==NO) {
+        return;
+    }
+    NSMutableDictionary * dataDict = @{}.mutableCopy;
+    dataDict[@"pageNo"] = @(1);
+    dataDict[@"pageSize"] = @(10);
+    [zkRequestTool networkingPOST:[HHYURLDefineTool getMyMessageListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
+    
+        if ([responseObject[@"code"] intValue]== 0) {
+
+            HHYTongYongModel * model = [HHYTongYongModel mj_objectWithKeyValues:responseObject[@"object"]];
+            
+            if ([model.AtMsg intValue] + [model.FriendMsg intValue] + [model.LikeMsg intValue] + [model.sysMsg intValue] + [model.ReplyMsg intValue] == 0 ) {
+                [self.tabBar.items[2] hidenBadge];
+            }else {
+                [self.tabBar.items[2] showBadge];
+            }
+            
+            
+
+        }else {
+            
+        }
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+       
+        
+    }];
     
 }
 

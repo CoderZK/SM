@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *supportCount; //点赞数量
 @property(nonatomic,strong)NSString *supportNickNames;//点赞人
 @property(nonatomic,strong)NSString *supportUserIds;//点赞人
+@property(nonatomic,strong)NSString *sysMsg;//系统消息
 @property(nonatomic,assign)BOOL isSelect;
 
 @property(nonatomic,strong)NSString * AtMsg;

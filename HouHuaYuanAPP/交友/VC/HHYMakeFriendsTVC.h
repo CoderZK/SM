@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHYMakeFriendsTVC : BaseTableViewController
 @property(nonatomic,assign)BOOL isHot;
+- (void)loadFromServeTTTT;
+@property(nonatomic,assign)NSInteger pageNo;
 @end
 
 NS_ASSUME_NONNULL_END

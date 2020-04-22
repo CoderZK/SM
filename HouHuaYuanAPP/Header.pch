@@ -42,7 +42,9 @@
 #import "UIViewController+shareAction.h"
 #import "HHYURLDefineTool.h"
 #import "importHead.h"
-
+#import "UITabBar+RedTabBar.h"
+#import "UITabBarItem+RedBadge.h"
+#import "UIView+RedBadege.h"
 
 #import <ReactiveObjC.h>
 

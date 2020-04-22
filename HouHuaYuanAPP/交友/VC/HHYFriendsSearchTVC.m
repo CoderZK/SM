@@ -66,12 +66,31 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeView:) name:@"DAIBAN" object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doubleClick) name:@"ffreach" object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.showView diss];
+    
+}
+
+- (void)doubleClick {
+//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UIViewTintAdjustmentModeAutomatic animated:YES];
+//    self.pageNo = 1;
+//    [self loadFromServeTTTT];
+}
+
+- (void)scrollViewDidScrollToTop:(UIScrollView *)scrollView {
+    
+//    NSLog(@"%@",@"123456");
+//
+//    [self doubleClick];
+//
+
+    self.pageNo = 1;
+    [self loadFromServeTTTT];
     
 }
 

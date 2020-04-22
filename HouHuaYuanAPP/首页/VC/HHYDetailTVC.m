@@ -318,6 +318,8 @@
         cell.nameLB.text = model.replyUserNickName;
         cell.timeLB.text = [NSString stringWithTime:model.createTime];
         cell.timeLB.mj_w = [[NSString stringWithFormat:@"%@ %@",model.city,[NSString stringWithTime:model.createTime]] getWidhtWithFontSize:13];
+        cell.headBt.tag = indexPath.row;
+        [cell.headBt addTarget:self action:@selector(goHomeAction:) forControlEvents:UIControlEventTouchUpInside];
         if (model.replyId.length == 0) {
             //回复帖子
            cell.contentLB.text = [NSString emojiRecovery:model.content];
@@ -341,6 +343,8 @@
         return 10;
     }
 }
+
+
 
 - (UIView * )tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     UIView * view  =[tableView dequeueReusableHeaderFooterViewWithIdentifier:@"view"];
@@ -368,6 +372,16 @@
         self.isPingTie = YES;
         [self.TV2 becomeFirstResponder];
     }
+    
+}
+//
+- (void)goHomeAction:(UIButton *)button {
+    
+    
+    HHYZhuYeTVC * vc =[[HHYZhuYeTVC alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    vc.userId = self.dataModel.replyInfoVoList[button.tag].replyUserId;
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 

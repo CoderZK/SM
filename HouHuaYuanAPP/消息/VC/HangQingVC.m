@@ -38,6 +38,18 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doubleClick) name:@"doubleClick" object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+}
+
+
+- (void)doubleClick {
     self.pageNo = 1;
     [self loadFromServeTTTT];
 }
@@ -59,6 +71,9 @@
     
     NSLog(@"%@",@"123");
    
+    self.pageNo = 1;
+    [self loadFromServeTTTT];
+    
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         self.pageNo = 1;
         [self loadFromServeTTTT];
@@ -106,7 +121,6 @@
             self.pageNo++;
             [self.tableView reloadData];
             
-
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }

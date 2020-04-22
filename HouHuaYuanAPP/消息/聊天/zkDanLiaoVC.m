@@ -81,48 +81,7 @@
 
 }
 
-//-(void)initNav
-//{
-//
-//    CGFloat navH = 44;
-//
-//    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, sstatusHeight + navH )];
-//    imgView.image = [UIImage imageNamed:@"bg_1"];
-//    imgView.userInteractionEnabled = YES;
-//    [self.view addSubview:imgView];
-//
-//    UIButton * leftBt =[UIButton new];
-//    leftBt.titleLabel.font =[UIFont systemFontOfSize:14];
-//    [leftBt setTitle:@"返回" forState:UIControlStateNormal];
-//    [leftBt sizeToFit];
-//    [leftBt setTitleColor:CharacterGrayColor forState:UIControlStateNormal];
-//    [leftBt addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-//    leftBt.frame = CGRectMake(10, sstatusHeight + 6, 40, 30);
-//    [self.view addSubview:leftBt];
-//
-//    UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake((ScreenW-200)/2, sstatusHeight, 200, navH)];
-//    title.text = @"小记者";
-//    title.font = [UIFont systemFontOfSize:18];
-//    title.textColor = [UIColor whiteColor];
-//    title.textAlignment = NSTextAlignmentCenter;
-//    [self.view addSubview:title];
-////    self.navigationItem.title = @"小记者";
-//
-//
-//
-//
-//    UIButton * hitClickButton =[UIButton new];
-//    hitClickButton.titleLabel.font =[UIFont systemFontOfSize:14];
-//    [hitClickButton setTitle:@"删除" forState:UIControlStateNormal];
-//    [hitClickButton sizeToFit];
-//    [hitClickButton setTitleColor:CharacterGrayColor forState:UIControlStateNormal];
-//    [hitClickButton addTarget:self action:@selector(deleteAllMessage) forControlEvents:UIControlEventTouchUpInside];
-//    hitClickButton.frame = CGRectMake(ScreenW - 40-10, sstatusHeight + 6, 40, 30);
-//   [self.view addSubview:hitClickButton];
-//    self.navigationItem.rightBarButtonItem =[[UIBarButtonItem alloc] initWithCustomView:right1];
 
-
-//}
 
 - (void)back {
     

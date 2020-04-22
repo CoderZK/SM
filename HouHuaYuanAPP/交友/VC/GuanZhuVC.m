@@ -42,6 +42,24 @@
     return _showV;
 }
 
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doubleClick) name:@"doubleClick" object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
+}
+
+- (void)doubleClick {
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"ffreach" object:nil];;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -53,6 +71,8 @@
     [self initNav];
     
 }
+
+
 
 
 - (void)settitleView {
