@@ -118,7 +118,7 @@
         if ([responseObject[@"code"] intValue]== 0) {
             
             //1为展示购物
-            if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"1"]) {
+            if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"0"]) {
                 [HHYSignleTool shareTool].isUpdate = YES;
             }else {
                 [HHYSignleTool shareTool].isUpdate = NO;
