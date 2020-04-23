@@ -16,7 +16,8 @@
 #import <JKRBDMuteSwitch/RBDMuteSwitch.h>
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
-
+#import "FangZhiCrachVC.h"
+#import "Crash.h"
 
 #define UMKey @"5d4d1fc90cafb2e93d00066c"
 //友盟安全密钥//ejgdywphxmg48nejku6jbusvxwigb8rv
@@ -55,17 +56,38 @@
     
     // 发送崩溃日志
     
-    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    //注册消息处理函数的处理方法
+       NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+       // 发送崩溃日志
+       NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+       
+       NSString *dataPath = [path stringByAppendingPathComponent:@"error.log"];
+       
+       NSData *data = [NSData dataWithContentsOfFile:dataPath];
+       
+       NSString *content=[NSString stringWithContentsOfFile:dataPath encoding:NSUTF8StringEncoding error:nil];
+       
+       NSLog(@"\n\n\n---%@",content);
+
+       
+       if (data != nil) {
+          
+           [self.window.rootViewController presentViewController:[[FangZhiCrachVC alloc] init] animated:YES completion:nil];
+           
+       }
     
-    NSString *dataPath = [path stringByAppendingPathComponent:@"Exception.txt"];
+//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+//
+//    NSString *dataPath = [path stringByAppendingPathComponent:@"Exception.txt"];
+//
+//    NSData *data = [NSData dataWithContentsOfFile:dataPath];
+//
+//    if (data != nil) {
+//
+//         [self.window.rootViewController presentViewController:[[FangZhiCrachVC alloc] init] animated:YES completion:nil];
+//
+//    }
     
-    NSData *data = [NSData dataWithContentsOfFile:dataPath];
-    
-    if (data != nil) {
-        
-        //        [self sendExceptionLogWithData:data path:dataPath];
-        
-    }
     if ([YWUnlockView haveGesturePassword]) {
         [self privacyPassWord];
     }

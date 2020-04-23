@@ -46,6 +46,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    NSArray * arr = @[];
+    NSLog(@"%@",arr[1]);
+    
     self.navigationItem.title = @"个人中心";
     
     [self.tableView registerClass:[HHYMineThreeCell class] forCellReuseIdentifier:@"cellThree"];

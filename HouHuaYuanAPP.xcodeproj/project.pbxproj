@@ -242,6 +242,9 @@
 		5848861D232628620099675D /* HHYYinSiXieYiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5848861B232628620099675D /* HHYYinSiXieYiVC.m */; };
 		5848861E232628620099675D /* HHYYinSiXieYiVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5848861C232628620099675D /* HHYYinSiXieYiVC.xib */; };
 		5857C81C22B7A63100F9F01B /* HHYDongTaiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5857C81B22B7A63100F9F01B /* HHYDongTaiDetailCell.m */; };
+		587004542451236300C57E94 /* FangZhiCrachVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 587004512451236300C57E94 /* FangZhiCrachVC.m */; };
+		587004552451236300C57E94 /* FangZhiCrachVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 587004522451236300C57E94 /* FangZhiCrachVC.xib */; };
+		587004562451236300C57E94 /* Crash.m in Sources */ = {isa = PBXBuildFile; fileRef = 587004532451236300C57E94 /* Crash.m */; };
 		588286C622BA0D46002AB876 /* HHYpublicFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 588286C522BA0D46002AB876 /* HHYpublicFunction.m */; };
 		589ABFEE2297AF20000BBD89 /* BSCustom.m in Sources */ = {isa = PBXBuildFile; fileRef = 589ABFED2297AF20000BBD89 /* BSCustom.m */; };
 		589ABFF12297B02D000BBD89 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 589ABFEF2297B02C000BBD89 /* TabBarController.m */; };
@@ -700,6 +703,11 @@
 		5848861F23263A5D0099675D /* HouHuaYuanAPP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HouHuaYuanAPP.entitlements; sourceTree = "<group>"; };
 		5857C81A22B7A63100F9F01B /* HHYDongTaiDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYDongTaiDetailCell.h; sourceTree = "<group>"; };
 		5857C81B22B7A63100F9F01B /* HHYDongTaiDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYDongTaiDetailCell.m; sourceTree = "<group>"; };
+		5870044F2451236200C57E94 /* FangZhiCrachVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FangZhiCrachVC.h; sourceTree = "<group>"; };
+		587004502451236200C57E94 /* Crash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crash.h; sourceTree = "<group>"; };
+		587004512451236300C57E94 /* FangZhiCrachVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FangZhiCrachVC.m; sourceTree = "<group>"; };
+		587004522451236300C57E94 /* FangZhiCrachVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FangZhiCrachVC.xib; sourceTree = "<group>"; };
+		587004532451236300C57E94 /* Crash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crash.m; sourceTree = "<group>"; };
 		588286C422BA0D46002AB876 /* HHYpublicFunction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHYpublicFunction.h; sourceTree = "<group>"; };
 		588286C522BA0D46002AB876 /* HHYpublicFunction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHYpublicFunction.m; sourceTree = "<group>"; };
 		589ABFEC2297AF20000BBD89 /* BSCustom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSCustom.h; sourceTree = "<group>"; };
@@ -971,6 +979,7 @@
 		337F3EB120EA040400C5526A /* 其它 */ = {
 			isa = PBXGroup;
 			children = (
+				5870044E2451235500C57E94 /* CrashTool */,
 				58237833244FCEFD0083D2C0 /* UITabBar+RedTabBar.h */,
 				58237838244FCEFE0083D2C0 /* UITabBar+RedTabBar.m */,
 				58237835244FCEFD0083D2C0 /* UITabBarItem+RedBadge.h */,
@@ -1616,6 +1625,18 @@
 			path = JJJJJJJ;
 			sourceTree = "<group>";
 		};
+		5870044E2451235500C57E94 /* CrashTool */ = {
+			isa = PBXGroup;
+			children = (
+				587004502451236200C57E94 /* Crash.h */,
+				587004532451236300C57E94 /* Crash.m */,
+				5870044F2451236200C57E94 /* FangZhiCrachVC.h */,
+				587004512451236300C57E94 /* FangZhiCrachVC.m */,
+				587004522451236300C57E94 /* FangZhiCrachVC.xib */,
+			);
+			path = CrashTool;
+			sourceTree = "<group>";
+		};
 		58E2D1BC229D30210060BAD4 /* showViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -1800,6 +1821,7 @@
 				583297A222A5F96E00B52104 /* HHYPingLunTwoCell.xib in Resources */,
 				58333283229F716A008DD9CF /* HHYHuiYuanTwoCell.xib in Resources */,
 				58452D592339F86700F9CE75 /* JJJJGouWuHomeCell.xib in Resources */,
+				587004552451236300C57E94 /* FangZhiCrachVC.xib in Resources */,
 				58326AD622A10A1000EEF426 /* HHYTaskTCell.xib in Resources */,
 				5831C61E22A4BE970023D1E5 /* HHYAddYinHangKaVC.xib in Resources */,
 				58333281229F716A008DD9CF /* HHYHuiYuanThreeCell.xib in Resources */,
@@ -1891,6 +1913,7 @@
 				5841A43A229E145500878F30 /* HHYMineOneCell.m in Sources */,
 				58E2D1D1229D3C7D0060BAD4 /* HHYAiTeMeCell.m in Sources */,
 				5831C62122A4BFC60023D1E5 /* HHYTiXianJiLuTVC.m in Sources */,
+				587004542451236300C57E94 /* FangZhiCrachVC.m in Sources */,
 				5841A451229E37BF00878F30 /* HHYMineFriendsCell.m in Sources */,
 				335010DA20EDF8E400F8486B /* UIViewController+AlertShow.m in Sources */,
 				58CCF07C23418FAB00818C62 /* GGGGNineLaJTVC.m in Sources */,
@@ -2010,6 +2033,7 @@
 				582FFA56229B84170039971E /* MXPhotoPickerController.m in Sources */,
 				582FFA4F229B84170039971E /* MXImagePreviewCell.m in Sources */,
 				583F623322ADDEFB00FE353D /* HHYLoginVC.m in Sources */,
+				587004562451236300C57E94 /* Crash.m in Sources */,
 				5838A06222F415AC00119DDE /* HHYTaoCanCell.m in Sources */,
 				5835C2EB22B22583002122A0 /* HHYAddressModel.m in Sources */,
 				582FFA57229B84170039971E /* MXImageGroupController.m in Sources */,

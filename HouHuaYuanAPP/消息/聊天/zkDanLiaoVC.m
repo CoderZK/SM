@@ -317,4 +317,31 @@
 }
 
 
+- (void)messageViewController:(EaseMessageViewController *)viewController
+   didSelectAvatarMessageModel:(id<IMessageModel>)messageModel
+{
+    //UserProfileViewController用户自定义的个人信息视图
+    //样例的逻辑是选中消息头像后，进入该消息发送者的个人信息
+  
+    NSLog(@"%@",messageModel);
+    NSLog(@"%@",@"23455");
+
+    if (messageModel.isSender) {
+        HHYZhuYeTVC * vc =[[HHYZhuYeTVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.userId = [HHYSignleTool shareTool].session_uid;
+        [self.navigationController pushViewController:vc animated:YES];
+    }else {
+        HHYZhuYeTVC * vc =[[HHYZhuYeTVC alloc] init];
+        vc.hidesBottomBarWhenPushed = YES;
+        vc.userId = self.otherId;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+
+}
+
+
+
+
+
 @end
