@@ -19,6 +19,7 @@
 @property(nonatomic,strong)UIImageView *huanGuanImgV;
 @property(nonatomic,strong)UIView *whiteV;
 @property(nonatomic,strong)UIButton *ttBt;
+@property(nonatomic,strong)UIScrollView *scrollView;
 
 
 @end
@@ -201,7 +202,12 @@
         self.desLB.textColor = CharacterBackColor;
         [whiteV addSubview:self.desLB];
         
-        self.zanView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.desLB.frame)+10, ScreenW-60, 40)];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(self.desLB.frame)+10, ScreenW-60 - 30, 40)];
+        [whiteV addSubview:self.scrollView];
+        self.scrollView.showsVerticalScrollIndicator = NO;
+        self.scrollView.showsHorizontalScrollIndicator= NO;
+        
+        self.zanView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.scrollView.frame)+10, ScreenW-60, 40)];
         [whiteV addSubview:self.zanView];
         
         self.scanBt = [self getBt];
@@ -317,6 +323,30 @@
     [button setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 10)];
     button.titleLabel.font = kFont(10);
     return button;
+}
+
+- (void)setHuaTiWithArr:(NSArray * ) arr{
+    
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    CGFloat ww = 0;
+    for (int i = 0 ; i < arr.count; i++) {
+        
+        UIButton * button = [[UIButton alloc] init];
+        button.mj_x = ww;
+        button.width = [[NSString stringWithFormat:@"#%@",arr[i]] getWidhtWithFontSize:13];
+        [button setTitle:[NSString stringWithFormat:@"#%@",arr[i]] forState:UIControlStateNormal];
+        button.mj_h = 35;
+        button.mj_y = 2.5;
+        button.titleLabel.font = kFont(13);
+        [button setTitleColor:TabberGreen forState:UIControlStateNormal];
+        button.tag = 200+i;
+        [button addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.scrollView addSubview:button];
+        ww = CGRectGetMaxX(button.frame) + 10;
+        
+    }
+    self.scrollView.contentSize = CGSizeMake(ww, 40);
+    
 }
 
 
@@ -469,12 +499,15 @@
     }
 
     
+    [self setHuaTiWithArr:[model.tagName componentsSeparatedByString:@","]];
+    
 //    self.desLB.text = [model.tagName stringByReplacingOccurrencesOfString:@"," withString:@"  "];
     
     self.desLB.text = model.circleName;
     
     self.desLB.mj_y = CGRectGetMaxY(self.picsView.frame) + 10;
-    self.zanView.mj_y = CGRectGetMaxY(self.desLB.frame) + 0;
+    self.scrollView.mj_y =  CGRectGetMaxY(self.desLB.frame) + 0;
+    self.zanView.mj_y = CGRectGetMaxY(self.scrollView.frame) + 0;
     
     model.cellHeight = CGRectGetMaxY(self.zanView.frame) + 20;
     

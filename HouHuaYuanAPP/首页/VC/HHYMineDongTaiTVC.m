@@ -45,7 +45,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (!self.isMine) {
+    if (!self.isMine && !self.isHuaTi) {
         [self getDetailDataTWO];
     }
 }
@@ -57,39 +57,41 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self.tableView reloadData];
-    if (self.isMine) {
-        self.navigationItem.title = @"我的动态";
-         self.tableView.frame = CGRectMake(0,0, ScreenW, ScreenH);
-        
-        UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
-        
-        //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-        [hitClickButtonn setTitle:@"编辑" forState:UIControlStateNormal];
-        [hitClickButtonn setTitle:@"删除" forState:UIControlStateSelected];
-        [hitClickButtonn sizeToFit];
-        hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        hitClickButtonn.titleLabel.font = kFont(14);
-        [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        hitClickButtonn.tag = 11;
-        self.editBt = hitClickButtonn;
-        UIButton * hitClickButtonn1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
-        
-        //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
-        [hitClickButtonn1 setTitle:@"返回" forState:UIControlStateNormal];
-        
-        hitClickButtonn1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-        hitClickButtonn1.titleLabel.font = kFont(14);
-        [hitClickButtonn1 sizeToFit];
-        [hitClickButtonn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [hitClickButtonn1 addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        hitClickButtonn1.tag = 12;
-        hitClickButtonn1.hidden = YES;
-        self.backBt = hitClickButtonn1;
-        //    [self.view addSubview:hitClickButtonn];
-        self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.editBt],[[UIBarButtonItem alloc] initWithCustomView:self.backBt]];
-        
-       
+    if (self.isMine || self.isHuaTi) {
+        if (self.isMine) {
+            self.navigationItem.title = @"我的动态";
+             self.tableView.frame = CGRectMake(0,0, ScreenW, ScreenH);
+            
+            UIButton * hitClickButtonn=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+            
+            //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+            [hitClickButtonn setTitle:@"编辑" forState:UIControlStateNormal];
+            [hitClickButtonn setTitle:@"删除" forState:UIControlStateSelected];
+            [hitClickButtonn sizeToFit];
+            hitClickButtonn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+            hitClickButtonn.titleLabel.font = kFont(14);
+            [hitClickButtonn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [hitClickButtonn addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+            hitClickButtonn.tag = 11;
+            self.editBt = hitClickButtonn;
+            UIButton * hitClickButtonn1=[[UIButton alloc] initWithFrame:CGRectMake(ScreenW - 70 - 15,  sstatusHeight + 2,70, 40)];
+            
+            //    [hitClickButtonn setBackgroundImage:[UIImage imageNamed:@"15"] forState:UIControlStateNormal];
+            [hitClickButtonn1 setTitle:@"返回" forState:UIControlStateNormal];
+            
+            hitClickButtonn1.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
+            hitClickButtonn1.titleLabel.font = kFont(14);
+            [hitClickButtonn1 sizeToFit];
+            [hitClickButtonn1 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+            [hitClickButtonn1 addTarget:self action:@selector(navigationItemButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+            hitClickButtonn1.tag = 12;
+            hitClickButtonn1.hidden = YES;
+            self.backBt = hitClickButtonn1;
+            //    [self.view addSubview:hitClickButtonn];
+            self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithCustomView:self.editBt],[[UIBarButtonItem alloc] initWithCustomView:self.backBt]];
+        }else {
+             self.navigationItem.title = self.titleStr;
+        }
     }else {
         
          [self setheadV];
@@ -281,8 +283,8 @@
         }else if (self.type == 2){
             dataDict[@"subscribed"] = @(1);
         }
+        dataDict[@"tagId"] = self.tagId;
     }
-   
     [zkRequestTool networkingPOST:[HHYURLDefineTool getsearchURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
@@ -508,6 +510,25 @@
             return;
         }
         [self collectionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
+    }else if (index >=100) {
+        
+        zkHomelModel * model =  self.dataArray[indexPath.row];
+        NSArray * arr = [model.tagId componentsSeparatedByString:@","];
+        NSArray * arrTwo = [model.tagName componentsSeparatedByString:@","];
+        
+        if (index-100<arr.count) {
+            HHYMineDongTaiTVC * vc =[[HHYMineDongTaiTVC alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.isMine = NO;
+            vc.titleStr = arrTwo[index-100];
+            vc.tagId = arr[index - 100];
+            vc.circleId = model.circledId;
+            vc.isHuaTi = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        
+        
     }
     
     

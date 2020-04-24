@@ -9,7 +9,7 @@
 #import "HHYZhuYeFourCell.h"
 
 @interface HHYZhuYeFourCell()
-
+@property(nonatomic,strong)UILabel *signLB;
 @end
 
 @implementation HHYZhuYeFourCell
@@ -45,8 +45,22 @@
             make.top.equalTo(@80);
             make.left.equalTo(@0);
             make.right.equalTo(@0);
-            make.bottom.equalTo(@-15);
+//            make.bottom.equalTo(@-15);
+            make.height.equalTo(@(1));
             
+        }];
+        
+        self.signLB = [[UILabel alloc] init];
+        self.signLB.numberOfLines = 0;
+        self.signLB.textColor = CharacterBlackColor;
+        self.signLB.font = kFont(14);
+        [self addSubview:self.signLB];
+        
+        [self.signLB mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@(15));
+            make.right.equalTo(@(-15));
+            make.height.equalTo(@(1));
+            make.top.equalTo(self.whiteView.mas_bottom).offset(15);
         }];
         
         
@@ -130,7 +144,15 @@
         [self.whiteView addSubview:button];
         
     }
-    
+//    self.whiteView.backgroundColor = [UIColor redColor];
+    if (self.qianMingStr.length > 0) {
+        self.signLB.attributedText = [[NSString stringWithFormat:@"个性签名: %@",self.qianMingStr] getMutableAttributeStringWithFont:14 lineSpace:3 textColor:CharacterBlackColor];
+        CGFloat ww  = [[NSString stringWithFormat:@"个性签名: %@",self.qianMingStr] getHeigtWithFontSize:14 lineSpace:3 width:ScreenW - 30];
+        [self.signLB mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(ww));
+        }];
+        self.model.cellHeight = CGRectGetMaxY(self.signLB.frame) + 15;
+    }
     
     
 }

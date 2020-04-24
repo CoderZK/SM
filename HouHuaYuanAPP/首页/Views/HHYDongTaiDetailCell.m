@@ -16,6 +16,7 @@
 @property(nonatomic,strong)UIView *grayV,*xiaDanV;
 @property(nonatomic,strong)UIImageView *huanGuanImgV;
 @property(nonatomic,strong)UIButton *ttBt;
+@property(nonatomic,strong)UIScrollView *scrollView;
 ;
 @end
 
@@ -147,7 +148,12 @@
         self.desLB.textColor = CharacterBackColor;
         [self addSubview:self.desLB];
         
-        self.zanView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.desLB.frame)+10, ScreenW, 40)];
+        self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(15, CGRectGetMaxY(self.desLB.frame)+10, ScreenW - 30, 40)];
+          [self addSubview:self.scrollView];
+          self.scrollView.showsVerticalScrollIndicator = NO;
+          self.scrollView.showsHorizontalScrollIndicator= NO;
+        
+        self.zanView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.scrollView.frame)+10, ScreenW, 40)];
         [self addSubview:self.zanView];
         
         self.scanBt = [self getBt];
@@ -373,6 +379,8 @@
         [self setImgViews:[model.pic componentsSeparatedByString:@","]];
     }
     
+     [self setHuaTiWithArr:[model.tagName componentsSeparatedByString:@","]];
+    
 //    self.desLB.text = [model.tagName stringByReplacingOccurrencesOfString:@"," withString:@"  "];
     self.desLB.text = model.circleName;
     
@@ -383,9 +391,34 @@
     
     
     self.desLB.mj_y = CGRectGetMaxY(self.picsView.frame) + 10;
-    self.zanView.mj_y = CGRectGetMaxY(self.desLB.frame) + 0;
+    self.scrollView.mj_y =  CGRectGetMaxY(self.desLB.frame) + 0;
+    self.zanView.mj_y = CGRectGetMaxY(self.scrollView.frame) + 0;
     
     model.cellHeight = CGRectGetMaxY(self.zanView.frame);
+    
+}
+
+- (void)setHuaTiWithArr:(NSArray * ) arr{
+    
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    CGFloat ww = 0;
+    for (int i = 0 ; i < arr.count; i++) {
+        
+        UIButton * button = [[UIButton alloc] init];
+        button.mj_x = ww;
+        button.width = [[NSString stringWithFormat:@"#%@",arr[i]] getWidhtWithFontSize:13];
+        [button setTitle:[NSString stringWithFormat:@"#%@",arr[i]] forState:UIControlStateNormal];
+        button.mj_h = 35;
+        button.mj_y = 2.5;
+        button.titleLabel.font = kFont(13);
+        [button setTitleColor:TabberGreen forState:UIControlStateNormal];
+        button.tag = 200+i;
+        [button addTarget:self action:@selector(hitAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.scrollView addSubview:button];
+        ww = CGRectGetMaxX(button.frame) + 10;
+        
+    }
+    self.scrollView.contentSize = CGSizeMake(ww, 40);
     
 }
 

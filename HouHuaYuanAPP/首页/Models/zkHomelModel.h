@@ -24,7 +24,8 @@
 @property(nonatomic,strong)NSString *city;//省份
 @property(nonatomic,strong)NSString *cityName;
 @property(nonatomic,strong)NSString *userNo;//环信ID
-@property(nonatomic,strong)NSString *downUrl;//环信ID 
+@property(nonatomic,strong)NSString *downUrl;//环信ID
+@property(nonatomic,strong)NSString *tagId;
 
 @property(nonatomic,strong)NSString *distance;
 @property(nonatomic,strong)NSString *userTags;//标签

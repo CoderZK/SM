@@ -12,8 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HHYMineDongTaiTVC : BaseTableViewController
 @property(nonatomic,strong)NSString *circleId;
-@property(nonatomic,assign)BOOL isMine;
+@property(nonatomic,assign)BOOL isMine,isHuaTi;
 @property(nonatomic,strong)NSString *titleStr;
+@property(nonatomic,strong)NSString *tagId;
 @end
 
 NS_ASSUME_NONNULL_END

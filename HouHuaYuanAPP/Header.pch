@@ -45,6 +45,7 @@
 #import "UITabBar+RedTabBar.h"
 #import "UITabBarItem+RedBadge.h"
 #import "UIView+RedBadege.h"
+#import "HHYMineDongTaiTVC.h"
 
 #import <ReactiveObjC.h>
 

@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)NSInteger type; // 0 主页使用 1 编辑资料使用
 
 @property(nonatomic,strong)HHYUserModel  *model;
+@property(nonatomic,strong)NSString *qianMingStr;
 
 @end
 

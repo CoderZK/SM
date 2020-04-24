@@ -262,16 +262,20 @@
         HHYZhuYeThreeCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell3" forIndexPath:indexPath];
         cell.dataArray = [self.dataModel.photos componentsSeparatedByString:@","];
         cell.clipsToBounds = YES;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else if (indexPath.section ==2) {
         HHYZhuYeFourCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell4" forIndexPath:indexPath];
         cell.titleLB.text = @"标签";
         cell.model = self.dataModel;
+        cell.gotoImgV.hidden = YES;
         cell.biaoQianLB.text = [NSString stringWithFormat:@"已经选择标签(%lu)",(unsigned long)[self.dataModel.tagsName componentsSeparatedByString:@","].count];
+        cell.qianMingStr = self.model.sign;
         cell.arr = [self.tags componentsSeparatedByString:@","];
         if ([[HHYSignleTool shareTool].session_uid isEqualToString:self.userId]) {
             cell.gotoImgV.hidden = NO;
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else if (indexPath.section == 3) {
         HHYHomeDongTaiCell * cell =[tableView dequeueReusableCellWithIdentifier:@"cell5" forIndexPath:indexPath];
@@ -735,6 +739,25 @@
             return;
         }
         [self collectionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
+    }else if (index >=100) {
+        
+        zkHomelModel * model =  self.dataArray[indexPath.row];
+        NSArray * arr = [model.tagId componentsSeparatedByString:@","];
+        NSArray * arrTwo = [model.tagName componentsSeparatedByString:@","];
+        
+        if (index-100<arr.count) {
+            HHYMineDongTaiTVC * vc =[[HHYMineDongTaiTVC alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.isMine = NO;
+            vc.titleStr = arrTwo[index-100];
+            vc.tagId = arr[index - 100];
+            vc.circleId = model.circledId;
+            vc.isHuaTi = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        
+        
     }
     
     

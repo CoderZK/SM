@@ -134,7 +134,7 @@
         if ([responseObject[@"code"] intValue]== 0) {
             
             //1为展示购物
-            if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"0"]) {
+            if ([[NSString stringWithFormat:@"%@",responseObject[@"object"][@"show"]] isEqualToString:@"1"]) {
                 [HHYSignleTool shareTool].isUpdate = YES;
             }else {
                 [HHYSignleTool shareTool].isUpdate = NO;
@@ -416,6 +416,25 @@
             return;
         }
         [self collectionWithModel:self.dataArray[indexPath.row] WithIndePath:indexPath];
+    }else if (index >=100) {
+        
+        zkHomelModel * model =  self.dataArray[indexPath.row];
+        NSArray * arr = [model.tagId componentsSeparatedByString:@","];
+        NSArray * arrTwo = [model.tagName componentsSeparatedByString:@","];
+        
+        if (index-100<arr.count) {
+            HHYMineDongTaiTVC * vc =[[HHYMineDongTaiTVC alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.isMine = NO;
+            vc.titleStr = arrTwo[index-100];
+            vc.tagId = arr[index - 100];
+            vc.circleId = model.circledId;
+            vc.isHuaTi = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        
+        
     }
 }
 

@@ -626,6 +626,24 @@
             return;
         }
         [self collectionWithModel:self.dataModel WithIndePath:indexPath];
+    }else if (index >=100) {
+        
+    
+        NSArray * arr = [self.dataModel.tagId componentsSeparatedByString:@","];
+        NSArray * arrTwo = [self.dataModel.tagName componentsSeparatedByString:@","];
+        
+        if (index-100<arr.count) {
+            HHYMineDongTaiTVC * vc =[[HHYMineDongTaiTVC alloc] init];
+            vc.hidesBottomBarWhenPushed = YES;
+            vc.isMine = NO;
+            vc.titleStr = arrTwo[index-100];
+            vc.tagId = arr[index - 100];
+            vc.isHuaTi = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        
+        
     }
     
     
