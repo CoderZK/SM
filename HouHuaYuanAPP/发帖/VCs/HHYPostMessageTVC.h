@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HHYPostMessageTVC : BaseTableViewController
-
+@property(nonatomic,copy)void(^blcokOK)();
 @end
 
 NS_ASSUME_NONNULL_END

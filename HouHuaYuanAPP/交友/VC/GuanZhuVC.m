@@ -24,6 +24,9 @@
 - (UIScrollView *)scrollView {
     if (_scrollView == nil) {
         _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, ScreenW, ScreenH - 49 - sstatusHeight - 44)];
+        if (sstatusHeight > 20) {
+            _scrollView.frame = CGRectMake(0, 0, ScreenW, ScreenH - 49 - sstatusHeight - 44 - 34);
+        }
         _scrollView.delegate = self;
         _scrollView.showsVerticalScrollIndicator = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;

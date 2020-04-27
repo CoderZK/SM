@@ -74,10 +74,8 @@
     
     if (sstatusHeight > 20 ) {
         self.chatToolbar.frame = CGRectMake(0, ScreenH- 34 - 50 , ScreenW, 50);
-        self.tableView.frame = CGRectMake(0, 0, ScreenW, ScreenH - 60 - 34);
+      
     }
-    
-    
 
 }
 

@@ -338,22 +338,24 @@
     }
    
     zkHomelModel * model = self.dataArray[indexPath.row];
-    
+    self.tableView.userInteractionEnabled = NO;
     [zkRequestTool networkingPOST:url parameters:model.userId success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
+       
         if ([responseObject[@"code"] intValue]== 0) {
-            
-            
+
             [self.dataArray removeObject:model];
             [self.tableView reloadData];
+            self.tableView.userInteractionEnabled = YES;
             
         }else {
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
+             self.tableView.userInteractionEnabled = YES;
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        self.tableView.userInteractionEnabled = YES;
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
         
@@ -373,7 +375,7 @@
 
 
 - (void)cancelGuanZhu:(UIButton *)button {
-    
+    self.tableView.userInteractionEnabled = NO;
     NSMutableDictionary * dataDict = @{}.mutableCopy;
     dataDict[@"type"] = @"1";
     dataDict[@"userId"] = self.dataArray[button.tag - 100].userId;
@@ -389,8 +391,8 @@
     [zkRequestTool networkingPOST:url parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
+        
         if ([responseObject[@"code"] intValue]== 0) {
-            
             
             if (self.type ==1) {
                 // @"关注";
@@ -410,14 +412,16 @@
                 ///@"添加好友";
             
             }
-         
-           
-            
+            self.tableView.userInteractionEnabled= YES;
         }else {
+            
+            self.tableView.userInteractionEnabled = YES;
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+         self.tableView.userInteractionEnabled = YES;
         
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];

@@ -226,7 +226,7 @@
     
     self.TV2 = [[UITextView alloc] initWithFrame:CGRectMake(10, 7.5, ScreenW - 20 - 75 - 50 , 35)];
     self.TV2.backgroundColor =[UIColor clearColor];
-    self.TV2.keyboardType = UIReturnKeySend;
+    self.TV2.returnKeyType = UIReturnKeySend;
     self.TV2.layer.borderWidth = 0.5f;
     self.TV2.layer.cornerRadius = 5;
     self.TV2.clipsToBounds = YES;

@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface HomeVC : BaseTableViewController
-
+@property(nonatomic,assign)NSInteger type; // 1 热度 2 时间 3 关注
+- (void)loadFromServeTTTT;
+@property(nonatomic,assign)NSInteger pageNo;
 @end

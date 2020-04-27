@@ -33,9 +33,9 @@
 @property(nonatomic,strong)NSMutableArray *titleArr;
 @property(nonatomic,strong)NSArray *jiaArr;
 @property(nonatomic,assign)NSInteger selectIndex; //tabbar 选中的第几个
-@property(nonatomic,assign)NSInteger pageNo,tagId;
+@property(nonatomic,assign)NSInteger tagId;
 @property(nonatomic,strong)NSMutableArray<HHYTongYongModel *> *dataArrayDaLei;
-@property(nonatomic,assign)NSInteger type; // 1 热度 2 时间 3 关注
+
 @end
 
 @implementation HomeVC
@@ -85,7 +85,7 @@
 }
 
 - (void)doubleClick {
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UIViewTintAdjustmentModeAutomatic animated:YES];
+    [self.tableView scrollsToTop];
     self.pageNo = 1;
     [self loadFromServeTTTT];
 }
@@ -363,7 +363,7 @@
     
     NSLog(@"%@",@"123456");
     
-    [self doubleClick];
+//    [self doubleClick];
     
 
     

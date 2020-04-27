@@ -16,7 +16,7 @@
 #import "HHYReceivePingLunTVC.h"
 #import "HHYMineFriendsTVC.h"
 #import "HHYSysMsgTVC.h"
-@interface HangQingVC ()<HHYShowViewdelegate,EMContactManagerDelegate>
+@interface HangQingVC ()<HHYShowViewdelegate,EMContactManagerDelegate,EMChatManagerDelegate>
 @property(nonatomic,strong)HHYTongYongModel *model;
 @property(nonatomic,strong)HHYShowView *showV;
 
@@ -40,6 +40,17 @@
     [super viewWillAppear:animated];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(doubleClick) name:@"doubleClick" object:nil];
+
+    TabBarController * tvc = (TabBarController *)self.tabBarController;
+    [tvc redRefresh];
+    
+//    [self.tableView reloadData];
+    
+    [self YYYYYY];
+    
+    NSArray *conversations = [[EMClient sharedClient].chatManager getAllConversations];
+    
+ 
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -79,13 +90,15 @@
         [self loadFromServeTTTT];
     }];
 
+//    [[EMClient sharedClient].chatManager addDelegate:self  delegateQueue:nil];;
+    
 }
 
 
 - (void)loadFromServeTTTT {
     NSMutableDictionary * dataDict = @{}.mutableCopy;
     dataDict[@"pageNo"] = @(self.pageNo);
-    dataDict[@"pageSize"] = @(10);
+    dataDict[@"pageSize"] = @(1000);
     [zkRequestTool networkingPOST:[HHYURLDefineTool getMyMessageListURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [self.tableView.mj_header endRefreshing];
         [self.tableView.mj_footer endRefreshing];
@@ -134,6 +147,30 @@
     
 }
 
+- (void)YYYYYY {
+    
+    for (int i = 0 ; i < self.dataArray.count; i++) {
+        EMConversation *conversation = [[EMClient sharedClient].chatManager getConversation:self.dataArray[i].friendHuanXin type:EMConversationTypeChat createIfNotExist:YES];
+        
+        EMMessage * lastmssage = conversation.latestMessage;
+        EMMessageBodyType type = lastmssage.body.type;
+        if (type == EMMessageBodyTypeImage) {
+            self.dataArray[i].chatContent = @"[图片]";
+        }else if (type == EMMessageBodyTypeVoice) {
+            self.dataArray[i].chatContent = @"[语音]";
+        }else if (type == EMMessageBodyTypeLocation) {
+            self.dataArray[i].chatContent = @"[位置]";
+        }else if (type == EMMessageBodyTypeText){
+            self.dataArray[i].chatContent = [EaseConvertToCommonEmoticonsHelper
+                                  convertToSystemEmoticons:((EMTextMessageBody *)lastmssage.body).text];
+        }
+        self.dataArray[i].unreadMessagesCount = conversation.unreadMessagesCount;
+        
+    }
+    [self.tableView reloadData];
+    
+}
+
 //加好友
 - (void)navigationItemButtonAction:(UIButton *)button {
     
@@ -144,6 +181,12 @@
 
 }
 
+- (void)messagesDidReceive:(NSArray *)aMessages {
+    
+    NSLog(@"\n%@",@"123456");
+
+    
+}
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -186,20 +229,28 @@
             if (index == 0) {
                 HHYNewFriendsTVC * vc =[[HHYNewFriendsTVC alloc] init];
                 vc.hidesBottomBarWhenPushed = YES;
+                self.model.FriendMsg = @"0";
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:(UITableViewRowAnimationNone)];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
             }else if (index == 1) {
                 HHYReceivePingLunTVC * vc =[[HHYReceivePingLunTVC alloc] init];
                 vc.hidesBottomBarWhenPushed = YES;
+                self.model.ReplyMsg = @"0";
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:(UITableViewRowAnimationNone)];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
             }else if (index ==2) {
                 HHYAiTeMeTVC * vc =[[HHYAiTeMeTVC alloc] init];
                 vc.hidesBottomBarWhenPushed = YES;
                 vc.type = 0;
+                self.model.AtMsg = @"0";
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:(UITableViewRowAnimationNone)];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
             }else if (index ==3) {
                 HHYAiTeMeTVC * vc =[[HHYAiTeMeTVC alloc] init];
                 vc.hidesBottomBarWhenPushed = YES;
                 vc.type = 1;
+                self.model.LikeMsg = @"0";
+                [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:(UITableViewRowAnimationNone)];
                 [weakSelf.navigationController pushViewController:vc animated:YES];
             }
         };
@@ -243,13 +294,17 @@
     
     
     if (indexPath.section == 1) {
+        
         HHYSysMsgTVC * vc =[[HHYSysMsgTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
+        self.sysMsg = @"0";
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:(UITableViewRowAnimationNone)];
         [self.navigationController pushViewController:vc animated:YES];
     }
     
     if (indexPath.section == 2) {
         HHYTongYongModel * model = self.dataArray[indexPath.row];
+        model.unreadMessagesCount = 0;
         [self gotoCharWithOtherHuanXinID:model.friendHuanXin andOtherUserId:model.friendId andOtherNickName:model.friendNickName andOtherImg:model.friendAvatar andVC:self];
     }
     
@@ -334,6 +389,8 @@
     if (index == 0) {
         HHYMineFriendsTVC * vc =[[HHYMineFriendsTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
+        self.model.FriendMsg = @"0";
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:(UITableViewRowAnimationNone)];
         vc.type = 0;
         [self.navigationController pushViewController:vc animated:YES];
     }else if (index == 1) {

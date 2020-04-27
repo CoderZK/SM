@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "HHYPostMessageTVC.h"
 #import "TabBarController.h"
+#import "HomeVC.h"
 @interface BSCustom()
 
 @end
@@ -70,12 +71,25 @@
     TabBarController *vc1 = (TabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
     BaseNavigationController * vc2 = (BaseNavigationController *)vc1.selectedViewController;
     BaseViewController * vc3 = [vc2.childViewControllers firstObject];
+    
+   
+    
     if (![HHYSignleTool shareTool].isLogin) {
         [vc3 gotoLoginVC];
         
     }else {
         HHYPostMessageTVC * vc =[[HHYPostMessageTVC alloc] init];
         vc.hidesBottomBarWhenPushed = YES;
+        vc.blcokOK = ^{
+            if ([vc3 isKindOfClass:[HomeVC class]]) {
+               HomeVC * vc4 = (HomeVC *)vc3;
+                if (vc4.type == 1) {
+                    vc4.pageNo = 1;
+                    [vc4 loadFromServeTTTT];
+                }
+            }
+        };
+       
         [vc2 pushViewController:vc animated:YES];
     }
     

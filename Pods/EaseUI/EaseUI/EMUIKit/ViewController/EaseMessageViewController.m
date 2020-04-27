@@ -373,6 +373,8 @@ typedef enum : NSUInteger {
         [self.view addSubview:_chatToolbar];
     }
     
+    
+    
     CGRect tableFrame = self.tableView.frame;
     tableFrame.size.height = self.view.frame.size.height - _chatToolbar.frame.size.height - iPhoneX_BOTTOM_HEIGHT;
     self.tableView.frame = tableFrame;

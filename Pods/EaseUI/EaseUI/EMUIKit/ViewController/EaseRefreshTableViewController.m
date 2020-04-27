@@ -55,6 +55,7 @@
     _tableView.tableFooterView = self.defaultFooterView;
     [self.view addSubview:_tableView];
     
+    
     _page = 0;
     _showRefreshHeader = NO;
     _showRefreshFooter = NO;

@@ -626,6 +626,9 @@
         if ([responseObject[@"code"] intValue]== 0) {
             
             [SVProgressHUD showSuccessWithStatus:@"发帖成功"];
+            if (self.blcokOK != nil) {
+                self.blcokOK();
+            }
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.8 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];
             });
