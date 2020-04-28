@@ -68,18 +68,15 @@
     }
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:nil error:nil];
+    NSString * versionStr = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
     if ([HHYSignleTool shareTool].session_token != nil) {
-        
-        NSLog(@"===\n%@",[HHYSignleTool shareTool].session_token);
-
-        
         if ([HHYSignleTool shareTool].isLogin) {
-            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[HHYSignleTool shareTool].session_token]};
+            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[HHYSignleTool shareTool].session_token],@"version":versionStr};
         }else {
-            req.allHTTPHeaderFields = @{@"Authorization":@"Bearer "};
+            req.allHTTPHeaderFields = @{@"Authorization":@"Bearer ",@"version":versionStr};
         }
     }else {
-        req.allHTTPHeaderFields = @{@"Authorization":@"Bearer "};
+        req.allHTTPHeaderFields = @{@"Authorization":@"Bearer ",@"version":versionStr};
     }
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -102,15 +99,16 @@
     NSString * jsonStr = [NSString convertToJsonDataWithDict:parameters];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr parameters:nil error:nil];
-    if ([HHYSignleTool shareTool].session_token != nil) {
-        if ([HHYSignleTool shareTool].isLogin) {
-            req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[HHYSignleTool shareTool].session_token]};
-        }else {
-            req.allHTTPHeaderFields = @{@"Authorization":@"Bearer "};
-        }
-    }else {
-        req.allHTTPHeaderFields = @{@"Authorization":@"Bearer "};
-    }
+     NSString * versionStr = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+      if ([HHYSignleTool shareTool].session_token != nil) {
+          if ([HHYSignleTool shareTool].isLogin) {
+              req.allHTTPHeaderFields = @{@"Authorization":[NSString stringWithFormat:@"Bearer %@",[HHYSignleTool shareTool].session_token],@"version":versionStr};
+          }else {
+              req.allHTTPHeaderFields = @{@"Authorization":@"Bearer ",@"version":versionStr};
+          }
+      }else {
+          req.allHTTPHeaderFields = @{@"Authorization":@"Bearer ",@"version":versionStr};
+      }
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [req setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [req setHTTPBody:[jsonStr dataUsingEncoding:NSUTF8StringEncoding]];
@@ -142,6 +140,9 @@
     
     AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/plain", @"text/html",@"text/json",@"text/javascript", nil];
+    
+     NSString * versionStr = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    
     if ([HHYSignleTool shareTool].session_token != nil) {
         if ([HHYSignleTool shareTool].isLogin) {
             [manager.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@",[HHYSignleTool shareTool].session_token] forHTTPHeaderField:@"Authorization"];

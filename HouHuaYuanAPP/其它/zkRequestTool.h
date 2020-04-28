@@ -29,7 +29,7 @@ typedef void(^FailureBlock)(NSURLSessionDataTask * task,NSError * error);
 /**
  get_json
  */
-+(NSURLSessionDataTask *)networkingGET:(NSString *)urlStr parameters:(id)parameters success:(SuccessBlock)success failure:(FailureBlock)failure;
+//+(NSURLSessionDataTask *)networkingGET:(NSString *)urlStr parameters:(id)parameters success:(SuccessBlock)success failure:(FailureBlock)failure;
 
 /**
  上传图片_json

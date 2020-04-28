@@ -105,6 +105,12 @@
 }
 
 - (void)redRefresh {
+    for (int i = 0 ; i < self.childViewControllers.count; i++) {
+        BaseNavigationController * navc = (BaseNavigationController *)self.childViewControllers[i];
+        if (navc.childViewControllers.count > 1) {
+            return;
+        }
+    }
     
     [self loadFromServeTTTT];
     
