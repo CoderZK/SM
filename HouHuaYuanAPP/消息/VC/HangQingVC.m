@@ -17,7 +17,7 @@
 #import "HHYMineFriendsTVC.h"
 #import "HHYSysMsgTVC.h"
 @interface HangQingVC ()<HHYShowViewdelegate,EMContactManagerDelegate,EMChatManagerDelegate>
-@property(nonatomic,strong)HHYTongYongModel *model;
+
 @property(nonatomic,strong)HHYShowView *showV;
 
 @property(nonatomic,strong)NSMutableArray<HHYTongYongModel *> *dataArray;

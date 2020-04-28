@@ -11,4 +11,5 @@
 @interface HangQingVC : BaseTableViewController
 - (void)loadFromServeTTTT;
 @property(nonatomic,assign)NSInteger pageNo;
+@property(nonatomic,strong)HHYTongYongModel *model;
 @end

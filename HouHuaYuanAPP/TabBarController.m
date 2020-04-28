@@ -132,6 +132,15 @@
                 [self.tabBar.items[2] showBadge];
             }
             
+            BaseNavigationController * bnavc = (BaseNavigationController *)self.viewControllers[2];
+            if (bnavc != nil) {
+                HangQingVC * vc = (HangQingVC *)[bnavc.childViewControllers firstObject];
+                vc.model = model;
+                [vc.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:(UITableViewRowAnimationNone)];
+            }
+            
+            
+            
             
 
         }else {
