@@ -510,7 +510,7 @@
 //点击发布
 - (void)navigationItemButtonAction:(UIButton *)anNiuBt {
     if (anNiuBt.tag == 11) {
-        
+        anNiuBt.userInteractionEnabled = NO;
         [self faBuAction:anNiuBt];
         
         
@@ -574,6 +574,7 @@
         return;
         
     }
+   
     Weak(weakSelf);
     if (self.picsArr.count > 0) {
         [zkRequestTool uploadImagsWithArr:self.picsArr withType:@"5" result:^(NSString *str) {
@@ -622,7 +623,7 @@
     [SVProgressHUD show];
     [zkRequestTool networkingPOST:[HHYURLDefineTool getaddURL] parameters:dataDict success:^(NSURLSessionDataTask *task, id responseObject) {
         [SVProgressHUD dismiss];
-        anNiuBt.userInteractionEnabled = YES;
+        
         if ([responseObject[@"code"] intValue]== 0) {
             
             [SVProgressHUD showSuccessWithStatus:@"发帖成功"];
@@ -633,6 +634,7 @@
                 [self.navigationController popViewControllerAnimated:YES];
             });
         }else {
+            anNiuBt.userInteractionEnabled = YES;
             [self showAlertWithKey:[NSString stringWithFormat:@"%@",responseObject[@"code"]] message:responseObject[@"message"]];
         }
         
