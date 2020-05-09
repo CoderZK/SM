@@ -34,54 +34,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C99F63E7-4C85-4BFB-BE01-BEA757F03CF0"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HouHuaYuanAPP/&#x6211;&#x7684;/Views/HHYZhuYeFourCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "-setArr:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C99F63E7-4C85-4BFB-BE01-BEA757F03CF0 - 867bf686b589965d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HHYZhuYeFourCell setArr:]"
-                  moduleName = "&#x9005;&#x82b1;&#x56ed;&#x6d4b;&#x8bd5;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zk/Documents/SM/HouHuaYuanAPP/%E6%88%91%E7%9A%84/Views/HHYZhuYeFourCell.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "3952">
-               </Location>
-               <Location
-                  uuid = "C99F63E7-4C85-4BFB-BE01-BEA757F03CF0 - 7828947fd387727d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__27-[HHYZhuYeFourCell setArr:]_block_invoke_2"
-                  moduleName = "&#x9005;&#x82b1;&#x56ed;&#x6d4b;&#x8bd5;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/zk/Documents/SM/HouHuaYuanAPP/%E6%88%91%E7%9A%84/Views/HHYZhuYeFourCell.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "151"
-                  endingLineNumber = "151"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8CE8DC1B-010D-4FCC-B97C-3315BAA0C99A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

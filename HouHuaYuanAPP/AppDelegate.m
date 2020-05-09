@@ -30,20 +30,20 @@
 
 
 @interface AppDelegate ()<EMChatManagerDelegate,RBDMuteSwitchDelegate,UNUserNotificationCenterDelegate,WXApiDelegate>
-    @property(nonatomic,assign)BOOL isJingYin;
-    @property(nonatomic,assign)CGFloat yinLiang;
-    @end
+@property(nonatomic,assign)BOOL isJingYin;
+@property(nonatomic,assign)CGFloat yinLiang;
+@end
 
 @implementation AppDelegate
-    
-    
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [self instantiateRootVC];
     [self.window makeKeyAndVisible];
-//    self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    //    self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
     
     /* 设置友盟appkey */
     [[UMSocialManager defaultManager] setUmSocialAppkey:UMKey];
@@ -57,36 +57,39 @@
     // 发送崩溃日志
     
     //注册消息处理函数的处理方法
-       NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-       // 发送崩溃日志
-       NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-       
-       NSString *dataPath = [path stringByAppendingPathComponent:@"error.log"];
-       
-       NSData *data = [NSData dataWithContentsOfFile:dataPath];
-       
-       NSString *content=[NSString stringWithContentsOfFile:dataPath encoding:NSUTF8StringEncoding error:nil];
-       
-       NSLog(@"\n\n\n---%@",content);
-
-       
-       if (data != nil) {
-          
-           [self.window.rootViewController presentViewController:[[FangZhiCrachVC alloc] init] animated:YES completion:nil];
-           
-       }
+    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    // 发送崩溃日志
+    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     
-//    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-//
-//    NSString *dataPath = [path stringByAppendingPathComponent:@"Exception.txt"];
-//
-//    NSData *data = [NSData dataWithContentsOfFile:dataPath];
-//
-//    if (data != nil) {
-//
-//         [self.window.rootViewController presentViewController:[[FangZhiCrachVC alloc] init] animated:YES completion:nil];
-//
-//    }
+    NSString *dataPath = [path stringByAppendingPathComponent:@"error.log"];
+    
+    NSData *data = [NSData dataWithContentsOfFile:dataPath];
+    
+    NSString *content=[NSString stringWithContentsOfFile:dataPath encoding:NSUTF8StringEncoding error:nil];
+    
+    NSLog(@"\n\n\n---%@",content);
+    
+    
+    if (data != nil) {
+        
+        [self.window.rootViewController presentViewController:[[FangZhiCrachVC alloc] init] animated:YES completion:nil];
+        
+    }
+    
+    [self updateNewAppWith:ppppppid];
+    
+    
+    //    NSString *path = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    //
+    //    NSString *dataPath = [path stringByAppendingPathComponent:@"Exception.txt"];
+    //
+    //    NSData *data = [NSData dataWithContentsOfFile:dataPath];
+    //
+    //    if (data != nil) {
+    //
+    //         [self.window.rootViewController presentViewController:[[FangZhiCrachVC alloc] init] animated:YES completion:nil];
+    //
+    //    }
     
     if ([YWUnlockView haveGesturePassword]) {
         [self privacyPassWord];
@@ -114,16 +117,16 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(systemVolumeDidChangeNoti:) name:@"AVSystemController_SystemVolumeDidChangeNotification" object:nil];
     return YES;
 }
-    
+
 -(void)systemVolumeDidChangeNoti:(NSNotification* )noti{//目前手机音量
     float voiceSize = [[noti.userInfo valueForKey:@"AVSystemController_AudioVolumeNotificationParameter"]floatValue];
     NSLog(@"\n===========----%lf",voiceSize);
     self.yinLiang = voiceSize;
     
 }
-    
-    
-    //收到环信消息时发送通知去刷新通知和校信的信息
+
+
+//收到环信消息时发送通知去刷新通知和校信的信息
 - (void)messagesDidReceive:(NSArray *)aMessages {
     
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
@@ -156,9 +159,9 @@
     
     
 }
-    
-    
-    
+
+
+
 - (void)privacyPassWord {
     
     YWUnlockView * v = [YWUnlockView shareInstace];
@@ -183,8 +186,8 @@
     [[UIApplication sharedApplication].keyWindow addSubview:v];
     
 }
-    
-    //退出登录
+
+//退出登录
 - (void)outLogin {
     
     NSMutableDictionary * dataDict = @{}.mutableCopy;
@@ -211,27 +214,27 @@
     
     
 }
-    
+
 - (void)configUSharePlatforms
-    {
-        /* 设置微信的appKey和appSecret */
-        [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WXAppID appSecret:WXAppSecret redirectURL:@"http://mobile.umeng.com/social"];
-        /*
-         * 移除相应平台的分享，如微信收藏
-         */
-        //[[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
-        
-        /* 设置分享到QQ互联的appID
-         * U-Share SDK为了兼容大部分平台命名，统一用appKey和appSecret进行参数设置，而QQ平台仅需将appID作为U-Share的appKey参数传进即可。
-         */
-        [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:QQAppID/*设置QQ平台的appID*/  appSecret:QQAppKey redirectURL:@"http://mobile.umeng.com/social"];
-        
-        /* 设置新浪的appKey和appSecret */
-        [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:SinaAppKey  appSecret:SinaAppSecret redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
-        
-        
-    }
+{
+    /* 设置微信的appKey和appSecret */
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:WXAppID appSecret:WXAppSecret redirectURL:@"http://mobile.umeng.com/social"];
+    /*
+     * 移除相应平台的分享，如微信收藏
+     */
+    //[[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
     
+    /* 设置分享到QQ互联的appID
+     * U-Share SDK为了兼容大部分平台命名，统一用appKey和appSecret进行参数设置，而QQ平台仅需将appID作为U-Share的appKey参数传进即可。
+     */
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:QQAppID/*设置QQ平台的appID*/  appSecret:QQAppKey redirectURL:@"http://mobile.umeng.com/social"];
+    
+    /* 设置新浪的appKey和appSecret */
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:SinaAppKey  appSecret:SinaAppSecret redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
+    
+    
+}
+
 - (void)initUment:(NSDictionary *)launchOptions{
     //友盟适配https
     [UMessage startWithAppkey:UMKey launchOptions:launchOptions httpsEnable:YES];
@@ -255,91 +258,101 @@
     //打开日志，方便调试
     [UMessage setLogEnabled:YES];
 }
-    
-    //- (void)updateNewAppWith:(NSString *)strOfAppid {
-    //
-    //    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",ppppppid]];
-    //
-    //    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
-    //    [request setHTTPMethod:@"POST"];
-    //
-    //    [[[NSURLSession sharedSession] dataTaskWithRequest:request
-    //                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    //                                         if (data)
-    //                                         {
-    //                                             NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-    //
-    //                                             if (dic)
-    //                                             {
-    //                                                 NSArray * arr = [dic objectForKey:@"results"];
-    //                                                 if (arr.count>0)
-    //                                                 {
-    //                                                     NSDictionary * versionDict = arr.firstObject;
-    //
-    //                                                     NSString * version = [[versionDict objectForKey:@"version"] stringByReplacingOccurrencesOfString:@"." withString:@""];
-    //                                                     NSString * currentVersion = [[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"] stringByReplacingOccurrencesOfString:@"." withString:@""];
-    //
-    //                                                     if ([version integerValue] < [currentVersion integerValue])
-    //                                                     {
-    //                                                         [HHYSignleTool shareTool].isUpdate = YES;
-    //                                                         [[NSNotificationCenter defaultCenter] postNotificationName:@"updateHead" object:nil];
-    //
-    //                                                     }else {
-    //                                                          [HHYSignleTool shareTool].isUpdate = NO;
-    //                                                          [[NSNotificationCenter defaultCenter] postNotificationName:@"updateHead" object:nil];
-    //                                                     }
-    //                                                 }else {
-    //
-    //                                                     [HHYSignleTool shareTool].isUpdate = YES;
-    //                                                      [[NSNotificationCenter defaultCenter] postNotificationName:@"updateHead" object:nil];
-    //
-    //                                                 }
-    //                                             }
-    //                                         }
-    //                                     }] resume];
-    //
-    //
-    //}
-    
-    
-    
-- (void)confitUShareSettings
-    {
-        /*
-         * 打开图片水印
-         */
-        //[UMSocialGlobal shareInstance].isUsingWaterMark = YES;
-        
-        /*
-         * 关闭强制验证https，可允许http图片分享，但需要在info.plist设置安全域名
-         <key>NSAppTransportSecurity</key>
-         <dataDict>
-         <key>NSAllowsArbitraryLoads</key>
-         <true/>
-         </dataDict>
-         */
-        //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
-        
-    }
-    
-    
-    //在用户接受推送通知后系统会调用
--(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-    {
-            self.pushToken = deviceToken;
-       
-            [UMessage registerDeviceToken:deviceToken];
-            //2.获取到deviceToken
-            NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
-                //将deviceToken给后台
-            NSLog(@"send_token:%@",token);
-            [HHYSignleTool shareTool].deviceToken = token;
-            [[HHYSignleTool shareTool] uploadDeviceToken];
 
-    }
+- (void)updateNewAppWith:(NSString *)strOfAppid {
     
     
-    //设置根视图控制器
+    [SVProgressHUD show];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://itunes.apple.com/lookup?id=%@",strOfAppid]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    
+    [[[NSURLSession sharedSession] dataTaskWithRequest:request
+                                     completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        [SVProgressHUD dismiss];
+        if (data)
+        {
+            NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            
+            if (dic)
+            {
+                NSArray * arr = [dic objectForKey:@"results"];
+                if (arr.count>0)
+                {
+                    NSDictionary * versionDict = arr.firstObject;
+                    
+                    NSString * version = [[versionDict objectForKey:@"version"] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                    NSString * currentVersion = [[[NSBundle mainBundle].infoDictionary objectForKey:@"CFBundleShortVersionString"] stringByReplacingOccurrencesOfString:@"." withString:@""];
+                    
+                    if ([version integerValue]>[currentVersion integerValue])
+                    {
+                        
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"发现新版本" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                            
+                            [alert addAction:[UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil]];
+                            [alert addAction:[UIAlertAction actionWithTitle:@"去更新" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                                
+                                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"https://itunes.apple.com/cn/app/id%@?mt=8",strOfAppid]]];
+                                exit(0);
+                                
+                            }]];
+                            [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+                        });
+                        
+                    }else {
+                        [SVProgressHUD showSuccessWithStatus:@"目前安装的已是最新版本"];
+                    }
+                    
+                    
+                }
+            }
+        }
+    }] resume];
+    
+    
+}
+
+
+
+- (void)confitUShareSettings
+{
+    /*
+     * 打开图片水印
+     */
+    //[UMSocialGlobal shareInstance].isUsingWaterMark = YES;
+    
+    /*
+     * 关闭强制验证https，可允许http图片分享，但需要在info.plist设置安全域名
+     <key>NSAppTransportSecurity</key>
+     <dataDict>
+     <key>NSAllowsArbitraryLoads</key>
+     <true/>
+     </dataDict>
+     */
+    //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
+    
+}
+
+
+//在用户接受推送通知后系统会调用
+-(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    self.pushToken = deviceToken;
+    
+    [UMessage registerDeviceToken:deviceToken];
+    //2.获取到deviceToken
+    NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //将deviceToken给后台
+    NSLog(@"send_token:%@",token);
+    [HHYSignleTool shareTool].deviceToken = token;
+    [[HHYSignleTool shareTool] uploadDeviceToken];
+    
+}
+
+
+//设置根视图控制器
 - (UIViewController *)instantiateRootVC{
     
     //没有引导页
@@ -361,7 +374,7 @@
     //        return guideVc;
     //    }
 }
-    //跳转主页
+//跳转主页
 - (void)showHomeVC{
     TabBarController  *BarVC=[[TabBarController alloc] init];
     self.window.rootViewController = BarVC;
@@ -371,32 +384,32 @@
     //同步到物理文件存储
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-    
-    
+
+
 #pragma mark -支付宝 微信支付
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation
-    {
-        //跳转到支付宝支付的情况
-        if ([url.host isEqualToString:@"safepay"]) {
-            //跳转支付宝钱包进行支付，处理支付结果
-            [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-                //发送一个通知
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"ZFBPAY" object:resultDic];
-                NSLog(@"result ======================== %@",resultDic);
-            }];
-        } else if ([url.absoluteString hasPrefix:@"wxa9d5e96c3c7560c5://pay"] ) {
-            //微信
-            [WXApi handleOpenURL:url delegate:self];
-            
-        }else {//友盟
-            [[UMSocialManager defaultManager] handleOpenURL:url];
-        }
-        return YES;
+{
+    //跳转到支付宝支付的情况
+    if ([url.host isEqualToString:@"safepay"]) {
+        //跳转支付宝钱包进行支付，处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            //发送一个通知
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ZFBPAY" object:resultDic];
+            NSLog(@"result ======================== %@",resultDic);
+        }];
+    } else if ([url.absoluteString hasPrefix:@"wxa9d5e96c3c7560c5://pay"] ) {
+        //微信
+        [WXApi handleOpenURL:url delegate:self];
         
+    }else {//友盟
+        [[UMSocialManager defaultManager] handleOpenURL:url];
     }
+    return YES;
+    
+}
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
     //跳转到支付宝支付的情况
     if ([url.host isEqualToString:@"safepay"]) {
@@ -435,43 +448,43 @@
     }
     return YES;
 }
-    //微信支付结果
+//微信支付结果
 - (void)onResp:(BaseResp *)resp {
     //发送一个通知
     [[NSNotificationCenter defaultCenter] postNotificationName:@"WXPAY" object:resp];
 }
-    
-    
+
+
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
 }
-    
-    
+
+
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
-    
-    
+
+
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
 }
-    
-    
+
+
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
 }
-    
-    
+
+
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
-    
+
 -(void)dealloc{
     
     [[NSNotificationCenter defaultCenter]removeObserver:self];
     
 }
-    
-    @end
+
+@end

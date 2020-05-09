@@ -99,21 +99,21 @@ static HHYpublicFunction * hhyP = nil;
     [HHYSignleTool shareTool].longitude = currentLocation.coordinate.longitude;
     
     //反地理编码
-//    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error)
-//     {
-//         NSLog(@"反地理编码");
-//         NSLog(@"反地理编码%ld",placemarks.count);
-//         if (placemarks.count > 0) {
-//             CLPlacemark *placeMark = placemarks[0];
-//             /*看需求定义一个全局变量来接收赋值*/
-//             NSLog(@"城市----%@",placeMark.country);//当前国家
-//             NSLog(@"城市%@",self.label_city.text);//当前的城市
-//             NSLog(@"%@",placeMark.subLocality);//当前的位置
-//             NSLog(@"%@",placeMark.thoroughfare);//当前街道
-//             NSLog(@"%@",placeMark.name);//具体地址
-//             
-//         }
-//     }];
+    [geoCoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error)
+     {
+         NSLog(@"反地理编码");
+         NSLog(@"反地理编码%ld",placemarks.count);
+         if (placemarks.count > 0) {
+             CLPlacemark *placeMark = placemarks[0];
+             /*看需求定义一个全局变量来接收赋值*/
+             NSLog(@"城市----%@",placeMark.country);//当前国家
+//             NSLog(@"城市%@",self.placeMark.text);//当前的城市
+             NSLog(@"%@",placeMark.subLocality);//当前的位置
+             NSLog(@"%@",placeMark.thoroughfare);//当前街道
+             NSLog(@"%@",placeMark.name);//具体地址
+             
+         }
+     }];
     
 }
 

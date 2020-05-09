@@ -79,8 +79,9 @@
 //        self.typeBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
 
         
-        self.contentLB = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headBt.frame) + 10, CGRectGetMaxY(self.nameLB.frame) + 5, ScreenW - 95, 20)];
-        self.contentLB.font = kFont(14);
+        self.contentLB = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headBt.frame) + 10, CGRectGetMaxY(self.nameLB.frame) + 0, ScreenW - 95, 32)];
+        self.contentLB.font = kFont(13);
+        self.contentLB.numberOfLines = 2;
         self.contentLB.textColor = CharacterBlackColor;
         self.contentLB.text = @"安静万分感激";
         [self addSubview:self.contentLB];
