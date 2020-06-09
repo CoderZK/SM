@@ -345,6 +345,28 @@
        
         if ([responseObject[@"code"] intValue]== 0) {
 
+            if (type == 2) {
+                
+                // 调用:
+                [[EMClient sharedClient].contactManager addUserToBlackList:model.huanxin completion:^(NSString *aUsername, EMError *aError) {
+                    if (!aError) {
+                        NSLog(@"将用户加入黑名单成功");
+                    } else {
+                        NSLog(@"将用户加入黑名单失败的原因 --- %@", aError.errorDescription);
+                    }
+                }];
+                
+            }else if (type == 3) {
+                [[EMClient sharedClient].contactManager removeUserFromBlackList:model.huanxin completion:^(NSString *aUsername, EMError *aError) {
+                    if (!aError) {
+                        NSLog(@"将用户移出黑名单成功");
+                    } else {
+                        NSLog(@"将用户移出黑名单失败的原因 --- %@", aError.errorDescription);
+                    }
+                }];
+            }
+            
+            
             [self.dataArray removeObject:model];
             [self.tableView reloadData];
             self.tableView.userInteractionEnabled = YES;

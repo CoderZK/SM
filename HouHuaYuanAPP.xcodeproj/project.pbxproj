@@ -2334,7 +2334,7 @@
 				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hhhhyy.app;
 				PRODUCT_NAME = "逅花园";
-				PROVISIONING_PROFILE_SPECIFIER = 129hhhhyyAppstoredis;
+				PROVISIONING_PROFILE_SPECIFIER = comhhhhyyappdis;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

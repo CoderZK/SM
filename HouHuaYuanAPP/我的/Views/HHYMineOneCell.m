@@ -42,7 +42,11 @@
     self.idLb.text = [NSString stringWithFormat:@"ID和邀请码: %@",model.userNo];
     [self.headBt sd_setBackgroundImageWithURL:[NSURL URLWithString:[HHYURLDefineTool getImgURLWithStr:model.avatar]] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"369"]];
     
-    
+    if (model.authStatus.intValue == 3) {
+        self.shimingImagV.hidden = NO;
+    }else {
+        self.shimingImagV.hidden = YES;
+    }
     
     
     

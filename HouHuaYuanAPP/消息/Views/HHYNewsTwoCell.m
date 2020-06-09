@@ -79,9 +79,9 @@
 //        self.typeBt.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
 
         
-        self.contentLB = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headBt.frame) + 10, CGRectGetMaxY(self.nameLB.frame) + 0, ScreenW - 95, 32)];
-        self.contentLB.font = kFont(13);
-        self.contentLB.numberOfLines = 2;
+        self.contentLB = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.headBt.frame) + 10, CGRectGetMaxY(self.nameLB.frame) + 0, ScreenW - 70  -  60 - 80  , 48)];
+        self.contentLB.font = kFont(12);
+        self.contentLB.numberOfLines = 3;
         self.contentLB.textColor = CharacterBlackColor;
         self.contentLB.text = @"安静万分感激";
         [self addSubview:self.contentLB];
@@ -116,7 +116,7 @@
             [self.typeBt setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
             [self.typeBt setTitle:@"已拒绝" forState:UIControlStateNormal];
         }
-        self.contentLB.mj_w = ScreenW - 200;
+        self.contentLB.mj_w = ScreenW - 70  -  60 - 80 ;
     }else {
       
         self.nameLB.text = model.friendNickName;

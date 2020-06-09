@@ -190,9 +190,6 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    if (self.model == nil) {
-        return 0;
-    }
     return 3;
 }
 

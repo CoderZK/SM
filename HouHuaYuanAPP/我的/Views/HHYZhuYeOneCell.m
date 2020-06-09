@@ -9,7 +9,7 @@
 #import "HHYZhuYeOneCell.h"
 
 @interface HHYZhuYeOneCell ()
-
+@property(nonatomic,strong)UIImageView *shimingImgV;
 @end
 
 @implementation HHYZhuYeOneCell
@@ -66,6 +66,12 @@
         self.huanGuanImgV.image =[UIImage imageNamed:@"huanguan"];
         [self addSubview:self.huanGuanImgV];
         
+        self.shimingImgV = [[UIImageView alloc] init];
+        self.shimingImgV.size = CGSizeMake(790.0 / 200 * 15, 15);
+        self.shimingImgV.centerY = self.nameLB.centerY;
+        self.shimingImgV.image  = [UIImage imageNamed:@"shiming"];
+        [self addSubview:self.shimingImgV];
+            
         
         //心
         self.xinImgV = [[UIImageView alloc] initWithFrame:CGRectMake(ScreenW - 45-15+10, 18, 25, 25)];
@@ -100,10 +106,17 @@
     [self.nameLB sizeToFit];
     self.nameLB.height = 20;
     self.huanGuanImgV.mj_x = CGRectGetMaxX(self.nameLB.frame) + 5;
+    self.shimingImgV.mj_x = CGRectGetMaxX(self.huanGuanImgV.frame) +5;
     if (userModel.isVip) {
         self.huanGuanImgV.hidden = NO;
     }else {
         self.huanGuanImgV.hidden = YES;
+    }
+    
+    if (userModel.authStatus.intValue == 3) {
+        self.shimingImgV.hidden = NO;
+    }else {
+        self.shimingImgV.hidden = YES;
     }
     
 //    if ([userModel.userId isEqualToString:[HHYSignleTool shareTool].session_uid]) {

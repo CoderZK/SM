@@ -46,6 +46,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)BOOL subscribed;//是否关注
 @property(nonatomic,assign)BOOL inMyBlackList;//是否是黑名单
 
+
 @property (nonatomic , assign) NSInteger  fansNum;
 @property (nonatomic , assign) NSInteger  flowerNum;
 @property (nonatomic , assign) NSInteger  friendNum;

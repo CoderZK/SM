@@ -48,6 +48,7 @@
 #import "HHYMineDongTaiTVC.h"
 
 #import <ReactiveObjC.h>
+#import "NSString+AttributeSizeAndText.h"
 
 
 //环信的appkey

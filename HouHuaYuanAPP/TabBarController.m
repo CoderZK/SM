@@ -95,8 +95,7 @@
     self.viewControllers=arr;
     _mineNavi = arr.lastObject;
     self.tabBar.barTintColor = [UIColor whiteColor];
-    
-    
+        
     timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(redRefresh) userInfo:nil repeats:YES];
     
      [[NSRunLoop currentRunLoop] addTimer: timer  forMode:NSRunLoopCommonModes];

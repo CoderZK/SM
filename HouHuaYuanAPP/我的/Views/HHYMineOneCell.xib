@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="461" height="129"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="461" height="128.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="461" height="129"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBu-ib-6Cc">
@@ -72,6 +70,13 @@
                             <constraint firstAttribute="width" constant="25" id="xQL-qx-pCt"/>
                         </constraints>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shiming" translatesAutoresizingMaskIntoConstraints="NO" id="lc7-p0-ijr">
+                        <rect key="frame" x="137" y="47" width="59.5" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="lc7-p0-ijr" secondAttribute="height" multiplier="790:200" id="4F4-se-DIf"/>
+                            <constraint firstAttribute="height" constant="15" id="qnI-p4-OJM"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ZBW-iB-Wyv" firstAttribute="leading" secondItem="1NN-PD-RcL" secondAttribute="trailing" constant="5" id="6ml-pf-sij"/>
@@ -84,7 +89,9 @@
                     <constraint firstItem="PvU-BX-VN7" firstAttribute="leading" secondItem="B1p-gz-a1a" secondAttribute="trailing" constant="5" id="YlS-hL-2hi"/>
                     <constraint firstItem="UBu-ib-6Cc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="bHb-Nv-OXc"/>
                     <constraint firstItem="MKt-9B-P3c" firstAttribute="top" secondItem="UBu-ib-6Cc" secondAttribute="top" constant="-5" id="iJf-7U-lzO"/>
+                    <constraint firstItem="lc7-p0-ijr" firstAttribute="centerY" secondItem="B1p-gz-a1a" secondAttribute="centerY" id="oYY-Hb-Ihf"/>
                     <constraint firstAttribute="trailing" secondItem="UBu-ib-6Cc" secondAttribute="trailing" constant="30" id="t3J-yP-dAH"/>
+                    <constraint firstItem="lc7-p0-ijr" firstAttribute="leading" secondItem="PvU-BX-VN7" secondAttribute="trailing" constant="10" id="wC0-wK-ZGx"/>
                     <constraint firstItem="MKt-9B-P3c" firstAttribute="trailing" secondItem="UBu-ib-6Cc" secondAttribute="trailing" constant="5" id="z5g-lh-V3A"/>
                 </constraints>
             </tableViewCellContentView>
@@ -96,13 +103,15 @@
                 <outlet property="imgV" destination="MKt-9B-P3c" id="KMy-RE-BIW"/>
                 <outlet property="nameLB" destination="B1p-gz-a1a" id="8nK-ey-UL7"/>
                 <outlet property="sexImgV" destination="PvU-BX-VN7" id="X2s-b5-Pp7"/>
+                <outlet property="shimingImagV" destination="lc7-p0-ijr" id="hxu-Zr-xjV"/>
             </connections>
             <point key="canvasLocation" x="-18.115942028985508" y="62.611607142857139"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="369" width="1080" height="1080"/>
+        <image name="369" width="70" height="70"/>
         <image name="huanguan" width="20" height="20"/>
         <image name="nvred" width="12" height="12"/>
+        <image name="shiming" width="395" height="100"/>
     </resources>
 </document>

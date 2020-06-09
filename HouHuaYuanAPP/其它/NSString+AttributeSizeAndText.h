@@ -47,6 +47,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)emojiConvert:(NSString *)obj;
 //对emoji解码
 + (NSString *)emojiRecovery:(NSString *)obj;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END
