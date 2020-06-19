@@ -343,7 +343,26 @@
     
     [UMessage registerDeviceToken:deviceToken];
     //2.获取到deviceToken
-    NSString *token = [[[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *token = @"";
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 13) {
+           if (![deviceToken isKindOfClass:[NSData class]]) {
+               //记录获取token失败的描述
+               return;
+           }
+           const unsigned *tokenBytes = (const unsigned *)[deviceToken bytes];
+           token = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+                    ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                    ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                    ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+           NSLog(@"deviceToken1:%@", token);
+       } else {
+           token = [NSString
+                    stringWithFormat:@"%@",deviceToken];
+           token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
+           token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
+           token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+           
+       }
     //将deviceToken给后台
     NSLog(@"send_token:%@",token);
     [HHYSignleTool shareTool].deviceToken = token;
@@ -379,7 +398,7 @@
     TabBarController  *BarVC=[[TabBarController alloc] init];
     self.window.rootViewController = BarVC;
     //更新本地储存的版本号
-    NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:(NSString *)kCFBundleVersionKey];
+    NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:@"appversion"];
     //同步到物理文件存储
     [[NSUserDefaults standardUserDefaults] synchronize];

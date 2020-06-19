@@ -147,7 +147,7 @@
 //    self.whiteView.backgroundColor = [UIColor redColor];
     if (self.qianMingStr.length > 0) {
         self.signLB.attributedText = [[NSString stringWithFormat:@"个性签名: %@",self.qianMingStr] getMutableAttributeStringWithFont:14 lineSpace:3 textColor:CharacterBlackColor];
-        CGFloat ww  = [[NSString stringWithFormat:@"个性签名: %@",self.qianMingStr] getHeigtWithFontSize:14 lineSpace:3 width:ScreenW - 30];
+        CGFloat ww  = [[NSString stringWithFormat:@"个性签名: %@",self.qianMingStr] getHeigtWithFontSize:14 lineSpace:4 width:ScreenW - 30];
         [self.signLB mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(ww));
         }];
